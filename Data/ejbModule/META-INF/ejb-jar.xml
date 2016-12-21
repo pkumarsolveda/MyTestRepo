@@ -1,0 +1,842 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejb-jar id="ejb-jar_ID" version="2.1"
+	xmlns="http://java.sun.com/xml/ns/j2ee" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://java.sun.com/xml/ns/j2ee http://java.sun.com/xml/ns/j2ee/ejb-jar_2_1.xsd">
+	<display-name>WebSphereCommerceServerExtensionsData</display-name>
+	<enterprise-beans>
+		<session id="ExtensionJDBCHelper">
+			<ejb-name>ExtensionJDBCHelper</ejb-name>
+			<home>sample.extensions.ExtensionJDBCHelperHome</home>
+			<remote>sample.extensions.ExtensionJDBCHelper</remote>
+			<ejb-class>sample.extensions.ExtensionJDBCHelperBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+		<entity id="ValidateCode">
+			<ejb-name>ValidateCode</ejb-name>
+			<home>in.dmart.commerce.member.validation.ValidateCodeHome</home>
+			<remote>in.dmart.commerce.member.validation.ValidateCode</remote>
+			<ejb-class>in.dmart.commerce.member.validation.ValidateCodeBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.commerce.member.validation.ValidateCodeKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1445320621335">
+				<field-name>codeType</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445320622057">
+				<field-name>referenceId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445320622059">
+				<field-name>operation</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445320622060">
+				<field-name>code</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445320622062">
+				<field-name>expiryTimestamp</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445320622063">
+				<field-name>optcounter</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XRegistration">
+			<ejb-name>XRegistration</ejb-name>
+			<home>in.dmart.commerce.member.registration.XRegistrationHome</home>
+			<remote>in.dmart.commerce.member.registration.XRegistration</remote>
+			<ejb-class>in.dmart.commerce.member.registration.XRegistrationBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>
+				in.dmart.commerce.member.registration.XRegistrationKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1445867944749">
+				<field-name>phone</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445867944750">
+				<field-name>firstName</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445867944751">
+				<field-name>lastName</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445867944765">
+				<field-name>password</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445867944766">
+				<field-name>email</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445867944767">
+				<field-name>socialUser</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445867944768">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XIPLog">
+			<ejb-name>XIPLog</ejb-name>
+			<home>in.dmart.commerce.member.objects.XIPLogHome</home>
+			<remote>in.dmart.commerce.member.objects.XIPLog</remote>
+			<ejb-class>in.dmart.commerce.member.objects.XIPLogBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.commerce.member.objects.XIPLogKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1445702003109">
+				<field-name>xIPLogId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445702003110">
+				<field-name>usersId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445702003106">
+				<field-name>ipAddress</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445702003105">
+				<field-name>activity</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445702003107">
+				<field-name>createdTimestamp</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1445702003108">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="PincodeHistory">
+			<ejb-name>PincodeHistory</ejb-name>
+			<home>in.dmart.pincode.bean.PincodeHistoryHome</home>
+			<remote>in.dmart.pincode.bean.PincodeHistory</remote>
+			<ejb-class>in.dmart.pincode.bean.PincodeHistoryBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.pincode.bean.PincodeHistoryKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1446814820282">
+				<field-name>pincode</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1446814820313">
+				<field-name>counter</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1446814820329">
+				<field-name>lastUpdate</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1446814820330">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XCacheStatus">
+			<ejb-name>XCacheStatus</ejb-name>
+			<home>in.dmart.commerce.cache.objects.XCacheStatusHome</home>
+			<remote>in.dmart.commerce.cache.objects.XCacheStatus</remote>
+			<ejb-class>in.dmart.commerce.cache.objects.XCacheStatusBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.commerce.cache.objects.XCacheStatusKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1447241777869">
+				<field-name>cacheName</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1447241777872">
+				<field-name>lastUpdate</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XSlot">
+			<ejb-name>XSlot</ejb-name>
+			<home>in.dmart.commerce.order.slots.XSlotHome</home>
+			<remote>in.dmart.commerce.order.slots.XSlot</remote>
+			<ejb-class>in.dmart.commerce.order.slots.XSlotBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.commerce.order.slots.XSlotKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1450103049881">
+				<field-name>ordersId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049906">
+				<field-name>lastUpdated</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049910">
+				<field-name>slotId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049913">
+				<field-name>resourcepoolKey</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049916">
+				<field-name>slotDate</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049918">
+				<field-name>startTime</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049921">
+				<field-name>endTime</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049923">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1450103049925">
+				<field-name>status</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XProductExclusion">
+			<ejb-name>XProductExclusion</ejb-name>
+			<home>in.dmart.commerce.product.objects.XProductExclusionHome</home>
+			<remote>in.dmart.commerce.product.objects.XProductExclusion</remote>
+			<ejb-class>in.dmart.commerce.product.objects.XProductExclusionBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>
+				in.dmart.commerce.product.objects.XProductExclusionKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1452141269674">
+				<field-name>xprodexclusionId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452141269690">
+				<field-name>catentryId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452141269691">
+				<field-name>postcode</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452141269692">
+				<field-name>storeentId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452141269693">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XBankDetails">
+			<ejb-name>XBankDetails</ejb-name>
+			<home>in.dmart.commerce.payment.objects.XBankDetailsHome</home>
+			<remote>in.dmart.commerce.payment.objects.XBankDetails</remote>
+			<ejb-class>in.dmart.commerce.payment.objects.XBankDetailsBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.commerce.payment.objects.XBankDetailsKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1452585937460">
+				<field-name>xbanks_id</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937483">
+				<field-name>bank_id</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937486">
+				<field-name>bank_name</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937489">
+				<field-name>images</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937492">
+				<field-name>status</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937495">
+				<field-name>isFavourite</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937498">
+				<field-name>field1</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937501">
+				<field-name>field2</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937503">
+				<field-name>field3</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1452585937506">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+		</entity>
+		<entity id="XBillDeskResp">
+			<ejb-name>XBillDeskResp</ejb-name>
+			<home>in.dmart.commerce.payment.billdesk.XBillDeskRespHome</home>
+			<remote>in.dmart.commerce.payment.billdesk.XBillDeskResp</remote>
+			<ejb-class>in.dmart.commerce.payment.billdesk.XBillDeskRespBean</ejb-class>
+			<persistence-type>Container</persistence-type>
+			<prim-key-class>in.dmart.commerce.payment.billdesk.XBillDeskRespKey</prim-key-class>
+			<reentrant>false</reentrant>
+			<cmp-version>1.x</cmp-version>
+			<cmp-field id="CMPAttribute_1454990996595">
+				<field-name>xBillDeskResp_Id</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996596">
+				<field-name>billDeskUniqueId</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996610">
+				<field-name>msg</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996611">
+				<field-name>status</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996612">
+				<field-name>updatedTime</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996626">
+				<field-name>field1</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996627">
+				<field-name>field2</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996628">
+				<field-name>field3</field-name>
+			</cmp-field>
+			<cmp-field id="CMPAttribute_1454990996629">
+				<field-name>optCounter</field-name>
+			</cmp-field>
+		</entity>
+		<session id="DMartStoreLocator">
+			<ejb-name>DMartStoreLocator</ejb-name>
+			<home>
+				in.dmart.commerce.storeLocator.sessionbean.DMartStoreLocatorHome</home>
+			<remote>in.dmart.commerce.storeLocator.sessionbean.DMartStoreLocator</remote>
+			<ejb-class>
+				in.dmart.commerce.storeLocator.sessionbean.DMartStoreLocatorBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+		<session id="DmartMemberHelper">
+			<ejb-name>DmartMemberHelper</ejb-name>
+			<home>in.dmart.commerce.member.sessionbean.DmartMemberHelperHome</home>
+			<remote>in.dmart.commerce.member.sessionbean.DmartMemberHelper</remote>
+			<ejb-class>
+				in.dmart.commerce.member.sessionbean.DmartMemberHelperBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+		<session id="DmartOrderHelper">
+			<ejb-name>DmartOrderHelper</ejb-name>
+			<home>in.dmart.commerce.order.sessionbean.DmartOrderHelperHome</home>
+			<remote>in.dmart.commerce.order.sessionbean.DmartOrderHelper</remote>
+			<ejb-class>in.dmart.commerce.order.sessionbean.DmartOrderHelperBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+		<session id="DMartWishListNotification">
+			<ejb-name>DMartWishListNotification</ejb-name>
+			<home>
+				in.dmart.commerce.wishList.sessionbean.DMartWishListNotificationHome</home>
+			<remote>
+				in.dmart.commerce.wishList.sessionbean.DMartWishListNotification</remote>
+			<ejb-class>
+				in.dmart.commerce.wishList.sessionbean.DMartWishListNotificationBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+		<session id="DmartCommon">
+			<ejb-name>DmartCommon</ejb-name>
+			<home>in.dmart.commerce.common.session.DmartCommonHome</home>
+			<remote>in.dmart.commerce.common.session.DmartCommon</remote>
+			<ejb-class>in.dmart.commerce.common.session.DmartCommonBean</ejb-class>
+			<session-type>Stateless</session-type>
+			<transaction-type>Container</transaction-type>
+		</session>
+	</enterprise-beans>
+	<assembly-descriptor>
+		<security-role id="WCSecurityRoleId">
+			<description>WebSphere Commerce Security Role.</description>
+			<role-name>WCSecurityRole</role-name>
+		</security-role>
+		<method-permission id="WCMethodPermissionId">
+			<description>WCMethodPermission:+:</description>
+			<role-name>WCSecurityRole</role-name>
+			<method id="WCMethodElement_1">
+				<ejb-name>ExtensionJDBCHelper</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>ValidateCode</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XRegistration</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XIPLog</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>PincodeHistory</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XCacheStatus</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XSlot</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XProductExclusion</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XBankDetails</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<role-name>WCSecurityRole</role-name>
+			<method>
+				<ejb-name>XBillDeskResp</ejb-name>
+				<method-name>*</method-name>
+			</method>
+		</method-permission>
+		<method-permission>
+			<unchecked />
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>java.lang.Object</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>javax.ejb.Handle</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getEJBMetaData</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>create</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getHomeHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbActivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbRemove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>isIdentical</method-name>
+				<method-params>
+					<method-param>javax.ejb.EJBObject</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getPrimaryKey</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>remove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getEJBHome</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbPassivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>setSessionContext</method-name>
+				<method-params>
+					<method-param>javax.ejb.SessionContext</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartStoreLocator</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>java.lang.Object</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>javax.ejb.Handle</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getEJBMetaData</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>create</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getHomeHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbActivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbRemove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>isIdentical</method-name>
+				<method-params>
+					<method-param>javax.ejb.EJBObject</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getPrimaryKey</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>remove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getEJBHome</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbPassivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>setSessionContext</method-name>
+				<method-params>
+					<method-param>javax.ejb.SessionContext</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartMemberHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>java.lang.Object</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>javax.ejb.Handle</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getEJBMetaData</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>create</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getHomeHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbActivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbRemove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>isIdentical</method-name>
+				<method-params>
+					<method-param>javax.ejb.EJBObject</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getPrimaryKey</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>remove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getEJBHome</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbPassivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>setSessionContext</method-name>
+				<method-params>
+					<method-param>javax.ejb.SessionContext</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartOrderHelper</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>java.lang.Object</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>javax.ejb.Handle</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getEJBMetaData</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>create</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getHomeHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbActivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbRemove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>isIdentical</method-name>
+				<method-params>
+					<method-param>javax.ejb.EJBObject</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getPrimaryKey</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>remove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getEJBHome</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>ejbPassivate</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>setSessionContext</method-name>
+				<method-params>
+					<method-param>javax.ejb.SessionContext</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DMartWishListNotification</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>java.lang.Object</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>remove</method-name>
+				<method-params>
+					<method-param>javax.ejb.Handle</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getEJBMetaData</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>create</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Home</method-intf>
+				<method-name>getHomeHandle</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>isIdentical</method-name>
+				<method-params>
+					<method-param>javax.ejb.EJBObject</method-param>
+				</method-params>
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getPrimaryKey</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>remove</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getEJBHome</method-name>
+				<method-params />
+			</method>
+			<method>
+				<ejb-name>DmartCommon</ejb-name>
+				<method-intf>Remote</method-intf>
+				<method-name>getHandle</method-name>
+				<method-params />
+			</method>
+		</method-permission>
+	</assembly-descriptor>
+</ejb-jar>

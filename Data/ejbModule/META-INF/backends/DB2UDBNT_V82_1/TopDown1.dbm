@@ -1,0 +1,517 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!--xtools2_universal_type_manager-->
+<xmi:XMI xmlns:datamodelversion="http://www.ibm.com/com.ibm.datatools.core/model/data/1.1.0.0" xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:DB2Model="http:///com/ibm/db/models/db2/db2.ecore" xmlns:LUW="http:///com/ibm/db/models/db2/luw.ecore" xmlns:SQLConstraints="http:///org/eclipse/datatools/modelbase/sql/constraints.ecore" xmlns:SQLDataTypes="http:///org/eclipse/datatools/modelbase/sql/datatypes.ecore">
+  <LUW:LUWDatabase xmi:id="_I-2ekcc4EeaZ_tiwLW-vew" name="TopDown1" vendor="DB2 UDB" version="V8.2" schemas="_JDbckMc4EeaZ_tiwLW-vew"/>
+  <DB2Model:DB2Schema xmi:id="_JDbckMc4EeaZ_tiwLW-vew" name="NULLID" tables="_JDcDoMc4EeaZ_tiwLW-vew _JDd40Mc4EeaZ_tiwLW-vew _JDd4-Mc4EeaZ_tiwLW-vew _JDef4Mc4EeaZ_tiwLW-vew _JDef8sc4EeaZ_tiwLW-vew _JDef_sc4EeaZ_tiwLW-vew _JDegKMc4EeaZ_tiwLW-vew _JDfG8Mc4EeaZ_tiwLW-vew _JDfHKsc4EeaZ_tiwLW-vew" database="_I-2ekcc4EeaZ_tiwLW-vew"/>
+  <LUW:LUWTable xmi:id="_JDcDoMc4EeaZ_tiwLW-vew" name="VALIDATECODE" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDcDocc4EeaZ_tiwLW-vew" name="CODETYPE" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDcqsMc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDdRwMc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDdRwcc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDdRwsc4EeaZ_tiwLW-vew" name="REFERENCEID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDdRw8c4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDdRxMc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDdRxcc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDdRxsc4EeaZ_tiwLW-vew" name="OPERATION" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDdRx8c4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDdRyMc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDdRycc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDdRysc4EeaZ_tiwLW-vew" name="CODE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDdRy8c4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDdRzMc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDdRzcc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDdRzsc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDdRz8c4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDdR0Mc4EeaZ_tiwLW-vew" name="EXPIRYTIMESTAMP">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDdR0cc4EeaZ_tiwLW-vew" name="TIMESTAMP" primitiveType="TIMESTAMP">
+        <eAnnotations xmi:id="_JDdR0sc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDdR08c4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="93"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDdR1Mc4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDdR1cc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDdR1sc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDdR18c4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDdR2Mc4EeaZ_tiwLW-vew" name="PK_VALIDATECODE" members="_JDcDocc4EeaZ_tiwLW-vew _JDdRwsc4EeaZ_tiwLW-vew _JDdRxsc4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDd40Mc4EeaZ_tiwLW-vew" name="XREGISTRATION" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd40cc4EeaZ_tiwLW-vew" name="PHONE" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd40sc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd408c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd41Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd41cc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd41sc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd418c4EeaZ_tiwLW-vew" name="FIRSTNAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd42Mc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd42cc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd42sc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd428c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd43Mc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd43cc4EeaZ_tiwLW-vew" name="LASTNAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd43sc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd438c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd44Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd44cc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd44sc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd448c4EeaZ_tiwLW-vew" name="PASSWORD1">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd45Mc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd45cc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd45sc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd458c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd46Mc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd46cc4EeaZ_tiwLW-vew" name="EMAIL">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd46sc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd468c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd47Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd47cc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd47sc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd478c4EeaZ_tiwLW-vew" name="SOCIALUSER">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDd48Mc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDd48cc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd48sc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd488c4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDd49Mc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDd49cc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd49sc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDd498c4EeaZ_tiwLW-vew" name="PK_XREGISTRATION" members="_JDd40cc4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDd4-Mc4EeaZ_tiwLW-vew" name="XIPLOG" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd4-cc4EeaZ_tiwLW-vew" name="XIPLOGID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDd4-sc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDd4-8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd4_Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd4_cc4EeaZ_tiwLW-vew" name="USERSID">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDd4_sc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDd4_8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd5AMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd5Acc4EeaZ_tiwLW-vew" name="IPADDRESS">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd5Asc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd5A8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd5BMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd5Bcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd5Bsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd5B8c4EeaZ_tiwLW-vew" name="ACTIVITY">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDd5CMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDd5Ccc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd5Csc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDd5C8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDd5DMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd5Dcc4EeaZ_tiwLW-vew" name="CREATEDTIMESTAMP">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDd5Dsc4EeaZ_tiwLW-vew" name="TIMESTAMP" primitiveType="TIMESTAMP">
+        <eAnnotations xmi:id="_JDd5D8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd5EMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="93"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDd5Ecc4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDd5Esc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDd5E8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDd5FMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDd5Fcc4EeaZ_tiwLW-vew" name="PK_XIPLOG" members="_JDd4-cc4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDef4Mc4EeaZ_tiwLW-vew" name="PINCODEHISTORY" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef4cc4EeaZ_tiwLW-vew" name="PINCODE" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDef4sc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDef48c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDef5Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef5cc4EeaZ_tiwLW-vew" name="COUNTER">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDef5sc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDef58c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDef6Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef6cc4EeaZ_tiwLW-vew" name="LASTUPDATE">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDef6sc4EeaZ_tiwLW-vew" name="TIMESTAMP" primitiveType="TIMESTAMP">
+        <eAnnotations xmi:id="_JDef68c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDef7Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="93"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef7cc4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDef7sc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDef78c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDef8Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDef8cc4EeaZ_tiwLW-vew" name="PK_PINCODEHISTORY" members="_JDef4cc4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDef8sc4EeaZ_tiwLW-vew" name="XCACHESTATUS" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef88c4EeaZ_tiwLW-vew" name="CACHENAME" nullable="false">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDef9Mc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDef9cc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDef9sc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDef98c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDef-Mc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef-cc4EeaZ_tiwLW-vew" name="LASTUPDATE">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDef-sc4EeaZ_tiwLW-vew" name="TIMESTAMP" primitiveType="TIMESTAMP">
+        <eAnnotations xmi:id="_JDef-8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDef_Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="93"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDef_cc4EeaZ_tiwLW-vew" name="PK_XCACHESTATUS" members="_JDef88c4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDef_sc4EeaZ_tiwLW-vew" name="XSLOT" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDef_8c4EeaZ_tiwLW-vew" name="ORDERSID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegAMc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDegAcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegAsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegA8c4EeaZ_tiwLW-vew" name="LASTUPDATED">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDegBMc4EeaZ_tiwLW-vew" name="TIMESTAMP" primitiveType="TIMESTAMP">
+        <eAnnotations xmi:id="_JDegBcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegBsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="93"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegB8c4EeaZ_tiwLW-vew" name="SLOTID">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegCMc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDegCcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegCsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegC8c4EeaZ_tiwLW-vew" name="RESOURCEPOOLKEY">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDegDMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDegDcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegDsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDegD8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDegEMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegEcc4EeaZ_tiwLW-vew" name="SLOTDATE">
+      <containedType xsi:type="SQLDataTypes:DateDataType" xmi:id="_JDegEsc4EeaZ_tiwLW-vew" name="DATE" primitiveType="DATE">
+        <eAnnotations xmi:id="_JDegE8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegFMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="91"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegFcc4EeaZ_tiwLW-vew" name="STARTTIME">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDegFsc4EeaZ_tiwLW-vew" name="TIME" primitiveType="TIME">
+        <eAnnotations xmi:id="_JDegF8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegGMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="92"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegGcc4EeaZ_tiwLW-vew" name="ENDTIME">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDegGsc4EeaZ_tiwLW-vew" name="TIME" primitiveType="TIME">
+        <eAnnotations xmi:id="_JDegG8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegHMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="92"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegHcc4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegHsc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDegH8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegIMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegIcc4EeaZ_tiwLW-vew" name="STATUS">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDegIsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDegI8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegJMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDegJcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDegJsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDegJ8c4EeaZ_tiwLW-vew" name="PK_XSLOT" members="_JDef_8c4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDegKMc4EeaZ_tiwLW-vew" name="XPRODUCTEXCLUSION" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegKcc4EeaZ_tiwLW-vew" name="XPRODEXCLUSIONID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegKsc4EeaZ_tiwLW-vew" name="INTEGER" primitiveType="INTEGER">
+        <eAnnotations xmi:id="_JDegK8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegLMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="4"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegLcc4EeaZ_tiwLW-vew" name="CATENTRYID">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegLsc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDegL8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegMMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegMcc4EeaZ_tiwLW-vew" name="POSTCODE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDegMsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDegM8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegNMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDegNcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDegNsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegN8c4EeaZ_tiwLW-vew" name="STOREENTID">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegOMc4EeaZ_tiwLW-vew" name="INTEGER" primitiveType="INTEGER">
+        <eAnnotations xmi:id="_JDegOcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegOsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="4"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDegO8c4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDegPMc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDegPcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDegPsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDegP8c4EeaZ_tiwLW-vew" name="PK_XPRODUCTEXCLUS2" members="_JDegKcc4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDfG8Mc4EeaZ_tiwLW-vew" name="XBANKDETAILS" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfG8cc4EeaZ_tiwLW-vew" name="XBANKS_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDfG8sc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDfG88c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfG9Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfG9cc4EeaZ_tiwLW-vew" name="BANK_ID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfG9sc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfG98c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfG-Mc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfG-cc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfG-sc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfG-8c4EeaZ_tiwLW-vew" name="BANK_NAME">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfG_Mc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfG_cc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfG_sc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfG_8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHAMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHAcc4EeaZ_tiwLW-vew" name="IMAGES">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHAsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHA8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHBMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHBcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHBsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHB8c4EeaZ_tiwLW-vew" name="STATUS">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHCMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHCcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHCsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHC8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHDMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHDcc4EeaZ_tiwLW-vew" name="ISFAVOURITE">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHDsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHD8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHEMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHEcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHEsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHE8c4EeaZ_tiwLW-vew" name="FIELD1">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHFMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHFcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHFsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHF8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHGMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHGcc4EeaZ_tiwLW-vew" name="FIELD2">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHGsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHG8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHHMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHHcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHHsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHH8c4EeaZ_tiwLW-vew" name="FIELD3">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHIMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHIcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHIsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHI8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHJMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHJcc4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDfHJsc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDfHJ8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHKMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDfHKcc4EeaZ_tiwLW-vew" name="PK_XBANKDETAILS" members="_JDfG8cc4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+  <LUW:LUWTable xmi:id="_JDfHKsc4EeaZ_tiwLW-vew" name="XBILLDESKRESP" schema="_JDbckMc4EeaZ_tiwLW-vew">
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHK8c4EeaZ_tiwLW-vew" name="XBILLDESKRESP_ID" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDfHLMc4EeaZ_tiwLW-vew" name="BIGINT" primitiveType="BIGINT">
+        <eAnnotations xmi:id="_JDfHLcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHLsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="-5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHL8c4EeaZ_tiwLW-vew" name="BILLDESKUNIQUEID">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHMMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHMcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHMsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHM8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHNMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHNcc4EeaZ_tiwLW-vew" name="MSG">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHNsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHN8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHOMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHOcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHOsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHO8c4EeaZ_tiwLW-vew" name="STATUS">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHPMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHPcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHPsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHP8c4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHQMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHQcc4EeaZ_tiwLW-vew" name="UPDATEDTIME">
+      <containedType xsi:type="SQLDataTypes:TimeDataType" xmi:id="_JDfHQsc4EeaZ_tiwLW-vew" name="TIMESTAMP" primitiveType="TIMESTAMP">
+        <eAnnotations xmi:id="_JDfHQ8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHRMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="93"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHRcc4EeaZ_tiwLW-vew" name="FIELD1">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHRsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHR8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfHSMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfHScc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDfHSsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDfHS8c4EeaZ_tiwLW-vew" name="FIELD2">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDfHTMc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDfHTcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDfuAMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDfuAcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDgVEMc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDgVEcc4EeaZ_tiwLW-vew" name="FIELD3">
+      <containedType xsi:type="SQLDataTypes:CharacterStringDataType" xmi:id="_JDgVEsc4EeaZ_tiwLW-vew" name="VARCHAR" primitiveType="CHARACTER_VARYING" length="250">
+        <eAnnotations xmi:id="_JDgVE8c4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDgVFMc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="12"/>
+        </eAnnotations>
+        <eAnnotations xmi:id="_JDgVFcc4EeaZ_tiwLW-vew" source="TYPEMAP_TYPEDEFID">
+          <details xmi:id="_JDgVFsc4EeaZ_tiwLW-vew" key="TYPEMAP_TYPEDEFID_KEY" value="CHARACTER_VARYING_250"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <columns xsi:type="LUW:LUWColumn" xmi:id="_JDgVF8c4EeaZ_tiwLW-vew" name="OPTCOUNTER" nullable="false">
+      <containedType xsi:type="SQLDataTypes:IntegerDataType" xmi:id="_JDgVGMc4EeaZ_tiwLW-vew" name="SMALLINT" primitiveType="SMALLINT">
+        <eAnnotations xmi:id="_JDgVGcc4EeaZ_tiwLW-vew" source="JDBC_ENUM">
+          <details xmi:id="_JDgVGsc4EeaZ_tiwLW-vew" key="JDBC_ENUM_KEY" value="5"/>
+        </eAnnotations>
+      </containedType>
+    </columns>
+    <constraints xsi:type="SQLConstraints:PrimaryKey" xmi:id="_JDgVG8c4EeaZ_tiwLW-vew" name="PK_XBILLDESKRESP" members="_JDfHK8c4EeaZ_tiwLW-vew"/>
+  </LUW:LUWTable>
+</xmi:XMI>

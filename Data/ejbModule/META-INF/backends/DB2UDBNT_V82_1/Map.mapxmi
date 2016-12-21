@@ -1,0 +1,360 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejbrdbmapping:EjbRdbDocumentRoot xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:LUW="http:///com/ibm/db/models/db2/luw.ecore" xmlns:ejb="ejb.xmi" xmlns:ejbrdbmapping="ejbrdbmapping.xmi" xmlns:Mapping="Mapping.xmi" xmi:id="EjbRdbDocumentRoot_1482295462191" topToBottom="true">
+  <helper xmi:type="ejbrdbmapping:RdbSchemaProperies" xmi:id="RdbSchemaProperies_1482295462191" primitivesDocument="DB2UDBNT_V82"/>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462191">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462191">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDcDoMc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462192">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445320621335"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDcDocc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Short-SMALLINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462193">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445320622057"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDdRwsc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462194">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445320622059"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDdRxsc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Short-SMALLINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462195">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445320622060"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDdRysc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462196">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445320622062"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDdR0Mc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Timestamp-TIMESTAMP"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462197" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445320622063"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDdR1Mc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#ValidateCode"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDcDoMc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462192">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462192">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd40Mc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462198">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944749"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd40cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462199">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944750"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd418c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462200">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944751"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd43cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462201">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944765"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd448c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462202">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944766"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd46cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462203">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944767"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd478c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Short-SMALLINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462204" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445867944768"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd488c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XRegistration"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd40Mc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462193">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462193">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd4-Mc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462205">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445702003109"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd4-cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462206">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445702003110"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd4_cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462207">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445702003106"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd5Acc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462208">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445702003105"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd5B8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462209">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445702003107"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd5Dcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Timestamp-TIMESTAMP"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462210" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1445702003108"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd5Ecc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XIPLog"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDd4-Mc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462194">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462194">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef4Mc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462211">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1446814820282"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef4cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462212">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1446814820313"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef5cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462213">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1446814820329"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef6cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Timestamp-TIMESTAMP"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462214" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1446814820330"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef7cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#PincodeHistory"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef4Mc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462195">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462195">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef8sc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462215">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1447241777869"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef88c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462216">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1447241777872"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef-cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Timestamp-TIMESTAMP"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XCacheStatus"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef8sc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462196">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462196">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef_sc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462217">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049881"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef_8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462218">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049906"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegA8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Timestamp-TIMESTAMP"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462219">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049910"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegB8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462220">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049913"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegC8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462221">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049916"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegEcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Date-DATE"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462222">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049918"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegFcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Time-TIME"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462223">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049921"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegGcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Time-TIME"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462224" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049923"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegHcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462225">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1450103049925"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegIcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XSlot"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDef_sc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462197">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462197">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegKMc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462226">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452141269674"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegKcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Integer-INTEGER"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462227">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452141269690"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegLcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462228">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452141269691"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegMcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462229">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452141269692"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegN8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Integer-INTEGER"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462230" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452141269693"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegO8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XProductExclusion"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDegKMc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462198">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462198">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfG8Mc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462231">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937460"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfG8cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462232">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937483"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfG9cc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462233">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937486"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfG-8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462234">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937489"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHAcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462235">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937492"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHB8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462236">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937495"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHDcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462237">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937498"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHE8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462238">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937501"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHGcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462239">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937503"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHH8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462240" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1452585937506"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHJcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XBankDetails"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfG8Mc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <nested xmi:type="ejbrdbmapping:RDBEjbMapper" xmi:id="RDBEjbMapper_1482295462199">
+    <helper xmi:type="ejbrdbmapping:PrimaryTableStrategy" xmi:id="PrimaryTableStrategy_1482295462199">
+      <table xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHKsc4EeaZ_tiwLW-vew"/>
+    </helper>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462241">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996595"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHK8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Long-BIGINT"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462242">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996596"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHL8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462243">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996610"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHNcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462244">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996611"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHO8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462245">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996612"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHQcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Timestamp-TIMESTAMP"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462246">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996626"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHRcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462247">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996627"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHS8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462248">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996628"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDgVEcc4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#String-VARCHAR"/>
+    </nested>
+    <nested xmi:type="ejbrdbmapping:RDBEjbFieldMapper" xmi:id="RDBEjbFieldMapper_1482295462249" optimistic="true">
+      <inputs xmi:type="ejb:CMPAttribute" href="META-INF/ejb-jar.xml#CMPAttribute_1454990996629"/>
+      <outputs xmi:type="LUW:LUWColumn" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDgVF8c4EeaZ_tiwLW-vew"/>
+      <typeMapping href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#short-SMALLINT"/>
+    </nested>
+    <inputs xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XBillDeskResp"/>
+    <outputs xmi:type="LUW:LUWTable" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_JDfHKsc4EeaZ_tiwLW-vew"/>
+  </nested>
+  <inputs xmi:type="ejb:EJBJar" href="META-INF/ejb-jar.xml#ejb-jar_ID"/>
+  <outputs xmi:type="LUW:LUWDatabase" href="META-INF/backends/DB2UDBNT_V82_1/TopDown1.dbm#_I-2ekcc4EeaZ_tiwLW-vew"/>
+  <typeMapping xmi:type="Mapping:MappingRoot" href="JavatoDB2UDBNT_V82TypeMaps.V7.xmi#Java_to_DB2UDBNT_V82_TypeMaps"/>
+</ejbrdbmapping:EjbRdbDocumentRoot>

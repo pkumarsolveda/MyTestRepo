@@ -1,0 +1,99 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ejbbnd:EJBJarBinding xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:commonbnd="commonbnd.xmi" xmlns:ejb="ejb.xmi" xmlns:ejbbnd="ejbbnd.xmi" xmi:id="EJBJarBinding_1041304850140" currentBackendId="DB2UDBNT_V82_1">
+  <defaultDatasource xmi:id="ResourceRefBinding_1481629029487" jndiName="jdbc/WebSphere Commerce DB2 DataSource dmartuat">
+    <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029487">
+      <password xsi:nil="true"/>
+    </defaultAuth>
+  </defaultDatasource>
+  <ejbJar href="META-INF/ejb-jar.xml#ejb-jar_ID"/>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1041304850140" jndiName="ejb/com/ibm/commerce/extension/helpers/ExtensionJDBCHelperHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#ExtensionJDBCHelper"/>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1445261524203" jndiName="ejb/in/dmart/commerce/member/validation/ValidateCodeHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#ValidateCode"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029488">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029488">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1445867032006" jndiName="ejb/in/dmart/commerce/member/registration/XRegistrationHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XRegistration"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029489">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029489">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1445700926477" jndiName="ejb/in/dmart/commerce/member/objects/XIPLogHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XIPLog"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029490">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029490">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1446813920828" jndiName="ejb/in/dmart/pincode/bean/PincodeHistoryHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#PincodeHistory"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029491">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029491">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1447240959123" jndiName="ejb/in/dmart/commerce/cache/objects/XCacheStatusHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XCacheStatus"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029492">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029492">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1450101729175" jndiName="ejb/in/dmart/commerce/order/slots/XSlotHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XSlot"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029493">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029493">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1452136146619" jndiName="ejb/in/dmart/commerce/product/objects/XProductExclusionHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XProductExclusion"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029494">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029494">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1452576357363" jndiName="ejb/in/dmart/commerce/payment/objects/XBankDetailsHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XBankDetails"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029495">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029495">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1454989939133" jndiName="ejb/in/dmart/commerce/payment/billdesk/XBillDeskRespHome">
+    <enterpriseBean xmi:type="ejb:ContainerManagedEntity" href="META-INF/ejb-jar.xml#XBillDeskResp"/>
+    <datasource xmi:id="ResourceRefBinding_1481629029496">
+      <defaultAuth xmi:type="commonbnd:BasicAuthData" xmi:id="BasicAuthData_1481629029496">
+        <password xsi:nil="true"/>
+      </defaultAuth>
+    </datasource>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1455618421846" jndiName="ejb/in/dmart/commerce/storeLocator/sessionbean/DMartStoreLocatorHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#DMartStoreLocator"/>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1458204312548" jndiName="ejb/in/dmart/commerce/member/sessionbean/DmartMemberHelperHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#DmartMemberHelper"/>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1458207868667" jndiName="ejb/in/dmart/commerce/order/sessionbean/DmartOrderHelperHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#DmartOrderHelper"/>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1458207868668" jndiName="ejb/in/dmart/commerce/wishList/sessionbean/DMartWishListNotificationHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#DMartWishListNotification"/>
+  </ejbBindings>
+  <ejbBindings xmi:id="EnterpriseBeanBinding_1460524570973" jndiName="ejb/in/dmart/commerce/common/session/DmartCommonHome">
+    <enterpriseBean xmi:type="ejb:Session" href="META-INF/ejb-jar.xml#DmartCommon"/>
+  </ejbBindings>
+</ejbbnd:EJBJarBinding>

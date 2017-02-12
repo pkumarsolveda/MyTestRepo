@@ -1,0 +1,169 @@
+{% extends '_layouts/base.nunjucks' %}
+{% block title %} PUP {% endblock %}
+
+{% set parentPage = 'pup list' %}
+{% block content %}
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="pup-location-lists">
+          <div class="row">
+            <div class="col-xs-12 col-md-12">
+              <input placeholder="Find Pickup Point by Area or Pincode" class="pup--filter-field">
+            </div>
+          </div>
+          <ul id="marker_list" class="pup-location-marker"></ul>
+        </div>
+      </div>
+
+      <div class="col-xs-12 col-md-6">
+        <script src="//maps.googleapis.com/maps/api/js?key=AIzaSyBHU792ATbHJNyOn0mLPCiBt9jRDHxzFk8"></script>
+        <script>
+          var pupAddress = [
+            {'latlng': [19.2153052, 72.8289045], name: '90 Feet Road, Mahavir Nagar, Chandivali West, Landmark: Opposite Kamla Vihar Sports Club, Mumbai - 400067, Maharashtra.'},
+            {'latlng': [19.1283001, 72.921797], name: '30/57, Lal Bahadur Shastri Marg, Ambedkar Nagar, Kanjurmarg West, Landmark: Bhandup West, Mumbai - 400167, Maharashtra.'},
+            {'latlng': [19.1467451, 72.9861459], name: '101, Sector-9, Sector 10A, Airoli, Navi Mumbai - 400708, Maharashtra.'},
+            {'latlng': [19.2089194, 72.8702703], name: '11, Near Thakur cinema, Thakur Village, Chandivali East, Mumbai - 400101, Maharashtra.'},
+            {'latlng': [19.2089194, 72.8702703], name: '100, Near Thakur cinema, Thakur Village, Chandivali East, Mumbai - 400101, Maharashtra.'},
+            {'latlng': [19.1283001, 72.921797], name: '30/57, Lal Bahadur Shastri Marg, Ambedkar Nagar, Kanjurmarg West, Landmark: Bhandup West, Mumbai - 400167, Maharashtra.'}
+          ];
+          var infoWnd, mapCanvas, zoomChangeBoundsListener, google;
+          function initialize() {
+            var myOptions = {
+              // scrollwheel: false,
+              draggable: true,
+              mapTypeId: google.maps.MapTypeId.ROADMAP
+            };
+            //Creates a map object.
+            mapCanvas = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+            // Fix hidden map in Tabs/Accordion
+              jQuery(window).load(function () {
+
+                google.maps.event.trigger(mapCanvas, 'resize');
+                jQuery('.js-delivery-favorite').clickToggle( function () {
+                  jQuery(this).parents('li').addClass('favorite-address');
+                  jQuery(this).children().toggleClass('js-hide-show');
+                }, function () {
+                  jQuery(this).parents('li').removeClass('favorite-address');
+                  jQuery(this).children().toggleClass('js-hide-show');
+                });
+
+                setTimeout(function(){
+                  jQuery('#marker_list li:first-child label').trigger('click');
+                }, 400);
+              });
+
+            //Creates a infowindow object.
+            infoWnd = new google.maps.InfoWindow({
+              maxWidth: 200
+            });
+
+            //Mapping markers on the map
+            var bounds = new google.maps.LatLngBounds();
+            var pup, i, latlng;
+
+            for (i in pupAddress) {
+              //Creates a marker
+              pup = pupAddress[i];
+              latlng = new google.maps.LatLng(pup.latlng[0], pup.latlng[1]);
+              bounds.extend(latlng);
+              var marker = createMarker(
+                mapCanvas, latlng, pup.name
+              );
+
+              //Creates a address for the marker
+              createMarkerButton(marker);
+            }
+            //Fits the map bounds
+            mapCanvas.fitBounds(bounds);
+            zoomChangeBoundsListener = google.maps.event.addListenerOnce(mapCanvas, 'bounds_changed', function(event) {
+              if (this.getZoom()){
+                this.setZoom(12);
+              }
+            });
+            setTimeout(function(){
+              google.maps.event.removeListener(zoomChangeBoundsListener);
+            }, 2000);
+          }
+
+          function createMarker(map, latlng, title) {
+            //Creates a marker
+            var marker = new google.maps.Marker({
+              position: latlng,
+              map: map,
+              title: title,
+              animation: google.maps.Animation.DROP,
+              // icon: '/{{config.baseUrl}}images/dmart-symbol-logo.svg',// Marker icon
+              scaledSize: new google.maps.Size(10, 10) // scaled size
+            });
+
+            //The infoWindow is opened when the address is clicked
+            google.maps.event.addListener(marker, 'click', function(){
+              infoWnd.setContent('<div class="pupAddress-popup">DMart</div>');
+              jQuery('.pupAddress-popup').parent().parent().parent().parent().parent().hide();
+              map.setZoom(16);
+              map.panTo(marker.getPosition());
+              infoWnd.open(map, marker);
+              // infoWnd.close();
+              // marker.addListener('click', toggleBounce);
+            });
+            return marker;
+
+            function toggleBounce() {
+              if (marker.getAnimation() !== null) {
+                marker.setAnimation(null);
+              } else {
+                marker.setAnimation(google.maps.Animation.BOUNCE);
+              }
+            }
+          }
+
+          function createMarkerButton(marker) {
+            //Creates a address buttons
+            var ul = document.getElementById('marker_list');
+            var li = document.createElement('li');
+            var label = document.createElement('label');
+            var address =   document.createElement('address');
+            var rbutton = document.createElement('input');
+            rbutton.type = 'radio';
+            rbutton.name = 'delivery-address';
+
+            // Favorite buttons
+            var favButton = document.createElement('a');
+            favButton.className = 'js-delivery-favorite delivery-favorite-cta';
+            favButton.title = 'Make it as Favorite PUP';
+
+            var heartIcon = document.createElement('i');
+            heartIcon.className = 'js-delivery-favorite-icon icon-heart js-hide-show pup-icon-heart-hide';
+
+            var heartIconOutline = document.createElement('i');
+            heartIconOutline.className = 'js-delivery-favorite-icon icon-heart-outlined pup-icon-heart-hide';
+
+            var title = marker.getTitle();
+            address.innerHTML = title;
+            ul.appendChild(li);
+            li.appendChild(label);
+            label.appendChild(rbutton);
+            label.appendChild(address);
+            li.appendChild(favButton);
+            favButton.appendChild(heartIcon);
+            favButton.appendChild(heartIconOutline);
+
+            //Trigger a click event to marker when the button is clicked.
+            google.maps.event.addDomListener(label, 'click', function(){
+              google.maps.event.trigger(marker, 'click');
+            });
+          }
+          google.maps.event.addDomListener(window, 'load', initialize);
+        </script>
+
+        <div id="map_canvas" class="pup-location-map"></div>
+
+      </div>
+
+    </div>
+  </div>
+
+{% endblock %}

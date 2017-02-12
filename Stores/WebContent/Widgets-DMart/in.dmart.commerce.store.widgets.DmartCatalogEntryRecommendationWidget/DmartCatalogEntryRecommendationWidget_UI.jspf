@@ -1,0 +1,16 @@
+<%--  The following code is created as an example. Modify the generated code and add any additional required code.  --%>
+
+<div class="js-accordion-tabs-recommanded">
+  <div class="no-border-tabs recommended-products">
+    <div class="carousel-navigation"><fmt:message bundle="${storeText}" key="RECO_COUNT_TEXT"/>
+      <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+    </div>
+    <ul class="resp-tabs-list clearfix hor_1"> 
+  	<li><fmt:message bundle="${storeText}" key="RECO_TITLE_TEXT"/></li>
+    </ul>
+    <div class="resp-tabs-container hor_1">
+      	<div id="recommendations"></div>
+   </div>
+</div>
+</div>

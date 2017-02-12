@@ -1,0 +1,112 @@
+<div class="cart-details__item">
+  {%if data.totalQTY == 0 %}
+  <div class="hide">
+  {%endif%}
+  <div class="minicart-details">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="minicart-details--total-items">
+        <i class="icon-cart"></i> <span> {{data.totalQTY}}</span> {% if data.totalQTY > 1 %}items{% else %}item{% endif %}
+        </h3>
+      </div>
+      <div class="col-md-6">
+        <h3 class="minicart-minicart-details--total-price"{% if data.outOfStockOrderItemIds.length == data.orderItems.length %}style = "color: #b3b3b3" {% endif %}>
+        <i class="icon-rupees"></i>{{data.total}}
+        </h3>
+      </div>
+    </div>
+  </div>
+  
+  {% from 'minicart-items.nunjucks' import myCartItems %}
+  <div class="cart-details__scroll" {% if data.totalQTY == 0 %}style='display:none'{%endif%}>
+    {% for category,list in data.orderItems|groupby('topCategory') %}
+    <h3 class="cart-details__item--title">
+    {%set qtyPerCat = 0 %}
+    {%for item in list%}
+	{% if item.itemMissing  == false %}
+      {%set qtyPerCat = qtyPerCat + item.quantity%}
+	{% endif %}
+	{%endfor%}
+	{% if qtyPerCat > 0 %}
+    <a href="javascript:;" title="">
+      {{ category }} <span>({{qtyPerCat}} {% if qtyPerCat > 1 %}items{% else %}item{% endif %})</span><span class="cart-details__item--title-arrow"><i class="icon-caret-up"></i></span>
+    </a>
+    </h3>
+	{% endif %}
+    <ul class="cart-details__item-list">
+      {%for item in list%}
+      {{ myCartItems(item,data) }}
+      {%endfor%}
+      <li class="cart-no-items">
+        <p class="alert alert-danger text-center">No items in this section</p>
+      </li>
+    </ul>
+    {%endfor%}
+   
+  </div>
+  
+  <div class="add-to-cart-button">
+  {% if data.outOfStockOrderItemIds.length != data.orderItems.length %}
+    <div class="cart-summary__price-details">
+      <div class="delivery-charges__details js-hide-show">
+        <div class="delivery-charges__info">
+          <div class="row">
+            <div class="col-xs-2"><i class="icon icon-home delivery-charges__info-icon"></i></div>
+            <div class="col-xs-10">Home delivery charges <strong><i class="icon icon-rupees"></i>100</strong> or <strong>2%</strong>of the order, which ever is higher</div>
+          </div>
+        </div>
+        <div class="delivery-charges__info">
+          <div class="row">
+            <div class="col-xs-2"><i class="icon icon-package delivery-charges__info-icon"></i></div>
+            <div class="col-xs-10">No delivery charges for pick-up point</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <i class="dmart-sprite sprite-piggy-bank"></i>
+    </div>
+    <div class="col-md-9">
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            <strong>Total</strong>
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><strong><i class="icon-rupees"></i>{{data.total}}</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details add-to-cart-button--total-savings spacing-bottom-half">
+        <div {% if data.totalSavings <= 0%}style="display:none;"{%endif%} class="row">
+          <div class="col-xs-7">
+            <span>Total Savings</span>
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><strong><i class="icon-rupees"></i>{{data.totalSavings}}</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+	<button type="button" class="button-primary button--block" onClick="goToCart()">View Cart and Checkout</button>
+	{% else %}
+	<button type="button" class="button-primary button--block button--disabled">View Cart and Checkout</button>
+	{% endif %}
+  </div>
+  {%if data.totalQTY == 0 %}
+  </div>
+  <div class="empty-cart">
+    <p>There are no items in your cart.</p>
+    <p>
+      <a href="{{data.homePageURL}}" class="empty-cart--cta button-white" title="Continue Shopping">Continue Shopping</a>
+    </p>
+  </div>
+  {%endif%}
+</div>
+
+<script>
+$('.cart-details__scroll').perfectScrollbar({
+      suppressScrollX: true
+});
+
+</script>

@@ -1,0 +1,7 @@
+<div class="bank-icon-list">
+	<i class="dmart-sprite sprite-payments-visa"></i>
+	<i class="dmart-sprite sprite-payments-mastercard"></i>
+	<i class="dmart-sprite sprite-payments-diner"></i>
+	<i class="dmart-sprite sprite-payments-amex"></i>
+	<i class="dmart-sprite sprite-payments-cod"></i>
+</div>

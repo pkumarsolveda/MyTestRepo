@@ -1,0 +1,39 @@
+{% macro plpHousehold(product,config,outofstock,id,data) %}
+{%set item = product.itemDetails[product.currentItem]%}
+<!-- Add "product-out-of-stock" class to "product-listing-item" if product is not available-->
+<div data-productid="{{product.productId}}" class="product-listing-item plp-grocery {% if(item.outofstock == true) %} product-out-of-stock {% endif %}">
+<div class="product-listing-item__primary">
+  <div class="view-list view-list-product-image product-out-of-stock__small-image-wrap">
+    <a href="javascript:;" title=""><img src="{{config.baseUrl}}{{item.img_src}}" class="product-listing--image img-responsive" alt="product image"></a>
+    <a class="product-out-of-stock__small-image" href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/product-out-of-stock.jpg" class="product-listing--image-out-of-stock img-responsive" alt="product image"></a>
+  </div>
+  <h4 class="product-listing--title" style="padding-right: 2.5rem;"><a title="{{ item.name}}" href="/webapp/wcs/stores/servlet/ProductDisplay?catalogId={{data.catalogId}}&categoryId={{product.categoryId}}&langId=-1&storeId={{data.storeId}}&productId={{product.productId}}">{{ item.name}}</a></h4>
+  <h5 class="product-listing--brand"><a href="/webapp/wcs/stores/servlet/SearchDisplay?catalogId={{data.catalogId}}&langId=-1&storeId={{data.storeId}}&manufacturer={{item.brand}}">{{ item.brand }}</a></h5>
+  <input class="product-alternate-checkbox" name="productAlternate-{{ id }}" id="productAlternate-{{ id }}" type="checkbox" checked="checked">
+  <a href="/webapp/wcs/stores/servlet/ProductDisplay?catalogId={{data.catalogId}}&categoryId={{product.categoryId}}&langId=-1&storeId={{data.storeId}}&productId={{product.productId}}" title=""><img src="{{config.baseUrl}}{{item.img_src}}" class="product-listing--image small view-grid img-responsive" alt="product image"></a>
+  <a class="product-out-of-stock__big-image" href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/product-out-of-stock.jpg" class="product-listing--image-out-of-stock img-responsive" alt="product image"></a>
+  <p class="product-listing__total-items">Total of {{product.totalQtyInCart}} Packs Added to Cart</p>
+  <div class="product-listing-details">
+    <div class="product-listing__save" {% if item.price.savings <= 0  %} style='display:none' {% endif %}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{item.price.savings}}</span></div>
+    <p class="product-listing--original-price" {% if item.price.offerPrice <= 0  %} style='display:none' {% endif %}>MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{item.price.sellingPrice}}</span></p>
+    <p class="product-listing--discounted-price" {% if item.price.offerPrice <= 0  %} style='display:none' {% endif %} >DMart <i class="icon-rupees"></i>{{item.price.offerPrice}}</p>
+    <div class="product-listing__quantity-secondary clearfix">
+      <div class="md-custom-select js-rupee">
+        <select class="product-listing__quantity--select-weight">
+          {%for itemid in product.itemIds %}
+             <option value="{{itemid}}" {% if item == product.currentItem %} selected="" {%endif%}>{{product.itemDetails[itemid].definingAttributes.Size}} &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+        </select>
+      </div>
+      <div class="md-custom-select">
+        <select class="product-listing__quantity--select-quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+{% endmacro %}

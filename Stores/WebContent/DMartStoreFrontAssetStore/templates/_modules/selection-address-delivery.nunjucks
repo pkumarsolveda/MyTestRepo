@@ -1,0 +1,27 @@
+
+  <div class="delivery-vertical__address-new form js-hide-show">
+  
+    {% include '_modules/selection-address-delivery-new-address.nunjucks' %}
+  </div>
+
+<form action="javascript:;" id="delivery-vertical-address-checkout">
+  <ul class="delivery-vertical__address">
+  	<div class="delivery-vertical_checkout">
+    <form action="javascript:;" >
+{% from "_modules/selection-address-delivery-addresses.nunjucks" import deliveryAddress %}
+
+
+    {% for index in range(0, data.contact.length) %}
+   
+
+				{{ deliveryAddress(data.contact[index]) }}
+      
+    {% endfor %}
+</form>
+</div>
+  </ul>
+</form>
+
+<div class="delivery-vertical-cta js-new-address-cta">
+	<a href="javascript:;" id="checkOutNewAddress" class="button button-white delivery-cta--right modal-link" title="New Address" data-target="newAddressModal">NEW ADDRESS</a>
+</div>

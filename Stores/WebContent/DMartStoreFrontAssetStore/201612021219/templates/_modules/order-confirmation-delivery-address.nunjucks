@@ -1,0 +1,108 @@
+{%set deliveryMode = data.selectedShipMode %}
+<div class="cart-summary delivery-address">
+  <div class="variant-delivery-header">{{data.fulfillmentType}} Information</div>
+  <div class="cart-summary__details js-perfectscrollbar-destroy order-confirmation-content">
+    <div class="cart-summary__details--primary">
+      <div class="delivery-address--container">
+       <!-- <h4 class="delivery-address--title-secondary">{{data.fulfillmentType}} Address:</h4> 
+        <address class="delivery-address-details order-confirmation-delivery-info">-->
+        <div class="row delivery-addess-info">
+           <div class="col-xs-4 col-md-3 delivery-summary-label">
+           
+           Name:
+           </div>
+          <div class="col-xs-8 col-md-9">
+          {% if deliveryMode == 'Home Delivery' %}{{data.addressData[0]}}{%else%}{{data.selectedPUP}}{%endif%}
+          </div>
+        </div>
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Address: 
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {% if deliveryMode == 'Home Delivery' %}
+          	{{data.addressData[1].replace('Landmark:','')}}, 
+          	{{data.addressData[2]}} - {{data.addressData[4]}},<br>
+          	{{data.addressData[3]}}.<br>
+          	
+        	{% else %}  
+          	  {{data.addressData[0]}}<br>
+	          {{data.addressData[1].replace('Landmark:','')}},<br> 
+	          {{data.addressData[2].replace('Landmark:','')}}, {{data.addressData[3]}}, {{data.addressData[4].replace('Landmark:','')}}, 
+	          {{data.addressData[5]}}. <br>
+          	<!--<p class="spacing-bottom-half"></p>-->
+        	{% endif %}
+            </div>
+        </div>
+        {% if data.landmark != null%}
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             Landmark: 
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {{data.landmark.replace('Landmark:','')}}
+            </div>
+        </div>
+        {% endif %}
+        {% if deliveryMode == 'Home Delivery' %}
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+            Mobile:
+             </div>
+            <div class="col-xs-8 col-md-9">
+            +91-{{data.addressData[5]}}
+            </div>
+        </div>
+        {%endif%} 
+        <div class="delivery-address-pup">
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+            Delivery Type: 
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {{deliveryMode}}
+            </div>
+        </div>
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Delivery Date:
+             </div>
+            <div class="col-xs-8 col-md-9">
+             {{data.slotData.slotDate}}
+            </div>
+        </div>
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Delivery Time:
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {{data.slotData.startTime}} to {{data.slotData.endTime}}
+            </div>
+        </div>
+        </div>
+        <div class="delivery-address--payment padding-reset-top">
+                  <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Mode of Payment:
+             </div>
+            <div class="col-xs-8 col-md-9">
+             {{data.paymentMode}}
+            </div>
+        </div>
+        <!--<div class="delivery-address-pup">
+          <h4 class="delivery-address--title-ternary"><strong>Delivery Type Selected:</strong> {{data.selectedShipMode}}</h4>
+          <h4 class="delivery-address--pup-info"><strong>Delivery Time Selected:</strong> {{data.slotData.slotDate}}  {{data.slotData.startTime}} to {{data.slotData.endTime}}</h4>
+        </div>
+        <div class="delivery-address--payment padding-reset-top">
+          <h4 class="delivery-address--payment-info"><strong>Payment Mode:</strong> {{data.paymentMode}}</h4>
+        </div>-->
+      </div>
+    </div>
+  </div>
+</div>

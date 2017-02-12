@@ -1,0 +1,21 @@
+<div class="container" id="error-msg-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-warning-bg js-alert-order" style="display:none;">
+        <strong><i class="icon-notification"></i><fmt:message bundle="${storeText}" key="MSG_NOTIFCATION"/></strong>
+        	<span id="generic-error-section">
+        		
+        	</span>	
+        <a class="alert-close-cta js-cart-reject align-right alert-cross-pos" href="javascript:;" title="Close"><i class="icon-cta-close icon-cancel"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="common-search" style="display: none;">
+      <div class="col-xs-12">
+        <div class="common-search__instead">
+          
+        </div>
+      </div>
+</div>

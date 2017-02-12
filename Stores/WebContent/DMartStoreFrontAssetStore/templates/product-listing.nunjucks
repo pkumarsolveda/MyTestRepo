@@ -1,0 +1,27 @@
+
+{% set pageTitle = data.pageTitle %}
+{% set filter = "enabled" %}
+
+{% set parentPage = data.pageTitle %}
+{% from "_modules/product-listing-item-grocery.nunjucks" import plpGrocery %}
+{% from "_modules/product-listing-item-apparel.nunjucks" import plpApperal %}
+
+{% for productId in data.productIds %}
+	      <div class="col-xs-12 col-md-4 col-lg-3 js-switch-view">
+	        {% if data.product[productId].pageType == "apparel" %}
+			{{ plpApperal(data.product[productId],data.config, data) }}
+			{% else %}
+			{{ plpGrocery(data.product[productId],data.config,data) }}
+			{% endif %}
+	      </div>
+{%else%}
+
+
+<div class="col-xs-12">
+<div class="no-result-found">
+  <p class="alert alert-danger"><i class="icon-error-type icon-notification"></i> No Result Found</p>
+</div>
+</div>	      
+{% endfor %}  
+
+

@@ -1,0 +1,51 @@
+<%@page import="com.ibm.commerce.foundation.internal.server.services.registry.StoreConfigurationRegistry"%>
+<%@page import="com.ibm.commerce.registry.RegistryManager"%>
+
+<%
+StoreConfigurationRegistry scfRegistry = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+String freqBoughtTogether = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.FrequentlyBoughtTogether.enable");
+String recommendedProd = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.RecommendedProducts.enable");
+String upsell = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Upsell.enable");
+String confMaxOrderQty = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.MaxOrderQty");
+pageContext.setAttribute("confMaxOrderQty", confMaxOrderQty);
+pageContext.setAttribute("freqBoughtTogether", freqBoughtTogether);
+pageContext.setAttribute("recommendedProd", recommendedProd);
+pageContext.setAttribute("upsell", upsell);
+%>
+
+<input type="hidden" id="freqBoughtTogether" value="${freqBoughtTogether}" />
+<input type="hidden" id="recommendedProd" value="${recommendedProd}" />
+<input type="hidden" id="upsell" value="${upsell}" />
+
+<%--<script src="${jsAssetsDir}javascript/DMart/localCache/Storage.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/LocalCacheHelper.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/ProductDisplayHelper.js"></script>
+
+<script src="${jsAssetsDir}javascript/DMart/wishlist/DMartShoppingListActions.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script> --%>
+<script type="text/javascript">
+	var confMaxOrderQty = ${confMaxOrderQty};
+	dojo.addOnLoad(function() {
+	var currProductId = '${WCParam.productId}';
+		$(document).bind(
+				'dmart.product.loaded',
+				function(e) {
+					productDisplay.loadProducts();
+				});
+		 $(document).on('dmart.plp.breadcrumbs.loaded',
+			function(event) {
+				ProductHelper.loadBreadCrumbsDropdown();
+			});
+			$(document).bind(
+        	'dmart.cache.validator.completed',
+        function(e) {
+            productDisplay.init(currProductId.toString());
+        });
+		
+	});
+</script>
+
+
+<div id="apparelimages">
+
+</div>

@@ -1,0 +1,8 @@
+<form method="post" class="my-list-search-toolbar">
+  <input class="search-toolbar__field" type="text" placeholder="Search for products and Add to Cart" name="search" autocomplete="off">
+  <i class="search__icon icon-search"></i>
+  <button class="search-toolbar__cta button-primary" type="button">SEARCH AND ADD</button>
+  <div class="mega-dropdown dropdown-search-add-list">
+   <!-- {% include '_modules/my-list-search-item.nunjucks' %} -->
+  </div>
+</form>

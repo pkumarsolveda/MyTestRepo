@@ -1,0 +1,12 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+<title>{% block title %}{% endblock %} - DMart</title>
+{% include '_modules/header-meta.nunjucks' %}
+</head>
+<body class="margin-reset">
+{% include "_modules/header-checkout.nunjucks" %}
+{% block content %}{% endblock %}
+{% include "_modules/footer-checkout.nunjucks" %}
+</body>
+</html>

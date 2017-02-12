@@ -1,0 +1,103 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2011, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+
+<c:set var="search" value='"'/>
+<c:set var="replaceStr" value="'"/>
+
+<%-- START MiniShopCartContents_UI.jsp --%>
+
+	<div id="quick_cart_container">
+	<span class="spanacce" id="quick_cart_container_ACCE_Label"><fmt:message bundle="${storeText}" key="ACCE_MSC_SHOPPING_CART_POPUP_REGION"/></span>
+		<div id="quick_cart">
+			<div id ="MiniShopCartProductsList">
+				<div id="widget_minishopcart_popup">										
+						<div id="cartDropdown">						
+							<h3><fmt:message bundle="${storeText}" key="MSC_ITEMS_IN_CART"/></h3>
+							<a id="MiniShopCartCloseButton_1" href="javascript:dijit.byId('quick_cart_container').hide();" class="closeButton"><fmt:message bundle="${storeText}" key="CLOSE"/></a>					            					            
+							<div class="content">
+								<c:choose>
+									<c:when test="${!empty orderItemsDetailsList}">
+										<div class="products">
+											<c:forEach var="itemDetails" items="${orderItemsDetailsList}" varStatus="status">
+												<div class="product">
+													<div class="product_image">
+															
+														<c:set var="altImgText">
+															<c:out value="${fn:replace(itemDetails['productName'], search, replaceStr)}" escapeXml="false"/>
+														</c:set>
+
+														<a id="MiniShopCartProdImg_${itemDetails['orderItemId']}" href="${itemDetails['productURL']}">
+															<img src="${itemDetails['productImage']}" alt="${altImgText}">
+														</a>
+													</div>
+													<div class="product_name">
+														<a id="MiniShopCartProdName_${itemDetails['orderItemId']}" href="${itemDetails['productURL']}">${itemDetails['productName']}</a>
+													</div>
+													<c:if test="${itemDetails['productName'] ne itemDetails['partNumber']}">
+														<span class="product_part_number">${itemDetails['partNumber']}</span>
+													</c:if>
+													<div class="item_spacer_3px"></div>
+													<span class="product_quantity"><fmt:message bundle="${storeText}" key="MSC_QTY"/> ${itemDetails['productQty']}</span>
+													<span class="product_price">${itemDetails['productPrice']}</span>
+												</div>
+											</c:forEach>
+										</div>
+										<c:if test="${showMoreLink == 'true'}">
+											<div class="view_more">
+												<span class="view_more_items"><a id="MiniShopCartMoreLink" href="${ShoppingCartURL}"><fmt:message bundle="${storeText}" key="MSC_VIEW_MORE_ITEMS"/></a></span>
+											</div>
+										</c:if>
+										<c:forEach var="discountsIterator" items="${discountReferences}">
+											<c:set var="discounts" value="${discountsIterator.value}" />
+											<div class="subtotal adjustment_price">
+												<span class="product_price">
+													<c:out value="${discounts['aggregatedDiscount']}" escapeXml="false" />
+													<c:out value="${CurrencySymbol}"/>													
+												</span>
+												<a class="hover_underline" href='<c:out value="${discounts['displayURL']}" />' >
+													<c:out value="${discounts['discountDescription']}" escapeXml="false"/>
+												</a>
+											</div>
+										</c:forEach>
+										<c:remove var="discountReferences"/>
+										<div class="subtotal">
+											<span class="product_price">${orderSubTotal}</span>
+											<span>
+												<fmt:message bundle="${storeText}" key="MSC_SUBTOTAL_FOR_ITEMS">
+													<fmt:param value="${orderQuantity}"/>
+												</fmt:message>
+											</span>
+										</div>
+									</c:when>
+									<c:otherwise>
+										<div><fmt:message bundle="${storeText}" key="MSC_EMPTY_SHOP_CART"/></div>
+									</c:otherwise>
+								</c:choose>
+							</div>
+							
+							<div class="footer">
+								<a id="GotoCartButton1" href="${fn:escapeXml(ShoppingCartURL)}" class="basicButton">
+									<span><fmt:message bundle="${storeText}" key="MSC_GO_TO_CART"/></span>
+								</a>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+	
+		</div>
+
+
+
+<%-- END MiniShopCartContents_UI.jsp --%>		

@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN"
+                               "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+     <action-mappings type="com.ibm.commerce.struts.ECActionMapping">
+        <action
+            parameter="com.ibm.commerce.marketing.commands.IssueCouponControllerProxyCmd"
+            path="/CouponsIssueProxy" type="com.ibm.commerce.struts.BaseAction">
+            <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+        </action>
+        
+        <action
+            parameter="com.ibm.commerce.marketing.commands.ImportIntelligentOfferAssociationsCmd"
+            path="/ImportIntelligentOfferAssociations" type="com.ibm.commerce.struts.BaseAction">
+            <set-property property="authenticate" value="0:0"/>
+            <set-property property="https" value="0:1"/>
+        </action>        
+        
+        <action
+            parameter="com.ibm.commerce.marketing.segment.commands.ScheduledCustomerSegmentExportCmd"
+            path="/ScheduledCustomerSegmentExport" type="com.ibm.commerce.struts.BaseAction">
+            <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+        </action>
+
+    </action-mappings>
+ </struts-config>
+        

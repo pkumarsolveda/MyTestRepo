@@ -1,0 +1,4 @@
+
+
+{%from '_modules/mylist-display-items.nunjucks'  import itemDetails  %}
+{{itemDetails(itemDetailsJson,divId)}}

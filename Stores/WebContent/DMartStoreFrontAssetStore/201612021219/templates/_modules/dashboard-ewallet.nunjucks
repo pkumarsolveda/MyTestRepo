@@ -1,0 +1,83 @@
+<div class="dashboard-ewallet">
+  <div class="dashboard-ewallet__selection">
+    <div class="row">
+      <div class="col-xs-12 col-md-5 col-lg-4">
+        <div class="wallet-selection">
+        <div class="dashboard-box--header">
+          <h3 class="dashboard-box--header-title">Your Current Balance</h3>
+          <h3 class="dashboard-ewallet-balance dashboard-box--header-subtitle"><span><i class="icon-rupees"></i>1,550</span></h3>
+        </div>
+
+        <div class="dashboard-box--body">
+          <h3 class="dashboard-box--body-title">Wallet History <a class="icon-download-cta" href="javascript:;" title="Download Statement"><i class="icon-statement-download"></i></a> <a class="button-white js-dashboard-view-statement-cta" href="javascript:;" title="View Statement">View Statement</a></h3>
+
+          <div class="dashboard-box--body-content js-hide-show">
+            <div class="dashboard-box--body-content-title">
+              <div class="dashboard-myorder">
+
+                <div class="dashboard-myorder--heading">
+                  <span>Date</span>
+                  <span>Amount</span>
+                  <span>Transaction</span>
+                </div>
+
+                <div class="dashboard-myorder-scroll dashboard-box--body-content-scroll">
+                  <div class="dashboard-myorder--details">
+                    <span>15/11/2015</span>
+                    <span><i class="icon-rupees"></i>100</span>
+                    <span>Dr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>19/11/2015</span>
+                    <span><i class="icon-rupees"></i>550</span>
+                    <span>Cr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>20/11/2015</span>
+                    <span><i class="icon-rupees"></i>1,200</span>
+                    <span>Cr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>23/11/2015</span>
+                    <span><i class="icon-rupees"></i>2,700</span>
+                    <span>Dr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>28/11/2015</span>
+                    <span><i class="icon-rupees"></i>1,000</span>
+                    <span>Dr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>30/11/2015</span>
+                    <span><i class="icon-rupees"></i>400</span>
+                    <span>Dr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>01/12/2015</span>
+                    <span><i class="icon-rupees"></i>250</span>
+                    <span>Cr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>02/12/2015</span>
+                    <span><i class="icon-rupees"></i>2,500</span>
+                    <span>Cr</span>
+                  </div>
+                  <div class="dashboard-myorder--details">
+                    <span>03/12/2015</span>
+                    <span><i class="icon-rupees"></i>200</span>
+                    <span>Cr</span>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-7 col-lg-8">
+        {% include '_modules/payment-methods-dashboard.nunjucks' %}
+      </div>
+    </div>
+  </div>
+</div>

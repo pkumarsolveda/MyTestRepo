@@ -1,0 +1,21 @@
+<div class="product-listing-item__tertiary">
+  <h4 class="product-listing-item__tertiary--title">Add to Shopping List</h4>
+  <div class="product-listing-item__tertiary--add-list">
+    <form>
+    <input class="product-listing-item__tertiary--field input-text-field" type="text"  name="addShopList" value="" placeholder="Name Your List">
+    <button class="product-listing-item__tertiary--add-cta button">Add</button>
+    </form>
+  </div> 
+  <span class="product-listing-item-list-error">List already exists !!</span>
+  <div class="product-listing-item__tertiary-lists">
+    <ul>
+      {% for giftList in listData%}
+      {% if giftList.accessSpecifier  == 'Private' %}
+      <li value="{{giftList.externalIdentifier}}"><a href="javascript:;">{{giftList.storeName}}</a></li>
+      {% endif %}
+    {% endfor %}
+    </ul>
+  </div>
+
+  <button class="add-list-submit-cta button" type="button">Submit</button>
+ </div>

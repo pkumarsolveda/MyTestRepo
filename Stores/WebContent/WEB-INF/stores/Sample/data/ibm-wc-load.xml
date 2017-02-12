@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE data-deploy SYSTEM "ibm-wc-load.dtd">
+
+<data-deploy base-dir="." default-target="all">
+
+  <asset id="." location=""/>
+  <asset id="master"        location="store-data-assets.xml"/>
+  <asset id="foreignKeys"   location="ForeignKeys.dtd" type="dtd"/>
+
+  <deploy-task-cmd name="dataload" class="com.ibm.commerce.tools.devtools.publish.tasks.DataLoadTaskCmd"/>
+  <deploy-task-cmd name="commandInvoker" class="com.ibm.commerce.tools.devtools.publish.tasks.CommandInvokerTaskCmd" />
+
+  <target id="all">
+
+    <task name="dataload">
+      <param name="infile" value="${asset:master}" />
+      <param name="storePublish" value="true" />
+    </task>
+
+    <task name="commandInvoker">
+      <param name="invoked_commandClassName" value="com.ibm.commerce.scheduler.commands.RefreshRegistryCmd" />
+      <param name="URL" value="/ignore" />
+    </task>
+  </target>
+</data-deploy>

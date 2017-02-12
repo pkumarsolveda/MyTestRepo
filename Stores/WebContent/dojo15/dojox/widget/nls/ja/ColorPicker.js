@@ -1,0 +1,1 @@
+({"hexLabel":"16 進","huePickerTitle":"色調セレクター","saturationPickerTitle":"彩度セレクター","redLabel":"r","greenLabel":"g","blueLabel":"b","hueLabel":"h","saturationLabel":"s","valueLabel":"v","degLabel":"°"})

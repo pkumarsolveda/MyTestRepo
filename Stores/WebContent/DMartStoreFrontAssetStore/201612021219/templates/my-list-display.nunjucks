@@ -1,0 +1,68 @@
+
+
+
+{% set logged = 'yes' %}
+
+{% set pageTitle = "mylist" %}
+
+{% set parentPage = "My List" %}
+{% block content %}
+
+
+  
+    
+		
+      {% set upsell = "enable" %}
+      
+        <div class="js-accordion-tabs-vertical tabs-primary">
+          <div class="my-list">
+            <ul class="resp-tabs-list tabs-primary--vertical">
+	            {% for giftList in listNameData%}
+	            	{% if giftList.accessSpecifier  == 'Private' %}
+	      			<li class="resp-tab-item tabs-primary--vertical" value="{{giftList.externalIdentifier}}">{{giftList.storeName}}</li>
+	      			{% endif %}
+	    		{% endfor %}
+            </ul>
+            
+            <div class="resp-tabs-container tabs-primary--vertical">
+            {%from '_modules/mylist-display-items.nunjucks'  import itemDetails  %}
+            {%set lists = 0 %}
+            {% for giftList in listNameData%}
+               
+            {% if giftList.accessSpecifier  == 'Private' %}
+              {%set lists = lists + 1 %}
+              <div  class="resp-tab-content tabs-primary--vertical {%if lists == 1 %}resp-tab-content-active{%endif%}" id="{{giftList.externalIdentifier}}" data-listid="{{giftList.externalIdentifier}}">
+                {%if currentGiftlistId ==giftList.uniqueID%}
+                {{itemDetails(itemDetailsJson,divId)}}
+                {% endif %}
+              </div>
+             {% endif %}
+             {% endfor %}
+              
+
+            </div>
+            
+          </div>
+        </div>
+      <div class="mylist-search-delete-cta">
+          <div class="row">
+            <div class="col-xs-12 col-lg-2">
+              <div class="delete-mylist">
+                <a href="javascript:;" class="button-white delete-my-list-cta" title="Delete List">
+                  Delete List
+                </a>
+              </div>
+            </div>
+
+            <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+              {% include '_modules/my-list-search-toolbar.nunjucks' %}
+            </div>
+          </div>
+        </div>
+
+    
+
+
+
+
+{% endblock %}

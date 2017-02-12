@@ -1,0 +1,4 @@
+{% from "_modules/product-listing-item-grocery.nunjucks" import plpGrocery %}
+{% for productId in data.productIds %}
+      	 {{ plpGrocery(data.product[productId],data.config,data) }}
+{% endfor %}

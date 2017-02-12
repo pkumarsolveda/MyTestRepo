@@ -1,0 +1,46 @@
+
+{% set upsell = "enable" %}
+
+<div class="js-accordion-tabs-recommanded">
+  <div class="no-border-tabs recommended-products">
+    <ul class="landing-carousel-navigation">
+      <li class="flex-nav-prev">
+        <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      </li>
+      <li class="flex-nav-next">
+        <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+      </li>
+    </ul>
+    <ul class="resp-tabs-list clearfix hor_1">
+      <li>Up Selling Products</li>
+      <li>Recommended Products</li>
+    </ul>
+    <div class="resp-tabs-container hor_1">
+      <div>
+        {% include '_modules/product-listing-item-apparel.nunjucks' %}
+        {% include '_modules/product-listing-item-apparel-alt.nunjucks' %}
+
+        <div class="js-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 16) %}
+            <li class="js-switch-view slide-margin">
+              {{ plpApperal() }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+      <div>
+        <div class="js-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 16) %}
+            <li class="js-switch-view  slide-margin">
+              {{ plpApperalAlt() }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

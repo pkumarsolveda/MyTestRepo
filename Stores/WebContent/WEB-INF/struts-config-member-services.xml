@@ -1,0 +1,77 @@
+﻿<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+
+	<action-mappings type="com.ibm.commerce.struts.ECActionMapping">
+		<action parameter="member.registerPerson" path="/AjaxPersonProcessServicePersonRegister" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.registerPerson" path="/PersonProcessServicePersonRegister" type="com.ibm.commerce.struts.LTPATokenGenerationEnabledComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.updatePerson" path="/AjaxPersonChangeServicePersonUpdate" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.updatePerson" path="/PersonChangeServicePersonUpdate" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.addAddressForPerson" path="/AjaxPersonChangeServiceAddressAdd" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.addAddressForPerson" path="/PersonChangeServiceAddressAdd" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.deleteAddressForPerson" path="/AjaxPersonChangeServiceAddressDelete" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.deleteAddressForPerson" path="/PersonChangeServiceAddressDelete" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.updateAddressForPerson" path="/AjaxPersonChangeServiceAddressUpdate" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.updateAddressForPerson" path="/PersonChangeServiceAddressUpdate" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.updateCheckoutProfile" path="/AjaxPersonChangeServiceCheckoutProfileUpdate" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.updateCheckoutProfile" path="/PersonChangeServiceCheckoutProfileUpdate" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.authenticatePassword" path="/AjaxPersonChangeServicePasswordUpdate" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.authenticatePassword" path="/PersonChangeServicePasswordUpdate" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.resetPassword" path="/AjaxPersonChangeServicePasswordReset" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="member.resetPassword" path="/PersonChangeServicePasswordReset" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+	</action-mappings>
+
+	<plug-in className="com.ibm.commerce.struts.ComponentPlugIn">
+		<set-property property="componentId" value="member"/>
+		<set-property property="clientFacadeClassName" value="com.ibm.commerce.member.facade.client.MemberFacadeClient"/>
+	</plug-in>
+
+</struts-config>

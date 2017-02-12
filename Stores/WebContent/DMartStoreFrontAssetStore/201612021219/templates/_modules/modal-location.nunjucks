@@ -1,0 +1,103 @@
+<!-- Use classname "modal-link" and add data-target as modal id to link modal to tag
+EX: <a href="javascript:;" class="modal-link" data-target="locationModal"> -->
+{% from "_modules/form-control.nunjucks" import formControl %}
+<div id="locationModal" class="modal-dialog js-modal-dialog-esc">
+
+	<div class="modal-dialog__content modal-dialog__content-medium">
+		
+		<div class="modal-dialog__header">
+			<h4 class="modal-dialog__header-title">YOUR  FAVORITE STORE DMART IS NOW ONLINE - Start Shopping Now! </h4>
+			<h4 class="modal-dialog__header-title-small">DMART IS NOW ONLINE - Start Shopping Now!</h4>
+		</div>
+		<div class="modal-dialog__body">
+			<div>
+			<div class="modal-location-para">
+			Now, you can shop online and pick up your order from a Dmart Ready store conveniently located near you. You can also choose to receive your order at your doorstep.
+			</div>
+			<div class="bitmap-modal">
+			<h3 class="modal-location-header">We currently offer our service in the following areas: </h3>
+			<img class="img-responsive" src="../DMartStoreFrontAssetStore/images/DMart/bitmap-pincode.png" alt="bitmap missing">
+			</div>
+			<h3 class="modal-location-enter">Enter your area or pin code below to deliver or collect your order!</h3>
+				<form class="form form--location form--modal" method="post" id="formLocationValidationModal" 
+					action="DmartSavePincodeCmd" novalidate>
+					<div class="row">
+					<div class="autocomplete-input col-md-8 col-xs-12">
+						
+						<div class="form-control">
+						  <label class="form__label spacing-bottom-tiny" for="pinNumberModal"></label>
+						  <input class="form__input" name="pinNumberModal" placeholder="example: Azad Nagar OR 400053" id="pinNumberModal" maxlength="200" required autocomplete="off">
+						  <span id="errorSpan" class="error" style="top:40px;display:none"></span>
+						</div>
+						<span class="auto-detecttext" onclick="javascript:geoFindMe();">Auto detect my pincode</span>
+						<div class="auto-detecttext-mobile col-sm-6" onclick="javascript:geoFindMe();">Auto detect my pincode</div>
+						</div>
+						<div class="col-xs-5 col-sm-4 button-mobile">
+							<button class="button-modal-location button--block  col-xs-6" type="button" id="savePinNumberModal">Set Pincode</button>
+							<a href="javascript:;" class="skip-location location-skip">Skip for Now</a>
+						</div>
+						</div>
+						<!-- <div class="autofocus-keypress  ps-container ps-theme-default js-hide-show">						
+							<ul id="pinCodeSuggestions" class="autocomplete-suggestions"></ul>
+						<div class="ps-scrollbar-x-rail" style="left: 0px; bottom: 3px;">
+							<div class="ps-scrollbar-x" tabindex="0" style="left: 0px; width: 0px;"></div>
+						</div>
+						<div class="ps-scrollbar-y-rail" style="top: 0px; right: 3px;">
+						<div class="ps-scrollbar-y" tabindex="0" style="top: 0px; height: 0px;"></div>
+						</div>
+							   
+						</div>
+					</div>
+					<div class="location-links">
+						<div class="row">
+							<div class="col-xs-6">
+								<a href="javascript:geoFindMe();" class="location__link">
+									<i class="icon-location"></i> <span>Get my location</span>
+								</a>
+							</div>
+                  <div class="col-xs-3"><a href="javascript:;" class="location-skip" style="display: block;">Skip</a></div>
+                  <div class="col-xs-3"><button class="button-primary button--block" type="button" id="savePinNumberModal">Save</button></div>
+						</div>
+					</div>-->
+				   <input type="hidden" name="storeIdNew" value="" id="storeIdNew" autocomplete="off">
+				   <input type="hidden" name="storeId" value="" id="storeId" autocomplete="off">
+				   <input type="hidden" name="currentOrderId" value="" id="currentOrderId" autocomplete="off">
+				   <input type="hidden" name="userField3" value="" id="userField3" autocomplete="off">
+				   <input type="hidden" name="oldGuestIdInput" value="" id="oldGuestIdInput" autocomplete="off">
+				   <input type="hidden" name="storeUserType" value="" id="storeUserType" autocomplete="off">
+	               <input type="hidden" name="pinCodeNew" value="" id="pinCodeNew" autocomplete="off">
+	               <input type="hidden" name="currentPath" value="" id="currentPath" autocomplete="off">
+
+				</form>
+				<div>
+				<div class="row mobile-footer-none">
+				<div class="col-xs-12">
+				<h3 class="modal-location-enter">Far away from these areas ?</h3>
+				<div class="blurb__content">
+				<div>Don’t live or work near any of the above areas? You can still shop with us and pick it up from a DMart <span class="ready-span">Ready &nbsp;</span>store. <a href="javascript:DMartStaticContent.PUPListDMart();">Click here</a> for Dmart Ready. </div>
+				</div>
+				</div>			
+				
+				
+						</div>
+					</div>
+				<!--<div class="blurb blurb--top-border">
+
+					<div class="row">
+						<div class="col-xs-8 col-sm-9">
+						<h4 class="blurb__title--small">Why Location Search</h4>
+							<div class="blurb__content">
+								<p>DMart seeks to be a one-stop shopping destination for entire family, meeting all their daily household needs.</p>
+							</div>
+						</div>
+						<div class="col-xs-4 col-sm-3">
+							<div class="blurb__img blurb__img--no-padding">
+								 <img class="img-responsive" src="/wcsstore/DMartStoreFrontAssetStore/images/DMart/temp/location/location-bag.jpg" alt="Location">								
+							</div>
+						</div>
+					</div>-->
+				</div>
+			</div>
+		</div>
+	</div>
+<!--</div>-->

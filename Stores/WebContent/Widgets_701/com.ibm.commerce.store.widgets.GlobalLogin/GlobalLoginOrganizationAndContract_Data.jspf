@@ -1,0 +1,110 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<!-- BEGIN GlobalLoginOrganizationAndContract_Data.jspf -->
+
+<%-- Build sign out links,organzation and contracts data --%>
+
+<c:set var="widgetId"><wcf:out value="${param.widgetId}" escapeFormat="xml"/></c:set>
+<c:if test="${empty widgetId}">
+  <c:set var="widgetId"><wcf:out value="${WCParam.widgetId}" escapeFormat="xml"/></c:set>
+</c:if>
+
+<c:set var="activeOrgId" value="${CommandContext.activeOrganizationId}"/>
+<c:set var="activeContractIds" value="${CommandContext.currentTradingAgreementIdsAsString}"/>
+
+<wcbase:useBean id="entitledOrgs" classname="com.ibm.commerce.user.beans.OrganizationListDataBean">
+	<c:set target="${entitledOrgs}" property="accountCheck" value="true"/>
+</wcbase:useBean>
+<wcbase:useBean id="entitledContracts" classname="com.ibm.commerce.user.beans.ContractListDataBean">
+	<c:set target="${entitledContracts}" property="commandContext" value="${CommandContext}"/>
+</wcbase:useBean>
+<c:set var="numEntitledOrgs" value="${fn:length(entitledOrgs.entitledOrganizations)}"/>
+<c:set var="numEntitledContracts" value="${fn:length(entitledContracts.contracts)}"/>
+<c:set var="activeContractIdsArray" value="${fn:split(activeContractIds,';')}" />
+<c:set var="firstActiveContractId" value="${activeContractIdsArray[0]}" />
+<c:set var="activeContractIdsArrayLength" value="${fn:length(activeContractIdsArray)}" />						
+<c:set var="homePageURL" value="${env_TopCategoriesDisplayURL}"/>
+
+<c:choose>
+	<c:when test="${fn:contains(env_TopCategoriesDisplayURL, '?') || fn:contains(env_TopCategoriesDisplayURL, '%3F') || fn:contains(env_TopCategoriesDisplayURL, '%3f')}">
+		<c:set var="urlParam" value="${env_TopCategoriesDisplayURL}&contractId=${firstActiveContractId}"/>
+	</c:when>
+	<c:otherwise>
+		<c:set var="urlParam" value="${env_TopCategoriesDisplayURL}?contractId=${firstActiveContractId}"/>
+	</c:otherwise>
+</c:choose>
+
+<wcf:url var="ContractSetInSessionURL" value="ContractSetInSession">
+  <wcf:param name="langId" value="${WCParam.langId}" />
+  <wcf:param name="storeId" value="${WCParam.storeId}" />
+  <wcf:param name="catalogId" value="${WCParam.catalogId}" />    
+  <wcf:param name="contractId" value="${firstActiveContractId}" /> 
+  <wcf:param name="URL" value="${urlParam}" />	
+</wcf:url>								
+
+<c:if test="${requestScope.pageCategory == 'Checkout' || requestScope.pageCategory == 'MyAccount' || requestScope.pageCategory == 'Error' || empty requestScope.pageCategory}">
+	<c:set var="contractNewURL" value="${env_TopCategoriesDisplayURL}"/>			
+</c:if>			
+
+<%
+ 
+String uri = request.getRequestURI();
+
+String urlToGoAfterLogin = uri.substring(uri.lastIndexOf("/")+1);
+
+pageContext.setAttribute("urlToGoAfterLogin", urlToGoAfterLogin);
+
+%>
+<wcf:url var="LogonAfterLogoff" value="DMartLogonView">
+	<wcf:param name="langId" value="${langId}" />
+	<wcf:param name="storeId" value="${storeId}" />
+	<wcf:param name="catalogId" value="${catalogId}" />
+	<c:if test="${!empty WCParam.nextUrl}">
+		<wcf:param name="nextUrl" value="${WCParam.nextUrl}" />
+	</c:if>
+	<wcf:param name="postLoginURL" value="${homePageURL}" />
+</wcf:url>
+
+
+<wcf:url var="Logon_LogoutURLOriginal" value="Logoff">	    
+  <wcf:param name="langId" value="${WCParam.langId}" />
+  <wcf:param name="storeId" value="${WCParam.storeId}" />
+  <wcf:param name="catalogId" value="${WCParam.catalogId}" />
+  <wcf:param name="myAcctMain" value="1" />		  		 
+  <wcf:param name="deleteCartCookie" value="true" />
+  <wcf:param name="URL" value="${LogonAfterLogoff}" />	
+</wcf:url>
+
+<c:set var="Logon_LogoutURL" value="javascript:GlobalLoginJS.deleteUserLogonIdCookie();logout('${Logon_LogoutURLOriginal}');"/>
+
+<c:if test="${empty userDisplayName}">
+	<c:set var="memberId" value="${CommandContext.user.memberId}"/>
+	<wcf:rest var="memberDetails" url="store/{storeId}/person/{memberId}" scope="request">
+		<wcf:var name="storeId" value="${storeId}" encode="true"/>
+		<wcf:var name="memberId" value="${memberId}" encode="true"/>
+		<wcf:param name="responseFormat" value="json" />
+	<wcf:param name="profileName" value="IBM_User_Registration_Details"/>
+	</wcf:rest>
+	<c:choose>
+		<c:when test="${locale eq 'ja_JP' || locale eq 'ko_KR' || locale eq 'zh_CN' || locale eq 'zh_TW'}">			
+			<c:set var="userDisplayName" value="${memberDetails.address.lastName} ${memberDetails.address.firstName}"/>
+		</c:when>
+		<c:otherwise>			
+			<c:set var="userDisplayName" value="${memberDetails.address.firstName} ${memberDetails.address.lastName}"/>
+		</c:otherwise>
+	</c:choose>	
+</c:if>
+<%@ include file="GlobalLoginShopOnBehalf_Data.jspf" %>	
+
+<!-- END GlobalLoginOrganizationAndContract_Data.jspf -->

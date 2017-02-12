@@ -1,0 +1,713 @@
+<?xml version="1.0"	?>
+<!DOCTYPE cache	SYSTEM "cachespec.dtd">
+
+<!-- All Commerce default command caching rules have been relocated under 
+	InitializationServlet.war -->
+<cache>
+	<cache-entry>
+		<class>servlet</class>
+		<name>/DMartStoreFrontAssetStore/Widgets/Footer/Footer.jsp</name>
+		<property name="do-not-consume">true</property>
+		<property name="consume-subfragments">true</property>
+		<property name="ignore-get-post">true</property>
+		<property name="save-attributes">false</property>
+		<property name="store-cookies">false</property>
+		<cache-id>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="host" type="header" />
+		</cache-id>
+
+		<dependency-id>
+			storeId
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+	</cache-entry>
+	<cache-entry>
+	<class>servlet</class>
+		<name>/Widgets-DMart/in.dmart.commerce.store.widgets.DmartTopCategoryRecommendation/DmartTopCategoryRecommendation.jsp</name>
+		<property name="do-not-consume">true</property>
+		<property name="consume-subfragments">true</property>
+		<property name="ignore-get-post">true</property>
+		<property name="save-attributes">false</property>
+		<property name="store-cookies">false</property>
+		<cache-id>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="host" type="header" />
+		</cache-id>
+
+		<dependency-id>
+			storeId
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+	</cache-entry>
+	<!-- AE-16916, AE-16928, AE-16929, AE-16930. -->
+	<cache-entry>
+		<class>servlet</class>
+		<name>/DMartStoreFrontAssetStore/StoreInfoArea/StaticContentPageDisplay.jsp</name>
+		<property name="do-not-cache">false</property>
+		<property name="save-attributes">true</property>
+		<property name="consume-subfragments">true</property>
+		<property name="do-not-consume">true</property>
+		<property name="ignore-get-post">true</property>
+		<cache-id>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_lang" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_deviceFormatId" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="pageId" type="parameter">
+				<required>true</required>
+			</component>
+			<metadatagenerator>com.ibm.commerce.pagelayout.cache.PageDesignMetaDataGenerator</metadatagenerator>
+		</cache-id>
+		<dependency-id>
+			storeId
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+		<dependency-id>
+			catalogId
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+		<dependency-id>
+			langId
+			<component id="DC_lang" type="attribute">
+				<required>true</required>
+			</component>
+		</dependency-id>
+		<dependency-id>
+			deviceFormatId
+			<component id="DC_deviceFormatId" type="attribute">
+				<required>true</required>
+			</component>
+		</dependency-id>
+		<dependency-id>
+			pageId
+			<component id="pageId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+	</cache-entry>
+	<!-- AE-16916, AE-16928, AE-16929, AE-16930 -->
+
+	<cache-entry>
+		<class>servlet</class>
+		<name>/DMartStoreFrontAssetStore/UserArea/ServiceSection/StoreLocatorSubSection/StoreLocator.jsp</name>
+		<property name="do-not-consume">true</property>
+		<property name="consume-subfragments">true</property>
+		<property name="ignore-get-post">true</property>
+		<property name="save-attributes">false</property>
+		<property name="store-cookies">false</property>
+		<cache-id>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_pupArea" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="host" type="header" />
+		</cache-id>
+
+		<dependency-id>
+			storeId
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			pupArea
+			<component id="DC_pupArea" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+	</cache-entry>
+	
+	<cache-entry>
+		<class>servlet</class>
+		<name>/DMartStoreFrontAssetStore/SiteMap/DmartSiteMap.jsp</name>
+		<property name="do-not-consume">true</property>
+		<property name="consume-subfragments">true</property>
+		<property name="ignore-get-post">true</property>
+		<property name="save-attributes">false</property>
+		<property name="store-cookies">false</property>
+		<cache-id>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</cache-id>
+		<dependency-id>
+			storeId
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+	</cache-entry>
+
+	<cache-entry>
+		<class>servlet</class>
+		<name>/DMartStoreFrontAssetStore/SiteMap/DmartAreaAndPup.jsp</name>
+		<property name="do-not-consume">true</property>
+		<property name="consume-subfragments">true</property>
+		<property name="ignore-get-post">true</property>
+		<property name="save-attributes">false</property>
+		<property name="store-cookies">false</property>
+		<cache-id>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</cache-id>
+		<dependency-id>
+			storeId
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+	</cache-entry>
+	
+	<cache-entry>
+		<class>servlet</class>
+		<name>com.ibm.commerce.struts.ECActionServlet.class</name>
+		<property name="consume-subfragments">true</property>
+		<property name="ignore-get-post">true</property>
+		<property name="save-attributes">
+			false
+			<exclude>javax.servlet.forward.path_info</exclude>
+			<exclude>requestURIPath</exclude>
+			<exclude>requestServletPath</exclude>
+			<exclude>jspStoreDir</exclude>
+			<exclude>env_jspStoreDir</exclude>
+			<!-- We still have dependency here b/w widgets and top browsing pages... 
+				top pages doesn't use emsNameLocalPrefix, but widgets use it -->
+			<exclude>emsNameLocalPrefix</exclude>
+			<exclude>pageloaded_quickInfoPopupJSPF</exclude>
+			<exclude>overrideLazyLoadDepartmentsList</exclude>
+		</property>
+		<property name="store-cookies">false</property>
+		<sharing-policy>not-shared</sharing-policy>
+
+		<!-- Displays HomePage TopCategoriesDisplay command first ensures that 
+			the specified Catalog can be displayed in the current store and then forwards 
+			to 'TopCategoriesDisplayView', which is mapped to HomePage in Aurora Store. 
+			No cache entry is required for TopCategoriesDisplayView or HomePage.jsp -->
+		<cache-id>
+			<component id="" type="pathinfo">
+				<required>true</required>
+				<value>/TopCategoriesDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="langId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_curr" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_cont" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_deviceFormatId" type="attribute">
+				<required>false</required>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_userType" type="attribute">
+					<required>true</required>
+			</component>
+			<!-- HomePage doesn't need metaDataGenerator. It will be cached by default 
+				as of now -->
+			<!-- MetaDataGenerator needs productId/categoryId/pageId/searchTerm. HomePage 
+				doesn't have any of these IDs. So do not use metaDataGenerator -->
+			<!-- <metadatagenerator>com.ibm.commerce.pagelayout.cache.PageDesignMetaDataGenerator</metadatagenerator> -->
+		</cache-id>
+
+		<cache-id>
+			<component id="" type="pathinfo">
+				<required>true</required>
+				<value>/DepartmentDropdownViewRWD</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="langId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_cont" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+		</cache-id>
+
+		<cache-id>
+			<component id="" type="pathinfo">
+				<required>true</required>
+				<value>/CategoryDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="langId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_curr" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_cont" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_deviceFormatId" type="attribute">
+				<required>false</required>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="categoryId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="pageView" type="parameter">
+				<required>false</required>
+			</component>
+			<component id="DC_userType" type="attribute">
+					<required>true</required>
+			</component>
+			<metadatagenerator>com.ibm.commerce.pagelayout.cache.PageDesignMetaDataGenerator</metadatagenerator>
+		</cache-id>
+
+		<!-- Displays catentry details using either ProductDisplay.jsp or BundleDisplay.jsp 
+			or PackageDisplay.jsp The purpose of ProductDisplay command is to retrieve 
+			the configured display Page for the specified Product/Bundle/Package/Item 
+			in in the specified catalog. That display page will in turn be launched to 
+			display the catentry information. It looks at DISPENTREL table to get the 
+			JSP pages to display the product. -->
+		<cache-id>
+			<component id="" type="pathinfo">
+				<required>true</required>
+				<value>/ProductDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="langId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_curr" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_cont" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_deviceFormatId" type="attribute">
+				<required>false</required>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="productId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="categoryId" type="parameter">
+				<required>false</required>
+			</component>
+			<component id="DC_userType" type="attribute">
+					<required>true</required>
+			</component>
+			<metadatagenerator>com.ibm.commerce.pagelayout.cache.PageDesignMetaDataGenerator</metadatagenerator>
+		</cache-id>
+		
+		<cache-id>
+			<component id="" type="pathinfo">
+				<required>true</required>
+				<value>/SearchDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="langId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_curr" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_cont" type="attribute">
+				<required>true</required>
+			</component>
+			<component id="DC_deviceFormatId" type="attribute">
+				<required>false</required>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+			<component id="DC_userType" type="attribute">
+					<required>true</required>
+			</component>
+			<component id="searchTerm" type="parameter">
+				<required>true</required>
+			</component>
+			<metadatagenerator>com.ibm.commerce.pagelayout.cache.PageDesignMetaDataGenerator</metadatagenerator>
+		</cache-id>
+
+		<dependency-id>
+			storeId
+			<component id="" ignore-value="true" type="pathinfo">
+				<required>true</required>
+				<value>/CategoryDisplay</value>
+				<value>/TopCategoriesDisplay</value>
+				<value>/ProductDisplay</value>
+				<value>/SearchDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+
+		<dependency-id>
+			priceRule:storeId
+			<component id="" ignore-value="true" type="pathinfo">
+				<required>true</required>
+				<value>/ProductDisplay</value>
+				<value>/CategoryDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+
+		<dependency-id>
+			MerchantAssociation:storeId
+			<component id="" ignore-value="true" type="pathinfo">
+				<required>true</required>
+				<value>/ProductDisplay</value>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+
+		<dependency-id>
+			catalogId
+			<component id="" ignore-value="true" type="pathinfo">
+				<required>true</required>
+				<value>/DepartmentDropdownViewRWD</value>
+				<value>/CategoryDisplay</value>
+				<value>/TopCategoriesDisplay</value>
+				<value>/ProductDisplay</value>
+				<value>/SearchDisplay</value>
+			</component>
+			<component id="catalogId" type="parameter">
+				<required>true</required>
+			</component>
+		</dependency-id>
+
+	<dependency-id>
+		catalogFilter:storeId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/CategoryDisplay</value>
+			<value>/TopCategoriesDisplay</value>
+			<value>/ProductDisplay</value>
+			<value>/SearchDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		storeId:catalogId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+			<value>/CategoryDisplay</value>
+			<value>/ProductDisplay</value>
+			<value>/SearchDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="catalogId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+			<value>/CategoryDisplay</value>
+		</component>
+		<component id="categoryId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+	<dependency-id>
+		storeId:categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+			<value>/CategoryDisplay</value>
+			<value>/DepartmentDropdownViewRWD</value>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="categoryId" type="parameter">
+			<required>false</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		catalogId:categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+			<value>/CategoryDisplay</value>
+			<value>/DepartmentDropdownViewRWD</value>
+		</component>
+		<component id="catalogId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="categoryId" type="parameter">
+			<required>false</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		storeId:catalogId:categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+			<value>/CategoryDisplay</value>
+			<value>/DepartmentDropdownViewRWD</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="catalogId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="categoryId" type="parameter">
+			<required>false</required>
+		</component>
+	</dependency-id>
+	<dependency-id>
+		TopCategoriesDisplay:storeId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		TopCategoriesDisplay:storeId:catalogId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="catalogId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		TopCategoriesDisplay:storeId:categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/TopCategoriesDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="categoryId" type="parameter">
+			<required>false</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		CategoryDisplay:storeId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/CategoryDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		CategoryDisplay:storeId:catalogId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/CategoryDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="catalogId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		CategoryDisplay:storeId:categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/CategoryDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="categoryId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		storeId:productId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="productId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		productId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="productId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		ProductDisplay:storeId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		ProductDisplay:storeId:productId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="storeId" type="parameter">
+			<required>true</required>
+		</component>
+		<component id="productId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		ProductDisplay:productId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="productId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		ProductDisplay:storeId:catalogId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="DC_cat_SP_" type="attribute">
+			<required>true</required>
+			<index>1</index>
+		</component>
+		<component id="catalogId" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+
+	<dependency-id>
+		ProductDisplay:storeId:categoryId
+		<component id="" ignore-value="true" type="pathinfo">
+			<required>true</required>
+			<value>/ProductDisplay</value>
+		</component>
+		<component id="DC_cat_SP_" type="attribute">
+			<required>true</required>
+			<index>1</index>
+		</component>
+		<component id="parent_category_rn" type="parameter">
+			<required>true</required>
+		</component>
+	</dependency-id>
+	
+	</cache-entry>
+
+	<cache-entry>
+		<class>servlet</class>
+		<name>/DMartStoreFrontAssetStore/Widgets/Header/Header.jsp</name>
+		<name>/DMartStoreFrontAssetStore/Common/CommonJSToInclude.jspf</name>
+		<name>/Widgets-DMart/in.dmart.commerce.store.widgets.DmartBreadcrumbsWidget/DmartBreadcrumbTrailHierarchy.jsp</name>
+		<name>/Widgets_701/com.ibm.commerce.store.widgets.EMarketingSpot/EMarketingSpot.jsp</name>
+		<!-- <name>/Widgets_701/com.ibm.commerce.store.widgets.PDP_InventoryAvailability/InventoryAvailability.jsp</name> 
+			<name>/Widgets_701/Common/InventoryStatus/GetInventoryStatus_Data.jsp</name> 
+			<name>/Widgets_701/Common/Discounts/Discounts.jsp</name> <name>/Widgets_701/com.ibm.commerce.store.widgets.PDP_Discounts/Discounts.jsp</name> 
+			<name>/Widgets_701/Common/ShoppingList/ShoppingList.jsp</name> <name>/Widgets_701/com.ibm.commerce.store.widgets.PDP_AddToRequisitionLists/AddToRequisitionLists.jsp</name> -->
+		<property name="do-not-consume">true</property>
+		<property name="do-not-cache">true</property>
+		<!-- Ideally cache-ids are not needed here since these entries are neither 
+			consumed nor cached. But if cache-ids are empty, then WAS doesn't treat this 
+			as a valid cache-entry. Hence set few cache-ids as a workaround. -->
+		<cache-id>
+			<component id="catalogId" type="parameter">
+				<required>false</required>
+			</component>
+			<component id="storeId" type="parameter">
+				<required>false</required>
+			</component>
+			<component id="langId" type="parameter">
+				<required>false</required>
+			</component>
+		</cache-id>
+	</cache-entry>
+
+
+</cache>

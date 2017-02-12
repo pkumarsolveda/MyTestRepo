@@ -1,0 +1,1 @@
+({"CNY_displayName":"Yuan Renminbi Tseina","EUR_displayName":"Ewro","GBP_displayName":"Punt Sterling Prydain","JPY_displayName":"Yen Siapan","USD_displayName":"Doler yr UDA","AUD_symbol":"AU$","CAD_symbol":"CA$","CNY_symbol":"CN¥","EUR_symbol":"€","GBP_symbol":"£","HKD_symbol":"HK$","JPY_symbol":"JP¥","USD_symbol":"US$"})

@@ -1,0 +1,88 @@
+
+  <div class="delivery-vertical__address-new form js-hide-show">
+    <h4 class="delivery-vertical__address-new--title">New Address</h4>
+    {% include '_modules/selection-address-delivery-add-address.nunjucks' %}
+  </div>
+
+<form action="javascript:;">
+  <ul class="delivery-vertical__address">
+    <li>
+      <label>
+        <input type="radio" checked="" name="delivery-address">
+        <address>
+          <strong>Mahesh</strong><br>
+          90 Feet Road, Mahavir Nagar, Chandivali West,
+          Landmark: Opposite Kamla Vihar Sports Club,
+          Mumbai - 400078, Maharastra. <br>
+          Phone: +91 9878685848
+        </address>
+      </label>
+      <span>
+        <a class="js-delivery-favorite delivery-favorite-cta delivery-favorite-cta--home" href="javascript:;" title="Make it as Favorite PUP"><i class="js-delivery-favorite-icon icon-heart js-hide-show"></i>
+        <i class="js-delivery-favorite-icon icon-heart-outlined"></i></a>
+        <a class="modal-link" href="javascript:;" title="Edit" data-target="editAddressModal"><i class="icon-pencil"></i></a>
+        <a class="js-address-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+      </span>
+    </li>
+
+    <li>
+      <label>
+        <input type="radio" name="delivery-address">
+        <address>
+          <strong>Chandra Gupta</strong> <br>
+          30/57, Lal Bahadur Shastri Marg, Ambedkar Nagar, Kanjurmarg West,
+          Landmark: Bhandup West,
+          Mumbai - 400078, Maharastra. <br>
+          Phone: +91 9832243343
+        </address>
+      </label>
+      <span>
+        <a class="js-delivery-favorite delivery-favorite-cta delivery-favorite-cta--home" href="javascript:;" title="Make it as Favorite PUP"><i class="js-delivery-favorite-icon icon-heart js-hide-show"></i>
+        <i class="js-delivery-favorite-icon icon-heart-outlined"></i></a>
+        <a class="modal-link" href="javascript:;" title="Edit" data-target="editAddressModal"><i class="icon-pencil"></i></a>
+        <a class="js-address-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+      </span>
+    </li>
+
+    <li>
+      <label>
+        <input type="radio" name="delivery-address">
+        <address>
+          <strong>Lokesh</strong> <br>
+          101, Sector-9, Sector 10A, Airoli,
+          Navi Mumbai - 400708, Maharashtra.<br>
+          Phone: +91 9878685848
+        </address>
+      </label>
+      <span>
+        <a class="js-delivery-favorite delivery-favorite-cta delivery-favorite-cta--home" href="javascript:;" title="Make it as Favorite PUP"><i class="js-delivery-favorite-icon icon-heart js-hide-show"></i>
+        <i class="js-delivery-favorite-icon icon-heart-outlined"></i></a>
+        <a class="modal-link" href="javascript:;" title="Edit" data-target="editAddressModal"><i class="icon-pencil"></i></a>
+        <a class="js-address-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+      </span>
+    </li>
+
+    <li>
+      <label>
+        <input type="radio" name="delivery-address">
+        <address>
+          <strong>Lal Singh</strong> <br>
+          11, Near Thakur cinema, Thakur Village, Chandivali East,
+          Mumbai - 400101, Maharashtra.<br>
+          Phone: +91 9995599955
+        </address>
+      </label>
+      <span>
+      <a class="js-delivery-favorite delivery-favorite-cta delivery-favorite-cta--home" href="javascript:;" title="Make it as Favorite PUP"><i class="js-delivery-favorite-icon icon-heart js-hide-show"></i>
+        <i class="js-delivery-favorite-icon icon-heart-outlined"></i></a>
+      <a class="modal-link" href="javascript:;" title="Edit" data-target="editAddressModal"><i class="icon-pencil"></i></a>
+      <a class="js-address-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+      </span>
+    </li>
+
+  </ul>
+</form>
+
+<div class="delivery-vertical-cta js-new-address-cta">
+	<a href="javascript:;" class="button button-white delivery-cta--right modal-link" title="New Address" data-target="newAddressModal">NEW ADDRESS</a>
+</div>

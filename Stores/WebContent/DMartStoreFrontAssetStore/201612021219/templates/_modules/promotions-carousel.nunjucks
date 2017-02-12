@@ -1,0 +1,42 @@
+{% macro promotionItem(title, description, more, modalid) %}
+<li class="slide-margin">
+	<div class="promotion-carousel__item">
+		<h3 class="promotion-carousel__item-title">{{title}}</h3>
+		<div class="promotion-carousel__item-description">{{description}}</div>
+		{% if more == 'true' %}
+		<a class="promotion-more-link modal-link" data-target="{{ modalid }}" href="javascript:;">More</a>
+		{% endif %}
+	</div>
+</li>
+{% endmacro %}
+
+<!-- Single Promotion Box -->
+<div class="js-hide-show">
+	<ul class="promotions-carousel promotions-carousel-primary">
+	{{ promotionItem(title="Free Lays Maxx Macho Chilli with Sift Drink", description="Get Lays Macho Chilli Free") }}
+	</ul>
+</div>
+
+<!-- Double Promotions Box -->
+<div class="js-hide-show">
+	<ul class="promotions-carousel promotions-carousel-secondary">
+	{{ promotionItem(title="Free Lays Maxx Macho Chilli with Sift Drink", description="Get Lays Macho Chilli Free") }}
+	{{ promotionItem(title="Free Lays Maxx Macho Chilli with Sift Drink", description="Get Lays Macho Chilli Free") }}
+	</ul>
+</div>
+
+<!-- More than two/three Promotions Box with Carousel -->
+<div class="promotions-carousel js-promotions-carousel">
+	<div class="promotions-carousel-navigation">
+    <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+    <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+  </div>
+  <ul class="slides clearfix">
+	  {% for n in range(0, 2) %}
+	    {{ promotionItem(title="Free Lays Maxx Macho Chilli with Sift Drink", description="Get Lays Macho Chilli Free", more="true", modalid="primaryPromotionsModal") }}
+	    {{ promotionItem(title="Big Save on Household", description="Get Scotch Brite Free", more="true", modalid="secondaryPromotionsModal") }}
+	    {{ promotionItem(title="Offer on Lee Navy T-Shirts", description="Get Rs.100/- Off on Lee Navy T-Shirts<sup>*</sup>", more="true", modalid="ternaryPromotionsModal") }}
+	  {% endfor %}
+	</ul>
+</div>
+{% include '_modules/modal-promotion.nunjucks' %}

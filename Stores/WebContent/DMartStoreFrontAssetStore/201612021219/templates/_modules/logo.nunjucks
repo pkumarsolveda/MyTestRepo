@@ -1,0 +1,7 @@
+<div class="logo">
+  <a href="{{data.homeURL}}" title="DMart">
+    <img class="logo--large img-responsive" src="/wcsstore/DMartStoreFrontAssetStore/images/DMart/DMartReady.svg" alt="DMart">
+    <img class="logo--medium img-responsive" src="/wcsstore/DMartStoreFrontAssetStore/images/DMart/DMartReady.svg" alt="DMart">
+    <!-- <img class="logo--small img-responsive" src="/wcsstore/DMartStoreFrontAssetStore/images/DMart/dmart-symbol-logo.svg" alt="DMart"> -->
+  </a>
+</div>

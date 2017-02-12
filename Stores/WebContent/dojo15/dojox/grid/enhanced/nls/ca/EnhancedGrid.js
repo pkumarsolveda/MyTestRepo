@@ -1,0 +1,1 @@
+({"singleSort":"Ordre únic","nestedSort":"Ordre imbricat","ascending":"Ascendent","descending":"Descendent","sortingState":"${0} - ${1}","unsorted":"No ordenis aquesta finestra"})

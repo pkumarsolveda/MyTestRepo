@@ -1,0 +1,29 @@
+<div class="container">
+  <div class="footer-credibility">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-xs-center">
+        <div class="footer-credibility--sprite-icon footer-credibility-checkout--sprite-icon">
+          <i class="dmart-sprite sprite-payments-visa"></i>
+          <i class="dmart-sprite sprite-payments-mastercard"></i>
+          <i class="dmart-sprite sprite-payments-amex"></i>
+          <i class="dmart-sprite sprite-payments-rupay"></i>
+          <i class="dmart-sprite sprite-payments-cod"></i>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <aside class="footer-seal respond-text-right">
+          <i class="dmart-sprite sprite-dmart-guarantee"></i>
+          <i class="dmart-sprite sprite-dmart-ssl"></i>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div><!-- /footer-credibility -->
+
+<footer class="footer footer-checkout">
+  <div class="container">
+    <div class="footer-legal">
+      {% include "_modules/footer-copyrights.nunjucks" %}
+    </div>
+  </div> <!-- /footer-legal -->
+</footer>

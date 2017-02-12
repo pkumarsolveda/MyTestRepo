@@ -1,0 +1,33 @@
+
+<header class="checkout-header header-component__primary">
+  <div class="emergency-note">
+	<div style="background:red; color:white;"></div>
+  </div>
+  <div class="container desktop-checkoutheader">
+    <div class="row">
+      <div class="col-md-3 col-lg-3 col-alt-logo">
+        {% include '_modules/logo.nunjucks' %}
+      </div>
+      <div class="col-xs-12 col-md-9 col-lg-9 col-alt-header">
+		<div class="col-xs-12">
+		  <div class="desktop-indicator col-xs-8"> {% include '_modules/progress-indicator.nunjucks' %}</div>
+			<div class="logo_small">
+				<a href="/" title="DMart">
+					<img class="logo--small img-responsive" src="/wcsstore/DMartStoreFrontAssetStore/images/DMart/DMartReady.svg" alt="DMart">
+				</a>
+			</div>
+        {% include '_modules/delivery-code.nunjucks' %}
+		</div>
+      </div>
+    </div>
+  </div>
+</header>
+<div class="container smalldevice-indicator">
+  <div class="row">
+    {% include '_modules/progress-indicator.nunjucks' %}
+  </div>
+</div>
+
+{% include '_modules/modal-location.nunjucks' %}
+{% include '_modules/modal-address-new.nunjucks' %}
+{% include '_modules/modal-address-edit.nunjucks' %}

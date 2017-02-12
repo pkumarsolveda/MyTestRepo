@@ -1,0 +1,85 @@
+{% macro searchDropdownGrocery(itemtype,  title="Nike", product="Men's Polo T-shirt", price="295", mrp="460") %}
+
+<li>
+  <div class="row">
+    <div class="col-md-1">
+    {% if itemtype == 'grocery' %}
+      <a href="javascript:;" title=""><img class="img-responsive" src="/{{config.baseUrl}}images/temp/plp/product-1.jpg"  alt="product image"></a>
+    {% else %}
+    <a href="javascript:;" title=""><img class="img-responsive" src="/{{config.baseUrl}}images/temp/plp/product-apparel-1.jpg"  alt="product image"></a>
+    {% endif %}
+    </div>
+    <div class="col-md-3">
+      <h4 class="product-search-brand">
+      <a href="javascript:;">{{ title }}</a>
+      </h4>
+      <h6 class="product-search-item">
+      <a href="javascript:;">{{ product }}</a>
+      </h6>
+    </div>
+    <div class="col-md-2">
+      <div class="custom-dropdown">
+        {% if itemtype == 'grocery' %}
+        <select class="product-search-item--size-select">
+          <option value="1" selected="">200gm</option>
+          <option value="2">250gm</option>
+          <option value="3">500gm</option>
+          <option value="4">250gm</option>
+        </select>
+        {% else %}
+        <select class="product-search-item--size-select apparel-size-select">
+          <option>Size</option>
+          <option>S</option>
+          <option>M</option>
+          <option>L</option>
+          <option>XL</option>
+        </select>
+        {% endif %}
+      </div>
+    </div>
+    <div class="col-md-4 col-lg-3">
+      <h6 class="product-listing--original-price">
+      MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{ mrp }}</span>
+      </h6>
+      <h4 class="product-search-listing--discounted-price">
+      DMart <i class="icon-rupees"></i>{{ price }}</a>
+      </h4>
+    </div>
+    <div class="col-md-2 col-lg-3">
+      <div class="search-cart-button">
+       {% if itemtype == 'grocery' %}
+        <button class="product-search__btn-addtolist js-not-added button-primary" type="button">
+          <i class="icon-cart"></i>
+            Add to List
+        </button>
+        {% else %}
+        <button class="product-search__btn-addtolist js-not-added button-primary cart-button-disabled" disabled="disabled" type="button">
+          <i class="icon-cart"></i>
+            Add to List
+        </button>
+        {% endif %}
+        <div class="quantity-select clearfix js-hide-show">
+          <form>
+            <div class="js-quantity-minus quantity-button"> <a href="javascript:;">-</a></div>
+            <div class="quantity-input">
+              <input type="text" class="form__input" disabled="disabled" value="1" >
+            </div>
+            <div class="js-quantity-plus quantity-button"> <a href="javascript:;">+</a></div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+
+{% endmacro %}
+
+<ul class="search-dropdown">
+  {{ searchDropdownGrocery() }}
+  {{ searchDropdownGrocery(title="People", product="Striped Men's T-shirt", price="395", mrp="460") }}
+  {{ searchDropdownGrocery(title="Peter England", product="Men's T-shirt", price="395", mrp="460") }}
+  {{ searchDropdownGrocery(itemtype="grocery", title="Kohinoor", product="Pure Basmati Rice", price="395", mrp="460") }}
+  {{ searchDropdownGrocery(itemtype="grocery", title="Satyam", product="Royal Basmati Rice", price="595", mrp="690") }}
+  {{ searchDropdownGrocery(itemtype="grocery", title="Tshirt", product="Pure Basmati Rice", price="395", mrp="450") }}
+  {{ searchDropdownGrocery(title="Peter England", product="Men's T-shirt", price="395", mrp="460") }}
+</ul>

@@ -1,0 +1,44 @@
+{% extends '_layouts/landing.nunjucks' %}
+{% block title %}Home{% endblock %}
+
+{% set pageTitle = "splash" %}
+
+{% block content %}
+
+{% include '_modules/banner.nunjucks' %}
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <section class="landing-tabs landing-tabs--primary spacing-bottom">
+          <h2 class="landing-tabs--title">Most Popular</h2>
+        {% include '_modules/landing-upper-product.nunjucks' %}
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <section class="landing-tabs landing-tabs--tertiary">
+          <h2 class="landing-tabs--title">Top Category Offers</h2>
+          {% include '_modules/top-category-offers-alt.nunjucks' %}
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <p class="landing-links">
+          <a href="javascript:;" title="View all">View all</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {% include '_modules/modal-size-guide.nunjucks' %}
+{% endblock %}

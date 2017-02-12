@@ -1,0 +1,49 @@
+<div class="plp-header clp-header-relative">
+ 
+   {% if(pagefilterSearch == 'enabled') %}
+
+ <div class="filter-sort-grid">
+<div class="multiselectclp">
+        <div class="selectBoxbrand">
+            <select>
+                <option>Brand</option>
+            </select>
+            <div class="overSelect"></div>
+        </div>
+        <div class="checkboxesbrand">
+            <label><input type="checkbox"/><span title="Premia">Premia</span></label>
+            <label><input type="checkbox"/><span title="Ricebran-fortune">Ricebran-fortune</span></label>
+            <label><input type="checkbox"/><span title="Krishna">Krishna</span></label>
+            <label><input type="checkbox"/><span title="Everest">Everest</span></label>
+            
+        </div>
+    </div>
+    <div class="js-mobile-filter mobile-filter-link show-sm-down">
+    <a href="javascript:;">Show Brand Filter</a>
+  </div>
+  </div>
+  {% endif %}
+     {% if(pagefilterSearch == 'disabled') %}
+    <div class="filter-sort-grid">
+ <div class="multiselectclp">
+        <div class="selectBoxbrand">
+            <select>
+                <option>Select</option>
+            </select>
+            <div class="overSelect"></div>
+        </div>
+        <div class="checkboxesbrand">
+            <label><input type="checkbox"/><span title="Premia">Premia</span></label>
+            <label><input type="checkbox"/><span title="Ricebran-fortune">Ricebran-fortune</span></label>
+            <label><input type="checkbox"/><span title="Krishna">Krishna</span></label>
+            <label><input type="checkbox"/><span title="Everest">Everest</span></label>
+            
+        </div>
+    </div>
+    <div class="js-mobile-filter mobile-filter-link show-sm-down">
+    <a href="javascript:;">Show Advanced Filter</a>
+  </div>
+  </div>
+{% endif %}
+  
+</div>

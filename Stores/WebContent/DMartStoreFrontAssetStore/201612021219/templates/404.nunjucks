@@ -1,0 +1,32 @@
+{% extends '_layouts/base-alternate.nunjucks' %}
+{% block title %} 404 page {% endblock %}
+{% set pageTitle = "Error" %}
+
+{% set parentPage = "Error" %}
+
+{% block content %}
+  <div class="container">
+    <div class="static-page">
+      <div class="static-page--error">
+        <div class="row">
+          <div class="col-xs-12 col-md-9 static-page--error-center">
+            <div class="col-xs-12 col-md-3">
+              <div class="error-notification-wrap">
+                <i class="icon-404 error-notification-icon"></i>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <div class="error-notification-message">
+                <h1 class="static-page--error-title">Cannot find this page!!!</h1>
+                <p class="static-page--error-description">Sorry the page you were looking is not found.
+                <br>
+
+                <a href="javascript:;" class="error__btn-cta button--block button-white" title="GO TO HOME PAGE">GO TO HOME PAGE</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

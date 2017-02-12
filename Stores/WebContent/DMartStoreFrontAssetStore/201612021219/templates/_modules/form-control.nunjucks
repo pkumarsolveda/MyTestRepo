@@ -1,0 +1,6 @@
+{% macro formControl(label, requiredField, name, type="text", value, placeholder, id, maxlength, required, class) %}
+<div class="form-control">
+  <label class="form__label {% if requiredField=='true' %}required-field{% endif%} spacing-bottom-tiny" for="{{name}}">{{label}}</label>
+  <input class="form__input {{ class }}" type="{{type}}" name="{{name}}" value="{{value}}" placeholder="{{placeholder}}" id="{{id}}" maxlength="{{maxlength}}"  {% if required=="true" %}required{% endif%} autocomplete="off">
+</div>
+{% endmacro %}

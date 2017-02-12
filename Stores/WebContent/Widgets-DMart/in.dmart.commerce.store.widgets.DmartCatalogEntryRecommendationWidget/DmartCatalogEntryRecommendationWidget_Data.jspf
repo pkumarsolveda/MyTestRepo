@@ -1,0 +1,44 @@
+<%--  Add your data related code here --%>
+
+<c:if test="${empty productId}">
+	<c:choose>
+		<c:when test="${!empty param.productId}">
+			<c:set var="productId" value="${param.productId}" />
+		</c:when>
+		<c:when test="${!empty WCParam.productId}">
+			<c:set var="productId" value="${WCParam.productId}" />
+		</c:when>
+	</c:choose>
+</c:if>
+
+<wcf:rest var="catalogNavigationView" url="${searchHostNamePath}${searchContextPath}/store/${WCParam.storeId}/productview/byId/${productId}" >	
+			<wcf:param name="langId" value="${langId}"/>
+			<wcf:param name="currency" value="${env_currencyCode}"/>
+			<wcf:param name="responseFormat" value="json"/>		
+			<wcf:param name="catalogId" value="${WCParam.catalogId}"/>
+			<wcf:param name="profileName" value="X_findProductByIds_Details_DMART" />
+</wcf:rest>
+<c:set var="catalogEntryView" value="${catalogNavigationView.catalogEntryView[0]}"/>
+<input id="catgroupId" type="hidden" value="${catalogEntryView.parentCatalogGroupID[0]}"  />
+<input id="partNumber" type="hidden" value="${catalogEntryView.partNumber}" />
+<div id="recommendedProducts"></div>
+
+
+<%--<script src="${jsAssetsDir}javascript/DMart/localCache/Storage.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/LocalCacheHelper.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/ProductDisplayHelper.js"></script> --%>
+
+<script type="text/javascript">
+	dojo.addOnLoad(function() {
+			var currProductId = ${WCParam.productId};
+			$(document).on(
+				'dmart.recommendation.products',
+				function(event,recommProds) {
+					productsRecommendation.init(recommProds,'recommendations', null);
+				$(document).off('dmart.recommendation.products');
+			});
+			
+			RecommendationsJS.waitForRecommendationTrigger();
+		
+		});
+</script>

@@ -1,0 +1,20 @@
+<div class="product-filter product-filter--brand">
+<h3 class="filter-title js-filter-hide-show">Brand
+    <span class="filter__item--title-arrow"><i class="icon-caret-up"></i></span>
+  </h3>
+  <div class="filter__item-module">
+   <!-- <div class="brand-filter">
+      <!--<input type="text" placeholder="Search by Brand" class="search-text-input" />
+      <div class="icon-holder">
+        <i class="icon-search"></i>
+      </div>
+    </div>-->
+    <ul class="filter__item-list-secondary filter__scroll">
+      <li><label><input type="checkbox" checked>Premia</label> </li>
+      <li><label><input type="checkbox" checked>Ricebran-fortune</label> </li>
+      <li><label><input type="checkbox" checked>Krishna</label> </li>
+      <li><label><input type="checkbox" checked>Everest</label> </li>
+      
+    </ul>
+  </div>
+</div>

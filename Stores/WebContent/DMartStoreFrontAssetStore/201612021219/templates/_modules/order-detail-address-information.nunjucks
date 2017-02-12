@@ -1,0 +1,57 @@
+{% macro orderAddressDetail(data) %}
+
+{%set firstOrderItem = data.orderDetail.orderItemIds[0] %}
+{%set slotChangeEligible =  data.orderDetail.isSlotChangeEligible %}
+  
+<div class="cart-summary delivery-address spacing-double">
+  <h4 class="cart-summary--title cart-summary--title-secondary">Order Information</h4>
+  <div class="cart-summary__details js-perfectscrollbar-destroy">
+    <div class="cart-summary__details--primary">
+      <div class="delivery-address--container">
+        <div class="row">
+          <div class="col-xs-12 col-lg-6">
+            <h4 class="delivery-address--title-secondary">Delivery Address:</h4>
+            <address class="delivery-address-details">
+              <strong>{{data.orderDetail.orderItems[firstOrderItem].firstName}} {{data.orderDetail.orderItems[firstOrderItem].middleName}} {{data.orderDetail.orderItems[firstOrderItem].lastName}}</strong><br>
+              {{data.orderDetail.orderItems[firstOrderItem].addressLine1}}{% if data.orderDetail.orderItems[firstOrderItem].addressLine2 != '' and data.orderDetail.orderItems[firstOrderItem].addressLine2%},<br> {% endif %}{{data.orderDetail.orderItems[firstOrderItem].addressLine2}}{% if data.orderDetail.orderItems[firstOrderItem].addressLine3 != '' and data.orderDetail.orderItems[firstOrderItem].addressLine3%},<br> {{data.orderDetail.orderItems[firstOrderItem].addressLine3}}{% endif %},<br> {{data.orderDetail.orderItems[firstOrderItem].city}} - {{data.orderDetail.orderItems[firstOrderItem].zipCode}} <br>
+              <p class="spacing-bottom-half"></p>
+              {%set phoneNumber = data.orderDetail.orderItems[firstOrderItem].phone1 %}
+              {% if phoneNumber != '' %}
+              	<strong>Mobile:</strong> +91-{{phoneNumber}}
+              {% endif %}
+            </address>
+          </div>
+          <div class="col-xs-12 col-lg-6">
+            <div class="order-details--info">
+              <div class="delivery-address-pup">
+                <h4 class="delivery-address--pup-info" id="orderDetailsDate"><strong>Order Date:</strong>
+                {{data.orderDetail.orderPlacedDate.replace('-',' ').replace('-',' ')}}</h4>
+              </div>
+              <div class="delivery-address-pup">
+                <h4 class="delivery-address--pup-info"><strong>Delivery Type Selected:</strong>
+                {{data.orderDetail.deliveryMode}}</h4>
+              </div>
+              <div class="delivery-address-pup" id="orderDetailsTime">
+                <h4 class="delivery-address--pup-info" > <strong>Delivery Date and Time Selected:</strong>
+                {{data.orderDetail.slotDate.replace('-',' ').replace('-',' ')}}, {{data.orderDetail.slotStartTime.replace(' ','')}} to {{data.orderDetail.slotEndTime.replace(' ','')}} 
+                {% if slotChangeEligible == true %}
+        			<a href="javascript:;" id="slotChangeButton" class="modal-link" data-orderid="{{data.orderDetail.orderIdentifier}}" data-slotid="{{data.orderDetail.modSlotDate}}||{{data.orderDetail.slotStartTime}}||{{data.orderDetail.slotEndTime}}"><i class="icon-pencil"></i></a>
+    			{% endif %}
+    			</h4>
+              </div>
+            </div>
+          </div>
+        </div>
+
+
+        <div class="delivery-address-pup delivery-address--payment">
+          <p class="spacing-bottom-half"></p>
+          <h4 class="delivery-address--payment-info"><strong>Payment Mode:</strong>
+          {{data.orderDetail.paymentMethod}}</h4>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+{% endmacro %}

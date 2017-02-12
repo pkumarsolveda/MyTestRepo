@@ -1,0 +1,342 @@
+<div class="form product-info-tab-tertiary">
+  <form action="javascript:;" id="formServiceCenter">
+    <div class="form-control">
+      <input class="form__input service-center--search-field" type="text" name="addressPincode" placeholder="Search by Address/Pin Code">
+    </div>
+
+    <div class="div-table div-table--header-bordered">
+      <div class="div-table-row div-table-row--header">
+        <span class="div-table-cell div-table--name">Agency Name</span>
+        <span class="div-table-cell div-table--address">Address</span>
+        <span class="div-table-cell div-table--landline">Phone</span>
+        <span class="div-table-cell div-table--mobile">Mobile</span>
+        <span class="div-table-cell div-table--email">Email</span>
+      </div>
+    </div>
+
+    <div class="div-table">
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Sweta Service</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Koldongri, Gallin No 2,
+            Sahar Rd,
+            Andheri East,
+            Mumbai  Maharashtra India 400069
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2226832302</span>
+        <span class="div-table-cell div-table--mobile">9769762117</span>
+        <span class="div-table-cell div-table--email">&nbsp;</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Vinoj Service</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            C/2, 22A, Wadia Building compound R K Vaidya Road Dadar West  Mumbai  Maharashtra India 400028
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2224375066</span>
+        <span class="div-table-cell div-table--mobile">9821255299</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Patil Enterprises</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            115, Bld no 6, Shri Sai Industrial remises co.op society  Jogani Ind Complex   V N Purav marg, Chunabhatti(E) Mumbai  Maharashtra India 400022
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9594000271</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Samarth Electricals & Electronics</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            A/2 Type, Shop No 273 Sector 20, Station Road Turbhe  New Mumbai  Maharashtra India 400705
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">8097805919, 9323834263</span>
+        <span class="div-table-cell div-table--mobile"></span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Shree Samarth Winding Works</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            JBD Plaza, Nr Old ST Stand Road Opp HDFC Bank, Mumbai Goa Highway Road  Mangao  Mangaon Maharashtra India 402104
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2140261488</span>
+        <span class="div-table-cell div-table--mobile">9226581128</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Samveel Sales & Services</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Near Patode Vihir 80 Ft Road  Dhule Dhule Maharashtra India 424001
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2562237778</span>
+        <span class="div-table-cell div-table--mobile">9422775546</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Marleshwar Electricals</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            33, Atmabandhu Arcade Maruti Mandir Ratnagiri RATNAGIRI Maharashtra India 415612
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9619924149  9869334760</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">OM ELECTRICALS AND ELECTRONICS</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            23,MANMAD JEEN  BACK SIDE OF GAJANAN SAW MILL Dhule DHULIYA Maharashtra India 424001
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9552677977, 9552677977</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Geetanjali Agences  Kaita Kunj</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            4, Dhake wadi Jalgaon JALGAON Maharashtra India 425001
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2572239003</span>
+        <span class="div-table-cell div-table--mobile"></span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">AMKAY SERVICES</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            17/11, Motilalnagar-2 Opp-Dutt Mandir, M G Road, Goregaon-W, Mumbai   Goregaon-West GOREGAON  Maharashtra India 400090
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02228792047</span>
+        <span class="div-table-cell div-table--mobile">9322822481, 9619183255</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">BHISE ELECTRICAL Services</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Opp. Sairam Co-op., Housing Society 11A, Shop No.9  Andheri (East)  ANDHERI Maharashtra India 400069
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9820314702</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">G.P. ELECTRICAL</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Shop No.2, Soniya Apartment Indrakund, Jajuwadi Panchwati NASHIK  Maharashtra India 422003
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02536698959</span>
+        <span class="div-table-cell div-table--mobile">09822971102, 09822971082</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Shree Sai Sales & Service Koldongri</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Gallin No 2  Sahar Rd  Andheri East  AURANGABAD  Maharashtra India
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9823970674</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Nitin Electricals</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            C/2, 22A, Wadia Building compound R K Vaidya Road Dadar West  DOMBIVALI Maharashtra India 421203
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02516508961</span>
+        <span class="div-table-cell div-table--mobile">9820074266</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">OMEYA ELECTRICALS</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            115, Bld no 6, Shri Sai Industrial remises co.op society  Jogani Ind Complex   V N Purav marg, Chunabhatti(E) KANKAVLI  Maharashtra India
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02367232863</span>
+        <span class="div-table-cell div-table--mobile">9869980190, 9404438386</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Patil Bandhu Electricals</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            A/2 Type, Shop No 273 Sector 20, Station Road Turbhe  CIDCO - NASIK Maharashtra India 422008
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02532370732</span>
+        <span class="div-table-cell div-table--mobile">9970100046</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Patil Electric Works</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            JBD Plaza, Nr Old ST Stand Road Opp HDFC Bank, Mumbai Goa Highway Road  Mangao  LOWER PAREL Maharashtra India 400013
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02266663060, 02265210666</span>
+        <span class="div-table-cell div-table--mobile">9594000281, 9769553360</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Quick Services</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Near Patode Vihir 80 Ft Road  Dhule NAUPADA- THANE  Maharashtra India 400602
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02225415552, 25392036</span>
+        <span class="div-table-cell div-table--mobile">9223557100, 9322075407</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Raut Electrical Service </span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            33, Atmabandhu Arcade Maruti Mandir Ratnagiri ALIBAUG Maharashtra India 402201
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02141223148</span>
+        <span class="div-table-cell div-table--mobile">9423375180</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">S.K. ELECTRICALS</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            23,MANMAD JEEN  BACK SIDE OF GAJANAN SAW MILL Dhule CHIKALTHANA Maharashtra India
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02402481560</span>
+        <span class="div-table-cell div-table--mobile">9423348482</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Sagar Electric Works S</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Kaita Kunj  4, Dhake wadi Jalgaon TURBHE  Maharashtra India 400705
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02232998537</span>
+        <span class="div-table-cell div-table--mobile">9892432245</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Trimurti Electricals</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            17/11, Motilalnagar-2 Opp-Dutt Mandir, M G Road, Goregaon-W, Mumbai   Goregaon-West MUMBAI FORT Maharashtra India 400001
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02266343764, 02266359640</span>
+        <span class="div-table-cell div-table--mobile">9320044302</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Venus Engg.Works</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Opp. Sairam Co-op., Housing Society 11A, Shop No.9  Andheri (East)  ANDHERI Maharashtra India 400072
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">02240152656, 40152759</span>
+        <span class="div-table-cell div-table--mobile">9869218846, 9702555581</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Sagar Electric Works</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Shop No.2, Soniya Apartment Indrakund, Jajuwadi Panchwati PANVEL  Maharashtra India 410206
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9892432245</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Chintamani Multy Services</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            17/11, Motilalnagar-2 Opp-Dutt Mandir, M G Road, Goregaon-W, Mumbai   Goregaon-West JALNA Maharashtra India 431203
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2410237749</span>
+        <span class="div-table-cell div-table--mobile">9028061649</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Perfect Tech Engineers</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Opp. Sairam Co-op., Housing Society 11A, Shop No.9  Andheri (East)  DAHISAR Maharashtra India 400068
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2228975038,  2228973676</span>
+        <span class="div-table-cell div-table--mobile">9820041416</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Sujata Winding Works</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            Shop No.2, Soniya Apartment Indrakund, Jajuwadi Panchwati THANE Maharashtra India
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2225348023</span>
+        <span class="div-table-cell div-table--mobile">9324426570, 9833269731</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">K B Electrical service</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            JBD Plaza, Nr Old ST Stand Road Opp HDFC Bank, Mumbai Goa Highway Road  Mangao  VASAI Maharashtra India 401210
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline"></span>
+        <span class="div-table-cell div-table--mobile">9923101862</span>
+        <span class="div-table-cell div-table--email">contact@example.com</span>
+      </div>
+      <div class="div-table-row">
+        <span class="div-table-cell div-table--name">Divya Pvt Ltd</span>
+        <span class="div-table-cell div-table--address">
+          <address>
+            ARD Enterprises Near Patode Vihir 80 Ft Road  Dhule Mumbai  Maharashtra India 400028
+          </address>
+        </span>
+        <span class="div-table-cell div-table--landline">2224375066</span>
+        <span class="div-table-cell div-table--mobile">9821255299</span>
+        <span class="div-table-cell div-table--email"></span>
+      </div>
+    </div>
+  </form>
+</div>

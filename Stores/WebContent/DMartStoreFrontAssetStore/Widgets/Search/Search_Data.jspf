@@ -1,0 +1,44 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2012, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+
+<%@ include file="JSTLEnvironmentSetupExtForSearch.jspf" %>
+
+<%-- 
+	Do not build full URL for SearchDisplay. When searching from HTTPS pages, search form should be submitted over HTTPS protocol.
+	If not, FF will show a warning dialog with message - Although this page is encrypted, the information you have entered is to be 
+	sent over an unencrypted connection and could easily be read by a third party. Even though the form method is "GET", firefox displays this 
+	error message. Ideally this error message should be shown only when form data is POSTED to an HTTP server from HTTPS page.
+--%>
+<c:url var="searchView" value="SearchDisplay"/>
+
+<c:url var="SearchAutoSuggestServletURL" value="SearchComponentAutoSuggestView">
+  <c:param name="coreName" value="${coreName}" />
+  <c:param name="serverURL" value="${serverURL}" />
+  <c:param name="langId" value="${param.langId}" />
+  <c:param name="storeId" value="${param.storeId}" />
+  <c:param name="catalogId" value="${param.catalogId}" />
+</c:url>
+
+<c:url var="CachedSuggestionsURL" value="SearchComponentCachedSuggestionsView">
+  <c:param name="langId" value="${param.langId}" />
+  <c:param name="storeId" value="${param.storeId}" />
+  <c:param name="catalogId" value="${param.catalogId}" />
+</c:url>
+
+<wcf:url var="AdvancedSearchDisplayURL" value="AdvancedSearchDisplay">
+	<wcf:param name="storeId"   value="${param.storeId}"  />
+	<wcf:param name="catalogId" value="${param.catalogId}"/>
+	<wcf:param name="langId" value="${param.langId}" />
+</wcf:url>
+

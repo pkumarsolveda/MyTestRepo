@@ -1,0 +1,13 @@
+<script type="text/javascript">
+	dojo.addOnLoad(function() {
+		productListing.formatRangeSlider= true;	
+		var priceRange= [{ minVal: "0", maxVal: "50"},{ minVal: "51", maxVal: "100"},{ minVal: "101", maxVal: "200"},{ minVal: "201", maxVal: "500"},{ minVal: "501", maxVal: "1000"},{ minVal: "1001", maxVal: "10000"}] ;
+		var discountRange= [{ minVal: "0", maxVal: "25"},{ minVal: "26", maxVal: "50"},{ minVal: "51", maxVal: "75"},{ minVal: "76", maxVal: "100"}] ;
+		var sortOptions= ["Price: Low to High","Price: High to Low"];
+		nunjucks.configure(WCParamJS.staticServerHost+'templates/',{ autoescape: true,
+            web: {
+                useCache: true
+            } });		
+		$('#pricediscountsort').html(nunjucks.render('_modules/product-listing-header.nunjucks',{ priceRange: priceRange, discountRange:discountRange, sortOptions:sortOptions, isSearch : (WCParamJS.searchTerm.length > 0)}));		
+	});
+</script>

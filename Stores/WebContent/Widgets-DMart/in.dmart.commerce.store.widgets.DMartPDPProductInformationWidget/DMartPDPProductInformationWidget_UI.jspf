@@ -1,0 +1,10 @@
+<script type="text/javascript">
+
+	dojo.addOnLoad(function() {
+		$(document).bind(
+				'dmart.productdescinfo.loaded',
+				function(e) {
+					productDisplay.displayProductInfo();
+				});		
+	});
+</script>

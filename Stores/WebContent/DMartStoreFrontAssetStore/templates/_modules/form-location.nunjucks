@@ -1,0 +1,28 @@
+{% from "_modules/form-control.nunjucks" import formControl %}
+
+<div class="form form--location">
+	<h2 class="form__title">Choose Location</h2>
+	<form method="post" id="formLocationValidation" action="javascript:;" novalidate="novalidate">
+    <div class="autocomplete-input">
+      {{ formControl(label="", name="pinNumber", type="text", maxlength="200", placeholder="Enter your delivery pin-code to continue", id="pinNumber", required="true") }}
+        <ul class="autocomplete-suggestions js-hide-show">
+          <li>40007</li>
+          <li>400076, Powai</li>
+          <li>400077, Ghatkopar (E)</li>
+          <li>400078, Bhandup (W)</li>
+        </ul>
+    </div>
+
+    <div class="location-links">
+      <div class="row">
+        <div class="col-xs-6">
+          <a href="javascript:;" class="location__link">
+            <i class="icon-location"></i> <span>Get my location</span>
+          </a>
+        </div>
+        <div class="col-xs-6"><button class="button-primary button--block" type="submit">Save</button></div>
+      </div>
+    </div>
+	</form>
+</div>
+

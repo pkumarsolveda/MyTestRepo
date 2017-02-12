@@ -1,0 +1,9 @@
+<ul>
+ {% for offerLabel in offerLabels%}
+  <!-- Sub-menu -->
+  <li class="js-category-item sub-menu-item">
+  	<a class="sub-menu-parent" href="{{offerData[offerLabel].URL}}">{{offerData[offerLabel].label}}<span class="count">&nbsp;({{offerData[offerLabel].count}})</span></a>
+  </li> 
+ {% endfor %}
+
+</ul>

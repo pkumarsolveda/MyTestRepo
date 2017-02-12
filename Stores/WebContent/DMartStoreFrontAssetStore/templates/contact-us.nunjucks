@@ -1,0 +1,66 @@
+{% extends '_layouts/mycart.nunjucks' %}
+{% block title %} Contact Us {% endblock %}
+{% set pageTitle = "Contact Us" %}
+{% block content %}
+<div class="container">
+  <div class="static-page contact-page">
+    <h2 class="static-page--title">Contact Us</h2>
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-5">
+
+        <div class="form">
+          <h3 class="static-page--subtitle">Write to us!</h3>
+          <form action="javascript:;" class="form__contact" method="post" id="formContactValidation" novalidate="novalidate">
+
+            {{ formControl(label="Name", requiredField="true", name="nameContact", type="text", placeholder="Enter your name", id="nameContact", required="true") }}
+
+            {{ formControl(label="Email Address", requiredField="true", name="emailContact", type="email", placeholder="Enter your email address", id="emailContact", required="true") }}
+
+            <div class="form-control">
+              <label for="messageContact" class="form__label required-field">Message</label>
+              <textarea class="form__input form-description" name="messageContact" id="messageContact" placeholder="Enter your message" required rows="5"></textarea>
+            </div>
+
+            <div class="form__btn">
+              <button type="submit" class="js-form-submit button-primary">Submit</button>
+            </div>
+
+          </form>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-offset-1">
+        <h3 class="static-page--subtitle">Customer Care</h3>
+
+        <address class="spacin-bottom-half address-field address-field--primary">
+          <div class="address-field--contact-icon">
+            <i class="icon-toll-free"></i>
+          </div>
+          <div class="address-field--contact-label">
+            <h4 class="address-field--contact-title">Toll Free:</h4>
+            <span>1800 123 4040</span>
+          </div>
+        </address>
+        <address class="address-field address-field--secondary">
+          <div class="address-field--contact-icon">
+            <i class="icon-contact-mail"></i>
+          </div>
+          <div class="address-field--contact-label">
+            <h4 class="address-field--contact-title">Email:</h4>
+            <span><a class="address-field--email" href="mailto:customerservice@dmartindia.com" title="Mail to customerservice@dmartindia.com">customerservice@dmartindia.com</a></span>
+          </div>
+        </address>
+        <div class="address-field--tertiary">
+          <h3 class="static-page--subtitle">Address</h3>
+          <address class="address-field">
+            Avenue Supermarts Ltd, <br>
+            Anjaneya Co. Op. Hsg. Soc. Ltd. Orchard Avenue,<br>
+            Opp Hiranandani Foundation School,<br>
+            Powai, Mumbai - 400076.<br>
+            <strong>Phone Number:</strong> +91 22 4049 0000<br>
+          </address>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% endblock %}

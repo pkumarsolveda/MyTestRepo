@@ -1,0 +1,37 @@
+{%set userType = data.userType %}
+{% from "_modules/form-control.nunjucks" import formControl %}
+<form class="form__new-address" action="javascript:;" method="post" id="formNoAddress" novalidate="novalidate">
+
+  {{ formControl(label="Name", requiredField="true", name="newName", required="true") }}
+
+  <div class="form-control">
+    <label class="form__label required-field spacing-bottom-tiny" for="newAddress">Address</label>
+    <textarea class="form__input form-description"  name="newAddress"  placeholder="" maxlength="250" required ></textarea>
+  </div>
+
+  {{ formControl(label="Landmark", name="newLandmark") }}
+
+  {{ formControl(label="City", requiredField="true", name="newCity", required="true") }}
+
+  {{ formControl(label="State", requiredField="true", name="newState" ,required="true") }}
+
+  {{ formControl(label="Pin Code", requiredField="true", type="tel", name="newPincode", required="true", maxlength="6") }}
+	
+   <!-- Remove class js-hide-show to show E-mail ID Field for guest checkout -->
+   {% if userType == 'G' %}
+	   <div id="guestEmailDiv">
+	    {{ formControl(label="Email (Optional)", type="email", requiredField="false", name="email", id="email", placeholder="xyz@email.com") }}
+	   </div>
+	{% endif %}
+  {% include '_modules/form-mobile-number.nunjucks' %}
+
+  <div class="row">
+    <div class="col-xs-12 col-sm-6 col-md-3 col-lg-5">
+      <button class="button--block button-white button js-make-default-address" type="button" id="saveFirstAddressDef">Default Address</button>
+    </div>
+    <div class="col-xs-12 col-sm-6 col-md-2 col-md-offset-7 col-lg-4 col-lg-offset-3">
+      <button class="button button-primary button--block" type="submit" id="saveFirstAddress">Save</button>
+    </div>
+  </div>
+
+</form>

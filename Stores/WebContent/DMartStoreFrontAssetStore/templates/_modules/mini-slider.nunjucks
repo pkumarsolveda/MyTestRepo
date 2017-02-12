@@ -1,0 +1,11 @@
+{% macro slider(values) %}
+<div class="slider-variant-wrap">
+  <div class="slider-variant">
+    <ul class="slides">
+      {% for value in values %}
+      <li><a href="javascript:;" title="{{value}}">{{value}}</a></li>
+      {% endfor %}
+    </ul>
+  </div>     
+</div>
+{% endmacro %}

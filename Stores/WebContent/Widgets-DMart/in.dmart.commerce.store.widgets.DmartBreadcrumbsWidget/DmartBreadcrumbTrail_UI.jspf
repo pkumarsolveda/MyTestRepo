@@ -1,0 +1,76 @@
+
+<ul aria-label="<fmt:message key="BREADCRUMB_TRAIL_ACCE_NAME" bundle="${widgetText}" />" class="breadcrumbs link-bordered" style="display: none;">
+		<%-- Iterate through the bread crumb map --%>
+		<c:set var="isSearch" value="false"/>
+		<c:forEach var="breadCrumb" items="${breadCrumbItemsMap}" varStatus="status">
+		
+			<c:if test="${status.count!=3 && isSearch == 'false'}">
+				<li 
+				<c:if test="${status.count==2 && !empty WCParam.categoryId }">
+					<c:choose>
+						<c:when test="${empty WCParam.searchTerm}">
+							class="breadcrumb-dropdown"
+						</c:when>
+						<c:otherwise>
+							<c:set var="isSearch" value="true"/>
+						</c:otherwise>
+					</c:choose>
+				</c:if>
+				>
+				<c:choose>
+					<c:when test="${status.first}">
+						<a href="${env_TopCategoriesDisplayURL}" title="${breadCrumb.key}" <c:if test="${!empty WCParam.searchTerm && fn:length(breadCrumbItemsMap) == 1}">style="display:none;"</c:if>>
+					</c:when>
+					<c:otherwise>
+						<c:if test="${status.count!=4}">
+							<c:choose>
+								<c:when test="${status.count==2 && isSearch == 'true'}">
+									<a href="/webapp/wcs/stores/servlet/SearchDisplay?categoryId=&storeId=${WCParam.storeId}&langId=-1&searchTerm=${fn:trim(fn:replace(breadCrumb.key,'Search:',''))}" title="${breadCrumb.key}">
+								</c:when>
+								<c:otherwise>
+									<a href="#_" title="${breadCrumb.key}">
+								</c:otherwise>
+							</c:choose>
+						</c:if>
+					</c:otherwise>
+				</c:choose>
+				<c:out value="${breadCrumb.key}"/>&nbsp;<c:if test="${status.count==2 && !empty WCParam.categoryId && isSearch == 'false' }"><i class="icon-caret-down"></i></c:if></a>
+				<c:if test="${status.count==2 && !empty WCParam.categoryId && isSearch == 'false' }">
+				   <div class="breadcrumb-menu__navigation--category-dropdown" data-topCat ="${breadCrumb.key}"></div>
+				</c:if>
+				</li>
+			</c:if>
+		</c:forEach>	
+		<c:if test="${empty WCParam.searchTerm && empty WCParam.productId}"><li><c:out value="${lastBreadCrumbItem}"/></li></c:if>		
+</ul>
+<script>
+
+$(document).ready(function(){
+<fmt:message bundle="${storeText}" key="_ERR_USER_NOT_LOGGED_IN" var="_ERR_USER_NOT_LOGGED_IN"/>
+<fmt:message bundle="${storeText}" key="_ERR_CART_UPDATE_ERROR" var="_ERR_CART_UPDATE_ERROR"/>
+<fmt:message bundle="${storeText}" key="_ERR_DELETING_OOS_ITEMS" var="_ERR_DELETING_OOS_ITEMS"/>
+<fmt:message bundle="${storeText}" key="_ERR_MAX_QTY_ERROR" var="_ERR_MAX_QTY_ERROR"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_NO_RESULTS" var="_MSG_SEARCH_NO_RESULTS"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_NO_RESULTS_TEXT" var="_MSG_SEARCH_NO_RESULTS_TEXT"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_INSTEAD_OF" var="_MSG_SEARCH_INSTEAD_OF"/>
+<fmt:message bundle="${storeText}" key="_ERR_VARIANT_NOT_SELECTED" var="_ERR_VARIANT_NOT_SELECTED"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_WE_DONT_HAVE" var="_MSG_SEARCH_WE_DONT_HAVE"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_BTW_DID_YOU_MEAN" var="_MSG_SEARCH_BTW_DID_YOU_MEAN"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_SHOWING" var="_MSG_SEARCH_SHOWING"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_OF" var="_MSG_SEARCH_OF"/>
+<fmt:message bundle="${storeText}" key="_MSG_SEARCH_RESULTS_FOR" var="_MSG_SEARCH_RESULTS_FOR"/>
+MessageHelper.setMessage("_ERR_DELETING_OOS_ITEMS", <wcf:json object="${_ERR_DELETING_OOS_ITEMS}"/>);
+MessageHelper.setMessage("_ERR_CART_UPDATE_ERROR", <wcf:json object="${_ERR_CART_UPDATE_ERROR}"/>);
+MessageHelper.setMessage("_ERR_USER_NOT_LOGGED_IN", <wcf:json object="${_ERR_USER_NOT_LOGGED_IN}"/>);
+MessageHelper.setMessage("_ERR_MAX_QTY_ERROR", <wcf:json object="${_ERR_MAX_QTY_ERROR}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_NO_RESULTS", <wcf:json object="${_MSG_SEARCH_NO_RESULTS}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_NO_RESULTS_TEXT", <wcf:json object="${_MSG_SEARCH_NO_RESULTS_TEXT}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_INSTEAD_OF", <wcf:json object="${_MSG_SEARCH_INSTEAD_OF}"/>);
+MessageHelper.setMessage("_ERR_VARIANT_NOT_SELECTED", <wcf:json object="${_ERR_VARIANT_NOT_SELECTED}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_WE_DONT_HAVE", <wcf:json object="${_MSG_SEARCH_WE_DONT_HAVE}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_BTW_DID_YOU_MEAN", <wcf:json object="${_MSG_SEARCH_BTW_DID_YOU_MEAN}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_SHOWING", <wcf:json object="${_MSG_SEARCH_SHOWING}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_OF", <wcf:json object="${_MSG_SEARCH_OF}"/>);
+MessageHelper.setMessage("_MSG_SEARCH_RESULTS_FOR", <wcf:json object="${_MSG_SEARCH_RESULTS_FOR}"/>);
+});
+</script>

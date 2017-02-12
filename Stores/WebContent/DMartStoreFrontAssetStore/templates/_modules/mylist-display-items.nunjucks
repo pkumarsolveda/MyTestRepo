@@ -1,0 +1,29 @@
+{% macro itemDetails(itemDetail,divId) %}
+<div class="js-alter-module">
+                  <div class="tabs-primary__content--header">
+                  	
+                    <h4 class="existing-order--count">Showing Total {{itemDetail.NoOfProduct}} {% if itemDetail.NoOfProduct == 1  %} Product {% else %} Products {% endif %}</h4>
+					{# <div class="mylist-set-alert">
+                      <a class="button-white modal-link {% if itemDetail.NoOfProduct  == '0' %}button--disabled{% endif %}" {% if itemDetail.NoOfProduct  != '0' %}data-target="setAlertModal" {% endif %} href="javascript:;" title="Set Your Reminder">Set Your Reminder</a>
+                    </div> #}
+                    <div class="existing-order--price-cta js-alter-cta-panel">
+                      <a class="pdp-alternate-list__summary-add-cta existing-order__price-cta-btn js-loading-full button-primary {% if itemDetail.NoOfProduct  == '0' %}button--disabled{% endif %}" href="javascript:;" title="Add to Cart"><i class="icon-cart"></i> Add <span>All</span> to Cart</a>
+
+                      <a class="existing-order__price-view-cart-btn button--block button-white" href="javascript:;" onClick="goToCart();" title="View Cart">View Cart</a>
+
+                    </div>
+                    <div class="mylist-noitems-alert text-center" id="mylist-noitems-alert" data-glistid="{{divId}}" style="display:none">
+                      <p><br>Your Shopping List seems to be empty.<br>You can add multiple items to your list.<br>ADD NOW!</p>
+                    </div>	
+                  </div>
+                  <div class="tabs-primary__content--blurb">
+
+                  
+                    {% from '_modules/existing-order-item.nunjucks' import existingOrder %}
+                     {% for item in itemDetail%}
+                    
+                    {{ existingOrder(id=item.uniqueId, imgsrc='product-2', title=item.name, type=item.topCategory,outofstock='false',data=item,brand=item.brand,mrp=item.MRP, dmart=item.DmartPrice, save=item.savings) }}
+                    {% endfor %}
+                  </div>
+                </div>
+{% endmacro %}

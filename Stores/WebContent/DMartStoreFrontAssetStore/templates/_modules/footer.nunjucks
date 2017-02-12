@@ -1,0 +1,109 @@
+{% include '_modules/loading-animation.nunjucks' %}
+{% include '_modules/modal-forgot-password.nunjucks' %}
+<div class="footer-credibility">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="footer-credibility--sprite-icon">
+        <i class="dmart-sprite sprite-payments-visa"></i>
+        <i class="dmart-sprite sprite-payments-mastercard"></i>
+        <i class="dmart-sprite sprite-payments-amex"></i>
+        <i class="dmart-sprite sprite-payments-cod"></i>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <aside class="footer-social respond-text-right">
+          <a href="" class="footer-social--facebook"><i class="icon-facebook"></i></a>
+          <a href="" class="footer-social--google"><i class="icon-google"></i></a>
+        </aside>
+      </div>
+    </div>
+  </div>
+</div><!-- /footer-credibility -->
+
+<footer class="footer">
+  <div class="footer-meta">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-2">
+          <h3 class="footer-meta--title">Shopping</h3>
+          <nav class="footer-meta--nav link-bordered">
+            <ul>
+              <li><a href="javascript:;" title="Tea & Biscuits">Tea & Biscuits</a></li>
+              <li><a href="javascript:;" title="Breakfast">Breakfast</a></li>
+              <li><a href="javascript:;" title="Grocery">Grocery</a></li>
+              <li><a href="javascript:;" title="Household needs">Household Needs</a></li>
+              <li><a href="javascript:;" title="Personal Care">Personal Care</a></li>
+              <li><a href="javascript:;" title="Apparel">Apparel</a></li>
+              <li><a href="javascript:;" title="Stationery">Stationery</a></li>
+              <li><a href="javascript:;" title="Offers">Offers</a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <h3 class="footer-meta--title">HELP</h3>
+          <nav class="footer-meta--nav link-bordered">
+            <ul>
+              <li><a href="javascript:;" title="FAQs">FAQs</a></li>
+              <li><a href="javascript:;" title="Returns & Cancellation">Returns & Cancellation</a></li>
+              <li><a href="javascript:;" title="Start Guide">Start Guide</a></li>
+              <li><a href="javascript:;" title="Home Delivery">Home Delivery</a></li>
+              <li><a class="label-min-max" href="javascript:;" title="PuP (Pick up Point)">PuP  (Pick up Point) <span><strong>DMart</strong><br>Min Max</span></a></li>
+            </ul>
+          </nav>
+        </div>
+
+        <div class="col-xs-12 col-md-3">
+          <h3 class="footer-meta--title">About us</h3>
+          <nav class="footer-meta--nav link-bordered">
+            <ul>
+              <li><a href="javascript:;" title="About DMart">About DMart</a></li>
+              <li><a href="javascript:;" title="Customer Service">Customer Service</a></li>
+              <li><a href="javascript:;" title="Careers">Careers</a></li>
+            </ul>
+          </nav>
+          <div class="guarantee-ribbion-wrap">
+            <i class="dmart-sprite sprite-dmart-seal">DMart Quality</i>
+          </div>
+        </div>
+
+        <div class=" col-xs-12 col-md-4">
+
+          <h3 class="footer-meta--title">Newsletter</h3>
+          <form class="newsletter" method="post" action="javascript:;" id="footerNewsletter" novalidate="novalidate">
+            <input class="newsletter__field" type="email" name="newsletter" id="newsletter" required placeholder="Your Email ID">
+            <button class="newsletter__cta" type="submit"><i class="icon-arrow-right"></i></button>
+          </form><!-- /Newsletter -->
+
+          <div class="app-downloads">
+            <h4 class="footer-meta--title">Download DMart Mobile App Now!!</h4>
+            <p>
+              <a href="javascript:;" title="Download DMart Android App"><i class="dmart-sprite sprite-app-android">Download DMart Android App</i></a>
+              <a href="javascript:;" title="Download DMart iOS App"><i class="dmart-sprite sprite-app-iOS">Download DMart iOS App</i></a>
+            </p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div><!-- /footer meta -->
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <aside class="footer-declaration">
+          <p>
+            Avenue ECommerce Limited (AEL) owns and operates hypermarkets and supermarkets by the store name DMart. DMart seeks to be a one-stop shopping destination for the entire family, meeting all their daily household needs. A wide selection of home utility products is offered, including foods, toiletries, beauty products, garments, kitchenware, bed and bath linen, home appliances and much more.
+          </p>
+        </aside>
+      </div>
+    </div>
+  </div>
+
+  <div class="footer-legal">
+    <div class="container">
+      {% include "_modules/footer-copyrights.nunjucks" %}
+    </div>
+  </div>
+
+</footer>

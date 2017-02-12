@@ -1,0 +1,23 @@
+<section class="write-review form">
+  <div class="row">
+    <div class="col-md-3">
+      <h2 class="customer-review__title">Vasanth kumar Karthik</h2>
+    </div>
+    <div class="col-md-9">
+      <div class="user-review user-review__ratings"></div>
+      <a href="javascript:;" class="write-review-cta">Write a review</a>
+    </div>
+  </div>
+  <form class="write-review__form js-hide-show" action="javascript:;" method="post" id="formReviewValidation" novalidate="novalidate">
+    <div class="form-control">
+      <input type="text" class="form__input" name="writeReviewTitle" id="writeReviewTitle" placeholder="Title" required>
+    </div>
+    <div class="form-control">
+      <textarea class="form__input form-description" name="writeReviewDescription" id="writeReviewDescription" placeholder="Description" required></textarea>
+    </div>
+    <div class="form__review">
+      <button type="submit" class="write-review__button button-white">Submit</button>
+      <button type="button" class="write-review__button js-form-cancel button-primary">Cancel</button>
+    </div>
+  </form>
+</section>

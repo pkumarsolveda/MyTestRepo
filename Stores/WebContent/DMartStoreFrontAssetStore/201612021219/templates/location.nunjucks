@@ -1,0 +1,18 @@
+{% extends '_layouts/login.nunjucks' %}
+{% block title %}Location{% endblock %}
+
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+  	<div class="col-md-6">
+     {% include '_modules/location.blurb.nunjucks' %}
+    </div>
+    <div class="col-md-6">
+     {% include '_modules/form-location.nunjucks' %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

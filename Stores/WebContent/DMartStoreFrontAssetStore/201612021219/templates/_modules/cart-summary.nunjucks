@@ -1,0 +1,171 @@
+
+<div class="cart-summary my-cart-summary">
+  <h4 class="cart-summary--title">Shopping Cart Summary</h4>
+  <div class="cart-summary__details cart-summary__details--container">
+    <div class="cart-summary__details--primary">
+     <!--  <h4 class="promo-code--title">Apply DMart Promo Code</h4>
+     <form class="promo-code-form"  method="post" id="formCoupon" action="javascript:;" style="margin-bottom: 0em;">
+        <div class="input-group">
+          <input type="text" name="promeCode" id="promeCode" class="form-control" required placeholder="Add promo code..." autocomplete="off">
+          <span class="input-group-btn">
+            <button class="button-primary" type="submit">Apply</button>
+          </span>
+        </div>
+		<div>
+        <span class="js-hide-show alert alert-warning-bg coupon-label js-coupon-applied" style="width:1%"><span>{{summaryData.promoCode}}</span> <br> Coupon code applied <a class="alert-close-cta js-cart-reject js-show-back-form alert-cross-pos" href="javascript:;" title="Close"><i class="icon-cta-close icon-cancel"></i></a>
+        </span>
+		</div>
+      </form> 
+      -->
+      <div class="cart-summary__price-details cart-summary__price-details--tertiary">
+        <div class="row">
+          <div class="col-xs-7">
+            Cart Total
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{summaryData.totalPriceInCart}}</div>
+          </div>
+        </div>
+      </div>
+      
+      
+      
+      <!-- applied coupon code discount -->
+      <div class="cart-summary__price-details cart-summary__price-details-coupon js-hide-show js-coupon-code-applied">
+        <div class="row">
+          <div class="col-xs-7 padding-reset-right">
+            Coupon Discount (-)
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{summaryData.discount}}</div>
+          </div>
+        </div>
+      </div>
+      
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Subtotal
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{summaryData.subTotal}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-8">
+            <a href="javascript:;" class="cart-summary--delivery-details"><span>Delivery Charges</span> <i class="icon-info"></i></a>
+          </div>
+          <div class="col-xs-4">
+            <div class="cart-summary--price cart-summary--delivery-price">+Extra</div>
+          </div>
+        </div>
+        <div class="delivery-charges__details js-hide-show">
+          <div class="delivery-charges__info">
+            <div class="row">
+              <div class="col-xs-2"><i class="icon icon-home delivery-charges__info-icon"></i></div>
+              <div class="col-xs-10">Home Delivery Charges will be additionally added over and above your order value based on the Total Cart Value!</div>
+            </div>
+          </div>
+          <div class="delivery-charges__info">
+            <div class="row">
+              <div class="col-xs-2"><i class="icon icon-package delivery-charges__info-icon"></i></div>
+              <div class="col-xs-10">No delivery charges for Pick-up from DMart Ready</div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="cart-summary__price-details cart-summary__price-details--primary divider">
+        <div class="row">
+          <div class="col-xs-7">
+            Total
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{summaryData.totalAmount}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__total-details">
+        <div class="row">
+          <div class="col-xs-3">
+            <i class="dmart-sprite sprite-piggy-bank"></i>
+          </div>
+          <div class="col-xs-9 padding-reset-left">
+            <div {% if summaryData.savings <= 0%}style="display:none;"{%endif%} class="cart-summary--price cart-summary--price-savings">
+              <div>Total Savings</div>
+              <div class="cart-summary--total"><i class="icon icon-rupees"></i>{{summaryData.savings}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <form method="post" id="formProceedToCart" action={{summaryData.proceedFormAction}} style="padding-left: 0px; padding-right: 0px; margin-bottom: 0em;">
+      	<input type="hidden" name="remerge" value={{summaryData.remerge}} id="remerge" />
+		<input type="hidden" name="check" value={{summaryData.check}} id="check" />
+		<input type="hidden" name="allocate" value={{summaryData.allocate}} id="allocate" />
+		<input type="hidden" name="backorder" value={{summaryData.backorder}} id="backorder" />
+		<input type="hidden" name="calculationUsage" value={{summaryData.calculationUsage}} id="calculationUsage" />
+		<input type="hidden" name="calculateOrder" value={{summaryData.calculateOrder}} id="calculateOrder" />	
+		
+		<input type="hidden" name="errorViewName" value={{summaryData.errorViewName}} id="errorViewName" />
+		<input type="hidden" name="orderId" value={{summaryData.orderId}} id="orderId" />
+		<input type="hidden" name="guestChkout" value={{summaryData.guestChkout}} id="guestChkout" />
+		<input type="hidden" name="URL" value={{summaryData.URL}} id="URL" />
+		
+		{% if(summaryData.orderInvStatus == false) %} 
+			{%for outOfStockOrderItemId in summaryData.outOfStockOrderItemIds %}
+             <input type="hidden" name="orderItemId_{{loop.index}}" value={{outOfStockOrderItemId}} id="orderItemId_{{loop.index}}" />
+             <input type="hidden" name="quantity_{{loop.index}}" value="0.0" id="quantity_{{loop.index}}" />
+        	{%endfor%}
+	        <input type="hidden" name="orderItemId_0" value={{summaryData.orderItemId_0}} id="orderItemId_0" />
+	        <input type="hidden" name="quantity_0" value={{summaryData.quantity_0}} id="quantity_0" />
+		{% else %}
+			<input type="hidden" name="orderItemId" value={{summaryData.orderItemId}} id="orderItemId" />
+		{% endif %}
+
+		
+		
+      <div class="cart-summary__cta-container">
+
+        <p class="note js-less-total-value js-hide-show">
+          Your minimum order value should be Rs. {{summaryData.cartMinimumThreshold}}/-.
+        </p>
+        <button class="button-primary button--block spacing-bottom-half proceed-cta" type="button">Proceed to checkout</button>
+        {# <div class="form__divider">
+          <span class="form__divider--text">OR</span>
+        </div> #}
+      </div>
+      </form>
+    </div>
+    {# <div class="cart-summary__cta-container">
+      <a href="javascript:;" class="button-white button--block js-share-cart spacing-bottom-half"><i class="icon icon-cart"></i> Share a cart</a>
+    </div>
+    <form method="post" id="formShareCartValidation" action="javascript:;" novalidate="novalidate" class="share-cart-form js-hide-show">
+      <div class="form">
+        <div class="form-control padding-reset spacing-bottom-half">
+          <label for="mobileNumber" class="form__label spacing-bottom-tiny">Mobile Number</label>
+          <div class="form__input--group">
+            <span class="form__input-prefix">+91</span>
+            <input type="tel" maxlength="10" rel="requirePhoneEmail" placeholder="9999999999" id="mobileNumber" name="mobileNumber" class="form__input requiredPhoneEmail" autocomplete="off">
+          </div>
+        </div>
+
+        <div class="form__divider text-center margin-reset share-cart-form__divider">
+          <span class="form__divider--text">OR</span>
+        </div>
+
+        <div class="form-control">
+          <label class="form__label spacing-bottom-tiny" for="email">Email</label>
+          <input class="form__input requiredPhoneEmail" rel="requirePhoneEmail" type="email" name="email" placeholder="xyz@email.com" id="email" autocomplete="off">
+        </div>
+
+      </div>
+      
+      <button type="cancel" class="js-share-cart-bta button-white button--block share-cart-form--cta"><i class="icon icon-cart"></i> Share a cart</button>
+
+      <a href="javascript:;" class="js-share-cart-cancel-bta button-primary button--block share-cart-form--cta-cancel">Cancel</a>
+
+    </form> #}
+  </div>
+</div>

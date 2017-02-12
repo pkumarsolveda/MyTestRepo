@@ -1,0 +1,1 @@
+({"blockquote":"Blok citátu"})

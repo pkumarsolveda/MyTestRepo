@@ -1,0 +1,86 @@
+{% macro landingTopProduct(item,config) %}
+{% if item.seo_token_ntk.length>0 %}
+{% set productUrl = config.homePageURL+'/'+item.seo_token_ntk+'?categoryId='+item.categoryId%}
+{% else %}
+{% set productUrl = config.homePageURL+'/ProductDisplay?productId='+item.productId+'&storeId='+config.storeId+'&catalogId='+config.catalogId+'&langId='+config.langId+'&categoryId='+item.categoryId %}
+{% endif %}
+<li class="promotion-panel" data-itemid="{{item.itemId}}" data-orderitemid="{{item.orderItemId}}" data-maxorderqty="{{item.maxOrderQty}}">
+  <div class="row">
+    <div class="col-xs-4 col-md-4 col-md-offset-1 padding-reset-right">
+      <div class="promotion-panel--image"><a href="{{productUrl}}">
+        <img class="img-responsive" src="{{item.imageURL[0]}}" alt="{{ item.name }}" title="{{ item.name }}" onerror="this.src='{{config.noImagePath}}';">
+      </a></div>
+    </div>
+    <div class="col-xs-8 col-md-7 padding-reset-left">
+      <div class="promotion-panel--details">
+        <h2 class="promotion-panel--title"><a href="{{productUrl}}" title="{{item.name}}">{{ item.name|truncate(24, True) }}</a></h2>
+        
+        <h3 class="promotion-panel--brand-name"><a href="{{config.baseUrl}}SearchDisplay?catalogId={{config.catalogId}}&langId=-1&storeId={{config.storeId}}&manufacturer={{item.brand|urlencode}}" title="{{ item.brand }}">{{ item.brand }}</a></h3>
+
+        {% if item.attributes.Colour %}
+          <div class="plp-apparel">
+            <ul class="plp-apparel__color-pallette js-plp-color-pallette">
+              <li class="selected"><a rel="colorPallete-1" href="javascript:;" style="background-color: {{item.attributes.Colour}}">&nbsp;</a></li>
+            </ul>
+          </div>
+          <div class="md-custom-select custom-dropdown">
+            <select disabled>
+              <option value="{{ item.attributes.Size }}">{{ item.attributes.Size }}</option>
+            </select>
+          </div>
+        {% else %}
+        <h4 class="promotion-panel__varient--label" {% if item.attributes.Size == undefined%}style="background-color: white;"{%endif%}>
+        {{ item.attributes.Size }}
+        </h4>
+        {% endif %}
+
+        <h6 class="promotion-panel--original-price" {% if item.sellingPrice <= 0  %} style='display:none' {% endif %}>
+        {% if item.sellingPrice == item.offerPrice %} 
+        	MRP <span class="no-strike-diagonal"><i class="icon-rupees"></i>{{ item.sellingPrice }}</span>
+        {% else %}
+        	MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{ item.sellingPrice }}</span>
+        {% endif %}
+        
+        </h6>
+        <h4 class="promotion-panel--discounted-price"  {% if item.offerPrice <= 0  %} style='display:none' {% endif %}>
+        DMart <i class="icon-rupees"></i>{{ item.offerPrice }}</a>
+        </h4>
+
+        <div class="promotion-panel__btn">
+          <a class="promotion-panel__btn-addtocart product-search__btn-addtocart button-primary {% if item.priceExists == false %} button--disabled  {%endif%}"  {% if item.qtyInCart != 0%}style='display:none'{%endif%} href="#_" title="Add to Cart">
+          <i class="icon-cart "></i> Add to Cart</a>
+
+          <div class="quantity-select clearfix {% if item.qtyInCart == 0%}js-hide-show{%endif%}">
+            <form>
+              <div class="js-quantity-minus quantity-button"> <a href="javascript:;">-</a></div>
+              <div class="quantity-input">
+                <input type="text" class="form__input" disabled="disabled" value="{{item.qtyInCart}}" >
+              </div>
+              <div class="js-quantity-plus quantity-button"> <a href="javascript:;">+</a></div>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</li>
+{% endmacro %}
+
+
+  <div class="promotions-carousel-navigation">
+    <li class="flex-nav-prev">
+    <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+    </li>
+
+    <li class="flex-nav-next">
+      <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+    </li>
+  </div>
+  <ul class="slides clearfix">
+    {% for itemId in data.itemIds %}
+		{% if data.itemDetails[itemId].inventoryStatus == true %}
+			{{ landingTopProduct(data.itemDetails[itemId],data.config) }}
+		{% endif %}
+    {% endfor %}
+  </ul>
+

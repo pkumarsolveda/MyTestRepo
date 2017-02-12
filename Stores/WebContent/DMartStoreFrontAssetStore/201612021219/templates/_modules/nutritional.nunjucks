@@ -1,0 +1,56 @@
+
+<div class="product-info-tab-secondary">
+  <div class="div-table div-table--header-bordered">
+    <div class="div-table-row div-table-row--header">
+      <span class="div-table-cell">&nbsp;</span>
+      <span class="div-table-cell">Typical value per 100g of product</span>
+      <span class="div-table-cell">Typical contribution to 100ml of prepared tea*</span>
+    </div>
+  </div>
+  <div class="div-table">
+    <div class="div-table-row">
+      <span class="div-table-cell">Energy (kcal)</span>
+      <span class="div-table-cell">100</span>
+      <span class="div-table-cell">Nil</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell">Protein (g)</span>
+      <span class="div-table-cell">20</span>
+      <span class="div-table-cell">Traces</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell">Carbohydrate (g)</span>
+      <span class="div-table-cell">4</span>
+      <span class="div-table-cell">Traces</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell">Fat (all types) (g)</span>
+      <span class="div-table-cell">Traces</span>
+      <span class="div-table-cell">Traces</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell">Cholesterol (mg)</span>
+      <span class="div-table-cell">Nil</span>
+      <span class="div-table-cell">Nil</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell">Vitamins (mg)</span>
+      <span class="div-table-cell">Traces</span>
+      <span class="div-table-cell">Traces</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell">Minerals (mg)</span>
+      <span class="div-table-cell">Traces</span>
+      <span class="div-table-cell">Traces</span>
+    </div>
+  </div>
+</div>
+<p class="note">
+  *Made from 2g of tea in 100ml of potable water. Does not include values of added milk and sugar.
+</p>

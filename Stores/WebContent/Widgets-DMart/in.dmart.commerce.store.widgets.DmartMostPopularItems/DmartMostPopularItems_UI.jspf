@@ -1,0 +1,5 @@
+
+   <section id= "mostpopular" class="landing-tabs landing-tabs--primary spacing-bottom js-hide-show">
+   	<h1 class="landing-tabs--title"><c:out value = "${titleMostPopularItems}"/></h1>
+   	<div id="popular" class="promotions-carousel js-landing-upper-carousel"></div>
+   </section>

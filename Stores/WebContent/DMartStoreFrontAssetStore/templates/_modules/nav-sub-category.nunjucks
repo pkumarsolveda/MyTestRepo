@@ -1,0 +1,151 @@
+<ul>
+  <!-- Sub-menu -->
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Cooking Ingredients <span class="count">(70)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items">
+      <!-- Sub-menu-item-1 -->
+        <h4 class="sub-menu-item-title">Cooking Ingredients</h4>
+        <ul>
+          {% for n in range(1, 8) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+        <!-- Sub Menu Image -->
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" src="/{{config.baseUrl}}images/menu-item.jpg">
+        </div>
+      </div>
+  </li>
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Dals &amp; Pulses <span class="count">(10)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items sub-menu-items--expand">
+      <!-- Sub-menu-item-2 -->
+        <h4 class="sub-menu-item-title">Dals &amp; Pulses</h4>
+        <ul>
+          {% for n in range(1, 16) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+  </li>
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Dry Fruits <span class="count">(70)</span>
+    <span class="nav-parent-icon"></span></a>
+     <div class="sub-menu-items">
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" src="/{{config.baseUrl}}images/temp/pdp/pdp-grocery-big-8.jpg">
+        </div>
+      </div>
+  </li>
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Dry Fruits &amp; Nuts <span class="count">(10)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items sub-menu-items--expand">
+      <!-- Sub-menu-item-4 -->
+        <h4 class="sub-menu-item-title">Dry Fruits &amp; Nuts</h4>
+        <ul>
+          {% for n in range(1, 16) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+  </li>
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Edible Oils &amp; Ghee <span class="count">(15)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items">
+      <!-- Sub-menu-item-5 -->
+        <h4 class="sub-menu-item-title">Edible Oils &amp; Ghee</h4>
+        <ul>
+          {% for n in range(1, 8) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" src="/{{config.baseUrl}}images/temp/pdp/pdp-grocery-big-1.jpg">
+        </div>
+      </div>
+  </li>
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Flours &amp; Sooji <span class="count">(40)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items sub-menu-items--expand">
+      <!-- Sub-menu-item-5 -->
+        <h4 class="sub-menu-item-title">Flours &amp; Sooji</h4>
+        <ul>
+          {% for n in range(1, 16) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+  </li>
+
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Masalas &amp; Spices <span class="count">(16)</span>
+    <span class="nav-parent-icon"></span></a>
+     <div class="sub-menu-items">
+        <!-- Sub Menu Image -->
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" src="/{{config.baseUrl}}images/menu-item.jpg">
+        </div>
+      </div>
+  </li>
+
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Oil &amp; Vinegar <span class="count">(15)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items sub-menu-items--expand">
+      <!-- Sub-menu-item-5 -->
+        <h4 class="sub-menu-item-title">Oil &amp; Vinegar</h4>
+        <ul>
+          {% for n in range(1, 16) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+      </div>
+  </li>
+
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Organic &amp; Staples <span class="count">(10)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items">
+      <!-- Sub-menu-item-5 -->
+        <h4 class="sub-menu-item-title">Organic &amp; Staples</h4>
+        <ul>
+          {% for n in range(1, 8) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+        <!-- Sub Menu Image -->
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" src="/{{config.baseUrl}}images/menu-item.jpg">
+        </div>
+      </div>
+  </li>
+
+  <li class="js-category-item sub-menu-item">
+  <a class="sub-menu-parent" href="javascript:;">Pasta &amp; Noodles <span class="count">(20)</span>
+    <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+     <div class="sub-menu-items">
+      <!-- Sub-menu-item-5 -->
+        <h4 class="sub-menu-item-title">Pasta &amp; Noodles</h4>
+        <ul>
+          {% for n in range(1, 8) %}
+          <li><a href="javascript:;">Category sub-Item-{{ n }}</a></li>
+          {% endfor %}
+        </ul>
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" src="/{{config.baseUrl}}images/temp/pdp/pdp-grocery-big-3.jpg">
+        </div>
+      </div>
+  </li>
+
+</ul>

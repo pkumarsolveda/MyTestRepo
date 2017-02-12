@@ -1,0 +1,51 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of Infosys
+
+ =================================================================
+--%>
+<c:if test="${empty productId}">
+	<c:choose>
+		<c:when test="${!empty param.productId}">
+			<c:set var="productId" value="${param.productId}" />
+		</c:when>
+		<c:when test="${!empty WCParam.productId}">
+			<c:set var="productId" value="${WCParam.productId}" />
+		</c:when>
+	</c:choose>
+</c:if>
+<wcf:rest var="catalogNavigationView" url="${searchHostNamePath}${searchContextPath}/store/${WCParam.storeId}/productview/byId/${productId}" >	
+			<wcf:param name="langId" value="${langId}"/>
+			<wcf:param name="currency" value="${env_currencyCode}"/>
+			<wcf:param name="responseFormat" value="json"/>		
+			<wcf:param name="catalogId" value="${WCParam.catalogId}"/>
+			<wcf:param name="profileName" value="X_findProductByIds_Details_DMART" />
+</wcf:rest>
+<c:set var="catalogEntryView" value="${catalogNavigationView.catalogEntryView[0]}"/>
+<input id="emsCatgroupId" type="hidden" value="${catalogEntryView.parentCatalogGroupID[0]}"  />
+<input id="recommendationProdCount" type="hidden" value="" /> 
+<input id="upsellProdCount" type="hidden" value="" />
+
+<input id="productIdentifier" type="hidden" value="${productId}">
+<input id="widgetType" type="hidden" value="${param.widgetUsage}">
+
+<input id="currCatalogId" type="hidden" value="${WCParam.categoryId}">
+<%--<script src="${jsAssetsDir}javascript/DMart/localCache/Storage.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/LocalCacheHelper.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/ProductDisplayHelper.js"></script> --%>
+<script type="text/javascript">
+		dojo.addOnLoad(function() {
+			var currProductId = '${WCParam.productId}';
+			var currCatalogId = '${WCParam.categoryId}';
+			$(document).on(
+				'dmart.recommendation.upsell',
+				function(event,upsellProds,recommProds) {
+					//alert("upsellProds" + upsellProds);
+					//alert("recommProds" + recommProds);
+					productsRecommendation.init(currCatalogId.toString(),null,upsellProds,recommProds,'upselling', null);
+				$(document).off('dmart.recommendation.upsell');
+			});
+			
+			RecommendationsJS.waitForUpsellTrigger();
+		});
+</script>

@@ -1,0 +1,51 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2010, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<%@ taglib uri="flow.tld" prefix="flow" %>
+<%@ page import="com.ibm.commerce.command.CommandContext" %>
+<%@ page import="com.ibm.commerce.foundation.internal.server.services.search.config.solr.SolrSearchConfigurationRegistry" %>
+<%@ page import="com.ibm.commerce.foundation.internal.server.services.search.metadata.solr.SolrSearchServiceConstants" %>
+<%@ page import="org.apache.solr.client.solrj.SolrServer" %>
+<%@ page import="org.apache.solr.client.solrj.embedded.EmbeddedSolrServer" %>
+<%@ page import="org.apache.solr.client.solrj.impl.HttpSolrServer" %>
+<%@ page import="com.ibm.commerce.command.CommandContext" %>
+<%@ page import="com.ibm.commerce.server.ECConstants"%>
+
+
+		<meta name="CommerceSearch" content="storeId_<c:out value="${param.storeId}"/>" /> 
+		<%
+		CommandContext cmdcontext = (CommandContext) request.getAttribute(ECConstants.EC_COMMANDCONTEXT);
+		
+		Integer langId = cmdcontext.getLanguageId(); //.getAttribute("langId").toString();
+		Integer storeId = cmdcontext.getStoreId(); //request.getAttribute("storeId").toString();
+		SolrSearchConfigurationRegistry searchRegistry = SolrSearchConfigurationRegistry.getInstance();
+		
+		String searchIndexName = searchRegistry.getIndexName(SolrSearchServiceConstants.PROFILE_NAME_AUTO_COMPLETE);
+		String coreName = searchRegistry.getCoreName(storeId, searchIndexName,	langId);
+		request.setAttribute("coreName", coreName);
+		
+		SolrServer solrServer = searchRegistry.getServer(coreName);
+		String serverURL = "";
+		if(solrServer instanceof HttpSolrServer){
+			serverURL = ((HttpSolrServer)solrServer).getBaseURL();
+		}else if(solrServer instanceof EmbeddedSolrServer) {
+			String protocol = request.getRequestURL().toString();
+			protocol = protocol.substring(0, protocol.indexOf(request.getServerName()));
+			serverURL = protocol+request.getServerName()+":"+request.getServerPort()+"/solr/"+coreName;
+		}
+		
+		request.setAttribute("serverURL", serverURL);
+		%>
+	<%--This is the variable that show the type ahead support of search --%>
+	<c:set var="coreName" value="${requestScope.coreName}"/>
+	<c:set var="serverURL" value="${requestScope.serverURL}"/>

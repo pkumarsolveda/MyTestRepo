@@ -1,0 +1,51 @@
+
+{% set upsell = "enable" %}
+{% macro offerProducts(data,thisOffer,index) %}
+<div id="offer_{{index}}" class="container" {% if index > 3  %} style='display:none' {% endif %}>
+<div class="row">
+<div class="col-xs-12">
+<section class="landing-tabs landing-tabs--quaternary">
+{% if index == 1  %} 
+<h2 id="offersText" class="landing-tabs--title">Topmost Category Offers</h2>
+{% endif %}
+<div class="landing-non-tabs">
+  <div class="no-border-tabs recommended-products">
+    <!--<ul class="landing-top-carousel-navigation-quaternary" id="landing-top-carousel-navigation-quaternary_{{index}}" {% if data.offerInfo[thisOffer].productCount <= 4  %} style='display:none' {% endif %} >
+      <li class="flex-nav-prev">
+        <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      </li>
+      <li class="flex-nav-next">
+        <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+      </li>
+    </ul>-->
+    <!-- Maximum tabs should be 5 and each tabs text limitation is 20characters. tab will have ellipsis if more than 20characters -->
+    <ul class="resp-tabs-list clearfix hor_1">
+      <li><span class="list-label">{{data.offerInfo[thisOffer].label}}</span></li>
+    </ul>
+    <div class="resp-tabs-container hor_1 spacing-bottom-half">
+      <div class="resp-tab-content">
+        {% from "_modules/product-listing-item-grocery.nunjucks" import plpGrocery %}
+         {% from "_modules/product-listing-item-apparel.nunjucks" import plpApperal %}
+
+        <div class="js-landing-carousel">
+          <ul class="slides clearfix">
+          {% for productId in data.offerInfo[thisOffer].productId %}
+	            <li class="js-switch-view slide-margin">
+	            {% if data.offerInfo[thisOffer].type == "apparel" %}   
+	            	{{ plpApperal(data.product[productId],data.config,data) }} 
+	            {% else %}
+	            	{{ plpGrocery(data.product[productId],data.config,data) }}
+	            {% endif %}
+	            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+</div>
+</div>
+</div>
+{% endmacro %}

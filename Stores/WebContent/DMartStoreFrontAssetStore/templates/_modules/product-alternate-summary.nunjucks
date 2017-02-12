@@ -1,0 +1,16 @@
+{% macro pdpAltSummary(totalSavings,totalPrice,count) %}
+<div class="pdp-alternate-list__summary js-alter-cta-panel">
+  <h3 class="pdp-alternate-list__summary--total-saving">Total Saving <i class="icon-rupees"></i><span id="saveSpan">{{totalSavings}}</span></h3>
+  <h3 class="pdp-alternate-list__summary--total-price">Total Price <i class="icon-rupees"></i><span id="priceSpan">{{totalPrice}}</span></h3>
+  <div class="pdp-alternate-list__summary-add">
+    <a class="pdp-alternate-list__summary-add-cta button-primary" href="javascript:;"><i class="icon-cart"></i> Add <span>all</span> to cart</a>
+    <a href="javascript:;" class="pdp-alternate-list__summary-added-cart-cta button--block button-white">
+      Added <span></span> to Cart
+    </a>
+    <a href="javascript:;" class="pdp-alternate-list__summary-warning button-secondary">PLEASE SELECT SIZE</a>
+    <a class="pdp-alternate-list__summary-add-list" href="javascript:;">
+      <i class="icon-document-add"></i>
+    </a>
+  </div>
+</div>
+{%endmacro%}

@@ -1,0 +1,57 @@
+{% macro myListItems(available, type, id, product, brand, variant, mrp, dmartprice, save, pricechange, free, offer, ordersummary) %}
+<div class="product-listing-item my-list cart-details__item-lists view-list-active">
+  <div class="product-listing-item__primary selected">
+    <input class="product-alternate-checkbox" name="productAlternate-{{ id }}" id="productAlternate-{{ id }}" type="checkbox" checked="">
+    <div class="view-list view-list-product-image product-out-of-stock__small-image-wrap">
+      {% if type == 'grocery' %}
+        <a href="javascript:;" title=""><img class="product-listing--image img-responsive" src="/{{config.baseUrl}}images/temp/plp/product-1.jpg"  alt="product image"></a>
+      {% else %}
+      <a href="javascript:;" title=""><img class="product-listing--image img-responsive" src="/{{config.baseUrl}}images/temp/plp/product-apparel-1.jpg"  alt="product image"></a>
+      {% endif %}
+      <a class="product-out-of-stock__small-image product-out-of-stock-image-disabled" href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/product-1.jpg" class="product-listing--image-out-of-stock img-responsive" alt="product image">
+        <span class="product-listing--label-out-of-stock"><span>Out of Stock</span></span></a>
+      </div>
+      <h4 class="product-listing--title"><a title="{{ product }}" href="javascript:;">{{ product }}</a></h4>
+      <h5 class="product-listing--brand"><a href="javascript:;">{{ brand }}</a></h5>
+
+      <div class="product-listing-details">
+        <div {% if save <= 0%}style="display:none;"{%endif%}  class="product-listing__save">save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{ save }}</span></div>
+        <p {% if save < 0%}style="display:none;"{%endif%} class="product-listing--original-price">MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{ mrp }}</span></p>
+        <p class="product-listing--discounted-price">DMart <i class="icon-rupees"></i>{{ dmartprice }}</p>
+        <div class="product-listing__quantity-secondary clearfix">
+        {% if type == 'grocery' %}
+          <div class="md-custom-select">
+            <select>
+              <option value="1" selected="">2kg - ₹250</option>
+              <option value="2">5kg - ₹500</option>
+              <option value="3">10kg - ₹1000</option>
+            </select>
+          </div>
+          {% else %}
+          <div class="md-custom-select">
+            <select>
+              <option value="1" selected="">S</option>
+              <option value="2">M</option>
+              <option value="3">L</option>
+            </select>
+          </div>
+          {% endif %}
+          <div class="md-custom-select">
+            <select class="cart-details-dropdown">
+              <option value="1">1</option>
+              <option value="2">2</option>
+              <option value="3">3</option>
+              <option value="4">4</option>
+              <option value="5">5</option>
+            </select>
+          </div>
+        </div>
+      </div>
+      <div class="cart-details__item--remove">
+        <a href="javascript:;">
+          <i class="icon-cross"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+{% endmacro %}

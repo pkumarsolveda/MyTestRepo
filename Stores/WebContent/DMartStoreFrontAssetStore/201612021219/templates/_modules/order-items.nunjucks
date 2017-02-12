@@ -1,0 +1,81 @@
+{% macro myOrderItems(data,item) %}
+{%set type = type.topCategory %}
+{%set ordersummary = 'true' %}
+{%set freeGift = item.freeGift %}
+{%set offer = item.offer %}
+<li class="cart-details__item-lists {% if available == 'false' %}product-not-available{% endif %}">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-1">
+      <a class="{% if available == 'false' %}product-not-available-img-disabled{% endif %}" href="ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{item.parentCatalogGroupID}}&productId={{item.parentCatentryId}}" title="">
+        <img class="img-responsive" src="{{item.imgUrl}}" alt="{{item.productTitle }}" title="{{item.productTitle }}" onerror="this.src='{{data.noImagePath}}';">
+        {% if available == 'false' %}
+        <span class="cart-details__item-lists--no-stock">
+          <span>Out of Stock</span>
+        </span>
+        {% endif %}
+      </a>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-5">
+      <h3 class="h4 product-name"><a href="ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{item.parentCatalogGroupID}}&productId={{item.parentCatentryId}}">{{item.productTitle }}</a></h3>
+      <h4 class="product-brand"><a href="SearchDisplay?catalogId={{data.catalogId}}&langId={{data.langId}}&storeId={{data.storeId}}&manufacturer={{item.brand}}">{{ item.brand }}</a></h4>
+      {% if item.priceChangeFlag == true %}
+      <h4 class="price-change"><span class="title">Price Change:</span> From <span><i class="icon-rupees"></i>{{ item.previousPrice }}</span> to <span><i class="icon-rupees"></i>{{ item.unitPrice }}</span></h4>
+      {% endif %}
+      <h4 class="product-variant">{% if item.topCategory=='Apparel' %}Size{% else %}Var{% endif %}: <span>{{ item.variant }}{{item.size}} &nbsp;</span></h4>
+      {% if offer == true %}
+      	<div class="free-item"><span class="label label-tertiary label-medium">offer</span> {{item.offerDescription}}</div>
+      {% elif item.freebieDescription != 'NONE' %}
+      	<div class="free-item"><span class="label label-secondary label-medium">FREE</span> {{item.freebieDescription}}</div>
+      {% endif %}
+      {% if ordersummary == 'false' %}
+      <div class="cart-details__item--remove show-sm-down">
+        <a href="javascript:;">
+          <i class="icon-cross"></i>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-xs-4 col-md-2 col-xs-offset-2 col-md-offset-0">
+      {% if ordersummary == 'true' %}
+      <h4 class="order-summary__qty">
+        <span class="show-sm-down display-inline">Qty: </span>{{item.quantity}}
+      </h3>
+      {% else %}
+      <div class="md-custom-select">
+        <select class="cart-details-dropdown">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+          <option value="4">4</option>
+          <option value="5">5</option>
+        </select>
+      </div>
+      {% endif %}
+      <h5 class="cart-details__item--unit"><i class="icon-rupees"></i>{{item.unitPrice}} per unit</h5>
+    </div>
+    <div class="col-xs-5 col-sm-6 {% if ordersummary == 'false' %} col-md-3 {% else %} col-md-2 {% endif %}">
+      <h4 {% if item.savings < 0%}style="display:none;"{%endif%} class="cart-details__item--price-mrp">MRP {% if item.savings > 0  %}<span class="strike-diagonal" >{% else %}<span class="no-strike-diagonal" >{% endif %}<i class="icon-rupees"></i>{{ item.calculatedMRP }}</span></h4>
+      <h4 class="cart-details__item--price-dmart">DMart <i class="icon-rupees"></i>{{item.orderItemAdjustedPrice }}</h4>
+      <h4 {% if item.savings <= 0%}style="display:none;"{%endif%} class="cart-details__item--price-save">You Save <span><i class="icon-rupees"></i>{{ item.savings }}</span></h4>
+    </div>
+
+    <div class="col-xs-12 {% if ordersummary == 'false' %} col-md-1 {% else %} col-md-2 {% endif %}">
+
+      {% if ordersummary == 'false' %}
+      <div class="cart-details__item--remove show-md-up">
+        <a href="javascript:;">
+          <i class="icon-cross"></i>
+        </a>
+      </div>
+      {% endif %}
+
+      {% if item.orderItemCRStatus == true %}
+      	<a href="javascript:;" class="button--block button-white cart-details__item-cancel-cta">{{item.orderItemRetStatusText}}</a><br/><br/>
+      	<a href="javascript:;" class="button--block button-white cart-details__item-cancel-cta">{{item.orderItemCanStatusText}}</a>
+      {% endif %}
+      
+    </div>
+  </div>
+</li>
+
+{% endmacro %}

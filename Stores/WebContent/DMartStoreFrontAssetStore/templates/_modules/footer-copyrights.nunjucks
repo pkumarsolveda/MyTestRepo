@@ -1,0 +1,17 @@
+<div class="row">
+  <div class="col-xs-12 col-md-7">
+    <p>
+      <small>Copyright &copy; {{data.currYear}} Avenue eCommerce Limited (AEL). All Rights Reserved.</small>
+    </p>
+  </div>
+  <div class="col-sm-12 col-md-5">
+    <nav class="footer-legal__nav link-bordered">
+      <ul class="">
+        <li><a href="{{data.contentbaseURL}}/dmart-site-map" title="Site Map">Site Map</a></li>
+        <li><a href="{{data.contentbaseURL}}/dmart-privacy-policy" title="Privacy Policy">Privacy Policy</a></li>
+        <li><a href="{{data.contentbaseURL}}/dmart-terms-conditions" title="Disclaimer">Disclaimer</a></li>
+        <li><a href="{{data.contentbaseURL}}/dmart-terms-conditions" title="Terms & Condition">Terms & Conditions</a></li>
+      </ul>
+    </nav>
+  </div>
+</div> <!-- /footer-legal -->

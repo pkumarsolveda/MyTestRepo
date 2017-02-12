@@ -1,0 +1,7 @@
+<div class="form-control">
+  <label for="mobileNumber" class="form__label required-field spacing-bottom-tiny">Mobile Number</label>
+  <div class="form__input--group">
+    <span class="form__input-prefix">+91</span>
+    <input type="tel" required="true" maxlength="10" placeholder="9999999999" id="mobileNumber" name="mobileNumber" class="form__input">
+  </div>
+</div>

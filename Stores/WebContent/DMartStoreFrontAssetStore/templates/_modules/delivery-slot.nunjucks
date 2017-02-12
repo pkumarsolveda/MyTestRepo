@@ -1,0 +1,32 @@
+<div class="delivery-slot">
+	<div class="delivery-slot__header">
+		<h3 class="delivery-slot--title">Please select the slot <span>(Only 1 time slot per order)</span></h3>
+		<a href="javascript:;" class="button-white">RECURRING PICKUP</a>
+	</div>
+	<div class="delivery-selection">
+		<form action="javascript:;">
+			<div class="delivery-row delivery-selection--days">
+				<span>Tomorrow</span> <span>Monday</span> <span>Tuesday</span> <span>Wednesday</span> <span>Thursday</span> <span>Friday</span> <span>Saturday</span> 
+			</div>
+			<div class="delivery-selection-row">
+				<span>09:00 - 11:00</span> <span>09:00 - 11:00</span> <span>09:00 - 11:00</span> <span>09:00 - 11:00</span> <span>09:00 - 11:00</span> <span>09:00 - 11:00</span> <span>09:00 - 11:00</span> 
+			</div>
+			<div class="delivery-selection-row">
+				<span>11:00 - 13:00</span> <span>11:00 - 13:00</span><span>11:00 - 13:00</span><span>11:00 - 13:00</span><span>11:00 - 13:00</span><span>11:00 - 13:00</span><span>11:00 - 13:00</span>
+			</div>
+			<div class="delivery-selection-row">
+			<span>13:00 - 15:00</span> <span>13:00 - 15:00</span> <span>13:00 - 15:00</span> <span class="delivery-selection--disabled">13:00 - 15:00</span> <span>13:00 - 15:00</span> <span>13:00 - 15:00</span> <span>13:00 - 15:00</span> 
+			</div>
+			<div class="delivery-selection-row">
+				<span>15:00 - 19:00</span> <span>15:00 - 19:00</span> <span>15:00 - 19:00</span> <span>15:00 - 19:00</span> <span>15:00 - 19:00</span> <span>15:00 - 19:00</span> <span>15:00 - 19:00</span> 
+			</div>
+			<div class="delivery-selection-row">
+				<span>19:00 - 21:00</span> <span>19:00 - 21:00</span> <span>19:00 - 21:00</span> <span>19:00 - 21:00</span> <span>19:00 - 21:00</span> <span>19:00 - 21:00</span> <span>19:00 - 21:00</span> 
+			</div>
+			<div class="my-cart-cta">
+				<a href="javascript:;" class="button-white">CONTINUE SHOPPING</a>
+				<a href="javascript:;" class="button-primary delivery-selection__cta-button">PROCEED</a>
+			</div>
+		</form>
+	</div>
+</div>

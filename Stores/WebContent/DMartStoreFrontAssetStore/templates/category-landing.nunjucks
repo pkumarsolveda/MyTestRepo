@@ -1,0 +1,134 @@
+
+
+{% block title %}  {% endblock %}
+
+{% set pageTitle = "grocery" %}
+{% set filter = "enabled" %}
+{% set pagefilterSearch = "enabled" %}
+{% set parentPage = "Grocery" %}
+
+{% block content %}
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-warning-bg">
+        <strong><i class="icon-notification"></i> Please Note:</strong> Some item in your cart have been sold out and will be removed as you proceed to checkout or continue shopping.
+        <a class="alert-close-cta js-cart-reject alert-cross-pos" href="javascript:;" title="Close"><i class="icon-cta-close icon-cancel"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id = "ClpTopBanner">
+
+{{data.clpTopBanner.MarketingSpotData[0].baseMarketingSpotActivityData[0].marketingContentDescription[0].marketingText|safe}}
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      {% include '_modules/filter.nunjucks' %}
+    </div>
+  </div>
+</div>
+<div class="container ">
+    <div class="row">
+      <section class="landing-tabs landing-tabs--clp-rails-l2">
+      
+          {% include '_modules/clp-button-l2.nunjucks' %}
+        </section>
+    </div>
+</div>
+
+<!-- Loop all the subcategories of the category to display their curated rails-->
+
+
+  {% from "_modules/product-listing-item-grocery.nunjucks" import plpGrocery %}
+  {% for subCategory in data.curatedRailsData.subCategoryCuratedData %}
+   
+    
+  <div class="container product_container">
+    <div class="row">
+      <div class="col-xs-12">
+        <section class="landing-tabs landing-tabs--clp-rails">
+					      
+					      
+					 <div class="landing-non-tabs">
+					  <div class="no-border-tabs recommended-products">
+					    <ul class="landing-top-carousel-navigation">
+					      <li class="flex-nav-prev">
+					        <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+					      </li>
+					      <li class="flex-nav-next">
+					        <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+					      </li>
+					    </ul>
+					    <!-- Maximum tabs should be 5 and each tabs text limitation is 20characters. tab will have ellipsis if more than 20characters -->
+					    <ul class="resp-tabs-list clearfix hor_1">
+					      <li><span class="list-label">{{subCategory.subCategoryName}}</span></li>
+					      <li class="view-all-rail"><span><a href = "{{subCategory.url}}" >View all </a></span></li>
+					    </ul>
+					    <div class="resp-tabs-container hor_1">
+					      <div class="resp-tab-content">
+					        
+					
+					        <div class="js-landing-carousel">
+					          <ul class="slides clearfix">
+					        {% for product in subCategory.curatedItems %}
+					        
+					        	{% if product.type  == 'Product' %}
+     
+						            <li class="js-switch-view slide-margin">
+						           {{ plpGrocery(data.product[product.id],data.config,data) }}
+						            </li>
+					            
+					           {% endif %}  
+					           
+					           {% if product.type  == 'Content' %}
+     
+						            <li class="js-switch-view slide-margin">
+						              <a href="{{product.LinkToURL}}"> <img alt="COntent_{{product.id}}" src="{{product.ImgPath }}"> </a>
+						            </li>
+					            
+					           {% endif %} 
+					         {% endfor %}
+					        </ul>
+					      </div>
+					      </div>
+					    </div>
+					  </div>
+					</div>
+
+				
+        </section>
+      </div>
+    </div>
+  </div>
+  
+  {% endfor %}
+  
+
+
+<div class="container clp-mobile-brandfilter">
+  <div class="row">
+    <div class="col-xs-12 col-md-3 product-filter-wrapper">
+      <div class="show-sm-down product-filter-control">
+        <h4 class="product-filter-control__title">
+          <a href="javascript:;" class="brand-filter-back js-brand-filter-back"><i class="icon-angle-left"></i></a>
+          Filter
+        </h4>
+      </div>
+      <div class="row">
+
+        <div class="col-xs-12">
+          {%  include '_modules/filter-brands.nunjucks' %}
+        </div>
+
+      </div>
+    </div>
+ 
+
+  </div>
+</div>
+
+{% endblock %}

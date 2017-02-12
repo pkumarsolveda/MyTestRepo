@@ -1,0 +1,185 @@
+
+<div class="row">
+	<div class="col-md-12">
+		<h5 class="pup--title">Here are DMart Ready Pick-up Points closest to: <span class="pincode-text">{{data.pinCode}}</span></h5>
+	</div>
+	<div class="delivery-address-padding-side">
+		<div class="col-md-12">
+			<input type="text" placeholder="Want to pick from any other location? Enter Pincode" class="pup--filter-field">
+		</div>
+	</div>
+</div>
+
+<script>
+
+  var infoWnd, mapCanvas, zoomChangeBoundsListener, google, rdoCounter = 0;
+  function initialize() {
+    var myOptions = {
+      // scrollwheel: false,
+      draggable: true,
+      mapTypeId: google.maps.MapTypeId.ROADMAP
+    };
+    //Creates a map object.
+    mapCanvas = new google.maps.Map(document.getElementById('map_canvas'), myOptions);
+
+    // Fix hidden map in Tabs/Accordion
+    var tab = jQuery('.delivery-vertical .js-load-gmap, .delivery-vertical h2');
+	$('#marker_list li').css('border','1px solid red');
+    jQuery(tab).one('click', function(){
+      jQuery('#marker_list li:first-child label').trigger('click');
+      google.maps.event.trigger(mapCanvas, 'resize');
+      jQuery('.js-delivery-favorite').clickToggle( function () {
+        jQuery(this).parents('li').addClass('favorite-address');
+        jQuery(this).children().toggleClass('js-hide-show');
+      }, function () {
+        jQuery(this).parents('li').removeClass('favorite-address');
+        jQuery(this).children().toggleClass('js-hide-show');
+      });
+    });
+
+    //Creates a infowindow object.
+    infoWnd = new google.maps.InfoWindow({
+      maxWidth: 350
+    });
+
+    //Mapping markers on the map
+    var bounds = new google.maps.LatLngBounds();
+    var pup, i, latlng;
+	var len = pupAddress.addressItms.length;
+   for (i =0;i<len;i++) {
+      //Creates a marker
+      pup = pupAddress.addressItms[i];
+      latlng = new google.maps.LatLng(pup.latlng[0], pup.latlng[1]);
+      bounds.extend(latlng);
+      var marker = createMarker(
+        mapCanvas, latlng, pup.displayName
+      );
+
+      //Creates a address for the marker
+      createMarkerButton(marker, pup.addressId, pup.favouritePUP, pup.name);
+    }
+    //Fits the map bounds
+    mapCanvas.fitBounds(bounds);
+    zoomChangeBoundsListener = google.maps.event.addListenerOnce(mapCanvas, 'bounds_changed', function(event) {
+      if (this.getZoom()){
+        this.setZoom(12);
+      }
+    });
+    setTimeout(function(){
+      google.maps.event.removeListener(zoomChangeBoundsListener);
+    }, 2000);
+  }
+
+  function createMarker(map, latlng, title) {
+    //Creates a marker
+    var marker = new google.maps.Marker({
+      position: latlng,
+      map: map,
+      title: title,
+      animation: google.maps.Animation.DROP,
+      // icon: '/{{config.baseUrl}}images/dmart-symbol-logo.svg',// Marker icon
+      scaledSize: new google.maps.Size(10, 10) // scaled size
+    });
+
+    //The infoWindow is opened when the address is clicked
+    google.maps.event.addListener(marker, 'click', function(){
+      infoWnd.setContent('<div class="pupAddress-popup">DMart</div>');
+      jQuery('.pupAddress-popup').parent().parent().parent().parent().parent().hide();
+      map.setZoom(16);
+      map.panTo(marker.getPosition());
+      infoWnd.open(map, marker);
+      // infoWnd.close();
+      marker.addListener('click', toggleBounce);
+    });
+    return marker;
+
+    function toggleBounce() {
+      if (marker.getAnimation() !== null) {
+        marker.setAnimation(null);
+      } else {
+        marker.setAnimation(google.maps.Animation.BOUNCE);
+      }
+    }
+  }
+
+  function createMarkerButton(marker, addressId, favouritePUP, name) {
+    //Creates a address buttons
+    var ul = document.getElementById('marker_list');
+    var li = document.createElement('li');
+    var label = document.createElement('label');
+	label.className= 'pup-label';
+    var address =   document.createElement('address');
+	address.className= 'pup-address';
+    var rbutton = document.createElement('input');
+    rbutton.type = 'radio';
+    rbutton.name = 'delivery-address';
+    rbutton.id = addressId;
+	rbutton.className= 'delivery-address-rdo';
+    li.setAttribute("style", "max-width: 400px");
+	if(rdoCounter == 0){
+		rbutton.checked = true;
+		rdoCounter = 1;
+	}
+
+    // Favorite buttons
+    var favButton = document.createElement('a');
+    favButton.className = 'js-delivery-favorite delivery-favorite-cta';
+    favButton.title = 'Make it as Favorite PUP';
+    favButton.id = addressId;
+
+    //var heartIcon = document.createElement('i');
+    var heartIconOutline = document.createElement('i');
+   // heartIcon.setAttribute("id", addressId);
+    heartIconOutline.setAttribute("id", addressId);
+    
+    if(favouritePUP == "true"){
+    	//heartIcon.className = 'js-delivery-favorite-icon icon-heart';
+    	heartIconOutline.className = 'icon-address-icon js-hide-show';
+    }
+   else{
+    	//heartIcon.className = 'js-delivery-favorite-icon icon-heart js-hide-show';
+    	heartIconOutline.className = 'icon-address-icon';
+    }
+
+    var title = marker.getTitle();
+    address.innerHTML = title;
+    
+    ul.appendChild(li);
+    li.appendChild(label);
+    label.appendChild(rbutton);
+    label.appendChild(address);
+    label.appendChild(favButton);
+    //favButton.appendChild(heartIcon);
+    favButton.appendChild(heartIconOutline);
+	ul.getElementsByTagName("li")[0].className = "address-selected";
+    
+    var input = document.createElement("input");
+    input.setAttribute("type", "hidden");
+    input.setAttribute("id", "pupAddressData");
+    input.setAttribute("value", name);
+    input.setAttribute("name", name);
+    label.appendChild(input);
+    
+
+    //Trigger a click event to marker when the button is clicked.
+    google.maps.event.addDomListener(label, 'click', function(){
+      google.maps.event.trigger(marker, 'click');
+    });
+  }
+  //google.maps.event.addDomListener(window, 'load', initialize);
+  
+  initialize();
+</script>
+<div class="delivery-address-padding-side" id="pupDiv">
+<div class="delivery-vertical__address delivery-vertical__address--pup pupAddress">
+  <ul id="marker_list"></ul>
+</div>
+</div>
+<div class="delivery-address-padding-map"><div id="map_canvas" class="pup-map"></div></div>
+<div class="delivery-address-PUP-unavailable" {% if data.noPups == 'false' %}style="display:none;"{% endif %}>
+ <img class="delivery-address-PUP-img" src="{{data.config.baseUrl}}images/confused.jpg">
+ <div class="delivery-address-PUP-txt">
+ <span>Sorry, currently we dont have any<br>DMart Ready Pickup Point in <span id="pincode-text-span" class="pincode-text">400001</span></span> <br><br>
+ <span>Here are the other <a href="javascript:DMartStaticContent.PUPListDMart();"><u class="delivery-address-PUP-DRPP">DMart Ready Pickup Points</u></a></span>
+ </div>
+</div>

@@ -1,0 +1,163 @@
+<c:set var="userState" value="${CommandContext.user.state}" scope="page"/>
+<c:set var="userLogonState" value="0" scope="page"/>
+<c:set var="memberId" value="${CommandContext.user.memberId}"/>
+<wcf:rest var="memberDetails" url="store/{storeId}/person/{memberId}" scope="request">
+	<wcf:var name="storeId" value="${storeId}" encode="true"/>
+	<wcf:var name="memberId" value="${memberId}" encode="true"/>
+	<wcf:param name="responseFormat" value="json" />
+	<wcf:param name="profileName" value="IBM_User_Registration_Details"/>
+</wcf:rest>
+<c:set var="userDisplayName" value="${memberDetails.address.firstName} ${memberDetails.address.lastName}"/>
+<c:set var="pinCode" value="${memberDetails.userField1}"/>
+<c:if test="${!empty pinCode}"> 
+	<c:set var="pinArray" value="${fn:split(pinCode, '_')}" />
+	<input id="pinCodeVal" type="hidden" value="${pinArray[1]}" />
+</c:if>
+
+<% 
+	CommandContext cmndContext = (CommandContext)request.getAttribute(com.ibm.commerce.server.ECConstants.EC_COMMANDCONTEXT);
+	if (cmndContext == null) {
+       out.println("CommandContext is null");
+       return;
+   	}
+   	com.ibm.commerce.user.objects.UserAccessBean ua = cmndContext.getUser();
+   	String userFieldValue = ua.getUserField3();
+   	pageContext.setAttribute("userFieldValue", userFieldValue);
+   	String oldGuestId = ua.getUserId();
+   	pageContext.setAttribute("oldGuestId", oldGuestId);
+   	StoreConfigurationRegistry scfReg = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+	String customerCareNumber = scfReg.getSingleton().getValue(0, "DMart.CustomerCare.PhoneNumber");
+	pageContext.setAttribute("customerCareNumber", customerCareNumber);   	
+%>
+<c:set var="customerCare" value="${customerCareNumber}"/>
+<script type="text/javascript">
+	var userFieldValue = "<c:out value="${userFieldValue}"/>";
+	var oldGuestId = "<c:out value="${oldGuestId}"/>";
+	WCParamJS.searchTerm  = '<wcf:out value = "${fn:trim(WCParam.searchTerm)}" escapeFormat="js"/>';
+	//WCParamJS.handledManufacturer  = '<wcf:out value = "${fn:trim(WCParam.manufacturer)}" escapeFormat="url"/>';
+	if(window.location.href.split('?')[1] != null && window.location.href.split('?')[1] != "" && window.location.href.split('?')[1].split('&manufacturer=')[1] != null && window.location.href.split('?')[1].split('&manufacturer=')[1] != ""){	       
+		WCParamJS.handledManufacturer = decodeURI(window.location.href.split('?')[1].split('&manufacturer=')[1].split('&')[0]);
+	}
+</script>
+<c:choose>
+	<c:when test="${userType eq 'G' || userState eq '0'}" > 
+		<c:set var="SIGN_IN_OUT"><fmt:message bundle="${storeText}" key="HEADER_SIGN_IN_REGISTER"/></c:set>
+		<c:set var="userLogonState" value="0" scope="page"/>
+		<c:set var="SIGN_IN_OUT_ID">SignInLink</c:set>
+		<wcf:url var="Logon_LogoutURL" value="LogonForm">
+		  <wcf:param name="langId" value="${langId}" />
+		  <wcf:param name="storeId" value="${storeId}" />
+		  <wcf:param name="catalogId" value="${catalogId}" />
+		  <wcf:param name="myAcctMain" value="1" />
+		</wcf:url>
+		<flow:ifEnabled feature="SOAWishlist">
+		<c:set var="WishListDisplayURL" value="javascript:redirectToSignOn('WishList');"/>
+		</flow:ifEnabled>
+	
+		<%-- for MultipleActiveOrders  --%>
+		<flow:ifEnabled feature="MultipleActiveOrders"> 
+		<c:set var="SavedOrderListDisplayURL" value="javascript:redirectToSignOn('SavedOrderPage');"/>
+		</flow:ifEnabled>
+	</c:when>
+	<c:otherwise>
+		<c:set var="SIGN_IN_OUT"><fmt:message bundle="${storeText}" key="HEADER_SIGN_OUT"/></c:set>
+		<c:set var="userLogonState" value="1" scope="page"/>
+		<c:if test="${env_OnBehalfOf}">
+				<fmt:message bundle="${storeText}" key="HEADER_SIGN_OUT_USERNAME" var="SIGN_IN_OUT">
+					<fmt:param value="${userDisplayName}"/>
+				</fmt:message>
+		</c:if>
+		<wcf:url var="LogonAfterLogoff" value="DMartLogonView">
+			<wcf:param name="langId" value="${langId}" />
+			<wcf:param name="storeId" value="${storeId}" />
+			<wcf:param name="catalogId" value="${catalogId}" />
+			<c:if test="${!empty WCParam.nextUrl}">
+				<wcf:param name="nextUrl" value="${WCParam.nextUrl}" />
+			</c:if>
+			<wcf:param name="postLoginURL" value="${homePageURL}" />
+		</wcf:url>
+
+
+
+		<c:set var="SIGN_IN_OUT_ID">SignOutLink</c:set>
+		<wcf:url var="logonURL" value="LogonForm"></wcf:url>
+		<wcf:url var="Logon_LogoutURLOriginal" value="Logoff">
+		  <wcf:param name="langId" value="${langId}" />
+		  <wcf:param name="storeId" value="${storeId}" />
+		  <wcf:param name="catalogId" value="${catalogId}" />
+		  <wcf:param name="myAcctMain" value="1" />
+		  <wcf:param name="URL" value="${LogonAfterLogoff}" />
+		  <wcf:param name="deleteCartCookie" value="true" />
+		</wcf:url>
+		<flow:ifEnabled feature="SOAWishlist">
+		<wcf:url var="WishListDisplayURL" value="WishListDisplayView">
+			<wcf:param name="listId" value="." />
+			<wcf:param name="storeId"   value="${storeId}"  />
+			<wcf:param name="catalogId" value="${catalogId}"/>
+			<wcf:param name="langId" value="${langId}" />
+		</wcf:url>
+		</flow:ifEnabled>
+		<flow:ifEnabled feature="MultipleActiveOrders"> 
+		<%-- for MultipleActiveOrders  --%>
+		<wcf:url var="SavedOrderListDisplayURL" value="ListOrdersDisplayView">
+			<wcf:param name="storeId"   value="${storeId}"  />
+			<wcf:param name="catalogId" value="${catalogId}"/>
+			<wcf:param name="langId" value="${langId}" />
+			<wcf:param name="myAcctMain" value="1" />   
+			<wcf:param name="page" value="savedorder"/>
+		</wcf:url>
+		</flow:ifEnabled>
+		<c:set var="Logon_LogoutURL" value="javascript:GlobalLoginJS.deleteUserLogonIdCookie();logout('${Logon_LogoutURLOriginal}');DMAnalytics.events( DMAnalytics.Constants.Category.SignIn, DMAnalytics.Constants.Action.Logout, document.title, 0, null);"/>		
+	</c:otherwise>
+</c:choose>
+
+<div class="col-xs-12">
+			  <div class="logo_small">
+				<a href="${env_TopCategoriesDisplayURL}" title="DMart">
+					<img class="logo--small img-responsive" src="${staticServerHostPath}images/DMart/DMartReadyNew-01.svg" alt="DMart">
+				</a>
+			  </div>
+
+			<ul class="header-component__secondary link-bordered">
+				<li><span class="show-md-up"><i class="icon-phone"></i> <tel>${customerCare}</tel></span>
+                <a class="show-sm-down small-mobile-number" href="tel:${customerCare}"><i class="icon-phone"></i></a>
+                </li>
+				
+				<li><c:if test="${userType == 'G'}">
+				<a class="order-status-text modal-link" title="Order Status" href="javascript:;" data-target="guestOrderTrackModal" rel="nofollow"  ><i class="icon-track"></i> <span><fmt:message bundle="${storeText}" key="ORDER_STATUS_TEXT"/></span></a>
+				</c:if>
+				<c:if test="${userType != 'G'}">
+				<a class="orderStatus order-status-text modal-link" rel="nofollow" title="Order Status" href="${fn:escapeXml(MyAccountTrackOrderURL)}#my-account4" onClick="DMAnalytics.events( DMAnalytics.Constants.Category.orderStatus, 'Order Status' , document.title, 0,null );"><i class="icon-track"></i> <span><fmt:message bundle="${storeText}" key="ORDER_STATUS_TEXT"/></span></a>
+				</c:if></li>
+				
+				<c:if test="${userType == 'G'}">
+					<%-- user not logged in BEGINS --%>
+					<li><i class="icon-signin"></i> 
+						<a title="Sign in" href="javascript:;" id="Header_GlobalLogin_signInQuickLink" tabIndex="0" class="dropdown-signin" rel="nofollow" aria-label="Sign In">
+						<fmt:message bundle="${storeText}" key="SIGN_IN_TEXT"/></a> 
+						<%out.flush();%>
+						<c:import url="${env_siteWidgetsDir}com.ibm.commerce.store.widgets.GlobalLogin/GlobalLogin.jsp">
+							<c:param name="langId" value="${langId}" />
+							<c:param name="cmdName" value="${lastCmdName}" />
+							<c:param name="widgetId" value="Header_GlobalLogin" />
+						</c:import> 
+						<%out.flush();%> 
+						<a class="dropdown-register" href="javascript:;" rel="nofollow" title="Register">
+						<fmt:message bundle="${storeText}" key="REGISTER_TEXT"/></a></li>
+						<%-- user not logged in ENDS --%>
+				</c:if>
+
+				<c:if test="${userType != 'G'}">
+					<%-- user logged in BEGINS--%>
+					<li>
+					<span class="avatar-cta-small">
+						<i class="icon-signin"></i> 
+					</span>
+						<a class="logged-in-user" href="${fn:escapeXml(MyAccountURL)}" title="${userDisplayName}">Hi ${userDisplayName}</a>
+						<a href="<c:out value="${Logon_LogoutURL}"/>" title="Logout"><fmt:message bundle="${storeText}" key="LOGOUT_TEXT"/></a>
+					</li>
+					<%-- user logged in ENDS--%>
+				</c:if>
+				
+			</ul>
+		</div>

@@ -1,0 +1,35 @@
+{% macro myCartItems(item,data) %}
+
+<li class="cart-details__item-lists {% if item.outofstock == true %}product-not-available{% endif %}">
+  <div class="row">
+    <div class="col-xs-2">
+      <a class="{% if item.outofstock == true %}product-not-available-img-disabled{% endif %}" href="javascript:;" title="">
+        <img class="img-responsive" src="{{item.imgUrl}}" alt="{{item.productTitle}}" title="{{item.productTitle}}" onerror="this.src='{{data.noImagePath}}';">
+        {% if item.outofstock == true %}
+        <span class="cart-details__item-lists--no-stock">
+          <span><span>Out of Stock</span></span>
+        </span>
+        {% endif %}
+      </a>
+    </div>
+    <div class="col-xs-10">
+      <h3 class="h4 product-name">
+      {% if item.outofstock == true %}
+       <a href="#_">{{ item.productTitle }}</a>
+       {% else %}
+      	<a href="{{data.absoluteUrl}}ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{item.parentCatalogGroupID}}&productId={{item.parentCatentryId}}">{{ item.productTitle }}</a>
+      {% endif %}
+      </h3>
+      
+      <h4 class="cart-details__item--price-dmart">DMart <i class="icon-rupees"></i>{{item.price}}</h4>
+      {% if pricechange == 'true' %}
+      <h4 class="price-change"><span class="title">Price Changed:</span> From <span><i class="icon-rupees"></i>{{item.previousPrice}}</span> to <span><i class="icon-rupees"></i>{{item.dmartPrice}}</span></h4>
+      {% endif %}
+      {% if free == 'true' %}
+      <div class="free-item"><span class="label label-secondary label-medium">Free</span> Baseball Cap</div>
+      {% endif %}
+    </div>
+  </div>
+</li>
+
+{% endmacro %}

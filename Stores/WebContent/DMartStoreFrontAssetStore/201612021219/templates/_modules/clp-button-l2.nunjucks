@@ -1,0 +1,39 @@
+
+{% set upsell = "enable" %}
+
+<div class="landing-non-tabs">
+  <div class="no-border-tabs recommended-products">
+    <ul class="landing-top-carousel-navigation">
+      <li class="flex-nav-prev">
+        <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      </li>
+      <li class="flex-nav-next">
+        <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+      </li>
+    </ul>
+    <!-- Maximum tabs should be 5 and each tabs text limitation is 20characters. tab will have ellipsis if more than 20characters -->
+
+    <div class="resp-tabs-container hor_1">
+      <div class="resp-tab-content">
+        {% include '_modules/product-listing-item-grocery.nunjucks' %}
+
+        <div class="js-landing-carousel">
+          <ul class="slides clearfix">
+  
+                 
+ {% for childCetegory in data.childCategories.childCategoryList %}
+     
+	   <li class="clp-btn">
+                    {{childCetegory.name}}
+        </li>
+    {% else %}
+    No products to display.  
+    {% endfor %}
+
+      
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

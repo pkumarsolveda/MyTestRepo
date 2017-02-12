@@ -1,0 +1,9 @@
+<%--  Add your data related code here --%>
+<% 
+    //StoreConfigurationRegistry storeConfReg = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+	String titleTopCategoryOffers = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Title.TopCategoryOffers");
+	pageContext.setAttribute("titleTopCategoryOffers", titleTopCategoryOffers);
+%>
+<script type="text/javascript">
+WCParamJS.topOffersTitle  = '<c:out value = "${titleTopCategoryOffers}"/>';
+</script>

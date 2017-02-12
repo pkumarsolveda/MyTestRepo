@@ -1,0 +1,55 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2008, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<%-- 
+  *****
+  *	This JSP page includes the imports needed in the e-mail send to the customer with the store home page link.
+  *****
+--%>
+<!-- BEGIN EmailImports.jspf -->
+
+<%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<fmt:setBundle basename="/${sdb.jspStoreDir}/emailtext_v2" var="emailText" scope="request"/>
+
+<%
+StoreConfigurationRegistry scfRegistry = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+String DMartHomePage = scfRegistry.getSingleton().getValue(0, "DMart.NewHomePage.URL");
+String FacebookPage = scfRegistry.getSingleton().getValue(0, "DMart.FacebookPage.URL");
+String GooglePlusPage = scfRegistry.getSingleton().getValue(0, "DMart.GooglePlus.URL");
+String AndroidAppStorePage = scfRegistry.getSingleton().getValue(0, "DMart.AppStoreAndroid.URL");
+String AppleStorePage = scfRegistry.getSingleton().getValue(0, "DMart.AppStoreiOS.URL");
+String CustomerCareNumber = scfRegistry.getSingleton().getValue(0, "DMart.CustomerCare.PhoneNumber");
+String CustomerCareTiming = scfRegistry.getSingleton().getValue(0, "DMartCustomerCareTiming");
+String CustomerCareEmail = scfRegistry.getSingleton().getValue(0, "DMartCustomerCareEmail");
+String DMartPunchLine = scfRegistry.getSingleton().getValue(0, "DMartPunchLine");
+String serverName = scfRegistry.getSingleton().getValue(0, "DMart.ServerName");
+
+pageContext.setAttribute("DMartHomePage",		DMartHomePage);
+pageContext.setAttribute("FacebookPage", 		FacebookPage);
+pageContext.setAttribute("GooglePlusPage", 		GooglePlusPage);
+pageContext.setAttribute("AndroidAppStorePage", AndroidAppStorePage);
+pageContext.setAttribute("AppleStorePage", 		AppleStorePage);
+pageContext.setAttribute("CustomerCareNumber",CustomerCareNumber);
+pageContext.setAttribute("CustomerCareTiming",CustomerCareTiming);
+pageContext.setAttribute("CustomerCareEmail", CustomerCareEmail);
+pageContext.setAttribute("DMartPunchLine",		DMartPunchLine);
+pageContext.setAttribute("serverName", 		serverName);
+%>
+
+<c:set var="policyUrl"	value="${env_TopCategoriesDisplayURLHierarchy}/dmart-privacy-policy" />
+<c:set var="termsAndCondition"	value="${env_TopCategoriesDisplayURLHierarchy}/dmart-terms-conditions" />
+<c:set var="customerId" value="customerIdValue"/>
+<c:set var="imagesBaseURL" value="https://${serverName}/wcsstore/DMartStoreFrontAssetStore/images"/>
+<c:set var="dmartLogoImage" value="https://${serverName}/wcsstore/DMartStoreFrontAssetStore/images/DMart/DMartReady.svg"/>
+
+<!-- END EmailImports.jspf -->

@@ -1,0 +1,53 @@
+<form action="javascript:;">
+  <div class="div-table div-table--header-bordered">
+    <div class="div-table-row div-table-row--header">
+      <span class="div-table-cell">EMI Tenure</span>
+      <span class="div-table-cell">Interest</span>
+      <span class="div-table-cell">Installment</span>
+      <span class="div-table-cell">Interest Paid</span>
+    </div>
+  </div>
+  <div class="div-table div-table-scrollable js-div-table-scrollable">
+    <div class="div-table-row">
+      <span class="div-table-cell"><input class="div-table-radio" name="paymentTypeEmi" type="radio"> 3 Months</span>
+      <span class="div-table-cell">20%</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>2,200.00</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>200.00</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell"><input class="div-table-radio" name="paymentTypeEmi" type="radio"> 6 Months</span>
+      <span class="div-table-cell">17%</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>2,200.00</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>200.00</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell"><input class="div-table-radio" name="paymentTypeEmi" type="radio"> 9 Months</span>
+      <span class="div-table-cell">13%</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>2,200.00</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>200.00</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell"><input class="div-table-radio" name="paymentTypeEmi" type="radio"> 12 Months</span>
+      <span class="div-table-cell">13%</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>2,200.00</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>200.00</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell"><input class="div-table-radio" name="paymentTypeEmi" type="radio"> 15 Months</span>
+      <span class="div-table-cell">19%</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>2,200.00</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>200.00</span>
+    </div>
+
+    <div class="div-table-row">
+      <span class="div-table-cell"><input class="div-table-radio" name="paymentTypeEmi" type="radio"> 24 Months</span>
+      <span class="div-table-cell">10%</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>2,200.00</span>
+      <span class="div-table-cell"><i class="icon-rupees"></i>200.00</span>
+    </div>
+  </div>
+</form>

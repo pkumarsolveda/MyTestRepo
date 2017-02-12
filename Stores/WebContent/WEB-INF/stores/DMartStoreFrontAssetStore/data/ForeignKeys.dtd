@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY CAT_STORE_ID "10001">
+<!ENTITY CAT_ORGANIZATION_DN "ou=asset store organization,o=dmartextassetorganisation,o=extended sites organization,o=root organization">
+<!ENTITY ja_JP "-10">
+<!ENTITY INV_CHOICE "DOMInv/">
+<!ENTITY CAT_STORE_IDENTIFIER "DMartExtB2C ExtendedSites CAS">
+<!ENTITY iw_IL "-11">
+<!ENTITY ORGANIZATION_DN "ou=dmartsas,o=dmartextassetorganisation,o=extended sites organization,o=root organization">
+<!ENTITY zh_CN "-7">
+<!ENTITY pl_PL "-22">
+<!ENTITY tr_TR "-13">
+<!ENTITY fr_FR "-2">
+<!ENTITY es_ES "-5">
+<!ENTITY MEMBER_ID "@seller_b2c_mbr_id">
+<!ENTITY STORE_DIRECTORY_LOWERCASE "dmartstorefrontassetstore">
+<!ENTITY CAT_STORE_IDENTIFIER_LOWERCASE "dmartextb2c extendedsites cas">
+<!ENTITY ko_KR "-9">
+<!ENTITY he_IL "-12">
+<!ENTITY CAT_STORE_DIR "DMartExtB2CCatalogAssetStore">
+<!ENTITY STORE_IDENTIFIER "DMartSAS">
+<!ENTITY ORGANIZATION_ID "@seller_b2c_orgentity_id">
+<!ENTITY pt_BR "-6">
+<!ENTITY ATTR_CHOICE "Classic">
+<!ENTITY STORE_DIR "DMartStoreFrontAssetStore">
+<!ENTITY ar_EG "-23">
+<!ENTITY en_US "-1">
+<!ENTITY zh_TW "-8">
+<!ENTITY CAT_STORE_DIR_LOWERCASE "dmartextb2ccatalogassetstore">
+<!ENTITY STORE_TYPE "MPS">
+<!ENTITY STORE_IDENTIFIER_LOWERCASE "dmartsas">
+<!ENTITY ro_RO "-21">
+<!ENTITY ru_RU "-20">
+<!ENTITY de_DE "-3">
+<!ENTITY it_IT "-4">
+

@@ -1,0 +1,28 @@
+ <ul class="dashboard__address">
+  {% for address in data.contact %}  
+    <li>
+      <address>
+        <strong class="dashboard__address--name">{{address.firstName}} {{address.lastName}}</strong>
+        <div class="manage-address">
+         	{{address.addressLine[0]}},<br>         
+         {% if(address.city.length > 0)%} {{address.city}} {% endif %} - {% if(address.zipCode.length > 0)%} {{address.zipCode}}, {% endif %}<br>
+  		 {% if(address.state.length > 0)%} {{address.state}}. {% endif %}
+  		 {% if(address.addressLine[1].length > 0)%}
+        	<span class="dashboard__address--landmark">{{address.addressLine[1]}}</span>
+		 {% else %}
+        	<br><br>
+         {% endif %}
+        Contact: +91 {{address.phone1}}
+        </div>
+      </address>
+      <span>
+        <a class="js-dashboard-favorite dashboard-favorite-cta dashboard-favorite-cta--home" href="javascript:;" title="Make it as Favorite" id="{{address.nickName}}">
+	        <i class="js-delivery-favorite-icon icon-heart{% if(address.primary == 'false')%}-outlined{% endif %}" ></i>
+        </a>
+        <a class="modal-link js-address-edit" href="javascript:;" title="Edit" id="{{address.nickName}}" data-target="editAddressModal"><i class="icon-pencil"></i></a>
+        <a class="js-address-delete" href="javascript:;" title="Delete" id="{{address.nickName}}"><i class="icon-delete"></i></a>
+      </span>
+      <input id="addressList-{{address.nickName}}"" type="hidden" value="{{address.firstName}}||{{address.addressLine}}||{{address.city}}||{{address.state}}||{{address.zipCode}}||{{address.phone1}}||{% if(address.primary == 'true')%}fav{% endif %}" />
+    </li>
+ {% endfor %}
+ </ul>

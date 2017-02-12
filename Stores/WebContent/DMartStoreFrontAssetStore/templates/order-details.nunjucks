@@ -1,0 +1,78 @@
+{% set logged = 'yes' %}
+
+{% set parentPage = "My Orders" %}
+{%set itemCancelled = data.orderDetail.isItemCancelled %}
+{%set ordStatus = data.orderDetail.orderStatus %}
+{% block content %}
+  <div class="container">
+    <div class="order-details">
+      <h1 class="h2 cart-title order-details--title">Order {{data.orderDetail.orderIdentifier}} is<span class="order-details--title-label">{{data.orderDetail.statusText}}</span>
+        <span class="show-sm-down">&nbsp;</span>
+        <!--<a href="javascript:;" class="button-white invoice-link js-invoice-print"><i class="icon-print"></i> <span class="show-lg-up display-inline">PRINT INVOICE</span></a>!-->
+        <!--<a href="javascript:;" class="button-white invoice-link invoice-download"><i class="icon-statement-download"></i> <span class="show-lg-up display-inline">DOWNLOAD INVOICE</span></a> -->
+        
+      </h1>
+      {% if itemCancelled == true %}
+      	<p class="order-cancel-note">One of the item has been cancelled by you from this order.</p>
+	  {% endif %}
+      <div class="row">
+        <div class="col-xs-12 col-md-6 col-lg-8">
+  			{% from '_modules/order-detail-address-information.nunjucks' import orderAddressDetail %}
+  			{{ orderAddressDetail(data) }}
+        </div>
+        <div class="col-xs-12 col-md-6 col-lg-4">
+          <div class="order-details-info">
+          	{% from '_modules/order-detail-summary.nunjucks' import orderDetailSummary %}
+            {{ orderDetailSummary(data) }}
+          </div>
+
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-xs-12">
+          <div class="cart-details" >
+            <div class="cart-details--head">
+              <div class="row">
+                <div class="col-md-1"><h2 class="cart-details--heading">Item</h2></div>
+                <div class="col-md-5"><h2 class="cart-details--heading padding-reset">Description</h2></div>
+                <div class="col-md-2"><h2 class="cart-details--heading padding-reset">Quantity</h2></div>
+                <div class="col-md-2"><h2 class="cart-details--heading padding-reset">Price</h2></div>
+              </div>
+            </div>
+            
+            <div class="cart-details__item">
+            {% for category,list in data.orderDetail.orderItemsArray|groupby('topCategory') %}
+	            
+	            {%set qtyPerCat = 0 %}
+	    		{%for item in list%}
+	      			{%set qtyPerCat = qtyPerCat + item.quantity%}
+	      		{%endfor%}
+				<!-- {{category}} ---- {{qtyPerCat}} -->
+				<h3 class="cart-details__item--title">
+	              <a href="javascript:;" title="">
+	                {{category}} <span>(<span class="cart-details__item--count">{{qtyPerCat}}</span> {% if qtyPerCat > 1 %}items{% else %}item{% endif %})</span><span class="cart-details__item--title-arrow"><i class="icon-caret-down"></i></span>
+	              </a>
+	            </h3>
+	            <ul class="cart-details__item-list">
+		             {% from '_modules/order-items.nunjucks' import myOrderItems %}
+			         {%for item in list%}   
+			            {{myOrderItems(data,item)}}
+			         {%endfor%}    
+			         <li class="cart-no-items">
+		                <p class="alert alert-danger text-center">No items in this section</p>
+		             </li>
+	            </ul>    
+	                 	
+			{%endfor%}	
+            </div>
+          </div>
+
+          <div class="js-print-invoice-wrap js-hide-show">
+          {% include '_modules/invoice.nunjucks' %}
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

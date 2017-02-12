@@ -1,0 +1,56 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2008, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<%-- 
+  *****
+  *	This JSP page shows the footer of the e-mail send to the customer with the store home page link.
+  *****
+--%>
+<!-- BEGIN EmailReachUs.jspf -->
+<table width="100%" cellpadding="0" cellspacing="0" border="0">
+	<tr>
+		<td width="600px">
+			<table width="100%" cellpadding="0" cellspacing="0" border="0"
+				style="margin-bottom: 10px">
+				<tr>
+					<td>
+						<p
+							style="font-family: Arial, sans-serif; font-size: 14px; font-weight: bold; margin: 0; padding: 0; text-align: left">
+							<fmt:message bundle="${emailText}" key="THANKYOU_TEXT"/><br/><br/>
+							<fmt:message bundle="${emailText}" key="CUSTOMER_CARE_TEXT"/><br/><br/>
+							<fmt:message bundle="${emailText}" key="FROM_TEXT"/><br/><br/>
+							<I><fmt:message bundle="${emailText}" key="BOTTOM_TAGLINE_2"/></I> <br/><br/><br/>
+							</p>
+						<c:if test="${displaySystemGeneratedText eq 'Y'}" >
+							<p
+								style="font-family: Arial, sans-serif; font-size: 14px; font-weight: normal; margin: 0; padding: 0; text-align: left">
+								<fmt:message bundle="${emailText}" key="SYSTEM_GENERATED_MSG_TEXT"></fmt:message> <br/><br/> <br/><br/></p>
+						</c:if>		
+						<p
+							style="font-family: Arial, sans-serif; font-size: 12px; font-weight: normal; margin: 0; padding: 0; text-align: center">
+							<fmt:message bundle="${emailText}" key="REACH_US_TEXT_1">
+								<fmt:param>${fn:escapeXml(CustomerCareNumber)}</fmt:param>
+								<fmt:param>${fn:escapeXml(CustomerCareTiming)}</fmt:param>
+							</fmt:message> <br/>
+							<fmt:message bundle="${emailText}" key="REACH_US_TEXT_2">
+								<fmt:param><span style="text-decoration: underline; font-weight: normal">${fn:escapeXml(CustomerCareEmail)}</span></fmt:param>
+							</fmt:message> <br/>
+						</p>
+						
+					</td>
+				</tr>
+			</table>
+		</td>
+	</tr>
+</table>
+<!-- END EmailReachUs.jspf -->

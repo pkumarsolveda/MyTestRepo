@@ -1,0 +1,65 @@
+<div class="plp-header">
+	{# Removed as part of AE17233 Change shared by UI team #}
+	{# <div class="filter-price custom-dropdown filter-mobile-view--hidden js-price-slider">
+		<span class='label'>Price</span>
+		<div class="custom-range-slider">
+			<input class="js-filter-price-range">
+			<p>
+				<a class="button-md-primary js-filter-price-range-cta" href="javascript:;">Apply</a>
+			</p>
+		</div>
+	</div>
+
+	<div class="filter-price filter-mobile-view">
+		<div class="custom-dropdown">
+			<select class="filter-sortby">
+				<option>Price</option>
+				{% for price in priceRange %}
+				<option data-min="{{price.minVal}}" data-max="{{price.maxVal}}" >₹{{price.minVal}} - ₹{{price.maxVal}}</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div>
+
+	<div class="filter-discounts custom-dropdown filter-mobile-view--hidden js-discount-slider">
+		<span class='label'>Discounts</span>
+		<div class="custom-range-slider">
+			<input class="js-filter-discount-range">
+			<p>
+				<a class="button-md-primary js-filter-discount-range-cta" href="javascript:;">Apply</a>
+			</p>
+		</div>
+	</div>
+
+	<div class="filter-discounts filter-mobile-view">
+		<div class="custom-dropdown">
+			<select class="filter-sortby">
+				<option>Discounts</option>
+				{% for discount in discountRange %}
+				<option data-min="{{discount.minVal}}" data-max="{{discount.maxVal}}"  >{{discount.minVal}}% - {{discount.maxVal}}%</option>
+				{% endfor %}
+			</select>
+		</div>
+	</div> 
+	#}
+	<div class="filter-sort-grid">
+		<div class="md-custom-select">
+			<select class="filter-sortby js-filter-sortby">
+				<option value =0>Relevance</option>
+				<option value =2>Price: Low to High</option>
+				<option value =3>Price: High to Low</option>
+			</select>
+		</div>
+		</div>
+
+		<div class="plp-view-option">
+			<a class="plp-view-option__grid active" href="javascript:;">
+				<i class="icon-view-grid"></i>
+			</a>
+			<a class="plp-view-option__list" href="javascript:;">
+				<i class="icon-view-list"></i>
+			</a>
+		
+	</div>
+
+</div>

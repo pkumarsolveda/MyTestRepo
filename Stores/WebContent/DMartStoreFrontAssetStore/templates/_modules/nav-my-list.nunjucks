@@ -1,0 +1,25 @@
+<h3 class="menu-item-title">My List</h3>
+<ul>
+  <!-- Sub-menu -->
+  {% for giftList in listData%}
+  	{% if giftList.accessSpecifier  == 'Private' %}
+  	{%set itemCount = giftList.recordSetCount%}
+  	<!-- {% for item in giftList.item%}
+  		{% if item.productId%}
+  			{%set itemCount = itemCount+1 %}
+  		{% endif %}
+  	{% endfor %}-->
+  	<li class="js-category-item sub-menu-item">
+  		<a class="sub-menu-parent" href="#" onClick="goToList({{giftList.uniqueID}});">{{giftList.descriptionName}}&nbsp;<span class="count">({{itemCount}})</span>
+    	<span class="nav-parent-icon"></span></a>
+    	<div class="sub-menu-items">        
+        <!-- Sub Menu Image -->
+        <div class="sub-menu-img">
+          <a class="button-primary button-navigation" href="javascript:;" title="Shop Now">Shop Now</a>
+          <img class="img-responsive img-navigation" alt="List" src="{{config.baseUrl}}images/DMart/MyList_pageicon.jpg">
+        </div>
+      </div>
+  	</li>
+  	{% endif %}
+  {% endfor %}
+</ul>

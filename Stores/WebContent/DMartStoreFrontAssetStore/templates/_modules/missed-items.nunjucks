@@ -1,0 +1,44 @@
+{% set upsell = "enable" %}
+<h2 class="missed-items--title">People Also Bought</h2>
+<div class="js-accordion-tabs-recommanded">
+  <div class="no-border-tabs recommended-products">
+     <div class="carousel-navigation" id="missedItemCarousel">
+     	 Showing {{data.startCount}} out of {{data.endCount}}
+      <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+    </div>
+   
+   
+     <ul class="resp-tabs-list clearfix hor_1" >
+      {% for categoryId in data.levelThreeCategories %}
+      	<li class="missedCategoryName" data-categoryId="{{categoryId}}">{{data.levelThreeCategoyNames[categoryId]}}</li>
+      {% endfor %}
+     </ul>
+     
+   
+   {% from "_modules/product-listing-item-grocery.nunjucks" import plpGrocery %}
+   {% from "_modules/product-listing-item-apparel.nunjucks" import plpApperal %}
+   
+    <div class="resp-tabs-container hor_1">
+    {% for categoryId, productIds in data.groupedMissedProducts %}
+      <div>
+        <div class="js-carousel">
+          <ul class="slides clearfix">
+          {% for productId in productIds %}
+           
+            <li class="js-switch-view slide-margin">
+            
+             {% if data.product[productId].pageType == "apparel" %}   
+	            	{{ plpApperal(data.product[productId],data.config,data) }} 
+	            {% else %}
+	            	{{ plpGrocery(data.product[productId],data.config, data) }}
+			{% endif %}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    {%endfor%}
+    </div>
+  </div>
+</div>

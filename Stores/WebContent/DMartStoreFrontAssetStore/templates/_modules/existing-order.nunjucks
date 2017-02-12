@@ -1,0 +1,136 @@
+
+{% set upsell = "enable" %}
+
+<div class="js-accordion-tabs-vertical tabs-primary existing-order">
+  <ul class="resp-tabs-list clearfix tabs-primary--vertical">
+    <li class="resp-tab-item tabs-primary--vertical">Grocery &amp; Staples</li>
+    <li class="resp-tab-item tabs-primary--vertical">Breakfast</li>
+    <li class="resp-tab-item tabs-primary--vertical">Household Needs</li>
+    <li class="resp-tab-item tabs-primary--vertical">Personal Care</li>
+    <li class="resp-tab-item tabs-primary--vertical">Apparel</li>
+  </ul>
+
+  <div class="resp-tabs-container tabs-primary--vertical">
+    <div class="resp-tab-content tabs-primary--vertical resp-tab-content-active">
+      <div class="js-alter-module">
+        <div class="tabs-primary__content--header">
+          <h4 class="existing-order--count">Showing 20 items from Previous order</h4>
+
+          <div class="existing-order--price-cta js-alter-cta-panel">
+            <a class="pdp-alternate-list__summary-add-cta existing-order__price-cta-btn js-loading-full button-primary" href="javascript:;" title="Add to Cart"><i class="icon-cart"></i> Add <span>All</span> to Cart</a>
+
+            <a class="existing-order__price-view-cart-btn button--block button-white" href="javascript:;" title="Add to Cart">View Cart</a>
+
+          </div>
+        </div>
+        <div class="tabs-primary__content--blurb">
+
+        {% include '_modules/existing-order-item.nunjucks' %}
+          {{ existingOrder(id='g1', type='grocery') }}
+          {{ existingOrder(id='g2', imgsrc='product-2', type='grocery') }}
+          {{ existingOrder(id='g3', type='grocery') }}
+          {{ existingOrder(id='g4', imgsrc='product-2', type='grocery') }}
+          {{ existingOrder(id='g5', type='grocery') }}
+          {{ existingOrder(id='g6', imgsrc='product-2', type='grocery') }}
+          {{ existingOrder(id='g7', type='grocery') }}
+          {{ existingOrder(id='g8', imgsrc='product-2', type='grocery') }}
+        </div>
+      </div>
+    </div>
+    <div class="resp-tab-content tabs-primary--vertical">
+
+      <div class="js-alter-module">
+        <div class="tabs-primary__content--header">
+          <h4 class="existing-order--count">Showing 10 items from Previous order</h4>
+
+          <div class="existing-order--price-cta js-alter-cta-panel">
+            <a class="pdp-alternate-list__summary-add-cta existing-order__price-cta-btn js-loading-full button-primary" href="javascript:;" title="Add to Cart"><i class="icon-cart"></i> Add <span>All</span> to Cart</a>
+
+            <a class="existing-order__price-view-cart-btn button--block button-white" href="javascript:;" title="Add to Cart">View Cart</a>
+          </div>
+        </div>
+        <div class="tabs-primary__content--blurb">
+
+        {% include '_modules/existing-order-item.nunjucks' %}
+        {% for n in range(0, 8) %}
+          {{ existingOrder(id=n, type='grocery') }}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+    <div class="resp-tab-content tabs-primary--vertical">
+
+      <div class="js-alter-module">
+        <div class="tabs-primary__content--header">
+          <h4 class="existing-order--count">Showing 8 items from Previous order</h4>
+
+          <div class="existing-order--price-cta js-alter-cta-panel">
+            <a class="pdp-alternate-list__summary-add-cta existing-order__price-cta-btn js-loading-full button-primary" href="javascript:;" title="Add to Cart"><i class="icon-cart"></i> Add <span>All</span> to Cart</a>
+
+            <a class="existing-order__price-view-cart-btn button--block button-white" href="javascript:;" title="Add to Cart">View Cart</a>
+          </div>
+        </div>
+        <div class="tabs-primary__content--blurb">
+
+        {% include '_modules/existing-order-item.nunjucks' %}
+
+          {{ existingOrder(id='h1', title='Prestige Cooker', brand='Prestige', imgsrc='product-household-2', type='household') }}
+          {{ existingOrder(id='h2', title='Prestige Cooker', brand='Prestige', imgsrc='product-household-1', type='household') }}
+
+          {{ existingOrder(id='h3', title='Prestige Cooker', brand='Prestige', imgsrc='product-household-2', type='household') }}
+          {{ existingOrder(id='h4', title='Prestige Cooker', brand='Prestige', imgsrc='product-household-1', type='household') }}
+
+          {{ existingOrder(id='h5', title='Prestige Cooker', brand='Prestige', imgsrc='product-household-2', type='household') }}
+          {{ existingOrder(id='h6', title='Prestige Cooker', brand='Prestige', imgsrc='product-household-1', type='household') }}
+
+        </div>
+      </div>
+    </div>
+
+    <div class="resp-tab-content tabs-primary--vertical">
+
+      <div class="js-alter-module">
+        <div class="tabs-primary__content--header">
+          <h4 class="existing-order--count">Showing 10 items from Previous order</h4>
+
+          <div class="existing-order--price-cta js-alter-cta-panel">
+            <a class="pdp-alternate-list__summary-add-cta existing-order__price-cta-btn js-loading-full button-primary" href="javascript:;" title="Add to Cart"><i class="icon-cart"></i> Add <span>All</span> to Cart</a>
+
+            <a class="existing-order__price-view-cart-btn button--block button-white" href="javascript:;" title="Add to Cart">View Cart</a>
+          </div>
+        </div>
+        <div class="tabs-primary__content--blurb">
+
+        {% include '_modules/existing-order-item.nunjucks' %}
+        {% for n in range(0, 8) %}
+          {{ existingOrder(id='d'+n, type='grocery') }}
+        {% endfor %}
+        </div>
+      </div>
+    </div>
+
+    <div class="resp-tab-content tabs-primary--vertical">
+
+      <div class="js-alter-module">
+        <div class="tabs-primary__content--header">
+          <h4 class="existing-order--count">Showing 8 items from Previous order</h4>
+
+          <div class="existing-order--price-cta js-alter-cta-panel">
+            <a class="pdp-alternate-list__summary-add-cta existing-order__price-cta-btn js-loading-full button-primary" href="javascript:;" title="Add to Cart"><i class="icon-cart"></i> Add <span>All</span> to Cart</a>
+
+            <a class="existing-order__price-view-cart-btn button--block button-white" href="javascript:;" title="Add to Cart">View Cart</a>
+          </div>
+        </div>
+        <div class="tabs-primary__content--blurb">
+
+        {% include '_modules/existing-order-item.nunjucks' %}
+          {{ existingOrder(id='e1', title='Blue T-Shirt', brand='Lee', imgsrc='product-apparel-5', type='apparel') }}
+          {{ existingOrder(id='e2', title='Red T-Shirt', brand='Lee', imgsrc='product-apparel-1', type='apparel') }}
+          {{ existingOrder(id='e3', title='Purple T-Shirt', brand='Lee', imgsrc='product-apparel-2', type='apparel') }}
+          {{ existingOrder(id='e4', title='Orange T-Shirt', brand='Lee', imgsrc='product-apparel-3', type='apparel') }}
+          {{ existingOrder(id='e5', title='Green T-Shirt', brand='Lee', imgsrc='product-apparel-4', type='apparel') }}
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

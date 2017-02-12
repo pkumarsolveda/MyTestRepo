@@ -1,0 +1,6 @@
+
+
+{%from '_modules/existing-order-item.nunjucks' import existingOrder  %}
+{% for item in data%}
+      {{ existingOrder(id=item.uniqueId, imgsrc='product-2', title=item.name, type=item.topCategory,outofstock='false',data=item,brand=item.brand,mrp=item.MRP, dmart=item.DmartPrice, save=item.savings) }}
+{% endfor %}

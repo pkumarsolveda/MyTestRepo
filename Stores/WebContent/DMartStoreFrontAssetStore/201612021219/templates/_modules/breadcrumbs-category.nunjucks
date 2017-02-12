@@ -1,0 +1,61 @@
+<ul class="breadcrumb-sub-menu">
+
+ 
+{% if data.levelOneCategoryId != null %}
+
+	{% for levelOneCategoryId in data.levelOneCategoryId %}
+	{% for levelTwoCategoryId in data.levelTwoCategoryId %}
+	  <li class="breadcrumb-sub-menu-items">
+	  	{% if data.levelThreeCategoryId[levelTwoCategoryId].length > 0 %}
+	    	<a href="javascript:;" title="{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}">{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}&nbsp;({{data.levelTwoCount[levelTwoCategoryId]}}) <i class="icon-caret-right"></i></a>
+	    	<ul>
+		    	{% for levelThreeCategoryId in data.levelThreeCategoryId[levelTwoCategoryId] %}
+		     	<li>
+			     	{% if data.levelThreeCategoryInfo[levelThreeCategoryId].seourl %}
+			     		<a href="{{data.urlHierarchy}}/{{data.levelOneCategoryInfo[levelOneCategoryId].seourl}}/{{data.levelTwoCategoryInfo[levelTwoCategoryId].seourl}}/{{data.levelThreeCategoryInfo[levelThreeCategoryId].seourl}}" title="{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}">{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}</a>
+			     	{% else %}
+						<a href="{{data.urlHierarchy}}/CategoryDisplay?categoryId={{data.levelThreeCategoryInfo[levelThreeCategoryId].value}}&catalogId={{data.catalogId}}&storeId={{data.storeId}}" title="{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}">{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}</a>
+					{% endif %}
+		     	</li>
+		     	{% endfor %}
+	    	</ul>
+	    {% else %}
+	    	{% if data.levelTwoCategoryInfo[levelTwoCategoryId].seourl %}
+	     		<a href="{{data.urlHierarchy}}/{{data.levelOneCategoryInfo[levelOneCategoryId].seourl}}/{{data.levelTwoCategoryInfo[levelTwoCategoryId].seourl}}" title="{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}">{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}&nbsp;({{data.levelTwoCount[levelTwoCategoryId]}})</a>
+	     	{% else %}
+				<a href="{{data.urlHierarchy}}/CategoryDisplay?categoryId={{data.levelTwoCategoryInfo[levelTwoCategoryId].value}}&catalogId={{data.catalogId}}&storeId={{data.storeId}}" title="{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}">{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}&nbsp;({{data.levelTwoCount[levelTwoCategoryId]}})</a>
+			{% endif %}
+	    {% endif %}
+	  </li>
+	{% endfor %}
+	{% endfor %}
+{% endif %}
+
+{% if data.levelOneCategoryId == null %}
+
+  <ul class="breadcrumb-sub-menu">
+		{% for levelTwoCategoryId in data.levelTwoCategoryId %}
+		  <li class="breadcrumb-sub-menu-items">
+			<a href="javascript:;" title="{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}">{{data.levelTwoCategoryInfo[levelTwoCategoryId].title}}&nbsp;({{data.levelTwoCount[levelTwoCategoryId]}}) <i class="icon-caret-right"></i></a>
+			<ul>
+			{% for levelThreeCategoryId in data.levelThreeCategoryId[levelTwoCategoryId] %}
+				<li>
+				{% if data.levelThreeCategoryInfo[levelThreeCategoryId].seourl %}
+				<a href="{{data.levelThreeCategoryInfo[levelThreeCategoryId].seourl}}" title="{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}">{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}</a>
+				{% else %}
+				<a href="/webapp/wcs/stores/servlet/CategoryDisplay?categoryId={{data.levelThreeCategoryInfo[levelThreeCategoryId].value}}&catalogId={{data.catalogId}}&storeId={{data.storeId}}" title="{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}">{{data.levelThreeCategoryInfo[levelThreeCategoryId].title}}</a>
+				{% endif %}
+				</li>
+			 {% endfor %}
+			</ul>
+		  </li>
+		{% endfor %}
+	</ul>
+
+{% endif %}
+
+
+	
+	
+	
+</ul>

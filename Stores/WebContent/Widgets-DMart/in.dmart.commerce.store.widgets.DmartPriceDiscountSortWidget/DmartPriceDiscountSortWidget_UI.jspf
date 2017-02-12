@@ -1,0 +1,3 @@
+<div id="pricediscountsort" style="display: none;"></div>
+<input type="hidden" name="priceSliderMin" id="priceSliderMin" value="150" >
+<input type="hidden" name="priceSliderMax" id="priceSliderMax" value="60000" >

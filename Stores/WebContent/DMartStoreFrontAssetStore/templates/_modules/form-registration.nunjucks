@@ -1,0 +1,28 @@
+{% from "_modules/form-control.nunjucks" import formControl %}
+<div class="form">
+	<h2 class="form__title">Register</h2>
+	<form class="form__registration" action="javascript:;" method="post" id="formRegisterValidation">
+		{{ formControl(label="First Name", requiredField="true", name="firstName", id="firstName", placeholder="Enter your First Name", required="true") }}
+		{{ formControl(label="Last Name", requiredField="true", name="lastName", id="lastName", placeholder="Enter your Last Name", required="true") }}
+		{% include '_modules/form-mobile-number.nunjucks' %}
+		{{ formControl(label="Email (Optional)", type="email", requiredField="false", name="email", id="email", placeholder="xyz@email.com") }}
+		<div class="form-control">
+			<label class="form__label required-field spacing-bottom-tiny" for="password">Password</label>
+			<div class="password-show-hide-field">
+				<input class="form__input" type="password" name="password" id="showHidePassword" required="true">
+				<div class="show-hide-password-block">
+					<input type="checkbox" id="showHide">
+					<label for="showHide" id="showHideLabel">Show</label>
+				</div>
+			</div>
+		</div>
+		<div class="note form__control">
+			<label for="tcAgree"><input type="checkbox" required="true" class="form__input" name="tcAgree" id="tcAgree">
+			I agree to the <a class="link-alternate hide-dropdown" href="javascript:;"> Terms &amp; Conditions</a> <a class="link-alternate show-dropdown" href="javascript:;"> T&amp;C</a> and the <a class="link-alternate" href="javascript:;">Privacy Policy</a>.</label>
+		</div>
+		<div class="form__btn">
+			<button type="submit" class="registration__btn-cta button-primary">Register</button>
+		</div>
+
+	</form>
+</div>

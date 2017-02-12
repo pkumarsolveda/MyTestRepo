@@ -1,0 +1,84 @@
+<div class="js-main-menu">
+	<ul class="main-menu__navigation--category-dropdown">
+	<!-- Main menu  -->
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">My List<span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">My List</h3>
+			{% include '_modules/nav-my-list.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Tea / Biscuits <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Tea / Biscuits</h3>
+			{% include '_modules/nav-sub-category.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Breakfast <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Breakfast</h3>
+
+      {% include '_modules/nav-sub-category-alt.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Pulses <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Pulses</h3>
+
+      {% include '_modules/nav-sub-category.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Grocery <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Grocery</h3>
+
+      {% include '_modules/nav-sub-category.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Household Needs <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Household Needs</h3>
+
+      {% include '_modules/nav-sub-category.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Personal Care <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Personal Care</h3>
+
+      {% include '_modules/nav-sub-category-alt.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Apparel <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Apparel</h3>
+
+      {% include '_modules/nav-sub-category.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+      <a class="js-category-parent" href="javascript:;">Stationary <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Stationary</h3>
+
+      {% include '_modules/nav-sub-category.nunjucks' %}
+			</div>
+		</li>
+		<li class="js-category main-menu-item">
+		<!-- Add <span class="badge">New</span> for New label on category  -->
+      <a class="js-category-parent" href="javascript:;">Offers <span class="nav-parent-icon"><i class="icon-angle-right"></i></span></a>
+			<div class="js-sub-menu sub-menu">
+			<h3 class="menu-item-title">Offers</h3>
+
+      {% include '_modules/nav-sub-category-alt.nunjucks' %}
+			</div>
+		</li>
+	</ul>
+</div>

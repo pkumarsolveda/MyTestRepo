@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC "-//Apache Software Foundation//DTD Struts Configuration 1.2//EN" "http://struts.apache.org/dtds/struts-config_1_2.dtd">
+<struts-config>
+	<global-forwards>
+  
+  </global-forwards>
+
+	<action-mappings type="com.ibm.commerce.struts.ECActionMapping">
+		<action parameter="spsorder.submitRecurringOrder" path="/AjaxOrderProcessServiceRecurringOrderSubmit" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="spsorder.submitRecurringOrder" path="/OrderProcessServiceRecurringOrderSubmit" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+			<set-property property="https" value="0:1"/>
+		</action>
+		<action parameter="order.addPreConfigurationToCart" path="/AjaxOrderChangeServiceAddPreConfigurationToCart" type="com.ibm.commerce.struts.AjaxComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+		</action>
+		<action parameter="order.addPreConfigurationToCart" path="/OrderChangeServiceAddPreConfigurationToCart" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+		</action>
+		<action parameter="order.addConfigurationToCart" path="/OrderChangeServiceAddConfigurationToCart" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+		</action>
+		<action parameter="order.updateConfigurationInCart" path="/OrderChangeServiceUpdateConfigurationToCart" type="com.ibm.commerce.struts.ComponentServiceAction">
+			<set-property property="authenticate" value="0:0"/>
+		</action>
+    
+	        <action parameter="com.ibm.commerce.requisitionlist.commands.RequisitionListConfigurationUpdateCmd" path="/RequisitionListConfigurationUpdate" type="com.ibm.commerce.struts.BaseAction">
+	            <set-property property="https" value="0:1"/>
+	            <set-property property="authenticate" value="0:0"/>
+	        </action>
+		<action parameter="com.ibm.commerce.order.commands.SSFSOrderCopyCmd" path="/AjaxSSFSOrderCopy" type="com.ibm.commerce.struts.AjaxAction">
+		    <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+		</action>
+		<action parameter="com.ibm.commerce.order.commands.SSFSOrderCopyCmd" path="/SSFSOrderCopy" type="com.ibm.commerce.struts.BaseAction">
+		    <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+		</action>
+		<action parameter="com.ibm.commerce.integration.sterling.oms.commands.SterlingOMSUpdateSystemStateCmd" path="/SterlingOMSUpdateSystemState" type="com.ibm.commerce.struts.BaseAction">
+		    <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+		</action>
+        <action parameter="com.ibm.commerce.order.commands.UnlockStaleOrdersInBatchCmd" path="/UnlockStaleOrdersInBatch" type="com.ibm.commerce.struts.BaseAction">
+            <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+        </action>
+		<action path="/RequisitionListCreateFromCSV" type="com.ibm.commerce.struts.BaseAction" parameter="com.ibm.commerce.requisitionlist.commands.RequisitionListCreateFromCSVCmd">
+		    <set-property property="https" value="0:1"/>
+            <set-property property="authenticate" value="0:0"/>
+        </action>        
+		
+	</action-mappings>
+	<plug-in className="com.ibm.commerce.struts.ComponentPlugIn">
+		<set-property property="componentId" value="order"/>
+		<set-property property="clientFacadeClassName" value="com.ibm.commerce.order.facade.client.OrderFacadeClient"/>
+	</plug-in>
+	<plug-in className="com.ibm.commerce.struts.ComponentPlugIn">
+		<set-property property="componentId" value="spsorder"/>
+		<set-property property="clientFacadeClassName" value="com.ibm.commerce.order.facade.client.ServiceProviderOrderFacadeClient"/>
+	</plug-in>
+</struts-config>

@@ -1,0 +1,7 @@
+{% set pageTitle = data.pageTitle %}
+{% include '_modules/modal-size-guide.nunjucks' %}
+{% from "_modules/top-category-offers-quaternary.nunjucks" import offerProducts %}
+
+{% for offerLabel in data.offerLabels %}
+	{{ offerProducts(data,offerLabel,loop.index) }} 
+{% endfor %}

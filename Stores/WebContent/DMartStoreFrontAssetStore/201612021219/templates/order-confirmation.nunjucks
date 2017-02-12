@@ -1,0 +1,54 @@
+{% extends '_layouts/base-checkout.nunjucks' %}
+{% block title %} Order Confirmation {% endblock %}
+{% set pageTitle = "Order Confirmation" %}
+{% block content %}
+  <div class="container" id="orderConfirmation">
+    <div class="row">
+      <div class="col-xs-12">
+        <h2 class="cart-title">Order Confirmed
+          <!--<span class="cart-title--icon">
+            <a href="javascript:;" title="Print Order"><i class="icon-print"></i></a>
+            <a href="javascript:;" title="Email Invoice"><i class="icon-mail"></i></a>
+          </span>!-->
+        </h2>
+        <div class="delivery-address">
+          <div class="cart-summary__details order-summary__details-container">
+
+              <div class="alert alert-warning-bg alert-order-summary">
+                {% if data.success %}
+                <span class="order-summary-text">{{data.confirmationMessage1}}<b>{{data.orderId}}</b>{{data.confirmationMessage2}}</span>
+                {% else %}
+                <span class="order-summary-text">{{data.confirmationMessage}} <b> Order No. {{data.orderId}}</b></span>
+                {% endif %}
+                <div class="view-edit-link">
+                  <span> <i class="icon-eye view-edit-icon"></i></span>
+                  <a class="js-view-order-details view-edit-link--item" href="{{data.viewOrderUrl}}" onClick="DMAnalytics.events('View Order Link', 'View Order Link' , document.title, 0,null )">View Order</a>
+                  <!-- remove '.js-hide-show' if payment failed-->
+                  <div class="js-hide-show payment-failed">
+                    <a class="retry-payment" href="javascript:;">Retry Payment</a>
+                  </div>
+                  
+                </div>
+              </div>
+          </div>
+        </div>
+        <div class="row">
+          <div class="col-md-4">
+            {% include '_modules/order-confirmation-summary.nunjucks' %}
+          </div>
+          <div class="col-md-8">
+            {% include '_modules/order-confirmation-delivery-address.nunjucks' %}
+          </div>
+        </div>
+      </div>
+    </div>
+    
+
+    {% include '_modules/up-selling-products.nunjucks' %}
+
+  </div>
+  <div class="customer-care padding-double">
+		<a class="button-white button--block countinue-shopping-button--order-confirmation countinue-shopping-button countinue-cta" href="{{data.homeURL}}" onClick="DMAnalytics.events('Continue Shopping Link', 'Continue Shopping Link' , document.title, 0,null )">Continue Shopping</a>
+	  	<h4 class="customer-care--info"><i class="icon-phone"></i> Customer Care: {{data.customerCareNumber}}</h4>
+  </div>
+{% endblock %}

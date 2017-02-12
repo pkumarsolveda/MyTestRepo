@@ -1,0 +1,101 @@
+<div class="cart-details__item">
+  <div class="minicart-details">
+    <div class="row">
+      <div class="col-md-6">
+        <h3 class="minicart-details--total-items">
+        <i class="icon-cart"></i> <span>4</span> items
+        </h3>
+      </div>
+      <div class="col-md-6">
+        <h3 class="minicart-minicart-details--total-price">
+        <i class="icon-rupees"></i>91,180
+        </h3>
+      </div>
+    </div>
+  </div>
+  <div class="cart-details__scroll">
+    <h3 class="cart-details__item--title">
+    <a href="javascript:;" title="">
+      Apparel <span>(3 items)</span><span class="cart-details__item--title-arrow"><i class="icon-caret-down"></i></span>
+    </a>
+    </h3>
+    <ul class="cart-details__item-list">
+      {% from '_modules/minicart-items.nunjucks' import myCartItems %}
+      {{ myCartItems(type='apparel', id='1', product='Yellow Round Neck T-Shirt', brand='Newport', variant='L', mrp='400', dmartprice='286', save='125') }}
+      {{ myCartItems(type='apparel', id='2', product='Blue Round Neck T-Shirt', brand='Newport', variant='XL', mrp='415', dmartprice='400', save='100', free='true') }}
+      {{ myCartItems(type='apparel', id='3', product='Red Round Neck T-Shirt', brand='Newport', variant='L', mrp='525', dmartprice='455', save='105', pricechange='true') }}
+
+      <li class="cart-no-items">
+        <p class="alert alert-danger text-center">No items in this section</p>
+      </li>
+    </ul>
+    <h3 class="cart-details__item--title">
+    <a href="javascript:;" title="">
+      Grocery <span>(2 items)</span><span class="cart-details__item--title-arrow"><i class="icon-caret-down"></i></span>
+    </a>
+    </h3>
+    <ul class="cart-details__item-list">
+      {% from '_modules/minicart-items.nunjucks' import myCartItems %}
+      {{ myCartItems(type='grocery', id='1', product='India Gate Basmadi Rice', brand='India Gate', variant='1kg', mrp='400', dmartprice='286', save='125') }}
+      {{ myCartItems(available='false', type='grocery', id='2', product='Deep Chana Daal', brand='Deep', variant='500mg', mrp='415', dmartprice='400', save='100') }}
+
+      <li class="cart-no-items">
+        <p class="alert alert-danger text-center">No items in this section</p>
+      </li>
+    </ul>
+  </div>
+  <div class="add-to-cart-button">
+    <div class="cart-summary__price-details">
+      <div class="delivery-charges__details js-hide-show">
+        <div class="delivery-charges__info">
+          <div class="row">
+            <div class="col-xs-2"><i class="icon icon-home delivery-charges__info-icon"></i></div>
+            <div class="col-xs-10">Home delivery charges <strong><i class="icon icon-rupees"></i>100</strong> or <strong>2%</strong>of the order, which ever is higher</div>
+          </div>
+        </div>
+        <div class="delivery-charges__info">
+          <div class="row">
+            <div class="col-xs-2"><i class="icon icon-package delivery-charges__info-icon"></i></div>
+            <div class="col-xs-10">PUP delivery has no change on order</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-3">
+      <i class="dmart-sprite sprite-piggy-bank"></i>
+    </div>
+    <div class="col-md-9">
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            <span>Tax</span>
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon-rupees"></i>100</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            <strong>Total</strong>
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><strong><i class="icon-rupees"></i>92,580</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details add-to-cart-button--total-savings spacing-bottom-half">
+        <div class="row">
+          <div class="col-xs-7">
+            <span>Total Savings</span>
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><strong><i class="icon-rupees"></i>8,000</strong></div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <button type="submit" class="button-primary button--block">View Cart and Checkout</button>
+  </div>
+</div>

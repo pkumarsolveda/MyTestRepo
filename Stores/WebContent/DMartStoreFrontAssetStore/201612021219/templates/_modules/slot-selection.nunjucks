@@ -1,0 +1,39 @@
+<div class="delivery-slot margin-reset">
+
+  {% if data.nextWeekSwitch == 'ON' %}
+  <div class="delivery-week-cta">
+    <a href="javascript:;" class="button-white js-delivery-next-week">NEXT 7 DAYS</a>
+  </div>
+  {% endif %}
+<!--
+  <div class="delivery-selection-slot--back">
+    <a href="javascript:;" class="js-delivery-selection-cta link-secondary" id ="delivery-selection-secondary">
+      <i class="icon-rewind"></i>
+      <strong>Delivery Type Selected: </strong>{{data.selectedShipMode}}
+    </a>
+  </div>
+
+  <h3 class="delivery-slot--title">Please select <span>only 1 time slot per order</span></h3>-->
+<input id="slot-resourcePoolkey" type="hidden" value="{{data.slotResourcePoolKey}}" /> 
+  <div class="delivery-selection delivery-current-week">
+   <div class="variant-delivery-header">Please choose your preferred time slot</div>
+    <div class="delivery-selection--this-week">
+      
+    </div>
+    
+  </div>
+  <div class="delivery-selection delivery-next-week">
+    <div class="delivery-selection--next-week">
+      
+    </div>
+    
+  </div>
+  <!--<div class="order-validity" style="display: none;">
+    <p>{{data.curationMsg}}</p>
+  </div> (MOved as a part of AE-17689)-->
+</div>
+  <div class="order-delivery-info">
+    <p>
+    You have selected {% if data.selectedShipMode  == 'Pick up Point' %}to pickup your order {% else %}Home Delivery{% endif %} between <span class="red-slot-text">11AM - 1PM</span> {% if data.selectedShipMode  == 'Pick up Point' %}from <span class="red-slot-text">{{data.selectedPupName}}</span>, be on time to avoid inconvenience.{% else %}.An additional delivery charges might be added.{% endif %} 
+    </p>
+  </div>

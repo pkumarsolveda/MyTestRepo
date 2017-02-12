@@ -1,0 +1,23 @@
+{% set pageTitle = "No Result Found" %}
+
+{% block content %}
+    <div class="static-page">
+      <div class="static-page--error">
+        <div class="row">
+          <div class="col-xs-12 col-md-9 static-page--error-center">
+            <div class="col-xs-12 col-md-3">
+              <div class="error-notification-wrap margin-reset-top">
+                <i class="icon-not-available error-notification-icon"></i>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <div class="error-notification-message">
+                <h1 class="static-page--error-title">Item you are looking for, could not be found.</h1>
+                <a id="contShop" href="javascript:;" class="error__btn-cta button--block button-white" style="text-transform:none" title="Continue Shopping">Continue Shopping</a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+{% endblock %}

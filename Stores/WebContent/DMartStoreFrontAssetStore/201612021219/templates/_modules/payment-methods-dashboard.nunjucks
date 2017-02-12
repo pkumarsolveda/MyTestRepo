@@ -1,0 +1,219 @@
+<div class="js-accordion-tabs-delivery delivery-tabs tabs-border-reset">
+  <ul class="resp-tabs-list clearfix delivery-vertical">
+    <li>Credit Card</li>
+    <li>Debit Card</li>
+    <li>Debit Card + ATM Pin</li>
+    <li>Net Banking</li>
+  </ul>
+
+  <div class="resp-tabs-container delivery-vertical payment-method__selection">
+    <!-- Credit Cart -->
+    <div>
+      <div class="form">
+        <form class="form__creditCard payment-form" action="javascript:;" method="post" id="formCCvalidation" novalidate="novalidate">
+          <div class="payment-card-selection">
+            <h3 class="payment-method--title">Recharge eWallet using Credit Card</h3>
+            <div class="payment-method--card payment-method--card-credit">
+              <div class="form-control amount-input-field">
+                <input class="form__input amount-input js-amount-input" name="rechargeInput" required type="number" placeholder="Recharge Amount">
+              </div>
+              <div class="form-control">
+              <input class="form__input cc-number" type="tel" name="creditCardNumber" placeholder="Card Number" id="creditCardNumber" required autocomplete="off">
+
+                <div class="payment-card-type">
+                  <i class="dmart-sprite sprite-payments-visa js-visa-card"></i>
+                  <i class="dmart-sprite sprite-payments-mastercard js-mastercard-card"></i>
+                  <i class="dmart-sprite sprite-payments-diner js-dinersclub-card"></i>
+                  <i class="dmart-sprite sprite-payments-amex js-amex-card"></i>
+                </div>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-medium">
+                <input class="form__input checkMonth cc-exp" type="tel" name="creditExpiryDate" placeholder="MM / YY" required autocomplete="off">
+                <span class="form__placeholder">Expiry Date</span>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-small">
+                <input class="form__input cc-cvc" type="password" name="creditCardCvv" placeholder="CVV" required autocomplete="off">
+                <span class="form__placeholder">
+                  <i class="dmart-sprite sprite-cvv"></i>
+                </span>
+              </div>
+
+              <div class="form-control">
+                <input class="form__input" type="text" name="creditCardName" placeholder="Name on Card" required autocomplete="off">
+              </div>
+
+          </div>
+        </div>
+        <div class="total-payment-amount form-control">
+          Rechargeable Amount <span><i class="icon-rupees"></i> <span class="js-recharge-amount">0</span></span>
+        </div>
+        <div class="payment-method-cta">
+          <button type="submit" class="payment-cta--right  button-primary js-payment-pay-now">PAY NOW</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- Debit Card -->
+    <div>
+      <div class="form">
+        <form class="form__debitCard payment-form" action="javascript:;" method="post" id="formDCvalidation" novalidate="novalidate">
+          <div class="payment-card-selection">
+            <h3 class="payment-method--title">Recharge eWallet using Debit Card</h3>
+
+            <div class="payment-method--card payment-method--card-debit">
+              <div class="form-control amount-input-field">
+                <input class="form__input amount-input js-amount-input" name="rechargeInput" required type="number" placeholder="Recharge Amount">
+              </div>
+
+              <div class="form-control">
+              <input class="form__input cc-number" type="tel" name="debitCardNumber" placeholder="Card Number" id="debitCardNumber" required autocomplete="off">
+
+                <div class="payment-card-type">
+                  <i class="dmart-sprite sprite-payments-visa js-visa-card"></i>
+                  <i class="dmart-sprite sprite-payments-mastercard js-mastercard-card"></i>
+                  <i class="dmart-sprite sprite-payments-diner js-dinersclub-card"></i>
+                  <i class="dmart-sprite sprite-payments-amex js-amex-card"></i>
+                </div>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-medium">
+                <input class="form__input checkMonth cc-exp" type="tel" name="debitExpiryDate" placeholder="MM / YY" required autocomplete="off">
+                <span class="form__placeholder">Expiry Date</span>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-small">
+                <input class="form__input cc-cvc" type="password" name="debitCardCvv" placeholder="CVV" required autocomplete="off">
+                <span class="form__placeholder">
+                  <i class="dmart-sprite sprite-cvv"></i>
+                </span>
+              </div>
+
+              <div class="form-control">
+                <input class="form__input" type="text" name="debitCardName" placeholder="Name on Card" required autocomplete="off">
+              </div>
+
+          </div>
+        </div>
+        <div class="total-payment-amount form-control">
+          Rechargeable Amount <span><i class="icon-rupees"></i> <span class="js-recharge-amount">0</span></span>
+        </div>
+        <div class="payment-method-cta">
+          <button type="submit" class="payment-cta--right button-primary js-payment-pay-now">PAY NOW</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- Debit Card + ATM Pin -->
+    <div>
+      <div class="form">
+
+      <form class="payment-method--card-form payment-form" id="formDebitATMvalidation" action="javascript:;" method="post">
+
+        <div class="payment-card-selection">
+          <h3 class="payment-method--title">Recharge eWallet using Debit Card + ATM Pin</h3>
+
+          <div class="payment-method--card">
+            <div class="form-control amount-input-field">
+              <input class="form__input amount-input js-amount-input" name="rechargeInput" required type="number" placeholder="Recharge Amount">
+            </div>
+
+              <div class="bank-list">
+
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-kotak"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-hdfc"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-sbi"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-axis"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-citi"></i>
+                </label>
+              </div>
+
+            <h4 class="payment-method--cart-title">Other Banks</h4>
+            <div class="custom-dropdown">
+              <select class="select-other-banks">
+                <option value="">Choose other bank</option>
+                <option value="sbi" selected>State Bank of India</option>
+                <option value="hdfc">HDFC</option>
+                <option value="indianbank">Indian Bank</option>
+                <option value="icici">ICICI Bank</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+          <div class="total-payment-amount form-control">
+            Rechargeable Amount <span><i class="icon-rupees"></i> <span class="js-recharge-amount">0</span></span>
+          </div>
+          <div class="payment-method-cta">
+            <button type="submit" class="payment-cta--right button--disabled button-primary js-payment-pay-now">PAY NOW</button>
+          </div>
+        </form>
+      </div>
+    </div>
+    <!-- Internet banking -->
+    <div>
+      <div class="form">
+
+      <form class="payment-method--card-form payment-form" id="formNetBankvalidation" action="javascript:;" method="post">
+
+        <div class="payment-card-selection">
+          <h3 class="payment-method--title">Recharge eWallet using Internet Banking</h3>
+
+          <div class="payment-method--card">
+            <div class="form-control amount-input-field">
+              <input class="form__input amount-input js-amount-input" name="rechargeInput" required type="number" placeholder="Recharge Amount">
+            </div>
+
+              <div class="bank-list">
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-kotak"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-hdfc"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-sbi"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-axis"></i>
+                </label>
+                <label>
+                  <input type="radio" name="card-selection"><i class="dmart-payment-sprite sprite-bank-citi"></i>
+                </label>
+              </div>
+
+            <h4 class="payment-method--cart-title">Other Banks</h4>
+            <div class="custom-dropdown">
+              <select class="select-other-banks">
+                <option value="">Choose other bank</option>
+                <option value="sbi" selected>State Bank of India</option>
+                <option value="hdfc">HDFC</option>
+                <option value="indianbank">Indian Bank</option>
+                <option value="icici">ICICI Bank</option>
+              </select>
+            </div>
+
+          </div>
+        </div>
+          <div class="total-payment-amount form-control">
+            Rechargeable Amount <span><i class="icon-rupees"></i> <span class="js-recharge-amount">0</span></span>
+          </div>
+          <div class="payment-method-cta">
+            <button type="submit" class="payment-cta--right button--disabled button-primary js-payment-pay-now">PAY NOW</button>
+          </div>
+        </form>
+      </div>
+    </div>
+
+  </div>
+</div>

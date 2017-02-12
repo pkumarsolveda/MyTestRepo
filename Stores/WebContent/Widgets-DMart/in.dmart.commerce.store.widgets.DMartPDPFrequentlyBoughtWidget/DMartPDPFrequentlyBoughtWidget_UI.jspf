@@ -1,0 +1,12 @@
+<%--  The following code is created as an example. Modify the generated code and add any additional required code.  --%>
+
+  <div class="row" id="frequentlyPurchased" style="display: none;">
+    <div class="col-xs-12">
+      <div class="pdp-alternate-list js-alter-module">
+        <h3 class="pdp-sub-header"><fmt:message bundle="${storeText}" key="FREQ_TITLE_TEXT"/></h3>
+        <div class="row" id="frequent">
+
+        </div>
+      </div>
+    </div>
+  </div>

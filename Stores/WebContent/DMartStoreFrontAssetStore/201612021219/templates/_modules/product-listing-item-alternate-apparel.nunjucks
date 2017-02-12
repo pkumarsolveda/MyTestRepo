@@ -1,0 +1,33 @@
+{% macro plpAlterApperal(product,config,outofstock,id,data) %}
+{%set item = product.itemDetails[product.currentItem]%}
+
+<!-- Add "product-out-of-stock" class to "product-listing-item" if product is not available-->
+<div data-productid="{{product.productId}}" class="product-listing-item plp-apparel {% if(item.outofstock == true) %} product-out-of-stock {% endif %}">
+<div class="product-listing-item__primary selected">
+  <h4 class="product-listing--title" style="padding-right: 2.5rem;"><a title="{{ item.name }}" href="{{config.baseUrl}}webapp/wcs/stores/servlet/ProductDisplay?catalogId={{data.catalogId}}&categoryId={{product.categoryId}}&langId=-1&storeId={{data.storeId}}&productId={{product.productId}}">{{ item.name }}</a></h4>
+  <h5 class="product-listing--brand"><a href="{{config.baseUrl}}SearchDisplay?catalogId={{data.catalogId}}&langId=-1&storeId={{data.storeId}}&manufacturer={{item.brand}}">{{ item.brand }}</a></h5>
+  <input class="product-alternate-checkbox" name="productAlternate-{{ id }}" id="productAlternate-{{ id }}" type="checkbox" checked="checked">
+  <a class="plp-image-slider" href="{{config.baseUrl}}webapp/wcs/stores/servlet/ProductDisplay?catalogId={{data.catalogId}}&categoryId={{product.categoryId}}&langId=-1&storeId={{data.storeId}}&productId={{product.productId}}" title="">
+    <img id="plpImageSlider-1" class="product-listing--image view-grid img-responsive small active" src="/{{config.baseUrl}}{{item.img_src}}" alt="{{ item.name }}" title="{{ item.name }}" onerror="this.src='{{data.noImagePath}}';">
+    <img id="plpImageSlider-2" src="{{config.baseUrl}}{{item.img_src}}-4.jpg" class="product-listing--image view-grid img-responsive small" alt="{{ item.name }}" title="{{ item.name }}" onerror="this.src='{{data.noImagePath}}';">
+    <img id="plpImageSlider-3" src="{{config.baseUrl}}{{item.img_src}}-3.jpg" class="product-listing--image view-grid img-responsive small" alt="{{ item.name }}" title="{{ item.name }}" onerror="this.src='{{data.noImagePath}}';">
+    <img id="plpImageSlider-4" src="{{config.baseUrl}}{{item.img_src}}-2.jpg" class="product-listing--image view-grid img-responsive small" alt="{{ item.name }}" title="{{ item.name }}" onerror="this.src='{{data.noImagePath}}';">
+  </a>
+  <ul class="plp-apparel__color-pallette js-plp-color-pallette">
+    	{% for colour in product.attributes.Colour %}
+      		<li data-color='{{colour}}' {% if colour == product.currentAttributeCombo.Colour %} class="selected" {% endif %}><a rel="colorPallete-{{loop.index}}" href="javascript:;" {% if colour == "white" %} class="color-white" {% endif %} style="background-color:{{colour}};">&nbsp;</a></li>
+      	{% endfor %}
+    </ul>
+  <div class="product-listing-details">
+    <div class="product-listing__save" {% if item.price.savings <= 0  %} style='visibility:hidden' {% endif %}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{item.price.savings}}</span></div>
+      <p class="product-listing--original-price" {% if item.price.sellingPrice <= 0  %} style='display:none' {% endif %}>MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{item.price.sellingPrice}}</span></p>
+      <p class="product-listing--discounted-price" {% if item.price.offerPrice <= 0  %} style='display:none' {% endif %}>DMart <i class="icon-rupees"></i>{{item.price.offerPrice}}</p>
+      <div id="sizeGuide" {% if item.priceExists == false %} style="padding-bottom:5%"  {%endif%}><a href="javascript:;" class="product-listing__size-guide modal-link" data-target="sizeGuideModal">Size Guide</a></div>
+      <div class="product-listing__quantity-primary clearfix">
+        {% from '_modules/mini-slider.nunjucks' import slider %}
+        {{ slider(product.attributes.Size) }}
+      </div>
+    </div>
+  </div>
+</div>
+{% endmacro %}

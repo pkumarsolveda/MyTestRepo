@@ -1,0 +1,87 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<%@page import="com.ibm.commerce.foundation.internal.server.services.registry.StoreConfigurationRegistry"%>
+<%@page import="com.ibm.commerce.registry.RegistryManager"%>
+
+<%
+StoreConfigurationRegistry storeRegistry = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+String confListingProductCount = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.ListingProductsCount");
+String confMaxOrderQty = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.MaxOrderQty");
+pageContext.setAttribute("confListingProductCount", confListingProductCount);
+pageContext.setAttribute("confMaxOrderQty", confMaxOrderQty);
+%>
+
+<script type="text/javascript">
+var currCatalogId = '${WCParam.categoryId}';
+var searchTerm = WCParamJS.searchTerm;
+var confListingProductCount = ${confListingProductCount};
+var confMaxOrderQty = ${confMaxOrderQty};
+var curPageNum = 1;
+var jsonObjOnPage = {};
+var lazyLoadActive = false;
+dojo.addOnLoad(function() {
+    $(document).bind(
+        'dmart.products.loaded',
+        function(e, pageNum) {
+            productListing.init(currCatalogId.toString(), curPageNum,
+                'apparellisting', pageNum > 1 ? true : false, confListingProductCount,searchTerm);
+        });
+    $(document).bind(
+        'dmart.cache.validator.completed',
+        function(e) {
+            ProductHelper.init(currCatalogId.toString(), curPageNum, confListingProductCount,searchTerm);
+        });
+    $(document).on('dmart.plp.breadcrumbs.loaded',
+			function(event) {
+				ProductHelper.loadBreadCrumbsDropdown();
+	});    
+
+});
+</script>
+<input type='hidden' value='${WCParam.categoryId}' id='plpCategoryId'/>
+<input type='hidden' value='${WCParam.storeId}' id='plpStoreId'/>
+
+<div class="row" id="apparellisting"></div>
+<div id="noResultsContent" style="display:none">
+<input id="recommendationProdCount" type="hidden" value="" /> 
+<input id="upsellProdCount" type="hidden" value="" />
+<div class="js-accordion-tabs-recommanded">
+  <div class="no-border-tabs recommended-products">
+    <div class="carousel-navigation" ><span class="countClass"></span>
+      <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+    </div>
+    <ul class="resp-tabs-list clearfix hor_1" id="headerId"> 
+  	<li id="upSellHead" data-type="upSellHead"  onclick="productsRecommendation.renderPageCount(this.id)"><fmt:message bundle="${storeText}" key="UPSELL_TITLE_TEXT"/></li>
+  	<li id="recommHead" data-type="recommend" onclick="productsRecommendation.renderPageCount(this.id)"><fmt:message bundle="${storeText}" key="RECO_TITLE_TEXT"/></li>
+    </ul>
+    <div class="resp-tabs-container hor_1" id="prodRecommendations"></div>
+</div>
+</div>
+</div>
+
+<div id="sizeGuideModal" class="modal-dialog js-modal-dialog-esc" style="display: none;">
+	<div class="modal-dialog__content modal-dialog__content-large">
+		<a href="javascript:;" title="Close" class="modal-dialog__close"><fmt:message bundle="${storeText}" key="CLOSE_BUTTON"/></a>
+		<div class="modal-dialog__header">
+			<h4 class="modal-dialog__header-title"><fmt:message bundle="${storeText}" key="SIZE_GUIDE"/></h4>
+		</div>
+		<div class="modal-dialog__body">
+			  
+		</div>
+	</div>
+</div>
+
+
+<%--<div id="apparellisting" style= "float:none"></div> </div> --%>

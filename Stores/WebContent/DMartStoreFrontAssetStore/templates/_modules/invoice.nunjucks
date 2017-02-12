@@ -1,0 +1,358 @@
+  <div class="invoice-print-copy">
+  <style>
+
+.invoice-print-copy {
+  width: 794px;
+  font-size: 12px;
+  font-family: Arial, sans-serif;
+}
+
+.invoice-print-copy .invoice-table {
+  border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.invoice-print-copy .invoice-table tr {
+  padding: 0.41675rem;
+}
+
+.invoice-print-copy .invoice-table tr td {
+  padding: 2px 5px;
+  border-right: 1px solid #dbdbdb;
+  text-align: center;
+}
+
+.invoice-print-copy .invoice-table tr td:nth-child(2) {
+  text-align: left;
+}
+
+.invoice-print-copy .invoice-table tr.invoice-charges-primary {
+  border-top: 1px solid #55595c;
+}
+
+.invoice-print-copy .invoice-table tr.invoice-charges-Secondary {
+  border-top: 2px solid #b3b3b3;
+}
+
+.invoice-print-copy .invoice-table .invoice-header {
+  border: 1px solid #dbdbdb;
+  background-color: #f7f7f7;
+  font-weight: 600;
+}
+
+.invoice-print-copy .invoice-table .invoice-col-small {
+  width: 80px;
+}
+
+.invoice-print-copy .invoice-table .invoice-col-medium {
+  width: 140px;
+}
+
+.invoice-print-copy .invoice-table .invoice-col-large {
+  width: 330px;
+}
+
+.invoice-print-copy .invoice-table .invoice-col-tiny {
+  width: 50px;
+  text-align: center;
+}
+
+.invoice-print-copy .invoice-table .crate-item {
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  font-weight: 600;
+}
+
+.invoice-print-copy .invoice-table .invoice-charges {
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+}
+
+.invoice-print-copy .invoice-terms {
+  padding: 1.667rem;
+}
+
+.invoice-print-copy .invoice-terms p {
+  margin: 0;
+  font-size: 10px;
+}
+
+.invoice-print-copy .invoice-top-header {
+  font-weight: 600;
+  display: inline-block;
+  margin-left: 120px;
+  margin-bottom: 0.208375rem;
+}
+
+.invoice-print-copy .invoice-top-header-secondary {
+  margin-left: 275px;
+  color: #b3b3b3;
+}
+
+.invoice-print-copy .invoice-header {
+  border-top: 1px solid #dbdbdb;
+  border-bottom: 1px solid #dbdbdb;
+  padding: 0.208375rem;
+}
+
+.invoice-print-copy .invoice-header span {
+  margin: 0 80px 10px 20px;
+  font-weight: 400;
+}
+
+.invoice-print-copy .invoice-header span:last-child {
+  margin-right: 0;
+}
+
+.invoice-print-copy .invoice-header-secondary {
+  border-bottom: 1px solid #dbdbdb;
+  padding: 7px 0;
+}
+
+.invoice-print-copy .invoice-header-secondary span {
+  border-right: 1px solid #dbdbdb;
+  margin: 10px 0;
+  padding: 9px 15px;
+  font-weight: 600;
+  text-align: center;
+}
+
+.invoice-print-copy .invoice-header-secondary span span {
+  font-weight: normal;
+}
+
+.invoice-print-copy .invoice-header-secondary span:last-child {
+  border-right: 0;
+}
+
+.invoice-print-copy .invoice-address {
+  padding: 0.8335rem 1.667rem;
+  width: 594px;
+  display: inline-block;
+}
+
+.invoice-print-copy .invoice-payment {
+  border : 1px solid #dbdbdb;
+  border-radius: 2px;
+  width: 130px;
+  display: inline;
+  position: absolute;
+  margin-top: 18px;
+  padding: 2px;
+  text-align: center;
+}
+.invoice-print-copy .invoice-logo {
+  width: 150px;
+  display: inline-block;
+  padding-left: 0.8335rem;
+}
+</style>
+    <div class="invoice-logo">
+      <img class="logo--small img-responsive invoice-logo" src="/{{config.baseUrl}}images/dmart-logo.svg" alt="DMart">
+    </div>
+    <h3 class="invoice-top-header"> AVENUE E-COMMERCE LIMITED </h3>
+    <h4 class="invoice-top-header-secondary">Delivery invoice/CIN U876876MH87978LP</h4>
+    <div class="invoice-header">
+      <span><strong>Order Place Date:</strong>  2 Dec 2015</span>
+      <span><strong>Invoice No:</strong> 1234567789</span>
+      <span><strong>Delivery Mode:</strong> Home Delivery</span>
+    </div>
+    <div class="invoice-header-secondary">
+      <span>Order ID : <span>1234567789</span></span>
+      <span>Total Order Lines: <span>10</span></span>
+      <span>Slot: <span>30th Oct 2015- 5PM-7PM</span></span>
+      <span>FSSAI No: <span>132UUI876</span></span>
+    </div>
+    <div class="invoice-address">
+      Name : Manish agrawal <br>
+      Address: B-701, Sai Pearls sec 35-D kharghar, Near Hyde Park- Navi Mumbai 410210 <br>
+      Mobile No. 9619498390
+    </div>
+    <div class="invoice-payment">
+      <strong> Mode of Payment </strong><br>
+      Cash on Delivery
+    </div>
+    <table class="invoice-table">
+      <tr class="invoice-header">
+        <td class="invoice-col-tiny">S.NO</td>
+        <td class="invoice-col-large">ITEM</td>
+        <td class="invoice-col-tiny">QTY</td>
+        <td class="invoice-col-small">MRP(₹)</td>
+        <td class="invoice-col-small">DMART PRICE(₹)</td>
+        <td class="invoice-col-small">SAVINGS(₹)</td>
+        <td class="invoice-col-medium">REMARKS</td>
+      </tr>
+      <!-- Start crate-item-1 Block -->
+      <tr class="crate-item">
+        <td></td>
+        <td>Crate Id 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Item 1</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td>Discount 10%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Item 2</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Item 3</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td>Discount 35%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Item 4</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Item 5</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td></td>
+      </tr>
+      <!-- End crate-item-1 Block -->
+      <!-- crate-item-2 Block Start -->
+      <tr class="crate-item">
+        <td></td>
+        <td>Crate Id 1</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>1</td>
+        <td>Item 1</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td>Discount 10%</td>
+      </tr>
+      <tr>
+        <td>2</td>
+        <td>Item 2</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>3</td>
+        <td>Item 3</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td>Discount 35%</td>
+      </tr>
+      <tr>
+        <td>4</td>
+        <td>Item 4</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td></td>
+      </tr>
+      <tr>
+        <td>5</td>
+        <td>Item 5</td>
+        <td>2</td>
+        <td>100.00</td>
+        <td>9.00</td>
+        <td>91.00</td>
+        <td></td>
+      </tr>
+      <!-- End crate-item-2 Block Start -->
+      <tr class="invoice-charges invoice-charges-primary">
+        <td></td>
+        <td><strong>TOTAL</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="invoice-charges">
+        <td></td>
+        <td>Delivery Charges</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+       <tr class="invoice-charges">
+        <td></td>
+        <td>Discount (Included in Offer Price)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="invoice-charges invoice-charges-Secondary">
+        <td></td>
+        <td><strong>TOTAL YOU PAY</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="invoice-charges">
+        <td></td>
+        <td><strong>YOU SAVE</strong></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+      <tr class="invoice-charges invoice-charges-Secondary">
+        <td></td>
+        <td>VAT (Included in Total above)</td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+      </tr>
+    </table>
+    <div class="invoice-terms">
+      <p>For Terms and Conditions as accepted by you while ordering please visit  www.dmartindia.in//terms&conditions</p>
+      <p>Detailed invoice will be sent in your registered mail/Available in Your account.</p>
+      <p>VAT TIN & CST Number</p>
+      <p>Customer care number: +91-44-999999</p>
+      <p>Above prices are inclusive of all taxes.</p>
+    </div>
+  </div>

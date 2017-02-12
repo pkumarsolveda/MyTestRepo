@@ -1,0 +1,101 @@
+{% extends '_layouts/base-checkout.nunjucks' %}
+{% block title %} Delivery {% endblock %}
+{% block content %}
+{% set pageTitle = "Delivery Type" %}
+
+<div class="container alert-container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-warning-bg js-alert-order" style="display:none;">
+        <strong><i class="icon-notification"></i> Please Note:</strong>
+        	<a id="checkout-error-section">
+        		
+        	<a>	
+        <a class="alert-close-cta js-cart-reject align-right alert-cross-pos" href="javascript:;" title="Close"><i class="icon-cta-close icon-cancel"></i></a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container delivery-container">
+  <div class="row">
+    <div class="col-xs-12 col-lg-4">
+    		<div id="cart-summary-section">
+                  <img id="loadingsymbol"  style="position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;" src="/wcsstore/DMartStoreFrontAssetStore/images/colors/color1/loading.gif" alt="DMart">
+              </div>
+      
+    </div>
+    <div class="col-xs-12 col-lg-8">
+      <div class="delivery-selection js-delivery-selection">
+        <div class="js-accordion-tabs-delivery delivery-tabs">
+        <div class="variant-delivery-header">Please choose your preferred DMart Ready Pick-up Point</div>
+          <ul class="resp-tabs-list clearfix delivery-vertical">
+            <li class="delivery-check"><i class="icon--delivery icon-home"></i> <h4 class="delivery-type--title">Home Delivery <span class="offer-text"><i class="icon-rupees"></i>{{data.totalShipping}} Extra</span></h4></li>
+            <li id="pickup_div" class="js-load-gmap pup-check"><i class="icon--delivery icon-office"></i> <h4 class="delivery-type--title">Pick up<span class="offer-text delivery-free">FREE!!</span></h4></li>
+          </ul>
+
+            <div class="resp-tabs-container delivery-vertical  delivery-container-accordian">
+              <div id="delivery-address-section" class="delivery-address-padding">
+              <img id="loadingsymbol"  style="position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;" src="/wcsstore/DMartStoreFrontAssetStore/images/colors/color1/loading.gif" alt="DMart">
+              </div>
+              <div id="delivery-PUP-address-section">
+                
+              </div>
+            </div>
+        </div>
+        <div class="delivery-vertical-cta">
+          <a href="javascript:;" class="button-primary delivery-cta--right js-delivery-slot-cta enabled">SELECT YOUR TIME SLOT</a>
+        </div>
+      </div>
+
+      <div class="delivery-selection-slot js-delivery-selection-slot">
+			<div id="checkout-slot-section">
+              <img id="loadingsymbol"  style="position: absolute; margin: auto; top: 0; left: 0; right: 0; bottom: 0;" src="/wcsstore/DMartStoreFrontAssetStore/images/colors/color1/loading.gif" alt="DMart">
+              </div>
+
+        <div class="delivery-vertical-cta slot-selection buttons">
+          <a href="javascript:;" class="button-primary delivery-cta--right js-place-order button--disabled">PREVIEW YOUR ORDER</a>
+          <a href="javascript:;" class="button-delivery-back button-white button delivery-cta--right js-delivery-selection-cta link-secondary">BACK</a>
+        </div>
+      </div>
+
+      <div class="cart-order-summary js-hide-show js-delivery-address">
+     		 <div id="checkout-address-slot-summary">
+              
+              </div>
+
+        <div class="delivery-vertical-cta proceed-to-payment-cta">
+          <!--<i class="icon-rewind"></i>Wish to<a href="javascript:;" class="link-secondary js-delivery-slot-cta enabled">Change Slot</a>or<a href="javascript:;" class="link-secondary js-delivery-selection-cta">Delivery Method? </a> -->
+          <a href="javascript:;" class="button-primary delivery-cta--right js-payment-method-cta">PROCEED TO PAY</a>
+          <a href="javascript:;" class="button-delivery-back button-white button delivery-cta--right js-delivery-slot-cta enabled link-secondary">BACK</a>
+        </div>
+         <div class="prefer-pup-div">
+          	<span>Why pay more, switch to <b>Pick-up Point !</b></span>
+           	<a href="javascript:;" class="delivery-cta--preferpup js-delivery-selection-cta">SAVE DELIVERY CHARGE
+            </a>
+       </div>
+      </div>
+
+      <div class="payment-method js-hide-show js-payment-method">
+	      <div class="payment-overlay">
+	          <div class="payment-overlay-header">
+	            Please Choose From The List Of Payment Modes
+	          </div>
+	          <div class="payment-overlay-image">
+	          	<img class="logo--large img-responsive" src="../DMartStoreFrontAssetStore/css/images/icon-payment.png" alt="cannot load image">
+	          </div> 
+	     </div>
+      
+      
+      
+        {% include '_modules/payment-methods.nunjucks' %}
+        <!--<div class="delivery-vertical-cta">
+          <i class="icon-rewind"></i>Wish to<a href="javascript:;" class="link-secondary js-delivery-slot-cta enabled">Change Slot</a>or<a href="javascript:;" class="link-secondary js-delivery-selection-cta">Delivery Method? </a>
+        </div>-->
+      </div>
+    </div>
+
+  </div>
+</div>
+
+{% endblock %}

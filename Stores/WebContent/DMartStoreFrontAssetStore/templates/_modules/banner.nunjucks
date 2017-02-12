@@ -1,0 +1,39 @@
+{% macro banner(id='1', captionSize='250gms', mrp='300', dmart='250') %}
+
+<li>
+  <a href="javascript:;" title=""><img class="img-responsive" src="/{{config.baseUrl}}images/temp/landing/banner-{{ id }}.png" alt="banner"></a>
+
+  <div class="banner-caption">
+    <h4 class="banner-caption--title">Pack Size : <span>{{ captionSize }}</span></h4>
+    <h4 class="banner-caption--mrp">MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{ mrp }}</span></h4>
+    <h4 class="banner-caption--dmart-price">DMart <i class="icon-rupees"></i>{{ dmart }}</h4>
+
+    <div class="promotion-panel__btn">
+      <a class="promotion-panel__btn-addtocart product-search__btn-addtocart button-primary" href="javascript:;" title="Add to Cart">
+      <i class="icon-cart"></i> Add to Cart</a>
+
+      <div class="quantity-select clearfix js-hide-show">
+        <form>
+          <div class="js-quantity-minus quantity-button"> <a href="javascript:;">-</a></div>
+          <div class="quantity-input">
+            <input type="text" class="form__input" disabled="disabled" value="1" >
+          </div>
+          <div class="js-quantity-plus quantity-button"> <a href="javascript:;">+</a></div>
+        </form>
+      </div>
+    </div>
+  </div>
+</li>
+{% endmacro %}
+
+<section class="landing-banner">
+        <div class="flexslider">
+          <ul class="slides">
+            {{ banner() }}
+            {{ banner(id='2', mrp='350', dmart='300') }}
+            {{ banner(id='3') }}
+            {{ banner(id='4', captionSize='1kg') }}
+            {{ banner(id='5') }}
+          </ul>
+        </div>
+</section>

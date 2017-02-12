@@ -1,0 +1,1 @@
+({"singleSort":"Sortowanie pojedyncze","nestedSort":"Sortowanie zagnieżdżone","ascending":"Rosnąco","descending":"Malejąco","sortingState":"${0} - ${1}","unsorted":"Nie sortuj tej kolumny"})

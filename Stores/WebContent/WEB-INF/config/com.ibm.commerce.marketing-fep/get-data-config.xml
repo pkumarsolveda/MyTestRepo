@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:get-data-config xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../xsd/get-data-config.xsd ">
+
+ 	<data-type>
+		<name>MarketingSpot</name>
+		<type>com.ibm.commerce.marketing.facade.datatypes.MarketingSpotType</type>
+	</data-type>
+	
+	<data-type>
+		<name>Activity</name>
+		<type>com.ibm.commerce.marketing.facade.datatypes.ActivityType</type>
+	</data-type>
+	
+	<client-facade>
+		<data-type-name>MarketingSpot</data-type-name>
+		<class>com.ibm.commerce.marketing.facade.client.MarketingFacadeClient</class>
+		<method>getMarketingSpot</method>
+	</client-facade>	
+	
+	<expression-builder>
+		<name>findDefaultContentByMarketingContentID</name>
+		<data-type-name>MarketingSpot</data-type-name>
+		<expression-template>{_wcf.ap=$accessProfile$}/MarketingSpot[DefaultContent[ContentUniqueID=$collateralId$ and Format='MarketingContent']]</expression-template>
+		<param>
+			<name>accessProfile</name>
+			<value>IBM_Admin_Summary</value>
+		</param>				
+	</expression-builder>						
+
+	<expression-builder>
+		<name>findByName</name>
+		<data-type-name>MarketingSpot</data-type-name>
+		<expression-template>{_wcf.ap=$accessProfile$}/MarketingSpot[MarketingSpotIdentifier[ExternalIdentifier[(Name='$name$')]] and Usage='$usage$']</expression-template>
+		<param>
+			<name>accessProfile</name>
+			<value>IBM_Admin_Details</value>
+		</param>		
+		<param>
+			<name>usage</name>
+			<value>MARKETING</value>
+		</param>				
+	</expression-builder>	
+	
+	<expression-builder>
+		<name>findActivityCampaignElementsByUniqueIDs</name>
+		<data-type-name>Activity</data-type-name>
+		<class>com.ibm.commerce.foundation.internal.client.taglib.util.UniqueIDsExpressionBuilder</class>
+		<method>formatExpression</method>
+		<param>
+			<name>template</name>
+			<value>/Activity[ActivityIdentifier[(UniqueID=)]]</value>
+		</param>		
+		<param>
+			<name>accessProfile</name>
+			<value>IBM_Admin_CampaignElements</value>
+		</param>						
+	</expression-builder>
+		
+</_config:get-data-config>

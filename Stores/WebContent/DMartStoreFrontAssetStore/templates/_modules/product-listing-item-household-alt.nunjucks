@@ -1,0 +1,144 @@
+<!-- Duplicated file 'product-listing-item-household-alt' for transition on recommended products tabs -->
+{% macro plpHouseholdAlt(product,config,outofstock) %}
+{%set item = product.itemDetails[product.currentItem]%}
+<!-- Add "product-out-of-stock" class to "product-listing-item" if product is not available-->
+<div class="product-listing-item plp-grocery {% if(outofstock == true) %} product-out-of-stock {% endif %}">
+<div class="product-listing-item__primary">
+  <div class="view-list view-list-product-image product-out-of-stock__small-image-wrap">
+    <a href="javascript:;" title=""><img src="{{config.baseUrl}}{{item.img_src}}" class="product-listing--image img-responsive" alt="product image"></a>
+    <a class="product-out-of-stock__small-image" href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/product-out-of-stock.jpg" class="product-listing--image-out-of-stock img-responsive" alt="product image"></a>
+  </div>
+  <h4 class="product-listing--title"><a title="{{item.title}}" href="javascript:;">{{item.title}}</a></h4>
+  <h5 class="product-listing--brand"><a href="javascript:;">{{item.brand}}</a></h5>
+  <a href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/product-household-2.jpg" class="product-listing--image small view-grid img-responsive" alt="product image"></a>
+  <a class="product-out-of-stock__big-image" href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/product-out-of-stock.jpg" class="product-listing--image-out-of-stock img-responsive" alt="product image"></a>
+  <p class="product-listing__total-items">Total 2 Items in Cart</p>
+  <div class="product-listing-details">
+    	<div class="product-listing__save" {% if item.price.savings <= 0  %} style='display:none' {% endif %}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{item.price.savings}}</span></div>
+    	<p class="product-listing--original-price" {% if item.price.sellingPrice <= 0  %} style='display:none' {% endif %}>MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{item.price.sellingPrice}}</span></p>
+    <p class="product-listing--discounted-price"  {% if item.price.offerPrice <= 0  %} style='display:none' {% endif %}>DMart <i class="icon-rupees"></i>{{item.price.offerPrice}}</p>
+    <div class="product-listing__quantity-secondary clearfix">
+      <div class="md-custom-select js-rupee">
+        <select class="product-listing__quantity--select-weight">
+          {%for itemid in product.itemIds %}
+             <option value="{{itemid}}" {% if item == product.currentItem %} selected="" {%endif%}>{{product.itemDetails[itemid].definingAttributes.Size}} &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+        </select>
+      </div>
+      <div class="md-custom-select">
+        <select class="product-listing__quantity--select-quantity">
+          <option value="1">1</option>
+          <option value="2">2</option>
+          <option value="3">3</option>
+        </select>
+      </div>
+    </div>
+    <div class="product-listing__cta-container clearfix">
+      <a href="javascript:;" class="button-primary product-listing__cta-button"><i class="icon-cart"></i> Add to Cart</a>
+      <div class="product-listing__quantity--add">
+        <a href="javascript:;" class="button-icon-white"><i class="icon-document-add"></i></a>
+      </div>
+    </div>
+    <div class="add-product-other-quantity">
+      <div class="product-added-to-cart__icon-wrap">
+        <a class="product-added-to-cart__icon-cta cart-icon" href="javascript:;">
+          <i class="product-added-to-cart__icon icon-cart"></i>
+          <span class="badge">{{product.totalQtyInCart}}</span>
+        </a>
+      </div>
+      <div class="product-price">
+        <h4 class="product-price__saving">Total Savings <span><i class="icon-rupees"></i>150</span></h4>
+        <h3 class="product-price__total">Total Price <i class="icon-rupees"></i>1250</h3>
+      </div>
+      <div class="md-custom-select js-rupee">
+        <select class="product-listing__quantity-other--select" id="js-more-quantity">
+          {%for itemid in product.itemIds %}
+          <option value="{{itemid}}" >{{product.itemDetails[itemid].definingAttributes.Size}} &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+        </select>
+      </div>
+      <div class="product-listing__quantity--add">
+        <a href="javascript:;" class="button-icon-white"><i class="icon-document-add"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="product-listing-out-of-stock__details">
+    <p class="note">This item is not available</p>
+    <button class="notify-me-cta button" type="button">Notify Me</button>
+    <div class="product-listing__quantity--add">
+      <a href="javascript:;" class="button-icon-white {% if(outofstock == true) %} disabled {% endif %}"><i class="icon-document-add"></i></a>
+    </div>
+  </div>
+</div>
+<div class="product-listing-item__secondary js-hide-show">
+  <h4 class="product-listing-item__cart-title">Product Added to Cart</h4>
+  <div class="cart-icon">
+    <i class="product-listing-item__secondary__icon-shopping-cart icon-cart"></i>
+    <span class="badge">1</span>
+  </div>
+  <div class="added-product-wrap ">
+    <ul class="clearfix">
+      <li class="added-product-wrap__list clearfix">
+        <div class="md-custom-select added-product__quantity custom-dropdown js-rupee has-rupee">
+          <select>
+            <option value="1">2ltr - ₹250</option>
+            <option value="2">5ltr - ₹500</option>
+            <option value="3">10ltr - ₹1000</option>
+          </select>
+        </div>
+        <div class="md-custom-select added-product__quantity-size custom-dropdown">
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="added-product__remove">
+          <a href="javascript:;"><i class="added-product__remove-icon icon-cross"></i></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+  <div class="product-price">
+    <h4 class="product-price__saving">Your Savings <span><i class="icon-rupees"></i>50</span></h4>
+    <h3 class="product-price__total">Total Price <i class="icon-rupees"></i>250</h3>
+    <p class="product-listing__total-items--list-view">Total of {{product.totalQtyInCart}} Packs Added to Cart</p>
+  </div>
+  <div class="add-product-other-quantity">
+    <div class="md-custom-select js-rupee custom-dropdown">
+      <select class="product-listing__quantity--select">
+       {%for itemid in product.itemIds %}
+             <option value="{{itemid}}" selected="">{{product.itemDetails[itemid].definingAttributes.Size}} &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+      </select>
+    </div>
+    <div class="product-listing__quantity--add">
+      <a href="javascript:;" class="button-icon-white"><i class="icon-document-add"></i></a>
+    </div>
+  </div>
+</div>
+<div class="product-listing-item__tertiary">
+  <h4 class="product-listing-item__tertiary--title">Add to Shopping List</h4>
+  <div class="product-listing-item__tertiary--add-list">
+    <input class="product-listing-item__tertiary--field input-text-field" type="text" value="" name="addShopList" placeholder="Add new list">
+    <button class="product-listing-item__tertiary--add-cta button">Add</button>
+  </div>
+  <div class="product-listing-item__tertiary-lists ">
+    <ul >
+      <li><a href="javascript:;">Monthly List</a></li>
+      <li><a href="javascript:;">Party List</a></li>
+      <li><a href="javascript:;">Picnic List</a></li>
+      <li><a href="javascript:;">Festival List</a></li>
+      <li><a href="javascript:;">Travel List</a></li>
+      <li><a href="javascript:;">Party List</a></li>
+      <li><a href="javascript:;">Picnic List</a></li>
+      <li><a href="javascript:;">Festival List</a></li>
+      <li><a href="javascript:;">Travel List</a></li>
+    </ul>
+  </div>
+  <button class="add-list-submit-cta button" type="button">Submit</button>
+</div>
+</div>
+{% endmacro %}

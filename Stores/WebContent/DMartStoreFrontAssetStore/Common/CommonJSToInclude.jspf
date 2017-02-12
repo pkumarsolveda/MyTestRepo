@@ -1,0 +1,177 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2009, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<!-- BEGIN CommonJSToInclude.jspf -->
+<%@page import="com.ibm.commerce.foundation.internal.server.services.registry.StoreConfigurationRegistry"%>
+<%@page import="com.ibm.commerce.registry.RegistryManager"%>
+<link rel="stylesheet" href="${staticServerHostPath}${env_vfileStylesheetrwd}" type="text/css" />
+<!--[if IE 8]>
+<link rel="stylesheet" href="${staticServerHostPath}css/stylesIE8.css" type="text/css" />
+<![endif]-->
+
+<%-- Include the Worklight hybrid JS --%>
+<c:if test = "${_worklightHybridApp eq 'true'}">
+    <%@ include file="../WorklightHybrid/WorklightJSToInclude.jspf" %>
+</c:if>
+
+<script type="text/javascript" charset="UTF-8" src="<c:out value="${dojoFile}"/>" djConfig="${dojoConfigParams}"></script>
+<script type="text/javascript" charset="UTF-8" src="<c:out value="${dojoFileDesktop}"/>" djConfig="${dojoConfigParams}"></script>
+
+<%-- Commented out to allow rescaling on tablets when the coshopping feature is not enabled; may need to re-enable this if coshopping is used in this store --%>
+<%-- prevent scaling when store is viewed in mobile devices --%>
+<%-- <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=no, maximum-scale=1.0;" /> --%>
+
+<meta name="CommerceSearch" content="storeId_${storeId}" />
+<meta name="viewport" content="width=device-width, initial-scale=1, minimum-scale=1, user-scalable=no">
+
+<%-- Place favicon for the store --%>
+<link rel="shortcut icon" href="${jspStoreImgDir}images/icon-favicon.ico" mce_href="${jspStoreImgDir}images/icon-favicon.ico"/>
+
+<%-- Place favicons for mobile devices --%>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-60px.png" sizes="60x60"/>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-72px.png" sizes="72x72"/>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-76px.png" sizes="76x76"/>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-114px.png" sizes="114x114"/>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-120px.png" sizes="120x120"/>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-144px.png" sizes="144x144"/>
+<link rel="apple-touch-icon-precomposed" href="${jspStoreImgDir}images/touch-icon-152px.png" sizes="152x152"/>
+
+<c:set var="searchType" value="${responseSearchType}" scope="request"/>
+<c:if test="${empty searchType}" >
+	<c:set var="searchType" value="${WCParam.searchType}" scope="request"/>
+		<c:if test="${empty searchType}" >
+			<c:set var="searchType" value="1000" scope="request"/>
+		</c:if>
+</c:if>
+<%-- for guest sign in --%>
+<% 
+   	StoreConfigurationRegistry storeConfReg = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+	String confGuestCheckoutOTPTime = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.GuestCheckout.OTP.Time");
+	pageContext.setAttribute("confGuestCheckoutOTPTime", confGuestCheckoutOTPTime);
+%>
+<%-- for guest sign in --%>
+<script type="text/javascript">
+	// Convert the WCParam object which contains request properties into javascript object
+	var WCParamJS = {
+            "storeId":'<c:out value = "${WCParam.storeId}"/>',
+            "catalogId":'<c:out value = "${WCParam.catalogId}"/>',
+            "langId":'<c:out value = "${WCParam.langId}"/>',
+            "metaData":'<wcf:out value = "${WCParam.metaData}" escapeFormat="js"/>',
+            "searchHostNamePath" :'<c:out value = "${searchHostNamePath}"/>',
+            "searchSecureHostNamePath" :'<c:out value = "${searchSecureHostNamePath}"/>',
+            "categoryId" :'<wcf:out value = "${WCParam.categoryId}" escapeFormat="js"/>',
+            "imageServerHost" : '<c:out value = "${imageServerHostPath}"/>', 
+            "staticServerHost" : '<c:out value = "${staticServerHostPath}"/>',
+            "homepageURL" : '<c:out value = "${env_TopCategoriesDisplayURL}"/>'     ,
+            "homepageURLHierarchy" : '<c:out value = "${env_TopCategoriesDisplayURLHierarchy}"/>'    ,
+            "offerCat" : '<c:out value = "${WCParam.offerCat}"/>',
+            "disableLSCompression" : '<c:out value = "${disableLSCompression}"/>',  
+			"dontUseLocalStorage" : '<c:out value = "${disableLocalStorage}"/>'     
+      };
+
+	try {
+		sessionStorage.setItem('test', '1');
+		sessionStorage.removeItem('test');
+	} catch (error) {
+		if (error.code === DOMException.QUOTA_EXCEEDED_ERR && sessionStorage.length === 0) {
+  			console.log('private browsing mode');
+  			WCParamJS.dontUseLocalStorage = '1';
+		}
+	}
+	WCParamJS.searchURLPrefix  = {
+	 'http:' : '<c:out value = "${searchHostNamePath}"/>',
+	 'https:' : '<c:out value = "${searchSecureHostNamePath}"/>'
+	};
+	
+	var absoluteURL = "<c:out value="${env_absoluteUrl}"/>";
+	var storeNLS = null;
+	var storeUserType = "${userType}";
+	var confGuestCheckoutOTPTime = '${confGuestCheckoutOTPTime}';
+	var multiSessionEnabled = <c:out value='${multiSessionEnabled}'/>;
+	
+	function getAbsoluteURL() {
+		if (absoluteURL != "") {
+			var currentURL = document.URL;
+			var currentProtocol = "";
+		
+			if (currentURL.indexOf("://") != -1) {
+				currentProtocol = currentURL.substring(0, currentURL.indexOf("://"));
+			}
+			
+			var savedProtocol = "";
+			if (absoluteURL.indexOf("://") != -1) {
+				savedProtocol = absoluteURL.substring(0, absoluteURL.indexOf("://"));
+			}
+			
+			if (currentProtocol != savedProtocol) {
+				absoluteURL = currentProtocol + absoluteURL.substring(absoluteURL.indexOf("://"));
+			}
+		}
+		
+		return absoluteURL;
+	}
+</script>
+
+<%--<script type="text/javascript" src="${jsAssetsDir}javascript/MessageHelper.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/StoreCommonUtilities.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/Responsive.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/Widgets/Search.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/Widgets/MiniShopCartDisplay/MiniShopCartDisplay.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/Widgets/Department/Department.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/Common/ShoppingActions.js"></script>
+<script type="text/javascript" src="${jsAssetsDir}javascript/Common/ShoppingActionsServicesDeclaration.js"></script>
+<script type="text/javascript" src="${staticAssetContextRoot}${env_siteWidgetsDir}Common/javascript/WidgetCommon.js"></script> --%>
+
+<script>
+	dojo.require("wc.service.common");
+	dojo.require("dojo.number");
+	dojo.require("dojo.has");
+</script>
+
+<%-- The page will be reloaded with the selected catalogId --%>
+<wcf:url var="unsupportedBrowserErrorUrl" value="UnsupportedBrowserErrorView">
+	<wcf:param name="catalogId" value="${sdb.masterCatalog.catalogId}"/>
+	<wcf:param name="storeId" value="${WCParam.storeId}"/>
+	<wcf:param name="langId" value="${CommandContext.languageId}"/>
+</wcf:url>
+
+<script type="text/javascript">
+ //Set the default NLS to use in the store.
+ if(storeNLS == null) {
+	 dojo.requireLocalization("storetext", "StoreText");
+	 storeNLS = dojo.i18n.getLocalization("storetext","StoreText");
+ }
+ 
+ /** Check for browser support **/
+ var ie6 = false;
+ var ie7 = false;
+ if (navigator != null && navigator.userAgent != null) {
+	 ie6 = (navigator.userAgent.toLowerCase().indexOf("msie 6.0") > -1);
+	 ie7 = (navigator.userAgent.toLowerCase().indexOf("msie 7.0") > -1); 
+	 isWindows = navigator.userAgent.toLowerCase().indexOf("windows") > -1;
+	 // Best way to check for Safari browser
+	 isSafari = Object.prototype.toString.call(window.HTMLElement).indexOf('Constructor') > 0;
+ }
+ if (location.href.indexOf('UnsupportedBrowserErrorView') == -1 && (ie6 || ie7 || (isWindows && isSafari))) {
+	 window.location.href = "${unsupportedBrowserErrorUrl}";
+ }
+ 
+</script>
+
+<flow:ifEnabled feature="Analytics">
+	<%-- The CM header tag must be in the <head> tag of the JSP --%>
+	<cm:output section="header" />
+</flow:ifEnabled>
+
+
+<!-- END CommonJSToInclude.jspf -->

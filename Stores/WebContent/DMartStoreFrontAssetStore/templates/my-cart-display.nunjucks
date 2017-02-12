@@ -1,0 +1,28 @@
+ {% for category,list in cartData.orderItems|groupby('topCategory') %}
+  
+ {%set qtyPerCat = 0 %}
+ {%for item in list%}
+ {% if item.itemMissing  == false %}
+    {%set qtyPerCat = qtyPerCat + item.quantity%}
+  {% endif %}
+ {%endfor%}
+ {% if qtyPerCat > 0 %}
+ <h3 class="cart-details__item--title">
+    <a href="javascript:;" title="">
+     {{ category }} <span>(<span class="cart-details__item--count">{{qtyPerCat}}</span> {% if qtyPerCat > 1 %}items{% else %}item{% endif %})</span><span class="cart-details__item--title-arrow"><i class="{%if category in data.collapsed %}icon-caret-up{%else%}icon-caret-down{%endif%}"></i></span>
+     </a>
+  </h3>
+  {% endif %}
+  <ul class="cart-details__item-list" {%if category in data.collapsed %}style='display:none'{%endif%}>
+     {% from '_modules/mycart-items.nunjucks' import myCartItems %}
+     {% for orderItem in list%}
+     {{ myCartItems( product=orderItem, free="false", offer="false", ordersummary="false",data=data) }}
+     {% endfor %}
+     
+
+     <li class="cart-no-items">
+        <p class="alert alert-danger text-center">No items in this section</p>
+     </li>
+   </ul>
+   {% endfor %}
+   

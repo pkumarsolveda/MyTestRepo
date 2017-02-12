@@ -1,0 +1,34 @@
+{% macro myCartItems(available, type, id, product, brand, variant, mrp, dmartprice, save, pricechange, free) %}
+
+<li class="cart-details__item-lists {% if available == 'false' %}product-not-available{% endif %}">
+  <div class="row">
+    <div class="col-md-2">
+      <a class="{% if available == 'false' %}product-not-available-img-disabled{% endif %}" href="javascript:;" title="">
+        <img class="img-responsive" src="/{{config.baseUrl}}images/temp/plp/product-{% if type == 'apparel' %}apparel{% else %}grocery{% endif %}-{{ id }}.jpg" alt="">
+        {% if available == 'false' %}
+        <span class="cart-details__item-lists--no-stock">
+          <span><span>Out of Stock</span></span>
+        </span>
+        {% endif %}
+      </a>
+    </div>
+    <div class="col-md-10">
+      <h3 class="h4 product-name"><a href="javascript:;">{{ product }}</a></h3>
+      <h4 class="cart-details__item--price-dmart">DMart <i class="icon-rupees"></i>{{ dmartprice }}</h4>
+      {% if pricechange == 'true' %}
+      <h4 class="price-change"><span class="title">Price Changed:</span> From <span><i class="icon-rupees"></i>{{item.previousPrice}}</span> to <span><i class="icon-rupees"></i>{{item.dmartPrice}}</span></h4>
+      {% endif %}
+      {% if free == 'true' %}
+      <div class="free-item"><span class="label label-secondary label-medium">Free</span> Baseball Cap</div>
+      {% endif %}
+
+      <div class="cart-details__item--remove">
+        <a href="javascript:;">
+          <i class="icon-cross"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</li>
+
+{% endmacro %}

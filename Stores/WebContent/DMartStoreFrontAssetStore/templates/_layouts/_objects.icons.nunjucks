@@ -1,0 +1,7 @@
+// Don't edit this file.
+// Content of this file is generated with gulp task 'iconFonts'
+
+@charset 'utf-8';
+
+{% for glyph in glyphs %}.{{ className }}-{{ glyph.name }}:before { content: "\{{ glyph.unicode[0].charCodeAt(0).toString(16).toUpperCase() }}"; }
+{% endfor %}

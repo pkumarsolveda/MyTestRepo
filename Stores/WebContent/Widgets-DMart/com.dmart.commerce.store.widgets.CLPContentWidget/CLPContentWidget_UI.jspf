@@ -1,0 +1,37 @@
+<%--  The following code is created as an example. Modify the generated code and add any additional required code.  --%>
+<div id="widgetExample" >
+
+
+<script type="text/javascript">
+var currCatalogId = '${WCParam.categoryId}';
+var currcategoryId = '${WCParam.categoryId}';
+var searchTerm = WCParamJS.searchTerm+'';
+var filterBy = WCParamJS.filterBy+'';
+
+var curPageNum = 1;
+var jsonObjOnPage = {};
+var lazyLoadActive = false;
+dojo.addOnLoad(function() {
+
+	ClpHelper.nOfItemstoLoadinRail =8;
+	ClpHelper.nOfItemstoShowinRail =4;
+	ClpHelper.minOfItemsInRail =4;
+    ClpHelper.pageMode = "CLP";
+ 
+
+
+});
+</script>
+
+<ul style="list-style: none; font-size: 24px">
+
+	
+		
+</ul>
+<div class= "container">
+<div id = "ClpContent">
+
+</div>
+
+</div>
+</div>

@@ -1,0 +1,33 @@
+{% from "_modules/form-control.nunjucks" import formControl %}
+
+<div class="form">
+	<h2 class="form__title">Account Verification</h2>
+	<form class="form__account-verification" action="javascript:;" method="post" id="formAccountValidation" novalidate="novalidate">
+
+    {% include '_modules/form-mobile-number.nunjucks' %}
+
+    <div class="js-signin-otp">
+      <div class="form-control spacing-bottom-half">
+        <label for="otpNumber" class="form__label required-field spacing-bottom-tiny">OTP</label>
+        <div class="otp-group clearfix">
+          <input type="number" rel="otpInput" class="form__input otpInput" name="otpNumber1" id="otpNumber1" required>
+          <input type="number" rel="otpInput" class="form__input otpInput" name="otpNumber2" id="otpNumber2" required>
+          <input type="number" rel="otpInput" class="form__input otpInput" name="otpNumber3" id="otpNumber3" required>
+          <input type="number" rel="otpInput" class="form__input otpInput" name="otpNumber4" id="otpNumber4" required>
+          <input type="number" rel="otpInput" class="form__input otpInput" name="otpNumber5" id="otpNumber5" required>
+          <input type="number" rel="otpInput" class="form__input otpInput" name="otpNumber6" id="otpNumber6" required>
+        </div>
+      </div>
+    </div>
+
+    <div class="form__btn">
+      <button type="submit" class="js-form-submit signin__btn-submit button-primary">Submit</button>
+    </div>
+
+    <p>
+    Waiting for OTP over a minute? <a class="link-alternate" href="javascript:;" title="Resend OTP"><strong>Resend OTP</strong></a>
+    </p>
+
+	</form>
+
+</div>

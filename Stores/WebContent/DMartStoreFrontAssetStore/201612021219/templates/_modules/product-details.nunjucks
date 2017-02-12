@@ -1,0 +1,160 @@
+{%set item = data.product.itemDetails[data.product.currentItem]%}
+<div data-productid="{{data.product.productId}}"  class="product-details product-details--{{ data.pageTitle }}">
+	<h1 class="product-details--title"><span id="item_title">{{ item.name }}</span>
+	<!-- Food Type -->
+    {% if data.pageTitle == 'grocery' %}
+    <div class="food-type food-type-pdp">
+      {% if item.vegNonvegFlag == 3 %}
+      <span class="egg-food">
+        <i class="icon-egg icon-circle"></i>
+      </span>
+      {% elif item.vegNonvegFlag == 1 %}
+      <span class="veg-food">
+        <i class="icon-veg icon-circle"></i>
+      </span>
+	  {% elif item.vegNonvegFlag == 2 %}
+      <span class="non-veg-food">
+      	<i class="icon-non-veg icon-circle"></i>
+      </span>
+      {%endif%}
+    </div>
+    {% endif %}
+	
+	
+	
+	</h1>
+	
+	<div class="brand-wrapper">
+		{% if item.brand != "" %}
+			<h2 class="product-details--brand-name"><a href="{{data.config.baseUrl}}SearchDisplay?catalogId={{data.catalogId}}&langId=-1&storeId={{data.storeId}}&manufacturer={{item.brand | urlencode}}" title="">{{ item.brand  }}</a></h2>
+		{% endif %}
+		
+	  	<div class="product-listing__save" {% if item.price.savings <= 0  %} style='display:none' {% endif %}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{ item.price.savings }}</span></div>
+	  	<div class="product-details__offer">
+			{% if data.product.freebieProduct != "" %}
+				<span class="product-details__offer--btn button-secondary">Free</span> <span>{{ data.product.freebieProduct }}</span>
+			{% endif %}  	
+		</div>
+    </div>
+	<h4 class="product-details__option-primary--label">
+	{% if data.pageTitle == 'apparel' %} Size <a data-target="sizeGuideModal" class="modal-link" href="javascript:;"  data-category="{{data.product.masterCategoryId}}">Size Guide</a>{% else %} Variant {% endif %}
+	</h4>
+
+	<div class="slider-variant-wrap">
+		<div class="slider-variant ">
+			<ul class="slides">
+				{% if data.pageTitle == 'apparel' %}
+					{% for itemid in data.product.itemIds %}
+      					{%set currentItem = data.product.itemDetails[itemid]%}
+      					{% if data.product.selectedColor ==  currentItem.definingAttributes.Colour %}
+							<li data-item="{{itemid}}" {% if(currentItem.outofstock == true) %}class="disabled js-disabled"{%endif%} style="min-width: 78px;"><a href="javascript:;" title="{{ currentItem.definingAttributes.Size }}" {% if(currentItem.outofstock == true) %}class="disabled"{%endif%}>{{ currentItem.definingAttributes.Size }} <span class="product-unit">(<span class="product-unit-count">1</span>)</span></a><span class="product-details__change-qty" href="#" title="Change Quantity">Change Qty.</span></li>
+						{% endif %}
+					{% endfor %}
+				{% elif data.pageTitle == 'grocery' %}
+					{%for itemid in data.product.itemIds %}
+						<li data-item="{{itemid}}" {% if(data.product.itemDetails[itemid].outofstock == true) %}class="disabled js-disabled"{%endif%} style="min-width: 78px;"><a href="javascript:;" title="{{data.product.itemDetails[itemid].definingAttributes.Size}}" {% if(data.product.itemDetails[itemid].outofstock == true) %}class="disabled"{%endif%}>{{data.product.itemDetails[itemid].definingAttributes.Size}}
+						<span class="product-unit">(<span class="product-unit-count">1</span>)</span></a>
+						<span class="product-details__change-qty" href="#" title="Change Quantity">Change Qty.</span></li>
+					{%endfor%}
+				{% elif data.pageTitle == 'general_merchandise' %}
+					{%for itemid in data.product.itemIds %}
+						<li data-item="{{itemid}}" {% if(data.product.itemDetails[itemid].outofstock == true) %}class="disabled js-disabled"{%endif%} style="min-width: 78px;"><a href="javascript:;" title="{{data.product.itemDetails[itemid].definingAttributes.Size}}" {% if(data.product.itemDetails[itemid].outofstock == true) %}class="disabled"{%endif%}>{{data.product.itemDetails[itemid].definingAttributes.Size}}
+						<span class="product-unit">(<span class="product-unit-count">1</span>)</span></a>
+						<span class="product-details__change-qty" href="#" title="Change Quantity">Change Qty.</span></li>
+					{%endfor%}
+				{% else %}
+					{%for itemid in data.product.itemIds %}
+						<li data-item="{{itemid}}" ><a href="javascript:;" title="{{data.product.itemDetails[itemid].definingAttributes.Size}}" style="min-width: 78px;">{{data.product.itemDetails[itemid].definingAttributes.Size}}
+						<span class="product-unit">(<span class="product-unit-count">1</span>)</span></a><span class="product-details__change-qty" href="#" title="Change Quantity">Change Qty.</span></li>
+					{% endfor %}
+				{% endif %}
+			</ul>
+		</div>
+	</div>
+
+	{% if data.pageTitle == 'apparel' %}
+	<div class="product-details__option-secondary">
+    <ul class="plp-apparel__color-pallette">
+    	{% for colour in data.product.attributes.Colour %}
+      		<li data-color='{{colour}}' {% if colour == data.product.currentAttributeCombo.Colour %} class="selected" {% endif %}>
+	      		<a rel="colorPallete-{{loop.index}}" href="javascript:;">
+	      		    {% set imagePrefix = data.product.partNumber | replace(r/(\S)(\S)(\S)\S*/,'$1/$2/$3/'+data.product.partNumber) %}
+					<img class="img-responsive" src="{{data.config.imagePath}}{{imagePrefix}}_{{colour}}_C.jpg" alt="">	      		
+	      		</a>
+      		</li>
+      	{% endfor %}
+      <!--<li class="selected"><a href="javascript:;"><img src="/{{data.config.baseUrl}}images/temp/pdp/pdp-icons-1.png" alt=""></a></li>!-->
+    </ul>
+	</div>
+	{% endif %}
+
+  <h6 class="quick-product-cart js-show-cart-count">Added to Cart <span class="cart-icon"><i class="icon-cart"></i> <span class="quick-product-cart--count badge">1</span></span></h6>
+  <h6 class="quick-product-cart quick-product-delivery">
+  
+  {% if data.product.deliveryOnly == 'true' %}
+  	Home Delivery Only <i class="icon-home"></i>
+  {% endif %}
+   </h6>
+
+  <!-- display '.quick-product-available' if product available PUP only -->
+  <h6 class="quick-product-cart quick-product-available">Available PUP Only <i class="icon-package"></i></h6>
+
+  <!-- display '.quick-product-not-cod' if product not available for COD -->
+  <h6 class="quick-product-cart quick-product-not-cod">
+  {% if data.product.codAvailable == 'false' %}
+  Not Available for COD<i class="icon-unavailable-cod"></i>
+  {% endif %}
+  </h6>
+
+	<div class="pdp-price-panel">
+    <h3 class="pdp-price-panel__price-mrp" {% if item.price.savings < 0  %} style='display:none' {% endif %}>MRP {% if item.price.savings > 0  %}<span class="strike-diagonal" >{% else %}<span class="no-strike-diagonal" >{% endif %}<i class="icon-rupees"></i>{{item.price.sellingPrice}}</span></h3>
+    <h3 class="pdp-price-panel__primary" {% if item.price.offerPrice <= 0  %} style='display:none' {% endif %}>DMart <span class="pdp-price-panel__primary--price-dmart"><i class="icon-rupees"></i>{{item.price.offerPrice}}</span></h3>
+
+    <div class="pdp-price-total">
+      <h3 class="pdp-price-total__savings" {% if item.price.savings <= 0  %} style='display:none' {% endif %} >Your Savings <span><i class="icon-rupees"></i>{{item.price.savings}}</span></h3>
+      <h3 class="pdp-price-total__price">Total Price <span><i class="icon-rupees"></i></span></h3>
+    </div>
+	</div>
+
+	<div class="product-details__btn">
+		<a class="product-details__btn-addtocart button-primary {% if item.priceExists == false %} button--disabled  {%endif%}" href="javascript:;" title="Add to Cart"{% if(data.product.itemDetails[itemid].outofstock == true) %}disabled=""{%endif%}>
+		<i class="icon-cart"></i>	Add to Cart</a>
+		<div class="product-details__btn-quantity">
+			<span class="product-details__btn-quantity-label">Quantity</span>
+			<div class="md-custom-select">
+				<select class="product-details__btn-quantity--add" data-maxLimit="{{item.maxOrderQty}}">
+					{%for qty in range(0,item.maxOrderQty)%}
+      			 		<option value='{{qty}}'>{{qty}}</option>
+      				{%endfor%}
+				</select>
+			</div>
+		</div>
+		<div class="product-details__btn--addtocart-popup">
+		Please select	{% if data.pageTitle == 'apparel' %} size {% else %} variant {% endif %}
+		</div>
+		<a class="product-details__btn-add-more button-primary" href="javascript:;">
+			<i class="icon-plus"></i> Add More
+		</a>
+	</div>
+
+	{% if data.pageTitle == 'grocery' %}
+	{% for attribute in item.attributes %}
+  	{% if attribute.name == 'PER 100 GM /ML' %}
+  		{% for attrVal in attribute.values %}
+  				<div class="product-details__additional-note">
+  					{{attrVal.value}}
+  				</div>
+  		{% endfor %}
+  	{% endif %}
+  {% endfor %}
+  {% endif %}
+
+	<div class="product-details__addtolist">
+		<a href="javascript:;" title="Add to List"><i class="icon-document-add"></i> <u>Add to List</u></a>
+	</div>
+
+
+{% include '_modules/add-to-shop-list.nunjucks' %}
+{% include '_modules/modal-size-guide.nunjucks' %}
+</div>
+

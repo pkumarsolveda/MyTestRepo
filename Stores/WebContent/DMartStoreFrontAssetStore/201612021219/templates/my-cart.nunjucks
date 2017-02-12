@@ -1,0 +1,77 @@
+{% extends '_layouts/mycart.nunjucks' %}
+{% block title %} My Cart {% endblock %}
+
+{% set logged = 'yes' %}
+
+{% block content %}
+  <div class="container">
+    <div class="row">
+      <div class="col-md-8 col-lg-9">
+        {% include '_modules/promotions-carousel.nunjucks' %}
+        <h1 class="h2 cart-title" id="cart-title-cartpage">My Cart <span class="cart-subtitle"><span class="cart-subtitle--count">5</span> items</span></h1>
+        <div class="cart-details" id="cart-details-cartpage">
+          <div class="cart-details--head">
+            <div class="row">
+              <div class="col-md-1"><h2 class="cart-details--heading">Item</h2></div>
+              <div class="col-md-5"><h2 class="cart-details--heading padding-reset">Description</h2></div>
+              <div class="col-md-3"><h2 class="cart-details--heading padding-reset">Quantity</h2></div>
+              <div class="col-md-3"><h2 class="cart-details--heading padding-reset">Price</h2></div>
+            </div>
+          </div>
+          <div class="cart-details__item">
+            <h3 class="cart-details__item--title">
+            <a href="javascript:;" title="">
+              Apparel <span>(<span class="cart-details__item--count">3</span> items)</span><span class="cart-details__item--title-arrow"><i class="icon-caret-down"></i></span>
+            </a>
+            </h3>
+            <ul class="cart-details__item-list">
+              {% from '_modules/mycart-items.nunjucks' import myCartItems %}
+              {{ myCartItems(type='apparel', id='1', product='Ess Yellow Round Neck T-Shirt', brand='Newport', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+              {{ myCartItems(type='apparel', id='2', product='Ess Blue Round Neck T-Shirt', brand='Newport', variant='XL', mrp='415', dmartprice='400', save='100', ordersummary="false") }}
+              {{ myCartItems(type='apparel', id='3', product='Ess Red Round Neck T-Shirt', brand='Newport', variant='L', mrp='525', dmartprice='455', save='105', pricechange='true', ordersummary="false") }}
+
+              <li class="cart-no-items">
+                <p class="alert alert-danger text-center">No items in this section</p>
+              </li>
+            </ul>
+            <h3 class="cart-details__item--title">
+            <a href="javascript:;" title="">
+              Grocery <span>(2 items)</span><span class="cart-details__item--title-arrow"><i class="icon-caret-down"></i></span>
+            </a>
+            </h3>
+            <ul class="cart-details__item-list">
+              {% from '_modules/mycart-items.nunjucks' import myCartItems %}
+              {{ myCartItems(type='grocery', id='1', product='India Gate Basmadi Rice', brand='India Gate', variant='1kg', mrp='400', dmartprice='286', save='125', free='true', ordersummary="false") }}
+              {{ myCartItems(available='false', type='grocery', id='2', product='Deep Chana Daal', brand='Deep', variant='500mg', mrp='415', dmartprice='400', save='100', ordersummary="false") }}
+
+              <li class="cart-no-items">
+
+              <!-- For Alert message ex: '.alert .alert-danger'  -->
+                <p class="alert alert-danger text-center">No items in this section</p>
+              </li>
+            </ul>
+          </div>
+        </div>
+        <div class="my-cart-cta" id="my-cart-cta-cartpage">
+          <a href="javascript:;" class="button-white clear-cart-cta-btn" title="Clear Cart"><i class="icon icon-delete"></i></a>
+          <a href="javascript:;" class="button-white">Continue Shopping</a>
+        </div>
+      </div>
+      <div class="col-md-4 col-lg-3">
+        {% include '_modules/cart-summary.nunjucks' %}
+      </div>
+    </div>
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <div class="missed-items">
+          <h2 class="missed-items--title">Missed Items?</h2>
+          {% include '_modules/missed-items.nunjucks' %}
+        </div>
+      </div>
+    </div>
+  </div>
+
+  {% include '_modules/modal-clear-cart.nunjucks' %}
+{% endblock %}

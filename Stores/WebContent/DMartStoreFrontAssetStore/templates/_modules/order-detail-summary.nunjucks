@@ -1,0 +1,106 @@
+{% macro orderDetailSummary(data) %}
+
+{%set firstOrderItem = data.orderDetail.orderItemIds[0] %}
+ {% set subTotal = data.orderDetail.totalProductPrice + data.orderDetail.totalAdjustment + data.orderDetail.shipmentDiscount %}
+ {% set paymentMode = data.orderDetail.paymentMethod %}
+<div class="cart-summary-delivery">
+  <div class="cart-summary-delivery--header">
+    <h4 class="cart-summary-delivery--title">Order Summary</h4>
+    <h3 class="minicart-details--total-items">
+      <i class="icon-cart"></i> <span>{{data.orderDetail.orderLevelQuantity}}</span> {% if data.orderDetail.orderLevelQuantity > 1 %}items{% else %}item{% endif %}
+    </h3>
+  </div>
+  <div class="cart-details__item mini-cart-details cart-details__item-fixed order-details__item-fixed">
+    <h3 class="cart-details__item--title active cart-details__item--total cart-details__item--bottom">
+    <a href="javascript:;" title="">
+      <span class="cart-details__item--total-text"> Cart Total </span> <span class="cart-summary--price text-total"><i class="icon-rupees"></i>{{data.orderDetail.cartTotal|round(2)}}</span><span class="cart-details__item--title-arrow"><i class=""></i></span>
+    </a>
+    </h3>
+    <ul class="cart-details__item-list mini-cart-details__item-list cart-details__item--bottom-list">
+       <!-- Cart summary Amount -->
+       <div class="row">
+       <div class="col-xs-12">
+          <div class="mini-cart-summary__price-details last">
+            
+            <div class="row" {% if data.orderDetail.discount <= 0%}style="display:none;"{%endif%}>
+              <div class="col-xs-8">
+                <span>Discount (-)</span>
+              </div>
+              <div class="col-xs-4">
+                <div class="mini-cart-summary--price"><i class="icon-rupees"></i>{{data.orderDetail.discount}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="mini-cart-summary__price-details">
+            <div class="row">
+              <div class="col-xs-8">
+                <span>Subtotal</span>
+              </div>
+              <div class="col-xs-4">
+                <div class="mini-cart-summary--price"><i class="icon-rupees"></i>{{subTotal|round(2)}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="mini-cart-summary__price-details last">
+            <div class="row">
+              <div class="col-xs-8">
+                <span>Delivery Charges (+)</span>
+              </div>
+              <div class="col-xs-4">
+                <div class="mini-cart-summary--price"><i class="icon-rupees"></i>{{data.orderDetail.totalShippingCharge - data.orderDetail.shipmentDiscount}}</div>
+              </div>
+            </div>
+          </div>
+          <div class="min-cart-summary--price-total">
+            <div class="row">
+              <div class="col-xs-8">
+                <span>Total</span>
+              </div>
+              <div class="col-xs-4">
+                <div class="price-total"><i class="icon-rupees"></i>{% if ((paymentMode == 'Cash on delivery') or (paymentMode == 'Cash On Delivery')) %}{{data.orderDetail.codRounded}}{% else %}{{data.orderDetail.grandTotal}}{% endif %}</div>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="mini-cart-summary__price-details--ewallet">
+            <div class="row">
+              <div class="col-xs-8">
+                <span>DMart eWallet Debit (-)</span>
+              </div>
+              <div class="col-xs-4">
+                <div class="price-details--ewallet"><i class="icon-rupees"></i>0</div>
+              </div>
+            </div>
+          </div> -->
+          <div class="mini-cart-summary__price-details-vat">
+          VAT of <i class="icon-rupees"></i>{{data.orderDetail.tax}} has been included in total amount
+          </div>
+        </div>
+        </div>
+       <!--End Cart summary Amount  -->
+      <li class="cart-no-items">
+        <p class="alert alert-danger text-center">No items in this section</p>
+      </li>
+    </ul>
+    <div class="add-to-cart-button">
+    <div class="row">
+      <div class="col-xs-3 text-center">
+        <i class="dmart-sprite sprite-piggy-bank"></i>
+      </div>
+      <div class="col-xs-9">
+        <div class="cart-summary__price-details add-to-cart-button--total-savings">
+       {% set orderTotalSavings = data.orderDetail.totalItemLevelSavings + data.orderDetail.orderLevelDiscount %}
+        <div class="row">
+          <div {% if orderTotalSavings <= 0%}style="display:none;"{%endif%} class="col-xs-6 col-xs-offset-5 padding-reset-right">
+            <span class="total-savings-text">Total Savings</span>
+            <span class="cart-summary--price total-savings-price"><i class="icon-rupees"></i>{{data.orderDetail.totalItemLevelSavings + data.orderDetail.orderLevelDiscount}}</span>
+          </div>
+        </div>
+       </div>
+      </div>
+     </div>
+    </div>
+  </div>
+
+</div>
+
+{% endmacro %}

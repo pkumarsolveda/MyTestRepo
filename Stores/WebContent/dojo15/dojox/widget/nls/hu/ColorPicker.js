@@ -1,0 +1,1 @@
+({"huePickerTitle":"Árnyalat kiválasztó","saturationPickerTitle":"Telítettség kiválasztó","redLabel":"r","greenLabel":"g","blueLabel":"b","hueLabel":"h","saturationLabel":"s","valueLabel":"v","degLabel":"°","hexLabel":"hex"})

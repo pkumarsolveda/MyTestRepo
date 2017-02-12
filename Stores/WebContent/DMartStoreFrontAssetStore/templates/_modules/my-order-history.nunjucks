@@ -1,0 +1,46 @@
+<ul class="dashboard-myorder-list" id="dashboard-myorder-1">
+    {{ dashboardMyOrder(deliveryMode='Pickup Point', status='no') }}
+    {{ dashboardMyOrder(orderNumber='32223KKKK', orderDate='12 Nov 2015', amount='2,500', deliveryMode='Pickup Point', status='no', deliveryDate='15 Nov 2015') }}
+    {{ dashboardMyOrder(status='no', amount='500', deliveryTime='1PM - 3PM') }}
+    {{ dashboardMyOrder(status='no', deliveryMode="Pickup Point") }}
+    {{ dashboardMyOrder(orderDate='18 Nov 2015') }}
+    <a class="next jscroll-next-parent" href="/{{config.baseUrl}}modules/my-order-history2.nunjucks">next</a>
+  </ul>
+
+  <ul class="dashboard-myorder-list js-hide-show" id="dashboard-myorder-3">
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder(deliveryMode='Home Delivery', status='no') }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder(status='no') }}
+  </ul>
+  <ul class="dashboard-myorder-list js-hide-show" id="dashboard-myorder-4">
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder(deliveryMode='Pickup Point', status='no') }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+  </ul>
+
+  <ul class="dashboard-myorder-list js-hide-show" id="dashboard-myorder-5">
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder(status='no') }}
+  </ul>
+  <ul class="dashboard-myorder-list js-hide-show" id="dashboard-myorder-6">
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder(deliveryMode='Pickup Point', status='no') }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+  </ul>
+
+  <ul class="dashboard-myorder-list js-hide-show" id="dashboard-myorder-7">
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder(deliveryMode='Pickup Point') }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+    {{ dashboardMyOrder() }}
+  </ul>

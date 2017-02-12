@@ -1,0 +1,121 @@
+
+<div class="cart-summary cart-summary-secondary">
+  <h4 class="cart-summary--title cart-summary--title-secondary">Payment Details</h4>
+  <div class="cart-summary__details">
+    <div class="cart-summary__details--primary">
+      {% if data.orderData.discount != 0 %}
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Discount
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{data.orderData.discount}}</div>
+          </div>
+        </div>
+      </div>
+      {% endif %}
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Subtotal
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{data.orderData.totalMinusDiscount}}</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-8">
+            Delivery Charges
+          </div>
+          <div class="col-xs-4">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{data.orderData.totalShippingCharge - data.orderData.shippingAdjustment}}</div>
+          </div>
+        </div>
+        <div class="delivery-charges__details js-hide-show">
+          <div class="delivery-charges__info">
+            <div class="row">
+              <div class="col-xs-2"><i class="icon icon-home delivery-charges__info-icon"></i></div>
+              <div class="col-xs-10">Home delivery charges <strong><i class="icon icon-rupees"></i>70</strong> or <strong>2%</strong> of the order, which ever is higher</div>
+            </div>
+          </div>
+          <div class="delivery-charges__info">
+            <div class="row">
+              <div class="col-xs-2"><i class="icon icon-package delivery-charges__info-icon"></i></div>
+              <div class="col-xs-10">No delivery charges for pick-up point</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Tax
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>{{data.orderData.tax}}</div>
+          </div>
+        </div>
+      </div>
+      {%if data.paymentMode == "Cash On Delivery" %}
+	      <div class="cart-summary__price-details">
+			<div class="row">
+				<div class="col-xs-7">
+					Total Amount
+				</div>
+				<div class="col-xs-5">
+					<div class="cart-summary--price"><i class="icon icon-rupees"></i>{{data.orderData.grandTotal}}</div>
+				</div>
+			</div>
+		  </div>
+	      <div class="cart-summary__price-details last">
+	        <div class="row">
+	          <div class="col-xs-7">
+	            <strong class="cart-summary--delivery-price">Amount You Pay</strong>
+	          </div>
+	          <div class="col-xs-5">
+	            <div class="cart-summary--price cart-summary--delivery-price"><strong><i class="icon icon-rupees"></i>{{data.orderData.amountYouPay}}</strong></div>
+	          </div>
+	        </div>
+	      </div>
+      {% else %}
+		<div class="cart-summary__price-details last">
+		    <div class="row">
+		      <div class="col-xs-7">
+		        <strong class="cart-summary--delivery-price">Amount Paid</strong>
+		      </div>
+		      <div class="col-xs-5">
+		        <div class="cart-summary--price cart-summary--delivery-price"><strong><i class="icon icon-rupees"></i>{{data.orderData.grandTotal}}</strong></div>
+		      </div>
+		    </div>
+		</div>
+	  {% endif %}
+      <!--<div class="cart-summary__price-details cart-summary__price-details--ewallet">
+        <div class="row">
+          <div class="col-xs-7">
+            DMart eWallet Debited
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>0</div>
+          </div>
+        </div>
+      </div>-->
+
+      <div class="cart-summary__total-details">
+        <div class="row">
+          <div class="col-xs-4">
+            <i class="dmart-sprite sprite-piggy-bank"></i>
+          </div>
+          <div class="col-xs-8">
+            <div {% if data.orderData.totalSavingsPlusDiscount <= 0%}style="display:none;"{%endif%} class="cart-summary--price">
+              <h3 class="cart-summary--price-label">Total Savings</h3>
+              <div class="cart-summary--total"><i class="icon icon-rupees"></i>{{data.orderData.totalSavingsPlusDiscount}}</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

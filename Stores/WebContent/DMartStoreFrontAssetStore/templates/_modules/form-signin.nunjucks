@@ -1,0 +1,43 @@
+{% from "_modules/form-control.nunjucks" import formControl %}
+<div class="form">
+  <h2 class="form__title">Sign In</h2>
+  <form class="form__signin" action="javascript:;" method="post" id="formValidation" novalidate="novalidate">
+    {% include '_modules/form-mobile-number.nunjucks' %}
+    <div class="js-signin-password">
+      {{ formControl(label="Password", requiredField="true", name="password", type="password", required="true") }}
+    </div>
+    <div class="js-signin-otp js-hide-show">
+      <div class="form-control spacing-bottom-half">
+        <label for="otpNumber" class="form__label required-field spacing-bottom-tiny">OTP</label>
+        <div class="otp-group clearfix">
+          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber1" id="otpNumber1" required>
+          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber2" id="otpNumber2" required>
+          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber3" id="otpNumber3" required>
+          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber4" id="otpNumber4" required>
+          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber5" id="otpNumber5" required>
+          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber6" id="otpNumber6" required>
+        </div>
+      </div>
+    </div>
+    <div class="signin__alternate form__control--pull-up">
+      <input class="form__input js-signin-alternate hide-dropdown" type="checkbox" name="otpCheckbox" id="otpCheckbox">
+      <label class="form__label hide-dropdown" for="otpCheckbox">Checkout as guest</label>
+      <a class="signin--forgot-password modal-link" data-target="forgotPasswordModal" href="javascript:;" title="">Forgot Password?</a>
+    </div>
+    <div class="form__btn js-form-btn-signin">
+      <button type="submit" class="signin__btn-cta button-primary">Sign In</button>
+      <button type="submit" class="js-form-submit signin__btn-otp button-primary">Send OTP</button>
+      <button type="submit" class="signin__btn-submit button-primary">Submit</button>
+    </div>
+    <div class="signin__register-link">
+      <span>New Customer?</span> <a href="/registration/" title="">Register</a>
+    </div>
+  </form>
+  <div class="form__divider">
+    <span class="form__divider--text">OR</span>
+  </div>
+  <div class="signin__btn-social">
+    <a class="signin__btn-social--fb button-primary" href="javascript:;" title=""><i class="icon-facebook"></i> Sign In with Facebook</a>
+    <a class="signin__btn-social--google button-primary" href="javascript:;" title=""><i class="icon-google"></i> Sign In with Google+</a>
+  </div>
+</div>

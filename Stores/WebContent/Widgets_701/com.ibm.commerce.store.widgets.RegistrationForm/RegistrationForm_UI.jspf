@@ -1,0 +1,546 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+
+<!-- BEGIN RegistrationForm_UI.jspf -->
+<%
+	String storeId = request.getParameter("storeId");
+	String strRootOrgDN = com.ibm.commerce.member.helpers.MemberRegistrationAttributesHelper
+			.resolveOrgEntityDNFromOrgEntityId(com.ibm.commerce.member.helpers.MemberRegistrationAttributesHelper
+					.getResolvedParentOrgIdForOrgRegistrationWithQualifier(
+							com.ibm.commerce.user.helpers.ECUserConstants.EC_BUYER_REGISTRATION_ROLES_QUALIFIER,
+							storeId));
+%>
+<!-- Redirect to ${actionURL} -->
+<wcf:rest var="defaultOrg"
+	url="store/{storeId}/organization/{organizationId}">
+	<wcf:var name="storeId" value="${WCParam.storeId}" encode="true" />
+	<wcf:var name="organizationId" value="-2000" encode="true" />
+</wcf:rest>
+
+<%--<wcf:url var="TermsAndCondition" value="TermsAndCondition">
+	<wcf:param name="langId" value="${WCParam.langId}" />
+	<wcf:param name="storeId" value="${WCParam.storeId}" />
+	<wcf:param name="catalogId" value="${WCParam.catalogId}" />
+	
+</wcf:url> --%>
+<c:set var="TermsAndCondition" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-terms-conditions"  />
+<c:set var="privacyPolicyUrl" value="${env_TopCategoriesDisplayURL}/dmart-privacy-policy"  />
+<%--
+  ***
+  * Identify the following from the distinguished name of the default 
+  * organization:
+  *  - organization prefix (e.g. "o=")
+  *  - name of the default organization (e.g. "default organization")
+  *  - distinguished name of the root organization (e.g. ",o=root organization")
+  ***
+--%>
+<c:set var="orgPrefix" value="o=" />
+<c:set var="defaultOrgName" value="${defaultOrg.organizationName}" />
+<c:set var="rootOrgDN" value="<%= strRootOrgDN%>" />
+<c:set var="rootOrgDN" value=",${rootOrgDN}" />
+
+<script type="text/javascript">
+	var orgPrefix = "<c:out value="${orgPrefix}" escapeXml="false"/>";
+	var defaultOrgName = "<c:out value="${defaultOrgName}" escapeXml="false"/>";
+	var rootOrgDN = "<c:out value="${rootOrgDN}" escapeXml="false"/>";
+</script>
+
+<c:if test="${empty B2BLogonFormJSIncluded}">
+	<script type="text/javascript"
+		src="<c:out value="${staticAssetContextRoot}/Widgets_701/com.ibm.commerce.store.widgets.RegistrationForm/javascript/B2BLogonForm.js"/>"></script>
+	<c:set var="B2BLogonFormJSIncluded" value="true" scope="request" />
+</c:if>
+
+<%-- For temporarily storing user details before actual registration --%>
+<c:set var="actionURL" value="CreateDMartUserCmd" scope="request" />
+
+<script type="text/javascript">
+	dojo
+			.addOnLoad(function() {
+				B2BLogonForm.disableOrgInputs();
+				B2BLogonForm
+						.checkRegisterOrg('<wcf:out value="${WCParam.registerOrg}" escapeFormat="js"/>');
+			});
+			
+			
+
+    // Registering user creation messages
+	dojo.addOnLoad(function() {
+		<fmt:message bundle="${storeText}" key="_ERR_EMAIL_ALREADY_REGISTERED" var="_ERR_EMAIL_ALREADY_REGISTERED"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PHONE_ALREADY_REGISTERED" var="_ERR_PHONE_ALREADY_REGISTERED"/>
+		<fmt:message bundle="${storeText}" key="_ERR_EMAIL_INVALID" var="_ERR_EMAIL_INVALID"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PASSWORD_EMPTY" var="_ERR_PASSWORD_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_LAST_NAME_EMPTY" var="_ERR_LAST_NAME_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_FIRST_NAME_EMPTY" var="_ERR_FIRST_NAME_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PHONE_NUMBER_EMPTY" var="_ERR_PHONE_NUMBER_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PHONE_NUMBER_INVALID" var="_ERR_PHONE_NUMBER_INVALID"/>
+		<fmt:message bundle="${storeText}" key="_ERR_NAME_INVALID" var="_ERR_NAME_INVALID"/>
+		
+		MessageHelper.setMessage("_ERR_NAME_INVALID", <wcf:json object="${_ERR_NAME_INVALID}"/>);
+		MessageHelper.setMessage("_ERR_PHONE_NUMBER_INVALID", <wcf:json object="${_ERR_PHONE_NUMBER_INVALID}"/>);
+		MessageHelper.setMessage("_ERR_PHONE_NUMBER_EMPTY", <wcf:json object="${_ERR_PHONE_NUMBER_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_FIRST_NAME_EMPTY", <wcf:json object="${_ERR_FIRST_NAME_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_LAST_NAME_EMPTY", <wcf:json object="${_ERR_LAST_NAME_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_PASSWORD_EMPTY", <wcf:json object="${_ERR_PASSWORD_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_EMAIL_INVALID", <wcf:json object="${_ERR_EMAIL_INVALID}"/>);
+		MessageHelper.setMessage("_ERR_EMAIL_ALREADY_REGISTERED", <wcf:json object="${_ERR_EMAIL_ALREADY_REGISTERED}"/>);
+		MessageHelper.setMessage("_ERR_PHONE_ALREADY_REGISTERED", <wcf:json object="${_ERR_PHONE_ALREADY_REGISTERED}"/>);
+		});			
+			
+</script>
+
+<div class="container">
+	<div class="row">
+		<div class="col-xs-12 col-md-6 show-md-up">
+			<div class="blurb">
+				<h2 class="blurb__title"><fmt:message key="REGN_BENIFITS_MESSAGE" bundle="${storeText}" /></h2>
+				<div class="blurb__img">
+					<img class="img-responsive"
+						src="${staticServerHostPath}images/DMart/temp/login/login-bag.jpg"
+						alt="Register">
+				</div>
+				<%-- Added clearfix to the class based on RzF v 0.3.0 --%>
+				<div class="blurb__content clearfix">
+					<p><fmt:message bundle="${storeText}" key="REGN_SIDE_MESSAGE"/></p>
+					<p class="margin-reset"><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER"/></p><br/>
+					
+					<p class="margin-reset"><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER1"/></p><br/>
+					
+					<p class="margin-reset"><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER2"/> <b><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER3"/></b></p>
+				</div>
+			</div>
+
+
+		</div>
+		<div class="col-xs-12 col-md-6">
+
+			<div class="form">
+				<h2 class="form__title"><fmt:message key="REGN_FORM_TITLE" bundle="${storeText}" /></h2>
+				<span class="error_msg" id="formRegisterValidation1_error"></span>
+				<form class="form__registration" method="post"
+					id="formRegisterValidation1" name="formRegisterValidation1" action="<c:out value="${actionURL}"/>">
+
+					<%-- Check if there is an originating page from error view --%>
+					<c:set var="originatingPage" value="${WCParam.previousPage}"/>
+					
+					<c:if test="${originatingPage eq ''}">
+						<c:set var="originatingPage" value="${header['referer']}"/>	
+					</c:if>
+					<input id="previousPage" type="hidden" value="${originatingPage}" name="previousPage"/>
+					<input id="isFromCheckout" type="hidden" value="${WCParam.isFromCheckout}" name="isFromCheckout"/>
+					<input id="checkOutOrderId" type="hidden" value="${WCParam.checkOutOrderId}" name="checkOutOrderId"/>
+					<input type="hidden" name="isSocialSignIn"
+								value="<c:out value="${WCParam.isSocialSignIn}"/>"/>
+					
+					<input type="hidden" name="authToken" value="${authToken}"
+						id="WC_UserRegistrationAddForm_FormInput_authToken_In_Register_1" />
+					<input type="hidden" name="myAcctMain"
+						value="<c:out value="${WCParam.myAcctMain}"/>" /> <input
+						type="hidden" name="new" value="Y"
+						id="WC_UserRegistrationAddForm_FormInput_new_In_Register_1" /> <input
+						type="hidden" name="storeId"
+						value="<c:out value="${WCParam.storeId}"  />"
+						id="WC_UserRegistrationAddForm_FormInput_storeId_In_Register_1" />
+					<input type="hidden" name="catalogId"
+						value="<c:out value="${WCParam.catalogId}"  />"
+						id="WC_UserRegistrationAddForm_FormInput_catalogId_In_Register_1" />
+
+					<wcf:url var="logonURL" value="AjaxLogonForm"></wcf:url>
+					<input type="hidden" name="URL"
+						value="${logonURL}?logonId*=&firstName*=&lastName*=&address1*=&address2*=&city*=&country*=&state*=&zipCode*=&email1*=&phone1*=&register_type=user"
+						id="WC_UserRegistrationAddForm_FormInput_URL_In_Register_1" /> <input
+						type="hidden" name="URLOrg"
+						value="${logonURL}?usr_logonId*=&usr_firstName*=&usr_lastName*=&usr_address1*=&usr_address2*=&usr_city*=&usr_country*=&usr_state*=&usr_zipCode*=&usr_email1*=&usr_phone1*=&org_orgEntityName*=&org_address1*=&org_address2*=&org_city*=&org_country*=&org_state*=&org_zipCode*=&org_email1*=&org_phone1*=&register_type=organization"
+						id="WC_OrganizationRegistration_FormInput_URL_In_Register_1" />
+
+					<flow:ifEnabled feature="AccountActivation">
+						<%-- If account activation is enabled, redirect to the next page in the same language --%>
+						<input type="hidden" name="langId"
+							value="<c:out value="${langId}" />"
+							id="WC_UserRegistrationAddForm_FormInput_langId" />
+					</flow:ifEnabled>
+					<c:if test="${!empty WCParam.nextUrl}">
+						<input type="hidden" name="nextUrl"
+							value="<c:out value="${WCParam.nextUrl}"/>"
+							id="WC_UserRegistrationAddForm_FormInput_nextUrl_In_Register_1" />
+					</c:if>
+					<!-- for testing -->
+					<input type="hidden" name="receiveSMSNotification" value="false"
+						id="WC_UserRegistrationAddForm_FormInput_receiveSMSNotification_In_Register_1" />
+					<input type="hidden" name="receiveSMS" value="false"
+						id="WC_UserRegistrationAddForm_FormInput_receiveSMS_In_Register_1" />
+					<input name="langId" value="-1" type="hidden" autocomplete="off">
+					<input type="hidden" name="preferredLanguage" value="-1" autocomplete="off">
+					<!-- for testing -->
+					<input type="hidden" name="errorViewName"
+						value="UserRegistrationAddFormView"
+						id="WC_UserRegistrationAddForm_FormInput_errorViewName_In_Register_1" />
+
+					<c:choose>
+						<c:when test="${empty WCParam.page}">
+							<input type="hidden" name="page" value="account"
+								id="WC_UserRegistrationAddForm_FormInput_page_In_Register_1" />
+						</c:when>
+						<c:otherwise>
+							<input type="hidden" name="page"
+								value="<c:out value="${WCParam.page}" />"
+								id="WC_UserRegistrationAddForm_FormInput_page_In_Register_1" />
+						</c:otherwise>
+					</c:choose>
+					<input type="hidden" name="registerType" value="G"
+						id="WC_UserRegistrationAddForm_FormInput_registerType_In_Register_1" />
+					<input type="hidden" name="primary" value="true"
+						id="WC_UserRegistrationAddForm_FormInput_primary_In_Register_1" />
+					<input type="hidden" name="isBuyerUser" value="true"
+						id="WC_UserRegistrationAddForm_FormInput_isBuyerUser_In_Register_1" />
+
+					<%-- The challenge answer and question are necessary for the forget password feature. Therefore, they are set to "-" here. --%>
+					<input type="hidden" name="challengeQuestion" value="-"
+						id="WC_UserRegistrationAddForm_FormInput_challengeQuestion_In_Register_1" />
+					<input type="hidden" name="challengeAnswer" value="-"
+						id="WC_UserRegistrationAddForm_FormInput_challengeAnswer_In_Register_1" />
+					<input type="hidden" name="usr_profileType" value="B"
+						id="WC_OrganizationRegistration_8" />
+					<flow:ifDisabled feature="allowOrgRegistration">
+						<input type="hidden" name="profileType" value="C"
+							id="WC_UserRegistrationAddForm_FormInput_profileType_In_Register_1" />
+					</flow:ifDisabled>
+
+					<flow:ifEnabled feature="allowOrgRegistration">
+						<div class="row">
+							<div class="col6 formField">
+								<div class="registrationType" id="individualSelect">
+									<img id="individual_image_on" tabindex="-1"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_individual_ON.png"
+										alt='<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}"/>' />
+									<a role="button" id="individual_link" class="nodisplay"
+										title="<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}"/>"
+										href="javascript:B2BLogonForm.switchRegistration('individual_link')">
+										<img id="individual_image_off"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_individual_OFF.png"
+										alt='<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}"/>' />
+									</a>
+									<p>
+										<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}" />
+									</p>
+								</div>
+							</div>
+							<div class="col6 formField">
+								<div class="registrationType" id="organizationSelect">
+									<a role="button" id="organization_link"
+										title="<fmt:message key="OR_REGISTER" bundle="${widgetText}"/>"
+										href="javascript:B2BLogonForm.switchRegistration('organization_link')">
+										<img id="organization_image_off"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_company_OFF.png"
+										alt='<fmt:message key="OR_REGISTER" bundle="${widgetText}"/>' />
+									</a> <img id="organization_image_on" tabindex="-1"
+										class="nodisplay"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_company_ON.png"
+										alt='<fmt:message key="OR_REGISTER" bundle="${widgetText}"/>' />
+									<p>
+										<fmt:message key="OR_REGISTER" bundle="${widgetText}" />
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col12">
+								<div class="description">
+									<img id="registration_arrow"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/arrow_lg_up_ON.png"
+										alt="" />
+
+									<div id="individualDescription">
+										<fmt:message key="OR_BUYER_TOOLTIP_1" bundle="${widgetText}" />
+										<br /> <br />
+										<fmt:message key="OR_BUYER_TOOLTIP_2" bundle="${widgetText}" />
+										<br /> <br />
+										<div class="bulletPoints">
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_3" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_4" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_5" bundle="${widgetText}" />
+											</div>
+										</div>
+
+										<div class="bulletPoints">
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_6" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_7" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_8" bundle="${widgetText}" />
+											</div>
+										</div>
+									</div>
+
+									<div id="organizationDescription" class="nodisplay">
+										<fmt:message key="OR_ORG_TOOLTIP" bundle="${widgetText}" />
+									</div>
+
+									<div class="clearFloat"></div>
+								</div>
+							</div>
+						</div>
+
+					</flow:ifEnabled>
+
+					<c:if test="${!empty errorMessage}">
+						<br />
+						<fmt:message bundle="${widgetText}" var="msgType"
+							key="ERROR_MESSAGE_TYPE" />
+						<c:set var="errorMessage" value="${msgType} ${errorMessage}" />
+						<span id="UserRegistrationErrorMessage" class="error_msg"
+							tabindex="-1"><c:out value="${errorMessage}" /> </span>
+						<script type="text/javascript">
+							dojo
+									.addOnLoad(function() {
+										setTimeout(
+												"dojo.byId('UserRegistrationErrorMessage').focus()",
+												2000);
+									});
+						</script>
+					</c:if>
+
+					<input type="hidden" name="addressType" value="S"
+						id="WC_UserRegistrationAddForm_FormInput_addressType_In_Register_1" />
+					<!-- for testing -->
+					<input type="hidden" name="receiveEmail" value="false"
+						id="WC_UserRegistrationAddForm_FormInput_receiveEmail_In_Register_1" />
+					<input type="hidden" name="rememberMe" value="true"
+						id="WC_UserRegistrationAddForm_FormInput_rememberMe_In_Register_1" />
+					<!-- for testing -->
+					<flow:ifEnabled feature="allowOrgRegistration">
+						<script type="text/javascript">
+							dojo.addOnLoad(function() {
+								B2BOrgTooltip.tooltipInit('buyerOrgToolTip');
+							});
+						</script>
+
+						<input type="hidden" name="parentMember"
+							id="WC_UserRegistrationAddForm_FormInput_parentMember_1"
+							value="${WCParam.parentMember}" />
+
+						<div class="column" id="WC_UserRegistrationAddForm_B2BBuyerOrg_1">
+							<div id="WC_UserRegistrationAddForm_B2BBuyerOrg_2">
+								<label for="WC_UserRegistrationAddForm_B2BBuyerOrg_input_1"
+									class="spanacce"> <fmt:message
+										key="ACCESSIBLE_LABEL_TEXT" bundle="${widgetText}">
+										<fmt:param>
+											<fmt:message key="REG_BUYER" bundle="${widgetText}" />
+										</fmt:param>
+										<fmt:param>
+											<fmt:message key="ACCESSIBLE_LABEL_REQUIRED_INFO"
+												bundle="${widgetText}" />
+										</fmt:param>
+									</fmt:message> </label>
+								<fmt:message key="REG_BUYER" bundle="${widgetText}" />
+								<div class="required-field"
+									id="WC_UserRegistrationAddForm_B2BBuyerOrg_3">*</div>
+							</div>
+
+							<div id="buyer_org">
+								<input class="inputField"
+									onblur="javascript:B2BLogonForm.setParentMemberValue()"
+									type="text" size="35" maxlength="254" name="ancestorOrgs"
+									id="WC_UserRegistrationAddForm_B2BBuyerOrg_input_1"
+									value="<c:out value="${WCParam.ancestorOrgs}"/>" /> <span
+									id="buyerOrgToolTip" tabindex="0"
+									class="more_info_icon verticalAlign_middle"> <img
+									class="info_on"
+									src="${env_imageContextPath}/Widgets_701/images/icon_info_ON.png"
+									alt="" /> <img class="info_off"
+									src="${env_imageContextPath}/Widgets_701/images/icon_info.png"
+									alt="" /> </span>
+							</div>
+
+							<div id="buyerOrgToolTipSection" style="display: none">
+								<span dojoType="wc.widget.Tooltip" connectId="buyerOrgToolTip"
+									style="display: none;">
+									<div class="widget_site_popup">
+										<div class="top">
+											<div class="left_border"></div>
+											<div class="middle"></div>
+											<div class="right_border"></div>
+										</div>
+										<div class="clear_float"></div>
+										<div class="middle">
+											<div class="content_left_border">
+												<div class="content_right_border">
+													<div class="content">
+														<div class="header"
+															id="WC_UserRegistrationAddForm_B2BBuyerOrg_tooltip_div_3">
+															<fmt:message key="WHAT_IS_BO" bundle="${widgetText}" />
+															<div class="clear_float"></div>
+														</div>
+														<div class="body"
+															id="WC_UserRegistrationAddForm_B2BBuyerOrg_tooltip_div_4">
+															<fmt:message key="BUYER_ORG_DEFINITION"
+																bundle="${widgetText}" />
+														</div>
+													</div>
+													<div class="clear_float"></div>
+												</div>
+											</div>
+										</div>
+										<div class="clear_float"></div>
+										<div class="bottom">
+											<div class="left_border"></div>
+											<div class="middle"></div>
+											<div class="right_border"></div>
+										</div>
+										<div class="clear_float"></div>
+									</div> </span>
+							</div>
+						</div>
+					</flow:ifEnabled>
+
+					<div class="form-control">
+						<label class="form__label required-field spacing-bottom-tiny"
+							for="firstName"><fmt:message key="REGN_FORM_LABEL_FIRSTNAME" bundle="${storeText}" /></label> <input class="form__input"
+							name="firstName" placeholder="<fmt:message key="REGN_FORM_PHOLDER_FIRSTNAME" bundle="${storeText}" />"
+							id="firstName"  required autocomplete="off" value="${WCParam.firstName}">
+					</div>
+
+
+
+					<div class="form-control">
+						<label class="form__label required-field spacing-bottom-tiny"
+							for="lastName"><fmt:message key="REGN_FORM_LABEL_LASTNAME" bundle="${storeText}" /></label> <input class="form__input"
+							name="lastName" placeholder="<fmt:message key="REGN_FORM_PHOLDER_LASTNAME" bundle="${storeText}" />" id="lastName"
+							 required autocomplete="off" value="${WCParam.lastName}">
+					</div>
+
+
+					<div class="form-control">
+						<label for="logonId"
+							class="form__label required-field spacing-bottom-tiny"><fmt:message key="REGN_FORM_LABEL_MOBILE" bundle="${storeText}" /></label>
+						<div class="form__input--group">
+							<span class="form__input-prefix"><fmt:message key="REGN_FORM_LABEL_INDMOBPREFIX" bundle="${storeText}" /></span> <input type="tel"
+								required maxlength="10" placeholder="<fmt:message key="REGN_FORM_PHOLDER_MOBILE" bundle="${storeText}" />"
+								id="mobileNumber" name="logonId" class="form__input" value="${WCParam.mobileNumber}">
+								<input type="hidden"
+								id="phone1" name="phone1" class="form__input" value="">
+						</div>
+					</div>
+
+					<c:choose>
+						<c:when test="${!empty isSocialSignIn}">
+							<div class="form-control">
+								<label class="form__label spacing-bottom-tiny" for="email1"><fmt:message
+										key="REGN_FORM_LABEL_EMAILOPT" bundle="${storeText}" />
+								</label>
+								<%-- Added type="email" to the input field based on RzF v 0.3.0 --%>
+								 <input class="form__input" name="email1Disabled" type="email" placeholder="<fmt:message key="REGN_FORM_PHOLDER_EMAILOPT" bundle="${storeText}" />"
+									value="${WCParam.email1}" id="emailDisabled" maxlength="150"
+									autocomplete="off" disabled="true">
+							</div>
+							<input type="hidden" id="email" name="email1" class="form__input"
+								value="${WCParam.email1}">
+							<input type="hidden" id="showHidePassword" name="logonPassword" class="form__input"
+								value="">
+						</c:when>
+						<c:otherwise>
+							<div class="form-control">
+								<label class="form__label spacing-bottom-tiny" for="email1"><fmt:message
+										key="REGN_FORM_LABEL_EMAILOPT" bundle="${storeText}" />
+								</label>
+								<%-- Added type="email" to the input field based on RzF v 0.3.0 --%>
+								<input class="form__input" name="email1" type="email" placeholder="<fmt:message key="REGN_FORM_PHOLDER_EMAILOPT" bundle="${storeText}" />"
+									id="email" maxlength="150" autocomplete="off">
+							</div>
+
+
+							<div class="form-control">
+								<label class="form__label required-field spacing-bottom-tiny"
+									for="logonPassword"><fmt:message
+										key="REGN_FORM_LABEL_PASSWORD" bundle="${storeText}" />
+								</label>
+								<div class="password-show-hide-field">
+									<input class="form__input" type="password" name="logonPassword"
+										id="showHidePassword1" required>
+									<div class="show-hide-password-block">
+										<input type="checkbox" id="showHide1"> <label
+											for="showHide" id="showHideLabel"><fmt:message
+												key="REGN_FORM_LABEL_PWORDSHOW" bundle="${storeText}" />
+										</label>
+									</div>
+								</div>
+							</div>
+						</c:otherwise>
+					</c:choose>
+					<!-- for testing -->
+					<input type="hidden" name="logonPasswordVerify"
+						id="WC_UserRegistrationAddForm_FormInput_logonPasswordVerify_In_Register_1"
+						value="" />
+					<!-- for testing -->
+					
+					<%-- modified the note form_control div position and input type based on RzF v 0.3.0 --%>
+					<div class="note form__control">
+						<label for="tcAgree"><input type="checkbox" required class="form__input" name="tcAgree" id="tcAgree">
+						<fmt:message bundle="${storeText}" key="REGN_TNC_IAGREE"/> <a class="link-alternate" href="<c:out value="${TermsAndCondition}"/>">
+							<fmt:message bundle="${storeText}" key="REGN_TNC_TERMS"/></a>.
+						</label>
+					</div>
+					<%-- modified the note form_control div position and input type based on RzF v 0.3.0 --%>
+					<div class="form__btn">
+						<button type="button" class="registration__btn-cta button-primary"
+							onclick="javascript:LogonForm.prepareSubmit(document.formRegisterValidation1);return false;"><fmt:message key="REGN_FORM_LABEL_REGISTERBUTTON" bundle="${storeText}" /></button>
+					</div>
+					
+				</form>
+			</div>
+
+		</div>
+		
+		<div class="col-xs-12 col-md-6 show-sm-down">
+			<div class="blurb">
+				<h2 class="blurb__title"><fmt:message key="REGN_BENIFITS_MESSAGE" bundle="${storeText}" /></h2>
+				<div class="blurb__img">
+					<img class="img-responsive"
+						src="${staticServerHostPath}images/DMart/temp/login/login-bag.jpg"
+						alt="Register">
+				</div>
+				<%-- Added clearfix to the class based on RzF v 0.3.0 --%>
+				<div class="blurb__content clearfix">
+					<p><fmt:message bundle="${storeText}" key="REGN_SIDE_MESSAGE"/></p>
+					<p class="margin-reset"><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER"/></p><br/>
+					
+					<p class="margin-reset"><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER1"/></p><br/>
+					
+					<p class="margin-reset"><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER2"/> <b><fmt:message bundle="${storeText}" key="REGN_SIDE_LIST_HEADER3"/></b></p>
+				</div>
+			</div>
+
+
+		</div>
+		
+		
+	</div>
+</div>
+
+<!-- END RegistrationForm_UI.jspf -->

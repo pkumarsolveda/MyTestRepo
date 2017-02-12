@@ -1,0 +1,9 @@
+<ul class="breadcrumbs link-bordered">
+  <li><a href="javascript:;" title="Home">Home</a></li>
+  {% if parentPage =='existing order' %}
+  {% elif parentPage =='pup list' %}
+  {% else %}
+  <li><a href="javascript:;" title="{{ parentPage }}">{{ parentPage }}</a></li>
+  {% endif %}
+  <li>{% if parentPage == 'Apparel' %} T-Shirts {% elif parentPage == 'Grocery' %} Rice Products {% elif parentPage == 'Household' %} Kitchen {% elif parentPage == 'Apparel Search' %} T-Shirts (55) {% elif parentPage == 'Grocery Search' %} Basmati Rice (65) {% elif parentPage == 'My List' %} Shopping List {% elif parentPage == 'My Orders' %} DM987899K {% elif parentPage == 'existing order' %} Shop from previous order {% elif parentPage == 'pup list' %} PUP List {% else %} Sitemap {% endif %}</li>
+</ul>

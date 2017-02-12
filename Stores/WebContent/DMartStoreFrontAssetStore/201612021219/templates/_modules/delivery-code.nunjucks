@@ -1,0 +1,15 @@
+<div class="delivery-code">
+  <i class="icon-delivery-location icon-location"></i>
+  <span class="delivery-code__label">Deliver to</span>
+  <span class="delivery-code__pin" id="delivery_pin" ></span>
+  <i class="icon-delivery-caret-down icon-caret-down"></i>
+</div>
+<script type="text/javascript">
+				  function changePincode()
+					  {
+					  	if(null != document.getElementById("locationModal") && typeof checkoutConfirm === 'undefined' ){
+					  		document.getElementById("locationModal").style.display='block';
+					  	}
+					  }
+			</script>
+			

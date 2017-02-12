@@ -1,0 +1,210 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2010, 2013 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<Definitions>
+
+  <!--  Madisons -->
+  <ResourceBundle definitionName="stoFlexFlow_${storeId}" baseName="tools.stores.${storeDir}.devtools.flow.ui.config" />
+
+  <ObjectProperties definitionName="stoStoreProperties_${storeId}" componentObjectNames="selectedStaticPage">
+    <PropertyTabs name="tabs">
+      <PropertyTabPane name="generalTab" text="${stoStoreResources.generalTabTitle}">
+        <PropertyPane baseDefinitionName="stoStorePropertiesPane"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Styles" text="${stoFlexFlow_${storeId}.StylesPanel.title}">
+        <PropertyPane baseDefinitionName="stoStyles_${storeId}"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Configurations" text="${stoFlexFlow_${storeId}.ConfigurationsPanel.title}">
+        <PropertyPane baseDefinitionName="stoConfigurationsFlexFlow_${storeId}"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Registration" text="${stoFlexFlow_${storeId}.RegistrationPanel.title}">
+        <PropertyPane baseDefinitionName="stoRegistrationFlexFlow_${storeId}"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Catalog" text="${stoFlexFlow_${storeId}.CatalogPanel.title}">
+        <PropertyPane baseDefinitionName="stoCatalogFlexFlow_${storeId}"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Orders" text="${stoFlexFlow_${storeId}.OrdersPanel.title}">
+        <PropertyPane baseDefinitionName="stoOrdersFlexFlow_${storeId}"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Checkout" text="${stoFlexFlow_${storeId}.CheckoutPanel.title}">
+        <PropertyPane baseDefinitionName="stoCheckoutFlexFlow_${storeId}"/>
+      </PropertyTabPane>
+      <PropertyTabPane name="Analytics" text="${stoFlexFlow_${storeId}.AnalyticsPanel.title}">
+        <PropertyPane baseDefinitionName="stoAnalyticsFlexFlow_${storeId}"/>
+      </PropertyTabPane>
+    </PropertyTabs>
+  </ObjectProperties>
+
+  <PropertyPane definitionName="stoAnalyticsFlexFlow_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.AnalyticsPanel.description}" />
+      <MultiValueCheckbox name="NewAnalytics.checkbox" helpText="${stoFlexFlow_${storeId}.Analytics.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.Analytics.checkboxEnable.label}">
+        <MultiValueSelection name="true">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=Analytics]">true</enabled>
+          </Xml>
+        </MultiValueSelection>
+        <MultiValueSelection name="false">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=Analytics]">false</enabled>
+          </Xml>
+        </MultiValueSelection>
+      </MultiValueCheckbox>
+
+      <PropertyCheckbox name="Tealeaf.checkbox" helpText="${stoFlexFlow_${storeId}.Tealeaf.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.Tealeaf.checkboxEnable.label}" objectPath="StoreFlow[name=Tealeaf]" propertyName="enabled" />
+    </PropertyGroup>
+  </PropertyPane>
+
+  <PropertyPane definitionName="stoCatalogFlexFlow_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.CatalogPanel.description}" />
+      <PropertyCheckbox name="Search.checkbox" promptText="${stoFlexFlow_${storeId}.Search.checkboxEnable.label}" objectPath="StoreFlow[name=search]" propertyName="enabled" />
+	  <PropertyCheckbox name="ProductSuggestions.checkbox" promptText="${stoFlexFlow_${storeId}.ProductSuggestions.checkboxEnable.label}" objectPath="StoreFlow[name=ProductSuggestions]" propertyName="enabled" />
+	  <PropertyCheckbox name="KeywordSuggestions.checkbox" promptText="${stoFlexFlow_${storeId}.KeywordSuggestions.checkboxEnable.label}" objectPath="StoreFlow[name=KeywordSuggestions]" propertyName="enabled" />
+      <PropertyCheckbox name="ExpandedCategoryNavigation.checkbox" helpText="${stoFlexFlow_${storeId}.ExpandedCategoryNavigation.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.ExpandedCategoryNavigation.checkboxEnable.label}" objectPath="StoreFlow[name=ExpandedCategoryNavigation]" propertyName="enabled" />
+      <PropertyCheckbox name="InventoryAvailability.checkbox" promptText="${stoFlexFlow_${storeId}.InventoryAvailability.checkboxEnable.label}" objectPath="StoreFlow[name=InventoryAvailability]" propertyName="enabled" />
+      <PropertyCheckbox name="ProductRankings.checkbox" promptText="${stoFlexFlow_${storeId}.ProductRankings.checkboxEnable.label}" objectPath="StoreFlow[name=ProductRankings]" propertyName="enabled" />
+      <PropertyCheckbox name="BrowsingHistory.checkbox" promptText="${stoFlexFlow_${storeId}.BrowsingHistory.checkboxEnable.label}" objectPath="StoreFlow[name=BrowsingHistory]" propertyName="enabled" />
+      <PropertyCheckbox name="SterlingConfigurator.checkbox" promptText="${stoFlexFlow_${storeId}.SterlingConfigurator.checkboxEnable.label}" objectPath="StoreFlow[name=sterlingConfigurator]" propertyName="enabled" >
+        <EnablementCondition conditionId="updateStoreFunctionsSterlingConfigTrueCondition" propertyName="isSterlingConfigEnabled" parentProperty="true" enablementValue="true"/>
+      </PropertyCheckbox>
+    </PropertyGroup>
+  </PropertyPane>
+
+  <PropertyPane definitionName="stoCheckoutFlexFlow_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.CheckoutPanel.description}" />
+      <PropertyCheckbox name="QuickCheckout.checkbox" helpText="${stoFlexFlow_${storeId}.QuickCheckout.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.QuickCheckout.checkboxEnable.label}" objectPath="StoreFlow[name=quickCheckout]" propertyName="enabled" />
+      <PropertyCheckbox name="Shipment.checkbox" helpText="${stoFlexFlow_${storeId}.Shipment.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.Shipment.checkboxEnable.label}" objectPath="StoreFlow[name=MultipleShipments]" propertyName="enabled" />
+      <PropertyCheckbox name="FutureOrders.checkbox" helpText="${stoFlexFlow_${storeId}.FutureOrders.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.FutureOrders.checkboxEnable.label}" objectPath="StoreFlow[name=FutureOrders]" propertyName="enabled" />
+      <PropertyCheckbox name="ShippingInstructions.checkbox" helpText="${stoFlexFlow_${storeId}.ShippingInstructions.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.ShippingInstructions.checkboxEnable.label}" objectPath="StoreFlow[name=ShippingInstructions]" propertyName="enabled" />
+      <PropertyCheckbox name="PromotionCode.checkbox" helpText="${stoFlexFlow_${storeId}.PromotionCode.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.PromotionCode.checkboxEnable.label}" objectPath="StoreFlow[name=promotionCode]" propertyName="enabled" />
+      <PropertyCheckbox name="PaymentPromotion.checkbox" helpText="${stoFlexFlow_${storeId}.PaymentPromotion.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.PaymentPromotion.checkboxEnable.label}" objectPath="StoreFlow[name=PaymentPromotion]" propertyName="enabled" />
+      <PropertyCheckbox name="PunchoutPayment.checkbox" helpText="${stoFlexFlow_${storeId}.PunchoutPayment.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.PunchoutPayment.checkboxEnable.label}" objectPath="StoreFlow[name=PunchoutPayment]" propertyName="enabled" />
+      <PropertyCheckbox name="ShippingChargeType.checkbox" helpText="${stoFlexFlow_${storeId}.ShippingChargeType.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.ShippingChargeType.checkboxEnable.label}" objectPath="StoreFlow[name=ShippingChargeType]" propertyName="enabled" />
+      <PropertyCheckbox name="ShowHideOrderItems.checkbox" helpText="${stoFlexFlow_${storeId}.ShowHideOrderItems.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.ShowHideOrderItems.checkboxEnable.label}" objectPath="StoreFlow[name=ShowHideOrderItems]" propertyName="enabled" />
+    </PropertyGroup>
+  </PropertyPane>
+
+  <PropertyPane definitionName="stoOrdersFlexFlow_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.OrdersPanel.description}" />
+      <PropertyCheckbox name="Orders.QuickOrder.checkbox" helpText="${stoFlexFlow_${storeId}.Orders.QuickOrder.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.Orders.QuickOrder.checkboxEnable.label}" objectPath="StoreFlow[name=QuickOrder]" propertyName="enabled" />
+      <PropertyCheckbox name="OrderStatus.checkbox" helpText="${stoFlexFlow_${storeId}.OrderStatus.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.OrderStatus.checkboxEnable.label}" objectPath="StoreFlow[name=TrackingStatus]" propertyName="enabled" />
+      <PropertyCheckbox name="SideBySideIntegration.checkbox" helpText="${stoFlexFlow_${storeId}.SideBySideIntegration.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.SideBySideIntegration.checkboxEnable.label}" objectPath="StoreFlow[name=SideBySideIntegration]" propertyName="enabled" />
+      <PropertyCheckbox name="MultipleActiveOrders.checkbox" helpText="${stoFlexFlow_${storeId}.MultipleActiveOrders.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.MultipleActiveOrders.checkboxEnable.label}" objectPath="StoreFlow[name=MultipleActiveOrders]" propertyName="enabled" />
+      <PropertyCheckbox name="ExpeditedOrders.checkbox" helpText="${stoFlexFlow_${storeId}.ExpeditedOrders.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.ExpeditedOrders.checkboxEnable.label}" objectPath="StoreFlow[name=ExpeditedOrders]" propertyName="enabled" />
+    </PropertyGroup>
+  </PropertyPane>
+
+  <PropertyPane definitionName="stoRegistrationFlexFlow_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.RegistrationPanel.description}" />
+      <PropertyCheckbox name="Preferences.Currency.checkbox" promptText="${stoFlexFlow_${storeId}.Preferences.Currency.checkboxEnable.label}" objectPath="StoreFlow[name=preferredCurrency]" propertyName="enabled" />
+      <PropertyCheckbox name="Preferences.Language.checkbox" promptText="${stoFlexFlow_${storeId}.Preferences.Language.checkboxEnable.label}" objectPath="StoreFlow[name=preferredLanguage]" propertyName="enabled" />
+      <PropertyCheckbox name="Demographics.Gender.checkbox" promptText="${stoFlexFlow_${storeId}.Demographics.Gender.checkboxEnable.label}" objectPath="StoreFlow[name=Gender]" propertyName="enabled" />
+      <PropertyCheckbox name="EmailOption.checkbox" helpText="${stoFlexFlow_${storeId}.EmailOption.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.EmailOption.checkboxEnable.label}" objectPath="StoreFlow[name=EmailOption]" propertyName="enabled" />
+      <PropertyCheckbox name="MobilePhoneOption.checkbox" helpText="${stoFlexFlow_${storeId}.MobilePhoneOption.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.MobilePhoneOption.checkboxEnable.label}" objectPath="StoreFlow[name=MobilePhone]" propertyName="enabled" />
+      <MultiValueCheckbox name="Demographics.AgeOptions.checkbox" promptText="${stoFlexFlow_${storeId}.Demographics.AgeOptions.checkboxEnable.label}">
+        <MultiValueSelection name="true">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=AgeOptions]">true</enabled>
+            <enabled objectPath="StoreFlow[name=DateOfBirth]" significant="false">true</enabled>
+            <enabled objectPath="StoreFlow[name=Age]" significant="false">false</enabled>
+          </Xml>
+        </MultiValueSelection>
+        <MultiValueSelection name="false">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=AgeOptions]">false</enabled>
+            <enabled objectPath="StoreFlow[name=DateOfBirth]" significant="false">false</enabled>
+            <enabled objectPath="StoreFlow[name=Age]" significant="false">false</enabled>
+          </Xml>
+        </MultiValueSelection>
+      </MultiValueCheckbox>
+      <MultiValueSelector name="Demographics.AgeOptions.radios" promptText="${stoFlexFlow_${storeId}.Demographics.AgeOptions.radio.label}" useRadioButtons="true">
+        <EnablementCondition objectPath="StoreFlow[name=AgeOptions]" propertyName="enabled" enablementValue="true" />
+        <MultiValueSelection displayName="${stoFlexFlow_${storeId}.Demographics.DateOfBirth.radio.label}" name="dob">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=DateOfBirth]">true</enabled>
+            <enabled objectPath="StoreFlow[name=Age]">false</enabled>
+          </Xml>
+        </MultiValueSelection>
+        <MultiValueSelection displayName="${stoFlexFlow_${storeId}.Demographics.Age.radio.label}" name="age">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=DateOfBirth]">false</enabled>
+            <enabled objectPath="StoreFlow[name=Age]">true</enabled>
+          </Xml>
+        </MultiValueSelection>
+      </MultiValueSelector>
+    </PropertyGroup>
+  </PropertyPane>
+
+  <PropertyPane definitionName="stoConfigurationsFlexFlow_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.ConfigurationsPanel.description}" />
+      <PropertyCheckbox name="FacebookIntegration.checkbox" helpText="${stoFlexFlow_${storeId}.FacebookIntegration.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.FacebookIntegration.checkboxEnable.label}" objectPath="StoreFlow[name=FacebookIntegration]" propertyName="enabled" />
+      <PropertyCheckbox name="RatingReviewIntegration.checkbox" helpText="${stoFlexFlow_${storeId}.RatingReviewIntegration.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.RatingReviewIntegration.checkboxEnable.label}" objectPath="StoreFlow[name=RatingReviewIntegration]" propertyName="enabled" />
+      
+      <MultiValueCheckbox name="StoreLocator.checkbox" helpText="${stoFlexFlow_${storeId}.StoreLocator.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.StoreLocator.checkboxEnable.label}">
+        <MultiValueSelection name="true">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=StoreLocator]">true</enabled>
+            <enabled objectPath="StoreFlow[name=BOPIS]" significant="false">false</enabled>
+          </Xml>
+        </MultiValueSelection>
+        <MultiValueSelection name="false">
+          <Xml name="values">
+            <enabled objectPath="StoreFlow[name=StoreLocator]">false</enabled>
+            <enabled objectPath="StoreFlow[name=BOPIS]" significant="false">false</enabled>
+          </Xml>
+        </MultiValueSelection>
+      </MultiValueCheckbox>
+      
+      <PropertyCheckbox name="BOPIS.checkbox" helpText="${stoFlexFlow_${storeId}.BOPIS.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.BOPIS.checkboxEnable.label}" objectPath="StoreFlow[name=BOPIS]" propertyName="enabled">
+        <EnablementCondition conditionId="StoreLocator" enablementValue="true" objectPath="StoreFlow[name=StoreLocator]" parentProperty="true" propertyName="enabled" resolvePrimaryParent="false"/>
+      </PropertyCheckbox>
+      <PropertyCheckbox name="NewWishList.checkbox" helpText="${stoFlexFlow_${storeId}.WishList.SOAwishlistEnabled.description}" promptText="${stoFlexFlow_${storeId}.Wishlist.enabled.label}" objectPath="StoreFlow[name=SOAWishlist]" propertyName="enabled" />
+      <PropertyCheckbox name="RecurringOrders.checkbox" helpText="${stoFlexFlow_${storeId}.RecurringOrders.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.RecurringOrders.checkboxEnable.label}" objectPath="StoreFlow[name=RecurringOrders]" propertyName="enabled" />
+      <PropertyCheckbox name="Synonyms.checkbox" helpText="${stoFlexFlow_${storeId}.Synonyms.checkboxEnable.title}" promptText="${stoFlexFlow_${storeId}.Synonyms.checkboxEnable.label}" objectPath="StoreFlow[name=UseSynonyms]" propertyName="enabled" />
+    </PropertyGroup>
+  </PropertyPane>
+
+  <PropertyPane definitionName="stoStyles_${storeId}" >
+    <PropertyGroup name="group" collapsable="false" >
+      <PropertyStaticText text="${stoFlexFlow_${storeId}.StylesPanel.description}" />
+      <MultiValueSelector name="StylePanelOptions" promptText="${stoFlexFlow_${storeId}.Styles.style.radio.label}" useRadioButtons="true">
+        <MultiValueSelection imageSrc="/lobtools/images/stores/${storeDir}/style/styles/style1.png">
+          <Xml name="values">
+            <url objectPath="StoreFileRef[name=StyleDir]">include/styles/style1/</url>
+            <url objectPath="StoreFileRef[name=vfile.color]" significant="false">images/colors/color1/</url>
+            <url objectPath="StoreFileRef[name=vfile.stylesheet]" significant="false">css/common1_1$locale$.css</url>
+            <url objectPath="StoreFileRef[name=vfile.stylesheetie]" significant="false">css/commonie1_1$locale$.css</url>
+          </Xml>
+        </MultiValueSelection>
+      </MultiValueSelector>
+      <MultiValueSelector name="ColorPanelOptions" promptText="${stoFlexFlow_${storeId}.Styles.color.radio.label}" useRadioButtons="true">
+        <EnablementCondition objectPath="StoreFileRef[name=StyleDir]" propertyName="url" enablementValue="include/styles/style1/" />
+        <MultiValueSelection imageSrc="/lobtools/images/stores/${storeDir}/style/colors/color1_1.png" name="color1">
+          <Xml name="values">
+            <url objectPath="StoreFileRef[name=vfile.color]">images/colors/color1/</url>
+            <url objectPath="StoreFileRef[name=vfile.stylesheet]">css/common1_1$locale$.css</url>
+            <url objectPath="StoreFileRef[name=vfile.stylesheetie]">css/commonie1_1$locale$.css</url>
+          </Xml>
+        </MultiValueSelection>
+      </MultiValueSelector>
+    </PropertyGroup>
+  </PropertyPane>
+   
+</Definitions>

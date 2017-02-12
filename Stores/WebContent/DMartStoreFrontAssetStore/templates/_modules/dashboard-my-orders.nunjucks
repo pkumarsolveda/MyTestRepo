@@ -1,0 +1,72 @@
+
+  {% macro dashboardMyOrder(data,thisOrder, orderId) %}
+  
+  {%set slotChangeEligible = thisOrder.isSlotChangeEligible %}
+  {%set cancelOrderEligible = thisOrder.isCancelOrderEligible %}
+  {%set repayOrderEligible = thisOrder.isRepayOrderEligible %}
+  {%set paymentMode = thisOrder.paymentMode %}
+  {%set slotDatePast = thisOrder.slotDatePast %}
+  {{status1}}
+  <li class="{{class}} dashboard-myorder--details dashbaord-myorder--undelivered">
+    <span class="my-order-number">
+      <a class="Order Details" href="{{data.config.baseUrl}}OrderDetailsView?catalogId={{data.catalogId}}&isTrackOrder=false&langId=-1&storeId={{data.storeId}}&orderId={{thisOrder.identifier}}&orderStatusCode={{thisOrder.status}}">{{ thisOrder.identifier}}</a>
+      <!--<a href="javascript:;" title="Download Invoice"><i class="icon-statement-download"></i></a> -->
+    </span>
+    <span>{{ thisOrder.placedDate }}</span>
+    <span>{{ thisOrder.deliveryMode }}</span>
+    <span class="my-order-date" id="{{thisOrder.identifier}}">{{ thisOrder.slotDate }} <br> {% if thisOrder.status!='X' %} {{thisOrder.slotStart}} - {{thisOrder.slotEnd}} {% endif %}
+    {% if slotChangeEligible == true %}
+      <span>
+        <a href="javascript:;" id="slotChangeButton" class="button-slot-change" data-orderid="{{thisOrder.identifier}}" data-slotid="{{thisOrder.modSlotDate}}||{{thisOrder.slotStart}}||{{thisOrder.slotEnd}}">Change</a>
+      </span>
+    {% endif %}
+    </span>
+	<span class="my-order-amount"><i class="icon-rupees"></i>{% if (paymentMode == 'Cash On Delivery') %}{{thisOrder.codRounded}}{% else %}{{thisOrder.grandTot}}{% endif %}</span>
+	{% if cancelOrderEligible != true %}
+		{% if (thisOrder.status == 's') %}
+			<span class="my-order-status">
+				<span class="order-status-process"  title="{{thisOrder.statusText}}">{{thisOrder.statusText}}
+				</span>
+			</span>	
+		{% elif  (thisOrder.status == 'x')%}
+			<span class="my-order-status" title="{{thisOrder.statusText}}">
+				<span class="order-status-process canceled-order" title="{{thisOrder.statusText}}">{{thisOrder.statusText}}</span>
+			</span>
+		{% else %}	
+			<span class="my-order-status" title="{{thisOrder.statusText}}">
+				{{thisOrder.statusText}}
+			</span>
+		{% endif %}
+		{% if repayOrderEligible == true %}
+			<a href="javascript:;" class="button-white button-order-cancel retry-payment" data-orderidrepay="{{thisOrder.identifier}}" data-placeddateandtime="{{thisOrder.placedDateAndTime}}" title="Repay">REPAY ORDER</a>
+		{% endif %}
+		{% if thisOrder.isReorderEligible == true %}
+			<a href="javascript:;" class="button-white button-order-cancel" id="re-order" title="Re Order" data-orderid="{{thisOrder.identifier}}">RE ORDER</a>
+		{% endif %}	
+	{% else %}
+		<span class="my-order-status">
+			<span class="order-status-process"  title="{{thisOrder.statusText}}">{{thisOrder.statusText}}</span>		
+		</span>
+		{% if slotDatePast != "true" %}
+			<a href="javascript:;" class="button-white button-order-cancel" id="cancel-order" title="Cancel Order" data-orderid="{{thisOrder.identifier}}">CANCEL ORDER</a>
+		{% endif %}
+	{% endif %}
+    
+  </li>
+    <form method="get" id="formRepay" action={{data.formAction}}>
+      	<input type="hidden" name="langId" value={{data.langId}} id="langId" />
+		<input type="hidden" name="catalogId" value={{data.catalogId}} id="catalogId" />
+		<input type="hidden" name="storeId" value={{data.storeId}} id="storeId" />
+		<input type="hidden" name="orderId" value="" id="orderIdRepay" />
+		<input type="hidden" name="currentAction" value="Payment" id="currentAction" />
+		<input type="hidden" name="paymentFailure" value="repay" id="paymentFailure" />
+		
+      </form>
+  {% endmacro %}
+
+<ul class="dashboard-myorder-list scroll" id="dashboard-myorder-1">
+	{% for orderId in data.orderIds %}
+		{{ dashboardMyOrder(data,data.orders[orderId],orderId) }}
+	{% endfor %}
+</ul>
+  

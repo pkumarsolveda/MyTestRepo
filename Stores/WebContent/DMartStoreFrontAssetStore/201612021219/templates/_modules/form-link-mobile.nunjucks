@@ -1,0 +1,12 @@
+{% from "_modules/form-control.nunjucks" import formControl %}
+<div class="form form--no-border form--no-right-padding">
+  <h2 class="form__title">Link Mobile Number</h2>
+  <form action="javascript:;" method="post" id="formValidation" novalidate="novalidate">
+
+    {% include '_modules/form-mobile-number.nunjucks' %}
+
+
+    <button class="button-primary button--block" type="submit">Link And Proceed</button>
+
+  </form>
+</div>

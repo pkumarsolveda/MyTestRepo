@@ -1,0 +1,140 @@
+<div class="cart-summary-delivery js-cart-summary-delivery">
+  <div class="cart-summary-delivery--header">
+    <h4 class="cart-summary-delivery--title">Shopping Cart Summary</h4>
+    <h3 class="minicart-details--total-items">
+      <i class="icon-cart"></i> <span>{{data.totalQTY}}</span> {% if data.totalQTY > 1 %}items{% else %}item{% endif %}
+    </h3>
+  </div>
+  <div class="cart-details__item mini-cart-details cart-details__item-fixed">
+
+        
+        
+{% from '_modules/cart-summary-delivery-items.nunjucks' import myCartItems %}
+        <div class="cart-details__scroll cart-details__scroll-secondary">
+          {% for category,list in data.orderItems|groupby('topCategory') %}
+          <h3 class="cart-details__item--title">
+          {%set qtyPerCat = 0 %}
+          {%for item in list%}
+            {%set qtyPerCat = qtyPerCat + item.quantity%}
+            {%endfor%}
+          <a href="javascript:;" title="">
+            {{ category }} <span>({{qtyPerCat}} {% if qtyPerCat > 1 %}items{% else %}item{% endif %})</span><span class="cart-details__item--title-arrow"><i class="icon-caret-up"></i></span>
+          </a>
+          </h3>
+          <ul class="cart-details__item-list">
+            {%for item in list%}
+            {{ myCartItems(item,data) }}
+            {%endfor%}
+            <li class="cart-no-items">
+              <p class="alert alert-danger text-center">No items in this section</p>
+            </li>
+          </ul>
+          {%endfor%}
+
+
+		</div>    
+      <h3 class="cart-details__item--title cart-details__item--total cart-details__item--bottom">
+      <a href="javascript:;">
+        <span class="cart-details__item--total-text"> Cart Total </span> <span class="cart-summary--price text-total"><i class="icon-rupees"></i>{{data.total}}</span><span class="cart-details__item--title-arrow"><i class="icon-caret-up"></i></span>
+      </a>
+      </h3>
+
+      <ul class="cart-details__item-list mini-cart-details__item-list cart-details__item--bottom-list" style="display: none;">
+         <!-- Cart summary Amount -->
+         <div class="row">
+         <div class="col-xs-12">
+         {% if (data.discount != 0) %}
+            <div class="mini-cart-summary__price-details last">
+              <div class="row">
+                <div class="col-xs-8">
+                  <span>Discount (-)</span>
+                </div>
+                <div class="col-xs-4">
+                  <div class="mini-cart-summary--price"><i class="icon-rupees"></i>{{data.discount}}</div>
+                </div>
+              </div>
+            </div>
+         {% endif %}
+            <div class="mini-cart-summary__price-details">
+              <div class="row">
+                <div class="col-xs-8">
+                  <span>Subtotal</span>
+                </div>
+                <div class="col-xs-4">
+                  <div class="mini-cart-summary--price"><i class="icon-rupees"></i>{{data.totalMinusDiscount}}</div>
+                </div>
+              </div>
+            </div>
+            {% if data.showDeliveryCharge == "true" %}
+	            <div class="mini-cart-summary__price-details last">
+	              <div class="row">
+	                <div class="col-xs-8">
+	                  <a class="cart-summary--delivery-details" title="Home Delivery Charges will be additionally added over and above your order value based on the Total Cart Value!" href="javascript:;">
+	                   <span>Delivery Charges (+)</span>
+	                  </a>
+	                </div>
+	                <div class="col-xs-4">
+	                  <div class="mini-cart-summary--price"><i class="icon-rupees"></i>{{data.totalShippingAmount}}</div>
+	                </div>
+	              </div>
+	            </div>
+            {%endif%}
+            <div class="min-cart-summary--price-total">
+              <div class="row">
+                <div class="col-xs-8">
+                  <span>Total</span>
+                </div>
+                <div class="col-xs-4">
+                  <div class="price-total"><i class="icon-rupees"></i>{{data.grandTotal}}</div>
+                </div>
+              </div>
+            </div>
+            <!--  <div class="mini-cart-summary__price-details--ewallet">
+              <div class="row">
+                <div class="col-xs-8">
+                  <span>DMart eWallet Debit (-)</span>
+                </div>
+                <div class="col-xs-4">
+                  <div class="price-details--ewallet"><i class="icon-rupees"></i>0</div>
+                </div>
+              </div>
+            </div>  -->
+            <div class="mini-cart-summary__price-details-vat">
+            VAT of <i class="icon-rupees"></i>{{data.tax}} has been included in total amount
+            </div>
+          </div>
+          </div>
+         <!--End Cart summary Amount  -->
+        <li class="cart-no-items">
+          <p class="alert alert-danger text-center">No items in this section</p>
+        </li>
+      </ul>
+
+    <div class="add-to-cart-button">
+      <div class="row">
+        <div class="col-xs-3 text-center">
+          <i class="dmart-sprite sprite-piggy-bank"></i>
+        </div>
+        <div class="col-xs-9 padding-reset-left">
+          <div class="cart-summary__price-details add-to-cart-button--total-savings">
+            <div class="row">
+              <div {% if data.totalSavingsPlusDiscount <= 0%}style="display:none;"{%endif%} class="col-xs-6">
+                <span class="total-savings-text">Total Savings</span>
+                <span class="cart-summary--price total-savings-price"><i class="icon-rupees"></i>{{data.totalSavingsPlusDiscount}}</span>
+              </div>
+              <div class="col-xs-6">
+                <div class="text-payable">
+                  <span class="total-payable-del-text">Total Payable</span>
+                  <span class="cart-summary--price text-payable-price"><i class="icon-rupees"></i>{{data.grandTotal}}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    
+    
+  </div>
+
+</div>

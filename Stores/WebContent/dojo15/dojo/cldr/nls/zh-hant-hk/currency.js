@@ -1,0 +1,1 @@
+({"AUD_displayName":"澳元","CAD_displayName":"加元","HKD_displayName":"港元","HKD_symbol":"$","USD_symbol":"US$","CHF_displayName":"瑞士法郎","CNY_displayName":"人民幣","CNY_symbol":"￥","EUR_displayName":"歐元","GBP_displayName":"英鎊","JPY_displayName":"日圓","USD_displayName":"美元","AUD_symbol":"AU$","CAD_symbol":"CA$","EUR_symbol":"€","GBP_symbol":"£","JPY_symbol":"JP¥"})

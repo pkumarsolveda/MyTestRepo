@@ -1,0 +1,14 @@
+<div class="blurb {% if pageTitle == 'link-mobile' %} blurb--right-border {% elif pageTitle == 'change-password' %} blurb--right-border {% endif %}">
+   <h2 class="blurb__title">{% if pageTitle == 'register' %} Benefits of Sign Up {% elif pageTitle == 'signin' %} Benefits of Sign In {% elif pageTitle == 'OTP' %} Benefits of OTP {% elif pageTitle == 'link-mobile' %} Why Mobile number required ? {% elif pageTitle == 'change-password' %} Change Password {% endif %}</h2>
+   <div class="blurb__img">
+      <img class="img-responsive" src="/{{config.baseUrl}}images/temp/login/login-bag.jpg" alt="Login">
+  </div>
+
+  <div class="blurb__content clearfix">
+    <p>If you register your mobile number with us, it gives us the opportunity to send you quick updates on your order status by sending you an SMS at every level of your order’s progression till delivery. </p>
+
+    
+
+  </div>
+</div>
+

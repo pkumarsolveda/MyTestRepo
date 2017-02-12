@@ -1,0 +1,8 @@
+<form method="post" class="search-toolbar">
+  <input class="search-toolbar__field js-search-field" type="text" placeholder="Aapko Kya Chahiye..." name="search" autocomplete="off">
+  <button class="search-toolbar__cta" type="button"><i class="search__icon icon-search"></i></button>
+
+  <div class="header-dropdown header-dropdown--search">
+    {% include '_modules/header-search-item.nunjucks' %}
+  </div>
+</form>

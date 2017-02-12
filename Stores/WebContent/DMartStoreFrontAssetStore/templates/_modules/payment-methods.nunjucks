@@ -1,0 +1,248 @@
+<div class="js-accordion-tabs-delivery delivery-tabs">
+  <ul class="resp-tabs-list clearfix delivery-vertical">
+    <li data-payment="CC" id="creditCard">Credit Card</li>
+    <li data-payment="DC" id="debitCard">Debit Card</li>
+    <li data-payment="DCP" id="debitCardPin">Debit Card + ATM Pin</li>
+    <li data-payment="NB" id="netBanking">Net Banking</li>
+    <li data-payment="COD" id="cashOnDelivery">Cash On Delivery</li>
+    <!-- Out of Scope for Phase1
+    <li data-payment="DEW" id="dmartEWallet">DMart eWallet</li>
+    <li data-payment="EMI" class="js-payment-emi" id="onlineEmi">Online EMI</li> -->
+  </ul>
+
+  <div class="resp-tabs-container delivery-vertical payment-method__selection">
+    <!-- Credit Cart -->
+    <div>
+      <div class="form">
+        <form class="form__creditCard payment-form" method="post" id="formCCvalidation" novalidate="novalidate">
+          <div class="payment-card-selection">
+            <h3 class="payment-method--title">Pay using Credit Card</h3>
+            <div class="payment-method--card payment-method--card-credit">
+              <div class="form-control">
+              <input class="form__input cc-number" type="tel" name="creditCardNumber" placeholder="Card Number" id="creditCardNumber" required autocomplete="off">
+
+                <div class="payment-card-type">
+                  <i class="dmart-sprite sprite-payments-visa js-visa-card" data-card="VISA"></i>
+                  <i class="dmart-sprite sprite-payments-mastercard js-mastercard-card" data-card="MASTER"></i>
+                  <!-- <i class="dmart-sprite sprite-payments-diner js-dinersclub-card" data-card="DINER"></i> -->
+                  <i class="dmart-sprite sprite-payments-amex js-amex-card" data-card="AMEX"></i>
+                  <i class="dmart-sprite sprite-payments-rupay js-rupay-card" data-card="RUPAY"></i>
+                </div>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-medium">
+                <input class="form__input checkMonth cc-exp" type="tel" name="creditExpiryDate" placeholder="MM / YY" required autocomplete="off">
+                <span class="form__placeholder">Expiry Date</span>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-small">
+                <input class="form__input cc-cvc" type="password" name="creditCardCvv" placeholder="CVV" required autocomplete="off">
+                <span class="form__placeholder">
+                  <i class="dmart-sprite sprite-cvv"></i>
+                </span>
+              </div>
+
+              <div class="form-control">
+                <input class="form__input" id="CCName" type="text" name="creditCardName" placeholder="Name on Card" required autocomplete="off">
+              </div>
+
+          </div>
+        </div>
+        <div class="total-payment-amount">
+          Payment Amount <span><i class="icon-rupees"></i>1000</span>
+        </div>
+        <div class="payment-method-cta">
+        <a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+          <button type="button" class="payment-cta--right button-primary js-payment-pay-now" 
+          onclick="javascript:payments.creditAndDebitCard(formCCvalidation);return false;">MAKE YOUR PAYMENT</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- Debit Card -->
+    <div>
+      <div class="form">
+        <form class="form__debitCard payment-form" action="javascript:;" method="post" id="formDCvalidation" novalidate="novalidate">
+          <div class="payment-card-selection">
+            <h3 class="payment-method--title">Pay using Debit Card</h3>
+            <div class="payment-method--card payment-method--card-debit">
+              <div class="form-control">
+              <input class="form__input cc-number" type="tel" name="debitCardNumber" placeholder="Card Number" id="debitCardNumber" required autocomplete="off">
+
+                <div class="payment-card-type">
+                  <i class="dmart-sprite sprite-payments-visa js-visa-card" data-card="VISA"></i>
+                  <i class="dmart-sprite sprite-payments-mastercard js-mastercard-card" data-card="MASTER"></i>
+                  <!-- <i class="dmart-sprite sprite-payments-diner js-dinersclub-card" data-card="DINER"></i> -->
+                  <i class="dmart-sprite sprite-payments-amex js-amex-card" data-card="AMEX"></i>
+                  <i class="dmart-sprite sprite-payments-rupay js-rupay-card" data-card="RUPAY"></i>
+                </div>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-medium">
+                <input class="form__input checkMonth cc-exp" id="dc-expDetails" type="tel" name="debitExpiryDate" placeholder="MM / YY" required autocomplete="off">
+                <span class="form__placeholder">Expiry Date</span>
+              </div>
+
+              <div class="form-control form__input--combo form__input--combo-small">
+                <input class="form__input cc-cvc" id="dc-cvv" type="password" name="debitCardCvv" placeholder="CVV" required autocomplete="off">
+                <span class="form__placeholder">
+                  <i class="dmart-sprite sprite-cvv"></i>
+                </span>
+              </div>
+
+              <div class="form-control">
+                <input class="form__input" id="DCName" type="text" name="debitCardName" placeholder="Name on Card" required autocomplete="off">
+              </div>
+
+          </div>
+        </div>
+        <div class="total-payment-amount">
+          Payment Amount <span><i class="icon-rupees"></i>1,000</span>
+        </div>
+        <div class="payment-method-cta">
+        	<a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+          <button type="button" class="payment-cta--right button-primary js-payment-pay-now"
+          onclick="javascript:payments.creditAndDebitCard(formDCvalidation);return false;">MAKE YOUR PAYMENT</button>
+        </div>
+        </form>
+      </div>
+    </div>
+    <!-- Debit Card + ATM Pin -->
+    <div>
+      <div class="form">
+
+      <form class="payment-method--card-form payment-form" id="formDebitATMvalidation"  method="post">
+
+      <div class="payment-card-selection">
+        <h3 class="payment-method--title">Pay using Debit Card + ATM Pin</h3>
+        <div class="payment-method--card">
+
+          <div class="bank-list">
+          </div>
+
+          <h4 class="payment-method--cart-title">Other Banks</h4>
+          <div class="custom-dropdown">
+            <select class="select-other-banks select-dcp-banks" id="select-other-banks">
+              <option value="" selected>Choose other bank</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="total-payment-amount">
+        Payment Amount <span><i class="icon-rupees"></i>1,000</span>
+      </div>
+      <div class="payment-method-cta">
+      	<a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+         <button type="button" class="payment-cta--right button--disabled button-primary js-payment-pay-now" 
+        onclick="javascript:payments.netBanking(formDebitATMvalidation);return false;">MAKE YOUR PAYMENT</button>
+      </div>
+      </form>
+      </div>
+    </div>
+    <!-- Internet banking -->
+    <div>
+      <div class="form">
+
+      <form class="payment-method--card-form payment-form" id="formNetBankvalidation" method="post">
+      <div class="payment-card-selection">
+        <h3 class="payment-method--title">Pay using Internet Banking</h3>
+        <div class="payment-method--card" id="NetBanking_PayMethod">
+            <div class="bank-list">
+            </div>
+          <h4 class="payment-method--cart-title">Other Banks</h4>
+          <div class="custom-dropdown">
+            <select class="select-other-banks select-nb-banks" id = "select-other-banks">
+              <option value="" selected>Choose other bank</option>
+            </select>
+          </div>
+
+        </div>
+      </div>
+      <div class="total-payment-amount">
+        Payment Amount <span><i class="icon-rupees"></i>1,000</span>
+      </div>
+      <div class="payment-method-cta">
+      	<a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+        <button type="button" class="payment-cta--right button--disabled button-primary js-payment-pay-now" 
+        onclick="javascript:payments.netBanking(formNetBankvalidation);return false;">MAKE YOUR PAYMENT</button>
+      </div>
+      </form>
+      </div>
+    </div>
+    <!-- Cash On Delivery -->
+    <div>
+      <div class="payment-card-selection cod-selection">
+        <!-- <i class="payment-card-selection--cod-icon icon-cod"></i>-->
+        <div class="payment-cod-image">
+			<img src="../DMartStoreFrontAssetStore/css/images/cod-icon.png" alt="product image">
+		</div>
+
+        <p class="note">
+          You have selected to pay by Cash on Delivery. <br/>
+		  Below amount will be collect at the time of delivery. 
+        </p>
+      </div>
+
+      <div class="total-payment-amount cod-payment-totalamount">
+        Your Payable Amount <span><i class="icon-rupees"></i>1,000</span>
+      </div>
+      <div class="payment-method-cta">
+      	<a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+        <button type="button" class="payment-cta--right button-primary js-payment-pay-now" 
+        onclick="javascript:payments.cashOnDelivery();return false;">CONFIRM YOUR ORDER</button>
+      </div>
+    </div>
+   
+    <!-- DMart Wallet -->
+    <!--
+    <div>
+      <div class="payment-card-selection wallet-selection">
+        <h3 class="payment-method--title">Pay using DMart eWallet</h3>
+        <div class="payment-method--card">
+          <form action="javascript:;" method="post">
+              <div class="dmart-wallet-icon"><i class="dmart-payment-sprite sprite-dmart-ewallet"></i></div>
+          </form>
+        </div>
+      </div>
+      <div class="total-payment-amount">
+        Payment Amount <span><i class="icon-rupees"></i>1,000</span>
+      </div>
+      <div class="payment-method-cta">
+      	<a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+        <button type="submit" class="payment-cta--right button-primary js-payment-pay-now">MAKE YOUR PAYMENT</button>
+      </div>
+    </div>
+    -->
+    <!-- Online EMI -->
+    <!--
+    <div>
+      <div class="payment-card-selection emi-selection">
+        <h3 class="payment-method--title">Pay using EMI from Credit Card</h3>
+        <div class="payment-method--card">
+          <h4 class="payment-method--cart-title">All Banks</h4>
+          <div class="custom-dropdown">
+            <select>
+              <option value="sbi">State Bank of India</option>
+              <option value="hdfc">HDFC</option>
+              <option value="indianbank">Indian Bank</option>
+              <option value="icici">ICICI Bank</option>
+            </select>
+          </div>
+
+          <div class="payment-method--card-emi-list">
+            {% include '_modules/div-table.nunjucks' %}
+          </div>
+        </div>
+      </div>
+      <div class="total-payment-amount">
+        Payment Amount <span><i class="icon-rupees"></i>1,000</span>
+      </div>
+      <div class="payment-method-cta">
+      	<a href="javascript:;" class="button-payment-back button-white button js-delivery-orderpreview-cta link-secondary">BACK</a>
+        <button type="submit" class="payment-cta--right button--disabled button-primary js-payment-pay-now">MAKE YOUR PAYMENT</button>
+      </div>
+    </div>
+    -->
+  </div>
+</div>

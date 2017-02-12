@@ -1,0 +1,24 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<!-- BEGIN ShopCartOnBehalfOfLock_Data.jspf -->
+<c:set var="lockedBy" value="${order.orderEditor.externalIdentifier.identifier }"/>
+<c:set var="currentOrderLocked" value="false"/>
+<c:if test="${order.locked == 'true'}">
+	<c:set var="currentOrderLocked" value="true"/>
+</c:if>
+<c:if test="${(env_shopOnBehalfSessionEstablished eq true) and (env_buyOnBehalfAdminUserId eq order.orderEditor.uniqueID)}" >
+	<c:set var="currentOrderLocked" value="false"/>
+</c:if>
+
+<!-- END ShopCartOnBehalfOfLock_Data.jspf -->

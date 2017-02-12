@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014, 2015 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:rest-action-config xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../xsd/rest-action-config.xsd ">
+	<resource path="{serverHost}/wcs/resources/store/{storeId}/cart" name="orderlist">
+
+		<serverParam name="serverHost">$WCParam.serverHost</serverParam>
+		<serverParam name="storeId">$WCParam.storeId</serverParam>
+
+		
+		<method name="addOrderItem" httpMethod="POST" path="">
+			<template>
+				<![CDATA[{
+					"orderId" : "$orderId",
+					"orderItem" : [
+						{
+							"comment" : "$comment",
+							"productId" : "$catEntryId",
+							"partNumber" : "$partNumber",
+							"quantity" : "$quantity",
+							"UOM" : "$UOM",
+							"contractId" : "$contractId",
+							"calculationUsage" : "$calculationUsage",
+							"fulfillmentCenterId" : "$fulfillmentCenterId",
+							"fulfillmentCenterName" : "$fulfillmentCenterName"
+						}
+					],
+					"x_calculationUsage" : "$calculationUsage",
+					"x_calculateOrder" : "$calculateOrder",
+					"x_inventoryValidation" : "$inventoryValidation",
+					"x_remerge" : "$remerge",
+					"x_merge" : "$merge",
+					"x_check" : "$check",
+					"x_allocate" : "$allocate",
+					"x_backorder" : "$backorder",
+					"x_reverse" : "$reverse",
+					"x_orderTotal" : "$x_orderTotal",
+					"x_itemsInCart" : "$x_itemsInCart"
+				}]]>
+			</template>
+		</method>
+
+		<method name="updateOrderItem" httpMethod="PUT" path="@self/update_order_item">
+			<template>
+				<![CDATA[{
+					"orderId" : "$orderId",
+					"orderItem" : [
+						{
+							"productId" : "$catEntryId",
+							"quantity" : "$quantity",
+							"orderItemId" : "$orderItemId",
+							"contractId" : "$contractId",
+							"partNumber" : "$partNumber",
+							"xitem_field1" : "$xitem_field1",
+							"xitem_field2" : "$xitem_field2"
+						}
+					],
+					"x_calculationUsage" : "$calculationUsage",
+					"x_calculateOrder" : "$calculateOrder",
+					"x_inventoryValidation" : "$inventoryValidation",
+					"x_remerge" : "$remerge",
+					"x_merge" : "$merge",
+					"x_check" : "$check",
+					"x_allocate" : "$allocate",
+					"x_backorder" : "$backorder",
+					"x_reverse" : "$reverse",
+					"x_orderTotal" : "$x_orderTotal",
+					"x_itemsInCart" : "$x_itemsInCart"
+				}]]>
+			</template>
+		</method>
+
+	</resource>
+</_config:rest-action-config>

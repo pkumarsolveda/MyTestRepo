@@ -1,0 +1,25 @@
+<%--  Add your data related code here --%>
+
+<script>
+dojo.addOnLoad(function() {
+		$(document).on('dmart.recomm.cart.loaded',function(){
+			espotProductsRecommendation.init();
+			espotProductsRecommendation.loadBannerItems();
+			
+			$(document).off('dmart.recomm.cart.loaded');
+		});
+		
+		if(DMStorage.getValue('OrderId')!=null){
+			
+			$(document).trigger('dmart.recomm.cart.loaded');
+		}
+	});
+
+</script>
+
+<% 
+    //StoreConfigurationRegistry storeConfReg = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+	String titleMostPopularItems = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Title.MostPopularItems");
+	pageContext.setAttribute("titleMostPopularItems", titleMostPopularItems);
+	
+%>

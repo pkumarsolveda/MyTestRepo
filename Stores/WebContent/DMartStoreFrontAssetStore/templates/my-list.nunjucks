@@ -1,0 +1,97 @@
+{% extends '_layouts/base.nunjucks' %}
+{% block title %} My List {% endblock %}
+
+{% set logged = 'yes' %}
+
+{% set pageTitle = "mylist" %}
+
+{% set parentPage = "My List" %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      {% set upsell = "enable" %}
+      <div class="my-listing-products">
+        <div class="js-accordion-tabs-recommanded">
+          <div class="no-border-tabs recommended-products">
+            <ul class="resp-tabs-list clearfix hor_1">
+              <li>Organic</li>
+              <li>Monthly</li>
+              <li>Household</li>
+              <li>Personal Care</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+              <div>
+                <div class="cart-details js-alter-module">
+                  <div class="cart-details__item">
+                    <div class="cart-details-info">
+                      <div class="row">
+                        <div class="col-md-3 col-lg-2">
+                          <div class="mylist-set-alert">
+                            <a class="button-white modal-link" data-target="setAlertModal" href="javascript:;" title="Set Your Reminder">Set Your Reminder</a>
+                          </div>
+                        </div>
+                        <div class="col-md-4">
+                          <h4 class="cart-details__item--details">Showing Total 50 Products</h4>
+                        </div>
+                        <div class="col-md-6">
+                          <div class="my-listing-details__pricing js-alter-cta-panel">
+                            <div class="my-listing-details__pricing-info">
+                              <h4 class="my-listing-details--price-save">Total Savings <span><i class="icon-rupees"></i>500</span></h4>
+                              <h3 class="my-listing-details--price-dmart">Total Price <i class="icon-rupees"></i>4,000</h3>
+                            </div>
+                            <div class="my-listing__cta-container">
+                              <a href="javascript:;" class="js-mylist-add-all button-primary"><i class="icon-cart"></i> ADD <span>All</span> TO CART</a>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                    <p class="alert alert-danger text-center js-hide-show js-mylist-show-alert">No products in this list</p>
+                    {% from '_modules/mylist-items.nunjucks' import myListItems %}
+                    {{ myListItems(type='apparel', available='true', id='1', product="Men's Polo T-shirt", brand='Nike', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                    {{ myListItems(type='grocery', available='true', id='2', product='India Gate Basmati Rice', brand='India Gate', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                    {{ myListItems(type='grocery', available='true', id='3', product='India Gate Basmati Rice', brand='India Gate', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                    {{ myListItems(type='grocery', available='true', id='4', product='India Gate Basmati Rice', brand='India Gate', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                    {{ myListItems(type='grocery', available='true', id='5', product='India Gate Basmati Rice', brand='India Gate', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                    {{ myListItems(type='grocery', available='true', id='6', product='India Gate Basmati Rice', brand='India Gate', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                    {{ myListItems(type='grocery', available='true', id='7', product='India Gate Basmati Rice', brand='India Gate', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="false") }}
+                  </div>
+                  <div class="row">
+                    <div class="col-xs-12 col-lg-2">
+                      <div class="delete-mylist">
+                        <a href="javascript:;" class="button-white delete-my-list-cta" title="Delete List">
+                          Delete List
+                        </a>
+                      </div>
+                    </div>
+                    <div class="col-xs-12 col-lg-8 col-lg-offset-2">
+                      {% include '_modules/my-list-search-toolbar.nunjucks' %}
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div>
+                Monthly
+              </div>
+              <div>
+                Household
+              </div>
+              <div>
+                Personal Care
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</div>
+
+{% include '_modules/modal-clear-mylist.nunjucks' %}
+{% include '_modules/modal-set-alert.nunjucks' %}
+{% endblock %}

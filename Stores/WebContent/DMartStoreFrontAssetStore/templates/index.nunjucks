@@ -1,0 +1,71 @@
+{% extends '_layouts/landing.nunjucks' %}
+{% block title %}Home{% endblock %}
+
+{% block content %}
+
+
+{% include '_modules/banner.nunjucks' %}
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-9">
+        <section class="landing-tabs landing-tabs--primary spacing-bottom">
+          <h2 class="landing-tabs--title">Most Popular</h2>
+        {% include '_modules/landing-upper-product.nunjucks' %}
+        </section>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-3">
+        <ul class="landing-quick-shop">
+          <li>
+            <a href="javascript:;">
+              <i class="icon-document-add"></i>
+              <span>Shop From List</span>
+            </a>
+          </li>
+          <li>
+            <a href="javascript:;">
+              <i class="icon-package"></i>
+              <span>Shop From <br>Previous Order</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <section class="landing-tabs landing-tabs--secondary">
+          {% include '_modules/landing-tabs-recommended.nunjucks' %}
+        </section>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <section class="landing-tabs landing-tabs--tertiary">
+          <h2 class="landing-tabs--title">Top Category Offers</h2>
+          {% include '_modules/top-category-offers.nunjucks' %}
+        </section>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 text-right">
+        <p class="landing-links">
+          <a href="javascript:;" title="View all">View all</a>
+        </p>
+      </div>
+    </div>
+  </div>
+
+  {% include '_modules/modal-size-guide.nunjucks' %}
+{% endblock %}

@@ -1,0 +1,22 @@
+{% extends '_layouts/mycart.nunjucks' %}
+{% block title %} About Us {% endblock %}
+{% set pageTitle = "About Us" %}
+{% block content %}
+  <div class="container">
+    <div class="static-page">
+      <div class="row">
+        <div class="col-md-12">
+          <h2 class="static-page--title">About Us</h2>
+          <h3 class="static-page--subtitle"> What is DMart?</h3>
+          <p> DMart is India’s largest online food and grocery store. With over 14,000 products and over a 1000 brands in our catalogue you will find everything you are looking for. Right from fresh Fruits and Vegetables, Rice and Dals, Spices and Seasonings to Packaged products, Beverages, Personal care products, Meats – we have it all.
+          Choose from a wide range of options in every category, exclusively handpicked to help you find the best quality available at the lowest prices. Select a time slot for delivery and your order will be delivered right to your doorstep, anywhere in Bangalore, Mysore, Mumbai, Hyderabad, Pune, Chennai & Delhi. You can pay online using your debit / credit card or by cash / sodexo on delivery. </p>
+          <p> We guarantee on time delivery, and the best quality!  </p>
+          <h3 class="static-page--subtitle"> Why should I use DMart? </h3>
+          <p> DMart allows you to walk away from the drudgery of grocery shopping and welcome an easy relaxed way of browsing and shopping for groceries. Discover new products and shop for all your food and grocery needs from the comfort of your home or office. No more getting stuck in traffic jams, paying for parking, standing in long queues and carrying heavy bags – get everything you need, when you need, right at your doorstep. Food shopping online is now easy as every product on your monthly shopping list, is now available online at DMart, India’s best online grocery store.</p>
+          <h3 class="static-page--subtitle"> Where do we operate? </h3>
+          <p>We currently offer our services in Bangalore, Mysore , Hyderabad , Mumbai, Pune, Chennai & Delhi city limits.</p>
+        </div>
+      </div>
+    </div>
+  </div>
+{% endblock %}

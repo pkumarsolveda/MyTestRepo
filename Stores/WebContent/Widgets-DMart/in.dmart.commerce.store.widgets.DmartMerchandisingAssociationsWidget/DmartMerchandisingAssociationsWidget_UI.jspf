@@ -1,0 +1,29 @@
+<%--  The following code is created as an example. Modify the generated code and add any additional required code.  --%>
+<%--
+<div id="widgetExample" >
+<ul style="list-style: none; font-size: 24px">
+		<li>${param.widgetOrientation}</li>
+		<li>${param.numberOfContentToDisplay}</li>
+</ul>
+--%>
+
+
+<div id="recommendations" class="js-accordion-tabs-recommanded" style="display: none;">
+  <div class="no-border-tabs recommended-products">
+    <div class="carousel-navigation" ><span class="countClass"></span>
+      <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+    </div>
+    <ul class="resp-tabs-list clearfix hor_1" id="headerId"> 
+  	<li id="upSellHead" data-type="upSellHead"  onclick="productsRecommendation.renderPageCount(this.id)"><fmt:message bundle="${storeText}" key="UPSELL_TITLE_TEXT"/></li>
+  	<li id="recommHead" data-type="recommend" onclick="productsRecommendation.renderPageCount(this.id)"><fmt:message bundle="${storeText}" key="RECO_TITLE_TEXT"/></li>
+    </ul>
+    <div class="resp-tabs-container hor_1" id="upselling">
+      	      	
+   </div>
+</div>
+</div>
+
+
+
+

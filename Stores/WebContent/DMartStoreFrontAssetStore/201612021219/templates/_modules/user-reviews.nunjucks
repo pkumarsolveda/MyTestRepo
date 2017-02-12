@@ -1,0 +1,30 @@
+
+{% macro userReview(title="Great Shipping", author="Anup", text="Great Value instant Rice is a wonderful product,I buy a lot from D-Mart on-line. I am disabled and cannot leave my home because of mobility issues. so i rely on D-Mart for great price.. Now we all know that lately the quality of food and the price or food now days is very bad, So thank the Lord there is D-Mart. Anyway this rice is very tasty.. My family loves the taste, it is chea. I buy it in bulk and put it up to help keep my pantry well stocked with the essentials. It is much better than having to get potatoes .You can't beat this rice for value and taste.. Enjoy!") %}
+<li>
+  <div class="user-review__details">
+    <h3 class="user-review__title">{{ title }}
+    <span class="user-review__ratings"></span>
+    <span>by</span> <a class="user-review__name" href="javascript:;">{{ author }}</a>
+    </h3>
+  </div>
+  <div class="user-review__text"><p>{{ text }}</p></div>
+</li>
+{% endmacro %}
+
+<section class="customer-reviews">
+  <div class="row">
+    <div class="col-sm-8">
+      <h2 class="customer-reviews__title">Customer Reviews</h2>
+    </div>
+    <div class="col-sm-4">
+      <p class="customer-reviews__count"> Total Reviews : 2</p>
+    </div>
+  </div>
+
+  {% include '_modules/write-reviews.nunjucks' %}
+
+  <ul class="user-review">
+    {{ userReview(author="anand") }}
+    {{ userReview(author="Brajeshwar", title="Wonderful Product. Great Shipping") }}
+  </ul>
+</section>

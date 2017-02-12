@@ -1,0 +1,152 @@
+{% macro searchDropdownGrocery(product,i) %}
+{%set currentItemId = product.selectedItemId %}
+{%set isApparel = (product.attributes.Colour != undefined) %} 
+<li  id="item{{i}}" data-itemid="{{product.selectedItemId}}" data-productid="{{product.productId}}" data-orderitemid="{{product.itemDetails[currentItemId].orderItemId}}" data-maxorderqty="{{product.itemDetails[currentItemId].maxOrderQty}}">
+  <div class="row">
+    <div class="col-md-1">
+    
+    <a href="{%if product.itemDetails[currentItemId].outofstock%}#_{% else %}
+	    		{%if product.seo.length>0 %}
+	    			{{product.seo}}?categoryId={{product.catGroup}}
+	    		{% else %}
+	    			ProductDisplay?productId={{product.productId}}&catalogId={{data.config.catalogId}}&storeId={{data.config.storeId}}&langId={{data.config.langId}}&categoryId={{product.catGroup}}
+	    		{%endif%}
+    		{%endif%}" title="{{product.name}}">
+    	<img class="img-responsive {%if product.itemDetails[currentItemId].outofstock%} product-out-of-stock-image-disabled{%endif%}" src="{{product.itemDetails[currentItemId].imageObjs[0]}}"  alt="{{ product.name }}" title="{{ product.name }}"  onerror="this.src='{{data.config.noImagePath}}';">
+    	<span class="product-listing--label-out-of-stock" {%if not product.itemDetails[currentItemId].outofstock%}style='display:none'{%endif%}><span>Out of Stock</span></span></a>
+    </a>
+    
+    </div>
+    <div class="col-md-3">
+      <h4 class="product-search-brand">
+      <a href="SearchDisplay?catalogId={{data.config.catalogId}}&langId=-1&storeId={{data.config.storeId}}&manufacturer={{product.itemDetails[currentItemId].brand|urlencode}}">{{product.itemDetails[currentItemId].brand }}</a>
+      </h4>
+      <h6 class="product-search-item">
+      <a href="{%if product.itemDetails[currentItemId].outofstock%}#_{% else %}
+      		{%if product.seo.length>0 %}
+    			{{product.seo}}?categoryId={{product.catGroup}}
+    		{% else %}
+    			ProductDisplay?productId={{product.productId}}&catalogId={{data.config.catalogId}}&storeId={{data.config.storeId}}&langId={{data.config.langId}}&categoryId={{product.catGroup}}
+    		{%endif%}
+      	{%endif%}">{{ product.name }}</a>
+      </h6>
+    </div>
+    <div class="col-md-2 padding-reset-right">
+      
+        {%if isApparel %}
+        
+           <div class="dropdown dropdown-colorselector js-colorselector" {% if product.attributes.Colour == undefined %} style='display:none' {%endif%}>
+	          <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;">
+	            <span class="btn-colorselector" style="background-color: {{product.currentAttributeCombo.Colour}};"></span>
+	          </a>
+	          <ul class="dropdown-menu dropdown-caret">
+	            {%for colour in product.attributes.Colour %}
+	            <li><a class="color-btn {%if colour == product.currentAttributeCombo.Colour%}selected{%endif%}" href="javascript:;" data-color="{{colour}}" data-value="{{colour}}" style="background-color: {{colour}};"></a>
+	            </li>
+	            {% endfor %}
+	          </ul>
+	        </div>
+	
+	        <div class="custom-dropdown custom-dropdown--size" {% if product.attributes.Size == undefined %} style='display:none' {%endif%}>
+	          <select class="product-search-item--size-select apparel-size-select">
+	            <option>Size</option>
+	            {%for size in product.applicableSizes %}
+	            <option value="{{size}}">{{size}}</option>
+	            {% endfor %}
+	          </select>
+	        </div>
+	        
+        {%else%}
+            {% if product.attributes.Size != undefined and product.attributes.Size.length == 1%}
+            	<div>
+		        	<span class="single-variant">{{product.attributes.Size[0]}}</span>
+		    	</div>
+            {%else%}
+				<div class="custom-dropdown" {% if product.attributes.Size == undefined %} style='display:none' {%endif%}>
+			        <select class="product-search-item--size-select">
+			          {%for size in product.attributes.Size %}
+			          <option value="{{size}}" {%if size == product.currentAttributeCombo.Size%}selected=""{%endif%}>{{size}}</option>
+			          {% endfor %}
+			        </select>
+			    </div>
+			{%endif%}
+		{%endif%}       
+       
+     
+    </div>
+    <div class="col-md-4 col-lg-3">
+      {%set mrp = product.itemDetails[currentItemId].price.sellingPrice %}
+      {%set dmartPrice = product.itemDetails[currentItemId].price.offerPrice %}
+      {%set savings = mrp - dmartPrice %}
+      <h6 class="product-listing--original-price" {%if mrp <= 0 or isApparel %}style="display:none;"{%endif%}>
+      MRP {% if savings > 0  %}<span class="strike-diagonal" >{% else %}<span class="no-strike-diagonal" >{% endif %}<i class="icon-rupees"></i>{{mrp}}</span>
+      </h6>
+      <h4 class="product-search-listing--discounted-price" {% if dmartPrice <= 0 or isApparel %} style='display:none' {% endif %}>
+      DMart <i class="icon-rupees"></i>{{dmartPrice}}</a>
+      </h4>
+    </div>
+    <div class="col-md-2 col-lg-3">
+      <div class="search-cart-button">
+        {%if data.config.isHeaderSearch%}
+        <button class="product-search__btn-addtocart button-primary {%if isApparel or product.itemDetails[currentItemId].outofstock or not product.itemDetails[currentItemId].priceExists%} cart-button-disabled {%endif%}"  {%if isApparel or product.itemDetails[currentItemId].outofstock or not product.itemDetails[currentItemId].priceExists%} disabled {%endif%} type="button" {%if not isApparel and product.itemDetails[currentItemId].qtyInCart > 0 %} style='display:none' {%endif%} >
+          <i class="icon-cart"></i>
+            Add
+        </button>
+		{%else%}
+        <button class="product-search__btn-addtolist {%if isApparel %} cart-button-disabled {%endif%} {%if isApparel or not product.itemDetails[currentItemId].inCurrentList%}js-not-added{%endif%} button-primary" {%if isApparel %} disabled {%endif%} type="button">
+          {%if product.itemDetails[currentItemId].inCurrentList%}
+          Added to List
+          {%else%}
+          <i class="icon-cart"></i>
+            Add to List
+          {%endif%}
+        </button>
+        {%endif%}
+        {%if data.config.isHeaderSearch%}
+        <div class="quantity-select clearfix {%if isApparel or product.itemDetails[currentItemId].qtyInCart == 0 or product.itemDetails[currentItemId].outofstock or not product.itemDetails[currentItemId].priceExists %} js-hide-show {%endif%}">
+          <form>
+            <div class="js-quantity-minus quantity-button"> <a href="javascript:;">-</a></div>
+            <div class="quantity-input">
+              <input type="text" class="form__input" disabled="disabled" value="{{product.itemDetails[currentItemId].qtyInCart}}" >
+            </div>
+            <div class="js-quantity-plus quantity-button"> <a href="javascript:;">+</a></div>
+          </form>
+        </div>
+        {%endif%}
+      </div>
+    </div>
+  </div>
+</li>
+
+{% endmacro %}
+
+<!-- Hide results section if no results found -->
+{% if data.productIds.length == 0 %}
+<!-- hiding it for testing purpose -->
+<div class="hide">
+{% endif %}
+{% set i = 1 %}
+<ul class="search-dropdown">
+  {% for productId in data.productIds %}
+  {{ searchDropdownGrocery(data.products[productId],i) }}
+  {% set i = i + 1 %}
+  {% endfor %}
+  
+</ul>
+
+{% if data.config.isHeaderSearch %}
+<div class="dropdown-search__cta-wrap">
+  <a href="SearchDisplay?storeId={{data.config.storeId}}&langId={{data.config.langId}}&catalogId={{data.config.catalogId}}&searchTerm={{data.searchTerm|urlencode}}" class="button-primary button--block">View all products</a>
+</div>
+{% endif %}
+{% if data.productIds.length == 0 %}
+</div>
+{% endif %}
+<!-- Show message if no results found-->
+{% if data.productIds.length == 0 %}
+<!-- Remove '.hide' from here '.no-result-found' if result is not found -->
+<div class="no-result-found">
+  <p class="alert alert-danger"><i class="icon-error-type icon-notification"></i> No Result Found</p>
+</div>
+
+{% endif %}

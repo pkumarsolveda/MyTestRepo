@@ -1,0 +1,70 @@
+
+<%@ include file= "../../Common/CommonJSToInclude.jspf" %>
+<%@ include file= "../../Common/DMartCommonJSToInclude.jspf" %>
+
+<%
+StoreConfigurationRegistry scfRegistryCheckout = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+String GAEnabled = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Google.Analytics.Enabled");
+pageContext.setAttribute("GAEnabled", GAEnabled);
+String GATrackingId = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Google.Analytics.TrackingId");
+pageContext.setAttribute("GATrackingId", GATrackingId);
+String curationTimeInHours = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.PuP.CurationTimeInHours");
+pageContext.setAttribute("curationTimeInHours", curationTimeInHours);
+	CommandContext cmndContext = (CommandContext)request.getAttribute(com.ibm.commerce.server.ECConstants.EC_COMMANDCONTEXT);
+	if (cmndContext == null) {
+       out.println("CommandContext is null");
+       return;
+   	}
+   	com.ibm.commerce.user.objects.UserAccessBean ua = cmndContext.getUser();
+   	String userFieldValue = ua.getUserField3();
+   	pageContext.setAttribute("userFieldValue", userFieldValue);
+   	String oldGuestId = ua.getUserId();
+   	pageContext.setAttribute("oldGuestId", oldGuestId);
+   	
+%>
+<script>
+  var GAEnabled = '${GAEnabled}';
+  var userFieldValue = "<c:out value="${userFieldValue}"/>";
+  var oldGuestId = "<c:out value="${oldGuestId}"/>";
+  (function(i,s,o,g,r,a,m){i['GoogleAnalyticsObject']=r;i[r]=i[r]||function(){
+  (i[r].q=i[r].q||[]).push(arguments)},i[r].l=1*new Date();a=s.createElement(o),
+  m=s.getElementsByTagName(o)[0];a.async=1;a.src=g;m.parentNode.insertBefore(a,m)
+  })(window,document,'script','//www.google-analytics.com/analytics.js','ga');
+
+  ga('create', '${GATrackingId}', 'auto');
+  ga('send', 'pageview');
+  ga('set', 'userId', '${userId}' ); // Set the user ID using signed-in user_id.
+dojo.addOnLoad(function() {	
+	DMAnalytics.pageLoad(null);
+	<fmt:message bundle="${storeText}" key="CHECKOUT_SELECT_AN_ADDRESS" var="CHECKOUT_SELECT_AN_ADDRESS"/>              
+	MessageHelper.setMessage("CHECKOUT_SELECT_AN_ADDRESS", <wcf:json object="${CHECKOUT_SELECT_AN_ADDRESS}"/>);
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_SERVER_ERROR" var="CHECKOUT_SERVER_ERROR"/>              
+	MessageHelper.setMessage("CHECKOUT_SERVER_ERROR", <wcf:json object="${CHECKOUT_SERVER_ERROR}"/>);
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_ITEM_UNAVAILABLE" var="CHECKOUT_ITEM_UNAVAILABLE"/>              
+	MessageHelper.setMessage("CHECKOUT_ITEM_UNAVAILABLE", <wcf:json object="${CHECKOUT_ITEM_UNAVAILABLE}"/>);
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_NON_SERVING_PINCODE" var="CHECKOUT_NON_SERVING_PINCODE"/>              
+	MessageHelper.setMessage("CHECKOUT_NON_SERVING_PINCODE", <wcf:json object="${CHECKOUT_NON_SERVING_PINCODE}"/>);
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_THRESHOULD_NOT_MET" var="CHECKOUT_THRESHOULD_NOT_MET"/>              
+	MessageHelper.setMessage("CHECKOUT_THRESHOULD_NOT_MET", <wcf:json object="${CHECKOUT_THRESHOULD_NOT_MET}"/>);
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_SLOT_INVALID" var="CHECKOUT_SLOT_INVALID"/>              
+	MessageHelper.setMessage("CHECKOUT_SLOT_INVALID", <wcf:json object="${CHECKOUT_SLOT_INVALID}"/>);
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_OTP_NOT_VALIDATED" var="CHECKOUT_OTP_NOT_VALIDATED"/>              
+	MessageHelper.setMessage("CHECKOUT_OTP_NOT_VALIDATED", <wcf:json object="${CHECKOUT_OTP_NOT_VALIDATED}"/>);	
+	
+	<fmt:message bundle="${storeText}" key="CHECKOUT_PUP_CURATION_MSG" var="CHECKOUT_PUP_CURATION_MSG">
+		<fmt:param><c:out value="${curationTimeInHours}"/></fmt:param>
+	</fmt:message>              
+	MessageHelper.setMessage("CHECKOUT_PUP_CURATION_MSG", <wcf:json object="${CHECKOUT_PUP_CURATION_MSG}"/>);
+});
+</script>
+<input type="hidden" name="pincodeNotServicedMesg1" value="<fmt:message key='LOC_PINCODE_NOT_SERVICED_MSG1' bundle='${storeText}'/>" id="pincodeNotServicedMesg1" />
+<input type="hidden" name="pincodeNotServicedMesg2" value="<fmt:message key='LOC_PINCODE_NOT_SERVICED_MSG2' bundle='${storeText}'/>" id="pincodeNotServicedMesg2" />
+<input type="hidden" name="incorrectPincodeMesg" value="<fmt:message key='LOC_INCORRECT_PINCODE_MSG' bundle='${storeText}'/>" id="incorrectPincodeMesg" />
+<input type="hidden" name="errorInAutoDetection" value="<fmt:message key='LOC_ERROR_IN_AUTO_DETECTION' bundle='${storeText}'/>" id="errorInAutoDetection" />
+

@@ -1,0 +1,291 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2013, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+
+<%-- Note: for any e-Marketing Spots included on the footer page, then the parameter --%>
+<%--       cacheWithParent should be set to true if the footer is dynacached         --%>
+<script type="text/javascript">
+$(document).ready(function() {		    
+    localCache.init();
+});
+</script>
+<div id="forgotPasswordModal" class="modal-dialog js-modal-dialog-esc">
+	<div class="modal-dialog__content modal-dialog__content-small">
+		<a href="javascript:;" title="Close" class="modal-dialog__close"><fmt:message bundle="${storeText}" key="CLOSE_BUTTON"/></a>
+		<div class="modal-dialog__header">
+			<h4 class="modal-dialog__header-title"><fmt:message bundle="${storeText}" key="FP_FORGOT_PASSWORD2"/></h4>
+		</div>
+		<div class="modal-dialog__body">
+			<div>
+				<p class="form-notification"><fmt:message bundle="${storeText}" key="YOU_WILL_RECEIVE_OTP"/><br/>
+				<fmt:message bundle="${storeText}" key="USER_FORGOT_PASS"/></p>
+				<form name="forgotValidation" class="form form--modal" method="post" 
+					id="forgotValidation" >
+					<input type="hidden" name="challengeAnswer" value="-" id="WC_PasswordResetForm_FormInput_challengeAnswer_In_ResetPasswordForm_1"/>
+					<input type="hidden" name="storeId" value='<c:out value="${WCParam.storeId}" />' id="storeId"/>
+					<input type="hidden" name="catalogId" value='<c:out value="${WCParam.catalogId}" />' id="catalogId"/>
+					<input type="hidden" name="langId" value='<c:out value="${langId}" />' id="langId"/>
+					<input type="hidden" name="state" value="passwdconfirm" id="WC_PasswordResetForm_FormInput_state_In_ResetPasswordForm_1"/>
+					<input type="hidden" name="URL" value="OTPValidateView" id="URL"/>
+					<input type="hidden" name="errorViewName" value="ResetPasswordErrorView" id="WC_PasswordResetForm_FormInput_errorViewName_In_ResetPasswordForm_1"/>
+					<input type="hidden" name="authToken" value="${authToken}"  id="WC_PasswordResetForm_FormInput_authToken_In_ResetPasswordForm_1"/>
+					<input id="previousPage" type="hidden" value="${header.referer}" name="previousPage"/>
+					<div class="form-control">
+						<label for="mobileNumber"
+							class="form__label required-field spacing-bottom-tiny"><fmt:message bundle="${storeText}" key="FP_MOBILE_NUMBER"/></label> 
+						<div class="form__input--group">
+							<span class="form__input-prefix"><fmt:message bundle="${storeText}" key="FP_MOBILE_NUMBER_PREFIX"/></span> <input type="tel"
+								required maxlength="10" placeholder="9999999999"
+								id="logonId" name="logonId" class="form__input">
+						</div>
+					</div>
+					<div>
+					<span id="LoginIdErrorMsg" style="color:#d9534f"></span>
+					</div>
+					<button class="js-form-submit button-primary button--block"
+						type="button" onclick="javascript:DMAnalytics.events( DMAnalytics.Constants.Action.ForgotPwd,DMAnalytics.Constants.Action.ForgotPwd , document.title, 0,null );forgotPasswordSendOTP(document.forgotValidation);return false;">
+						<fmt:message bundle="${storeText}" key="FP_FORGOT_PASSWORD1"/>
+					</button>
+				</form>
+			</div>
+		</div>
+	</div>
+</div>
+
+<%
+StoreConfigurationRegistry scfRegistry = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+String FacebookPage = scfRegistry.getSingleton().getValue(0, "DMart.FacebookPage.URL");
+String GooglePlusPage = scfRegistry.getSingleton().getValue(0, "DMart.GooglePlus.URL");
+String NoLocPopUPPages = scfRegistry.getSingleton().getValue(0, "DMart.No.Location.Static.Pages");
+pageContext.setAttribute("FacebookPage", 		FacebookPage);
+pageContext.setAttribute("GooglePlusPage", 		GooglePlusPage);
+pageContext.setAttribute("NoLocPopUPPages", 		NoLocPopUPPages);
+%>	
+
+<script type="text/javascript">
+var noPagesWithLocationPopUp = '${NoLocPopUPPages}';
+if(noPagesWithLocationPopUp.length > 0){
+	noPagesWithLocationPopUp = noPagesWithLocationPopUp.split(":");	
+}
+/*
+ * Location pop up not required for static pages taken 
+ from storeconf
+ */
+function isLocationPopUpRequired(currentPage) {
+	currentPage = currentPage.replace("/webapp/wcs/stores/servlet/","");
+	if(currentPage.indexOf('/') == 0){
+		currentPage = currentPage.substring(1,currentPage.length);
+	}
+	return (noPagesWithLocationPopUp.indexOf(currentPage) == -1);
+}
+</script>
+		
+<div class="footer-credibility">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-md-6">
+        <div class="footer-credibility--sprite-icon">
+          <i class="dmart-sprite sprite-payments-visa"></i>
+          <i class="dmart-sprite sprite-payments-mastercard"></i>
+          <i class="dmart-sprite sprite-payments-amex"></i>
+          <i class="dmart-sprite sprite-payments-rupay"></i>
+          <i class="dmart-sprite sprite-payments-cod"></i>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-6">
+        <%-- Commented out AE-15753
+        <aside class="footer-social respond-text-right">
+          <a href="${FacebookPage}" class="footer-social--facebook" target="_blank"><i class="icon-facebook"></i></a>
+          <!-- removing google + AE-14321-->
+          <a href="${GooglePlusPage}" class="footer-social--google" target="_blank"><i class="icon-google"></i></a>  
+        </aside>
+        --%>
+      </div>
+    </div>
+  </div>
+</div><%-- /footer-credibility --%>
+
+<footer class="footer">
+  <div class="footer-meta">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12 col-md-3 col-lg-3">
+          <h3 class="footer-meta--title"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_FIRST_TEXT"/></h3>
+          <nav class="footer-meta--nav link-bordered">
+			<wcf:rest var="eSpotDatasRoot" url="/store/{storeId}/espot/{name}" format="json" >
+					<wcf:var name="storeId" value="${WCParam.storeId}" encode="true"/>
+					<wcf:var name="name" value="DMartFooterCategoriesESpot" encode="true"/>
+			</wcf:rest>
+			<c:if test="${!empty eSpotDatasRoot.MarketingSpotData[0]}" >
+					<c:set var="eSpotDatas" value="${eSpotDatasRoot.MarketingSpotData[0]}"/>
+			
+					<c:forEach var="eSpotData" items="${eSpotDatas.baseMarketingSpotActivityData}" varStatus="status1">
+					 	 <c:if test='${eSpotData.baseMarketingSpotDataType eq "MarketingContent"}'>
+					 	 	 <c:if test="${eSpotData.contentFormatName == 'Text'}"> 
+					 	 	    <c:forEach var="eSpotContent" items="${eSpotData.marketingContentDescription}" varStatus="status2">
+					 	 	      ${eSpotContent.marketingText}
+					 	 	    </c:forEach>
+					 	 	 </c:if>
+					 	 </c:if>
+					</c:forEach>
+			</c:if>
+          </nav>
+        </div>
+
+        <div class="col-xs-12 col-md-4 col-lg-4">
+          <h3 class="footer-meta--title"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_SECOND_TEXT"/></h3>
+          <nav class="footer-meta--nav link-bordered">
+	            <wcf:rest var="eSpotDataRootCSR" url="/store/{storeId}/espot/{name}" format="json" >
+						<wcf:var name="storeId" value="${WCParam.storeId}" encode="true"/>
+						<wcf:var name="name" value="DmartFooterCustomerServiceESpot" encode="true"/>
+				</wcf:rest>
+				<c:if test="${!empty eSpotDataRootCSR.MarketingSpotData[0]}" >
+					<c:set var="eSpotDatasCSR" value="${eSpotDataRootCSR.MarketingSpotData[0]}"/>
+					<c:forEach var="eSpotDataCSR" items="${eSpotDatasCSR.baseMarketingSpotActivityData}" varStatus="status1">
+					 	 <c:if test='${eSpotDataCSR.baseMarketingSpotDataType eq "MarketingContent"}'>
+					 	 	 <c:if test="${eSpotDataCSR.contentFormatName == 'Text'}"> 
+					 	 	    <c:forEach var="eSpotContentCSR" items="${eSpotDataCSR.marketingContentDescription}" varStatus="status2">
+					 	 	      ${eSpotContentCSR.marketingText}
+					 	 	    </c:forEach>
+					 	 	 </c:if>
+					 	 </c:if>
+					</c:forEach>
+				</c:if>
+         <%-- <c:set var="faqUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-faq"  />
+              <c:set var="policyUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-privacy-policy"  />
+              <c:set var="returnsUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-returns-refunds"  />
+              <c:set var="aboutUsUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-about-us"  />
+              <c:set var="contactUsUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-contact-us"  />
+              <c:set var="termCondUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-terms-conditions"  />
+              <c:set var="siteMapUrl" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-site-map"  />
+              <li><a href="${faqUrl}" title="<fmt:message bundle="${storeText}" key="FOOTER_SECTION_FAQ_TEXT"/>"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_FAQ_TEXT"/></a></li>
+              <li><a href="${policyUrl}" title="<fmt:message bundle="${storeText}" key="FOOTER_SECTION_PRIVACY_TEXT"/>"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_PRIVACY_TEXT"/></a></li>
+              <li><a href="${returnsUrl}" title="<fmt:message bundle="${storeText}" key="FOOTER_SECTION_RETURNS_TEXT"/>"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_RETURNS_TEXT"/></a></li>
+              <li><a href="${termCondUrl}" title="<fmt:message bundle="${storeText}" key="FOOTER_SECTION_TERMS_TEXT"/>"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_TERMS_TEXT"/></a></li>
+              <li><div><a class="label-min-max" href="javascript:DMartStaticContent.PUPListDMart();" title="<fmt:message bundle="${storeText}" key="FOOTER_SECTION_PUP_TEXT"/>"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_PUP_TEXT"/></a><img class="footerPupDmartLogo" alt="DMart" src="${jspStoreImgDir}images/DMart/DMartReadyNew-01.svg"></div></li> --%>
+          </nav>
+        </div>
+        <div class="col-xs-12 col-md-2 col-lg-2">
+          <h3 class="footer-meta--title"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_THIRD_TEXT"/></h3>
+          <nav class="footer-meta--nav link-bordered">
+              <wcf:rest var="eSpotDataRootDMart" url="/store/{storeId}/espot/{name}" format="json" >
+						<wcf:var name="storeId" value="${WCParam.storeId}" encode="true"/>
+						<wcf:var name="name" value="DmartFooterDMartSectionESpot" encode="true"/>
+				</wcf:rest>
+				<c:if test="${!empty eSpotDataRootDMart.MarketingSpotData[0]}" >
+					<c:set var="eSpotDatasDMart" value="${eSpotDataRootDMart.MarketingSpotData[0]}"/>
+			
+					<c:forEach var="eSpotDataDMart" items="${eSpotDatasDMart.baseMarketingSpotActivityData}" varStatus="status1">
+					 	 <c:if test='${eSpotDataDMart.baseMarketingSpotDataType eq "MarketingContent"}'>
+					 	 	 <c:if test="${eSpotDataDMart.contentFormatName == 'Text'}"> 
+					 	 	    <c:forEach var="eSpotContentDMart" items="${eSpotDataDMart.marketingContentDescription}" varStatus="status2">
+					 	 	      ${eSpotContentDMart.marketingText}
+					 	 	    </c:forEach>
+					 	 	 </c:if>
+					 	 </c:if>
+					</c:forEach>
+				</c:if>
+          </nav>
+        </div>
+
+        <div class="col-xs-12 col-md-3 col-lg-3">
+          <div class="guarantee-ribbion-wrap">
+            <i class="dmart-sprite sprite-dmart-seal"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_QUALITY_TEXT"/></i>
+          </div>
+         <%-- <h3 class="footer-meta--title"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_NEWSLETTER_TEXT"/></h3>
+          <form class="newsletter" method="post" action="javascript:;" id="footerNewsletter" novalidate>
+            <input class="newsletter__field" type="email" name="newsletter" id="newsletter" required placeholder="Your Email ID" disabled="disabled">
+            <button class="newsletter__cta" type="submit" disabled="disabled"><i class="icon-arrow-right"></i></button>
+          </form> <!--/Newsletter--> 
+
+          <div class="app-downloads">
+            <h4 class="footer-meta--title"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_MOBILE_APP_TEXT"/></h4>
+            <p>
+              <a href="javascript:;" title="Download DMart Android App"><i class="dmart-sprite sprite-app-android"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_ANDROID_APP_TEXT"/></i></a>
+              <a href="javascript:;" title="Download DMart iOS App"><i class="dmart-sprite sprite-app-iOS"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_IOS_APP_TEXT"/></i></a>
+            </p>
+          </div>--%>
+        </div>
+      </div>
+    </div>
+  </div><%-- /footer meta --%>
+
+ <%-- <div class="container">
+    <div class="row">
+      <div class="col-xs-12">
+        <aside class="footer-declaration">
+          <p>
+            <fmt:message bundle="${storeText}" key="FOOTER_SECTION_AEL_TEXT"/>
+          </p>
+        </aside>
+      </div>
+    </div>
+  </div>
+ --%>
+  <div class="footer-legal">
+    <div class="container">
+      <div class="row">
+
+		  <div class="col-sm-12 col-md-5 footer-legal-left">
+		    <nav class="footer-legal__nav link-bordered">
+		      <ul>
+		        <li><a href="${siteMapUrl}" title="Site Map"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_SITEMAP_TEXT"/></a></li>
+				<li><a href="${policyUrl}" title="Privacy Policy"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_PRIVACY_TEXT"/></a></li>
+		        <li><a href="${returnsUrl}" title="<fmt:message bundle="${storeText}" key="FOOTER_SECTION_RETURNS_TEXT"/>"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_RETURNS_TEXT"/></a></li>
+				<li><a href="${termCondUrl}" title="Terms & Condition"><fmt:message bundle="${storeText}" key="FOOTER_SECTION_TERMS_TEXT"/></a></li>
+		      </ul>
+		    </nav>
+		  </div>
+		  
+		    <div class="col-xs-12 col-md-7">
+		    <p>
+		      <c:set var="date" value="<%=new java.util.Date()%>" />
+		      <small><fmt:message bundle="${storeText}" key="FOOTER_SECTION_COPYRIGHT_TEXT1"/>&nbsp;<fmt:formatDate pattern="yyyy" value="${date}" />&nbsp;<fmt:message bundle="${storeText}" key="FOOTER_SECTION_COPYRIGHT_TEXT2"/></small>
+		    </p>
+		  </div>
+  
+	 </div> <%-- /footer-legal --%>
+    </div>
+  </div>
+
+</footer>
+<%-- <!-- <script src="${jsAssetsDir}javascript/DMart/underscore.js"></script> -->
+<script src="${jsAssetsDir}javascript/DMart/vendor/password-strength.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/vendor/tabs.js"></script>
+<!-- <script src="${jsAssetsDir}javascript/DMart/vendor/jquery.autoComplete.js"></script> -->
+<script src="${jsAssetsDir}javascript/DMart/header-dropdown.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/form.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/sticky-header.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/modal.js"></script>
+<!-- <script src="${jsAssetsDir}javascript/DMart/autocomplete.js"></script> -->
+<script src="${jsAssetsDir}javascript/DMart/product-details.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/rating.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/validate.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/custom-select-dropdown.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/custom-tabs.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/carousel-variant.js"></script>
+<!--<script src="${jsAssetsDir}javascript/DMart/product-listing.js"></script> -->
+<script src="${jsAssetsDir}javascript/DMart/filter-brands-carousel.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/custom-scrollbar.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/gallery.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/tab-carousel.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/zoom.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/search-dropdown.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/landing.js"></script>
+
+<script src="${jsAssetsDir}javascript/DMart/my-cart.js"></script> --%>
+<%-- 
+<script src="${jsAssetsDir}javascript/DMart/Cart/DisplayUserCartHelper.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/MyAccount/DashBoardHelper.js"></script>
+ --%>
+

@@ -1,0 +1,24 @@
+<header class="checkout-header header-component__primary">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-2 col-sm-3">
+        <div class="logo">
+  <a href="${env_TopCategoriesDisplayURL}" title="DMart"> 
+  					<img class="logo--large img-responsive" src="${jspStoreImgDir}images/DMart/dmart-logo.svg" alt="DMart">
+  					<img class="logo--medium img-responsive" src="${jspStoreImgDir}images/DMart/dmart-logo.png" alt="DMart">
+  					<img class="logo--small img-responsive" src="${jspStoreImgDir}images/DMart/dmart-symbol-logo.svg" alt="DMart">
+				</a>
+</div>
+      </div>
+      <div class="col-xs-6 col-xs-push-4 col-sm-push-3 col-md-3 col-md-push-6 col-lg-2 col-lg-push-7">
+        <div class="delivery-code">
+  <i class="icon-delivery-location icon-location"></i>
+  <span class="delivery-code__label" style="opacity: 1;">Deliver to</span>
+  <span class="delivery-code__pin" style="opacity: 1;">400013</span>
+  <i class="icon-delivery-caret-down icon-caret-down" style="opacity: 1;"></i>
+</div>
+
+      </div>
+    </div>
+  </div>
+</header>

@@ -1,0 +1,18 @@
+{% from "_modules/product-listing-item-alternate-grocery.nunjucks" import plpAlterGrocery %}
+{% from "_modules/product-listing-item-alternate-apparel.nunjucks" import plpAlterApperal %}
+{% set totalPrice = 0 %}
+{% set totalSavings = 0 %}
+{% for productId in data.productIds %}
+	 <div class="col-xs-12 col-md-4 col-lg-3">
+	        {% set thisProduct = data.product[productId] %}
+	        {% set pageTitle = data.product[productId].pageType %}
+            {% if pageTitle == 'apparel' %}{{ plpAlterApperal(data.product[productId],data.config, outofstock, loop.index,data) }} {% elif pageTitle == 'household' %}   {{ plpAlterGrocery(data.product[productId],data.config,outofstock,loop.index,data) }}{% else %}   {{ plpAlterGrocery(data.product[productId],data.config,outofstock,loop.index,data) }} {% endif %}
+            {% set totalPrice = totalPrice|float + thisProduct.itemDetails[thisProduct.currentItem].price.offerPrice|float %}
+            {% set totalSavings = totalSavings|float + thisProduct.itemDetails[thisProduct.currentItem].price.savings|float %}
+     </div>
+{% endfor %}
+	     <div class="col-xs-12 col-md-4 col-lg-3">
+            {% from '_modules/product-alternate-summary.nunjucks' import pdpAltSummary%}
+            {{ pdpAltSummary(totalSavings,totalPrice,data.productCount) }}
+            {% include '_modules/add-to-shop-list.nunjucks' %}
+          </div>

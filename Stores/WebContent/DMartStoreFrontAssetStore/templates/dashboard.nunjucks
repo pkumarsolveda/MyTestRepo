@@ -1,0 +1,88 @@
+{% extends '_layouts/login.nunjucks' %}
+{% block title %} My Dashboard {% endblock %}
+
+{% set logged = 'yes' %}
+{% set pageTitle = "dashboard" %}
+
+{% set parentPage = "My Dashboard" %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="blurb-page">
+        <h3 class="blurb-page--title">My Account</h3>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+
+      <div class="my-dashboard">
+        <div class="js-accordion-tabs-recommanded">
+          <div class="no-border-tabs margin-reset">
+            <ul class="resp-tabs-list clearfix hor_1">
+              <li>Personal Details</li>
+              <li>Change Password</li>
+              <li>Manage Address</li>
+              <li>My Orders</li>
+              <li>Notification</li>
+              <li>DMart eWallet</li>
+            </ul>
+            <div class="resp-tabs-container hor_1">
+              <!-- Personal Details -->
+              <div>
+                {% include '_modules/dashboard-personal-information.nunjucks' %}
+              </div>
+              <!-- Chnage password -->
+              <div>
+                {% include '_modules/dashboard-password-change.nunjucks' %}
+              </div>
+              <!-- Manage Address -->
+              <div>
+                <!-- display '.dashboard-no-items' alert if nothing to show -->
+                <div class="dashboard-no-items js-hide-show">
+                  <div class="row">
+                    <div class="col-xs-12 col-md-6">
+                      <div class="delivery-vertical__address-new form">
+                        <h4 class="delivery-vertical__address-new--title">New Address</h4>
+                        {% include '_modules/selection-address-delivery-add-address.nunjucks' %}
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                {% include '_modules/dashboard-manage-address.nunjucks' %}
+              </div>
+              <!-- My Orders -->
+              <div>
+                {% include '_modules/dashboard-my-orders.nunjucks' %}
+                <!-- display '.dashboard-no-items' alert if nothing to show -->
+                <div class="dashboard-no-items js-hide-show">
+                  <p class="alert alert-danger text-center">No orders to show</p>
+                </div>
+              </div>
+              <!-- Notification -->
+              <div>
+                {% include '_modules/dashboard-notifications.nunjucks' %}
+                <!-- display '.dashboard-no-items' alert if nothing to show -->
+                <div class="dashboard-no-items js-hide-show">
+                  <p class="alert alert-danger text-center">No notifications to show</p>
+                </div>
+              </div>
+              <!-- DMart eWallet -->
+              <div>
+                {% include '_modules/dashboard-ewallet.nunjucks' %}
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+{% include "_modules/modal-cancel-order.nunjucks" %}
+{% include "_modules/modal-slot-change.nunjucks" %}
+{% endblock %}

@@ -1,0 +1,36 @@
+{% macro deliveryAddress(data) %}
+<li>
+   <label>
+      <input type="radio" {% if(data.primary == 'true')%}checked="checked"{% endif %} id="{{data.addressId}}" class="address-select-radio" name="delivery-address">
+      <address>
+         <strong>{{data.firstName}} {{data.lastName}}</strong><br>
+         
+         
+         {% if(data.addressLine[0].length > 0)%} 
+         {{data.addressLine[0].replace(',','')}},
+          {% endif %}
+         {% if(data.addressLine[1].length > 0)%} 
+	          {{data.addressLine[1]}},
+          {% endif %}
+         
+         
+        
+  		 {% if(data.city.length > 0)%} {{data.city}} {% endif %}
+  		 {% if(data.zipCode.length > 0)%} - {{data.zipCode}}, {% endif %}
+  		 {% if(data.state.length > 0)%} {{data.state}}. {% endif %}
+         <br>
+         Phone: {{data.phone1}}
+      </address>
+      <input id="addressList-{{data.nickName}}"" type="hidden" value="{{data.firstName}}||{% if(data.addressLine[0].length > 0)%}{{data.addressLine[0]}}{% endif %}{% if(data.addressLine[1].length > 0)%},{{data.addressLine[1]}}{% endif %}{% if(data.addressLine[2].length > 0)%},{{data.addressLine[2]}},{% endif %}
+||{{data.city}}||{{data.state}}||{{data.zipCode}}||{{data.phone1}}||{% if(data.primary == 'true')%}fav{% endif %}" 
+name="{{data.firstName}}||{% if(data.addressLine[0].length > 0)%}{{data.addressLine[0]}}{% endif %}{% if(data.addressLine[1].length > 0)%},{{data.addressLine[1]}}{% endif %}{% if(data.addressLine[2].length > 0)%},{{data.addressLine[2]}},{% endif %}
+||{{data.city}}||{{data.state}}||{{data.zipCode}}||{{data.phone1}}||{{data.email1}}||{% if(data.primary == 'true')%}fav{% endif %}"/>
+   </label>
+   <span>
+        <a title="Make it as Favorite Address" href="javascript:;" id="{{data.nickName}}" class="js-delivery-favorite delivery-favorite-cta delivery-favorite-cta--home"><i class="js-delivery-favorite-icon icon-heart js-hide-show"></i>
+        <i class="js-delivery-favorite-icon icon-heart{% if(data.primary == 'false')%}-outlined{% endif %}" ></i></a>
+        <a data-target="editAddressModal" title="Edit" href="javascript:;" id="{{data.nickName}}"class="js-address-edit"><i class="icon-pencil"></i></a>
+        <a title="Delete" href="javascript:;" class="js-address-delete" id="{{data.nickName}}" ><i class="icon-delete"></i></a>
+   </span>
+</li>
+ {% endmacro %}

@@ -1,0 +1,35 @@
+<%--  The following code is created as an example. Modify the generated code and add any additional required code.  --%>
+<script type="text/javascript">
+
+dojo.addOnLoad(function() {
+
+      CachedHeader.waitForOffersTrigger();
+      
+       $(document).bind(
+        'dmart.products.loaded',
+        function(e, pageNum) {
+            CachedHeader.loadOffersSection();
+            $(document).off('dmart.products.loaded');
+        });
+        
+    // View All click
+    $(document).on('click', '#viewAllOffers', function () {
+       $('#viewAllOffers').css('display','none');
+       CachedHeader.loadMoreOffers();
+    });
+        
+});
+</script>
+<%--<script type="text/javascript" src="<c:out value="${jsAssetsDir}javascript/DMart/wishlist/DMartShoppingListActions.js"/>"></script>
+<script src="${jsAssetsDir}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script> --%>
+<div id="topCategoryOffers" class="product_container"></div>
+
+<div id="viewAllOffers" class="container" style="display: none;">
+	<div class="row">
+		<div class="col-xs-12 text-right">
+			<p class="landing-links">
+				<a href="javascript:;" title="View all"><fmt:message bundle="${storeText}" key="OFFERS_VIEW_ALL"/></a>
+			</p>
+		</div>
+	</div>
+</div>

@@ -1,0 +1,14 @@
+{% extends '_layouts/base.nunjucks' %}
+{% block title %}Invoice Sample{% endblock %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      {% include '_modules/invoice.nunjucks' %}
+    </div>
+  </div>
+</div>
+
+{% endblock %}

@@ -1,0 +1,33 @@
+<%--  Add your data related code here --%>
+
+<c:if test="${empty productId}">
+	<c:choose>
+		<c:when test="${!empty param.productId}">
+			<c:set var="productId" value="${param.productId}" />
+		</c:when>
+		<c:when test="${!empty WCParam.productId}">
+			<c:set var="productId" value="${WCParam.productId}" />
+		</c:when>
+	</c:choose>
+</c:if>
+
+
+
+<%--<script src="${jsAssetsDir}javascript/DMart/localCache/Storage.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/LocalCacheHelper.js"></script>
+<script src="${jsAssetsDir}javascript/DMart/localCache/ProductDisplayHelper.js"></script> --%>
+<input id="prodIdentifier" type="hidden" value="${productId}">
+<script type="text/javascript">
+		dojo.addOnLoad(function() {
+			var currProductId = '${WCParam.productId}';
+			var currCatalogId = '${WCParam.categoryId}';
+			$(document).on(
+				'dmart.recommendation.frequent',
+				function(event,freqProds) {
+				//alert(freqProds);
+					productsRecommendation.init(currCatalogId.toString(),freqProds,null,null,'frequent', null);
+				$(document).off('dmart.recommendation.frequent');
+			});
+			RecommendationsJS.waitForFrequentTrigger();
+		});
+</script>

@@ -1,0 +1,149 @@
+{% macro existingOrder(outofstock, id, imgsr, title, brand, save, mrp, dmart, type,data) %}
+<!-- Add "product-out-of-stock" class to "product-listing-item" if product is not available-->
+<div class="product-listing-item plp-grocery view-list-active ">
+<div class="product-listing-item__primary {% if(data.outofstock != true) %}selected{% endif %}" data-itemid='{{data.uniqueId}}' data-giftlistItemid='{{data.giftlistItemid}}' data-maxQty='{{data.maxOrderQtySolr}}'>
+  
+
+  <div class="added-product__remove">
+    <a href="javascript:;"><i class="added-product__remove-icon icon-cross"></i></a>
+  </div>
+
+  
+  <div class="view-list view-list-product-image product-out-of-stock__small-image-wrap hide">
+    <a href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/{{imgsrc}}.jpg" class="product-listing--image img-responsive" alt="product image"></a>
+    <a class="product-out-of-stock__small-image product-out-of-stock-image-disabled" href="javascript:;" title=""><img src="/{{config.baseUrl}}images/temp/plp/{{imgsrc}}.jpg" class="product-listing--image-out-of-stock img-responsive" alt="product image">
+    <span class="product-listing--label-out-of-stock"><span>Out of Stock</span></span></a>
+  </div>
+  <h4 class="product-listing--title"><a title="{{ title }}" href={{data.url}}>{{ title }}</a></h4>
+  <h5 class="product-listing--brand"><a href="javascript:;">{{ brand }}</a></h5>
+
+  <div class="product-listing-details">
+    <div class="product-listing__save" {%if save <= 0%}style='display:none'{%endif%}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{ save|round(2) }}</span></div>
+    <p class="product-listing--original-price" {%if save < 0%}style='display:none'{%endif%}>MRP {% if save > 0  %}<span class="strike-diagonal" >{% else %}<span class="no-strike-diagonal" >{% endif %}<i class="icon-rupees"></i>{{ mrp }}</span></p>    
+    <p class="product-listing--discounted-price">DMart <i class="icon-rupees"></i>{{dmart}}</p>
+
+	{% if(data.outofstock != true) %}
+    <div class="product-listing-checkbox customCheckbox">
+      <input class="product-alternate-checkbox" name="productAlternate-{{data.giftlistItemid}}" id="productAlternate-{{data.giftlistItemid}}" type="checkbox" checked="">
+      <label for="productAlternate-{{data.giftlistItemid}}"></label>
+    </div>
+	{% endif %}
+    <div class="product-listing__quantity-secondary clearfix {% if type=='Apparel' %}product-listing__quantity-secondary--apparel{%endif%}">
+
+      <!-- display '.variant-label' label if one variant available -->
+      <!-- <div class="variant-label">
+        <span>450gm - <i class="icon-rupees"></i>250</span>
+      </div> -->
+          
+          {%set style = ''%}
+          {% if type=='Apparel' %}{% set  style= style + "width:92px;" %}{% else %}{% set  style= style + "width:123px;" %} {%endif%}
+          {% if data.size==undefined and data.variant==undefined  %}{% set style= style + "visibility:hidden;" %}{%endif%}
+	      <div class="variant-label"  {% if style!='' %} style="{{style}}" {%endif%}>
+	        {% if type=='Apparel' %}
+	        	<span>{{data.size}}</span>
+	        {% elif type=='household' %}
+	          <span>{{data.variant}}</span>
+	        {% else %}
+	          <span>{{data.variant}}</span>
+	        {% endif %}
+	      </div>
+      
+      <div class="md-custom-select custom-dropdown">
+        <select class="product-listing__quantity--select-quantity">
+          {%for qty in range(0,data.maxOrderQtySolr) %}
+           
+            <option {%if qty+1 == data.quantityRequested %} selected {%endif%} value='{{qty+1}}'>{{qty+1}}</option>
+            {%endfor%}
+        </select>
+      </div>
+      </div>
+          {% if type=='Apparel' %}
+    
+    <div class="dropdown dropdown-colorselector js-colorselector">
+      <a data-toggle="dropdown" class="dropdown-toggle" href="javascript:;">
+        <span class="btn-colorselector" style="background-color: {{data.colour}};"></span>
+      </a>
+      
+    </div>
+    {% endif %}
+      
+      
+    
+    <div class="product-listing__cta-container clearfix hide">
+      <a href="javascript:;" class="button-primary product-listing__cta-btn js-loading-full">
+      <i class="icon-cart"></i> Add to Cart</a>
+
+      <a href="javascript:;" class="product-listing__cta-added button--block button-white js-button-addedCart">
+      Added to Cart</a>
+
+      <div class="product-listing__quantity--add">
+        <a href="javascript:;" class="button-icon-white"><i class="icon-document-add"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="product-listing-out-of-stock__details">
+    <p class="note">Item Out Of Stock</p>
+    <button class="notify-me-cta button" type="button">ADD TO CART</button>
+    <div class="product-listing__quantity--add">
+      <a href="javascript:;" class="button-icon-white {% if(data.outofstock == true) %} disabled {% endif %}"><i class="icon-document-add"></i></a>
+    </div>
+  </div>
+</div>
+<div class="product-listing-item__secondary js-hide-show">
+  <div class="cart-icon">
+    <i class="product-listing-item__secondary__icon-shopping-cart icon-cart"></i>
+    <span class="badge">1</span>
+  </div>
+  <div class="added-product-wrap">
+    <ul class="clearfix">
+      <li class="added-product-wrap__list clearfix">
+        <div class="added-product__quantity js-rupee">
+          {% if type=='Apparel' %}
+          <span>{{data.size}}</span>
+          {% elif type=='household' %}
+          <span>{{data.variant}}</span>
+          {% else %}
+        	 <span>{{data.variant}}</span>
+          {% endif %}
+        </div>
+        <div class="md-custom-select added-product__quantity-size custom-dropdown">
+          <select>
+            <option>1</option>
+            <option>2</option>
+            <option>3</option>
+            <option>4</option>
+            <option>5</option>
+          </select>
+        </div>
+        <div class="added-product__remove">
+          <a href="javascript:;"><i class="added-product__remove-icon icon-cross"></i></a>
+        </div>
+      </li>
+    </ul>
+  </div>
+</div>
+<div class="product-listing-item__tertiary">
+  <h4 class="product-listing-item__tertiary--title">Add to Shopping List</h4>
+  <div class="product-listing-item__tertiary--add-list">
+    <form>
+    <input class="product-listing-item__tertiary--field input-text-field" type="text" value="" name="addShopList" placeholder="Add new list">
+    <button class="product-listing-item__tertiary--add-cta button">Add</button>
+    </form>
+  </div>
+  <div class="product-listing-item__tertiary-lists">
+    <ul >
+      <li><a href="javascript:;">Monthly List</a></li>
+      <li><a href="javascript:;">Party List</a></li>
+      <li><a href="javascript:;">Picnic List</a></li>
+      <li><a href="javascript:;">Festival List</a></li>
+      <li><a href="javascript:;">Travel List</a></li>
+      <li><a href="javascript:;">Party List</a></li>
+      <li><a href="javascript:;">Picnic List</a></li>
+      <li><a href="javascript:;">Festival List</a></li>
+      <li><a href="javascript:;">Travel List</a></li>
+    </ul>
+  </div>
+  <button class="add-list-submit-cta button" type="button">Submit</button>
+</div>
+</div>
+{% endmacro %}

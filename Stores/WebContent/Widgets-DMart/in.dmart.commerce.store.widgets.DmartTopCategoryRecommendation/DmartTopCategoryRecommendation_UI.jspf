@@ -1,0 +1,23 @@
+<%--
+ =================================================================
+  Copyright(c) Avenue E-Commerce Limited (2015). All Rights reserved. 
+  This software is the confidential and proprietary information of 
+  Avenue E-Commerce Limited ("Confidential  Information"). 
+  You shall not disclose such Confidential Information and shall use it 
+  only in accordance with the terms of the license agreement you entered  
+  into with Avenue E-Commerce Limited.
+
+	Author Name : Infosys
+	Date : 11/9/2015
+
+ =================================================================
+--%>
+
+<!-- BEGIN DmartTopCategoryRecommendation_UI.jspf -->
+
+
+<c:forEach items="${categoryURLMap}" varStatus="aStatus"><li>
+	<a href="${categoryURLMap[aStatus.current.key]}${cmcrurl_ProductNameLink}" title="${categoryIdentifierMap[aStatus.current.key]}">${categoryIdentifierMap[aStatus.current.key]}</a>
+</li></c:forEach>
+
+<!-- END DmartTopCategoryRecommendation_UI.jspf -->

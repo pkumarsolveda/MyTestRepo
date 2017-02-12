@@ -1,0 +1,31 @@
+<div class="container">
+  <div class="row">
+    <div class="common-search">
+      <div class="col-xs-12">
+        <div class="common-search__instead">
+          <p>Showing result for "<span class="bold">{% if parentPage == 'Apparel Search' %}tshirt {% else %}rice{% endif %}</span>". Search instead of "<span class="highlight bold">{% if parentPage == 'Apparel Search' %}tshirtt {% else %}ricee{% endif %}</span>".</p>
+        </div>
+      </div>
+      <div class="col-xs-12 col-md-3 col-lg-2">
+        <h3 class="common-search__title">Commonly Searched</h3>
+      </div>
+      <div class="col-xs-12 col-md-9 col-lg-10">
+        <ul class="common-search__filter">
+          {% if parentPage == 'Apparel Search' %}
+          <li><a href="javascript:;" title="tshirt for men"><span>tshirt for men</span></a></li>
+          <li><a href="javascript:;" title="tshirt for men"><span>tshirt for men</span></a></li>
+          <li><a href="javascript:;" title="Polo Tshirt"><span>Polo Tshirt</span></a></li>
+          <li><a href="javascript:;" title="tshirt for men"><span>tshirt for men</span></a></li>
+          <li><a href="javascript:;" title="tshirt for men"><span>tshirt for men</span></a></li>
+          {% else %}
+          <li><a href="javascript:;" title="Basmati Rice"><span>Basmati Rice</span></a></li>
+          <li><a href="javascript:;" title="Royal Basmati"><span>Royal Basmati</span></a></li>
+          <li><a href="javascript:;" title="Pure Rice"><span>Pure Rice</span></a></li>
+          <li><a href="javascript:;" title="Idli Brown Rice"><span>Idli Brown Rice</span></a></li>
+          <li><a href="javascript:;" title="Basmati Rice"><span>Basmati Rice</span></a></li>
+          {% endif %}
+        </ul>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,81 @@
+<div class="cart-summary delivery-address">
+   <div class="variant-delivery-header">Your {{data.fulfillmentType}} Address</div>
+  <div class="cart-summary__details">
+    <div class="cart-summary__details--primary">
+      <div class="delivery-address--container">
+      	<div class="row delivery-addess-info">
+           <div class="col-xs-4 col-md-3 delivery-summary-label">
+           
+           Name:
+           </div>
+          <div class="col-xs-8 col-md-9">
+          {% if data.isDelivery  == 'true' %}
+          {{data.name}}{%else%}{{data.selectedPupName}}{%endif%}
+          </div>
+         
+        </div>
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Address: 
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {% if data.isDelivery  != 'true' %}{{data.name}}<br>{%endif%}
+            {{data.address.replace('Landmark:','')}}, <br>
+          	{{data.city}} - {{data.zip}}, {{data.state}}. <br>
+            </div>
+        </div>
+        {%if data.landmark != null%}
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             Landmark: 
+             </div>
+            <div class="col-xs-8 col-md-9">
+           {{data.landmark.replace('Landmark:','')}}
+            </div>
+        </div>
+        {%endif%}
+        {%if data.phone != null%}
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+            Mobile:
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {% if data.isDelivery == 'true' %}  +91 {{data.phone}}{% endif %}
+            </div>
+        </div>
+        {%endif%}
+        <div class="delivery-address-pup">
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+            Delivery Type: 
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {{data.selectedShipMode}}
+            </div>
+        </div>
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Delivery Date:
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {{data.slotDate}}
+            </div>
+        </div>
+        <div class="row delivery-addess-info">
+             <div class="col-xs-4 col-md-3 delivery-summary-label">
+             
+             Delivery Time:
+             </div>
+            <div class="col-xs-8 col-md-9">
+            {{data.slotTime}}
+            </div>
+        </div>
+       </div>
+      </div>
+    </div>
+  </div>
+</div>

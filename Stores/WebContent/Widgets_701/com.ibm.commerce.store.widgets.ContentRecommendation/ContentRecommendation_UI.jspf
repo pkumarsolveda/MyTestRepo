@@ -1,0 +1,99 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2012, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+
+<!-- BEGIN ContentRecommendation_UI.jspf -->
+
+<c:if test="${!empty contentFormatMap}">
+	<c:choose>
+		<c:when test="${fn:length(contentFormatMap) > 1}">
+			<fmt:message key="PC_PREVIOUS_PAGE" bundle="${widgetText}" var="PC_PREVIOUS_PAGE"/>
+			<fmt:message key="PC_NEXT_PAGE" bundle="${widgetText}" var="PC_NEXT_PAGE"/>
+			<fmt:message key="PC_MOVE_TO_PAGE_{0}" bundle="${widgetText}" var="PC_MOVE_TO_PAGE"/>
+			
+			<div id="contentRecommendationWidget${widgetSuffix}" class="contentRecommendationWidget carousel clip-true padding-true background-${background} border-${border}" data-dojo-type="wc/widget/Carousel" data-dojo-props="columnCountByWidth:${columnCountByWidth}" <c:if test="${!empty titleContentTypeMap && (eSpotTitleIncluded == null || empty eSpotTitleIncluded[emsName])}">role="region" aria-labelledby="title${widgetSuffix}"</c:if>>
+			<c:if test="${!empty titleContentTypeMap && (eSpotTitleIncluded == null || empty eSpotTitleIncluded[emsName])}" >
+				<h2 id="title${widgetSuffix}"><%@include file="../Common/ESpot/ESpotTitle_UI.jspf"%></h2>
+			</c:if>
+				<div class="content" data-dojo-attach-point="content">
+					<ul data-dojo-attach-point="ul">
+						<c:forEach items="${contentFormatMap}" var="contentFormat"><li>
+							<c:set var="key" value="${contentFormat.key}"/>
+							<%@include file="Content_UI.jspf"%>
+						</li></c:forEach>
+					</ul>
+				</div>
+				<a id="prevPageButton${widgetSuffix}" href="#" class="prevPageButton" data-dojo-attach-point="prevPageButton" role="button" aria-label="${PC_PREVIOUS_PAGE}"></a>
+				<a id="nextPageButton${widgetSuffix}" href="#" class="nextPageButton" data-dojo-attach-point="nextPageButton" role="button" aria-label="${PC_NEXT_PAGE}"></a>
+				<flow:ifEnabled feature="RemoteWidget">
+					<c:if test="${param.showFeed}">
+						<%out.flush();%>
+						<c:import url="${env_siteWidgetsDir}Common/ESpot/FeedAndRemoteWidgetDisplay.jsp">
+							<c:param name="feedURL" value="${eMarketingFeedURL}"/>
+							<c:param name="widgetPrefix" value="${widgetPrefix}"/>
+						</c:import>
+						<%out.flush();%>
+					</c:if>
+				</flow:ifEnabled>
+			</div>
+		</c:when>
+		
+		<c:otherwise>
+		    <c:choose>
+			    <c:when test="${emsName == 'DMartHomePageBannerESpot'}" >
+					<wcf:rest var="eSpotDatasRoot" url="/store/{storeId}/espot/{name}" format="json" >
+						<wcf:var name="storeId" value="${WCParam.storeId}" encode="true"/>
+						<wcf:var name="name" value="${emsName}" encode="true"/>
+					</wcf:rest>
+					<c:if test="${!empty eSpotDatasRoot.MarketingSpotData[0]}" >
+						<c:set var="eSpotDatas" value="${eSpotDatasRoot.MarketingSpotData[0]}"/>
+				
+						<c:forEach var="eSpotData" items="${eSpotDatas.baseMarketingSpotActivityData}" varStatus="status1">
+						 	 <c:if test='${eSpotData.baseMarketingSpotDataType eq "MarketingContent"}'>
+						 	 	 <c:if test="${eSpotData.contentFormatName == 'Text'}"> 
+						 	 	    <c:forEach var="eSpotContent" items="${eSpotData.marketingContentDescription}" varStatus="status2">
+						 	 	      ${eSpotContent.marketingText}
+						 	 	    </c:forEach>
+						 	 	 </c:if>
+						 	 </c:if>
+						</c:forEach>
+					</c:if>
+				</c:when>	
+				<c:otherwise>
+								       
+					<div id="contentRecommendationWidget${widgetSuffix}" class="contentRecommendationWidget dmart-content-recommendation" <c:if test="${!empty titleContentTypeMap}"> role="region" aria-labelledby="title${widgetSuffix}" </c:if>>
+					<c:if test="${!empty titleContentTypeMap}">
+						<c:if test="${!empty titleContentTypeMap && (eSpotTitleIncluded == null || empty eSpotTitleIncluded[emsName])}" >
+							<h2 id="title${widgetSuffix}"><%@include file="../Common/ESpot/ESpotTitle_UI.jspf"%></h2>
+						</c:if>
+					</c:if>
+					<c:forEach var="contentFormat" items="${contentFormatMap}">
+						<c:set var="key" value="${contentFormat.key}"/>
+						<%@include file="Content_UI.jspf"%>
+					</c:forEach>
+					<flow:ifEnabled feature="RemoteWidget">
+						<c:if test="${param.showFeed}">
+							<c:import url="${env_siteWidgetsDir}Common/ESpot/FeedAndRemoteWidgetDisplay.jsp">
+								<c:param name="feedURL" value="${eMarketingFeedURL}"/>
+								<c:param name="widgetPrefix" value="${widgetPrefix}"/>
+							</c:import>
+						</c:if>
+					</flow:ifEnabled>
+					</div>
+				</c:otherwise>
+			</c:choose>
+		</c:otherwise>
+	</c:choose>
+</c:if>
+
+<!-- END ContentRecommendation_UI.jspf -->

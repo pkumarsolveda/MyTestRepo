@@ -1,0 +1,40 @@
+<li class="added-product-wrap__list clearfix"  data-itemid="{{data.thisItemId}}">
+{% set thisItem = data.product.itemDetails[data.thisItemId] %}
+		{% if data.product.isSingleVariant == true %}
+			{% if thisItem.definingAttributes.Size == undefined %}
+				<div class="variant-label js-rupee has-rupee" style="border:0px;">
+					<span>ADD QUANTITY</span>
+				</div>
+			{% else %}
+				<div class="variant-label js-rupee">
+					<span>{{thisItem.definingAttributes.Size}} - <i class="icon-rupees"></i>{{thisItem.price.offerPrice}}</span>
+				</div>
+			{%endif%}
+
+        {%else%}
+        <div class="md-custom-select added-product__quantity custom-dropdown js-rupee">
+          <select class="product-listing_update_itemsize--select">
+          {%for eachItemId in data.product.itemIds %}
+          	 {% set eachItem = data.product.itemDetails[eachItemId] %}
+	          	{% if data.product.pageType == 'apparel'%}
+	          	{% if data.product.selectedColor ==  eachItem.definingAttributes.Colour %}
+	            <option value="{{eachItemId}}" {% if (data.thisItemId == eachItemId) %} selected="" {%endif%}{% if(eachItem.outofstock == true) %}disabled=""{%endif%}>{{eachItem.definingAttributes.Size}}</option>
+	            {% endif %}
+	          	{% else %}
+	             <option value="{{eachItemId}}" {% if (data.thisItemId == eachItemId) %} selected="" {%endif%}{% if(thisItem.outofstock == true) %}disabled{%endif%}{% if(eachItem.outofstock == true) %}disabled=""{%endif%}>{{eachItem.definingAttributes.Size}} - &#8377; {{eachItem.price.offerPrice}}</option>
+	             {%endif%}
+          {%endfor%}
+          </select>
+        </div>
+        {% endif %}
+        <div class="md-custom-select added-product__quantity-size custom-dropdown">
+          <select class="product-listing_update_quantity--select">
+             {%for qty in range(0,thisItem.maxOrderQty)%}
+              <option value='{{qty+1}}' {% if (qty+1 == thisItem.qtyInCart) %} selected="" {%endif%} >{{qty+1}}</option>
+              {%endfor%}
+          </select>
+        </div>
+        <div class="added-product__remove">
+          <a href="javascript:;"><i class="added-product__remove-icon icon-cross"></i></a>
+        </div>
+</li>

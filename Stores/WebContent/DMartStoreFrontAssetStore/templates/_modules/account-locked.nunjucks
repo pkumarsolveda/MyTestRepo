@@ -1,0 +1,17 @@
+<!-- Use classname "modal-link" and add data-target as modal id to link modal to tag
+EX: <a href="javascript:;" class="modal-link" data-target="locationModal"> -->
+<div id="AccountBlocked" class="modal-dialog js-modal-dialog-esc" style="display: block;">
+  <div class="modal-dialog__content modal-dialog__content-small">
+    <a href="javascript:;" title="Close" class="modal-dialog__close">X</a>
+    <div class="modal-dialog__header">
+      <h4 class="modal-dialog__header-title">Account Locked</h4>
+    </div>
+    <div class="modal-dialog__body">
+      <div>
+        <p>
+        <i class="icon-account-lock-style icon-account-locked"></i>
+        Your account has been locked, Please contact customer care.</p>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+{% set upsell = "enable" %}
+
+
+       <div>
+         {% from "_modules/product-listing-item-apparel.nunjucks" import plpApperal %}
+        {% from "_modules/product-listing-item-grocery.nunjucks" import plpGrocery %}
+		{% from "_modules/product-listing-item-household.nunjucks" import plpHousehold %}
+		
+		{% from "_modules/product-listing-item-apparel-alt.nunjucks" import plpApperalAlt %}
+		{% from "_modules/product-listing-item-grocery-alt.nunjucks" import plpGroceryAlt %}
+		{% from "_modules/product-listing-item-household-alt.nunjucks" import plpHouseholdAlt %}
+
+        <div class="js-carousel">
+          <ul class="slides clearfix">
+           {% for productId in data.upsellProductIds %}
+           	{% set pageTitle = data.upProduct[productId].pageType %}
+            <li class="js-switch-view slide-margin">
+            {% if pageTitle == 'apparel' %} {{ plpApperal(data.upProduct[productId],data.config,data) }} {% elif pageTitle == 'household' %} {{ plpHousehold(data.upProduct[productId],data.config,data) }} {% else %} {{ plpGrocery(data.upProduct[productId],data.config,data) }} {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+      <div>
+        <div class="js-carousel">
+          <ul class="slides clearfix">
+          {% for productId in data.recommProductIds %}
+          	{% set pageTitle = data.recProduct[productId].pageType %}
+            <li class="js-switch-view  slide-margin">
+            {% if pageTitle == 'apparel' %} {{ plpApperalAlt(data.recProduct[productId],data.config,data.outofstock,data) }} {% elif pageTitle == 'household' %} {{ plpHouseholdAlt(data.recProduct[productId],data.config,data.outofstock,data) }} {% else %} {{ plpGroceryAlt(data.recProduct[productId],data.config,data.outofstock,data) }} {% endif %}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>

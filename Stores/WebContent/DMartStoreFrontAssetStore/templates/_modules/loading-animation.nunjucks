@@ -1,0 +1,6 @@
+<div class="loading-animation-wrapper">
+  <div class="loading-animation__panel">
+    <img class="img-responsive" src="/{{config.baseUrl}}images/loader.gif" alt="loading-animation">
+  </div>
+</div>
+

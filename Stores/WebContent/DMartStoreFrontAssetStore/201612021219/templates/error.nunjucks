@@ -1,0 +1,35 @@
+{% extends '_layouts/base-alternate.nunjucks' %}
+{% block title %} Error page {% endblock %}
+{% set pageTitle = "Error" %}
+
+{% set parentPage = "Error" %}
+
+{% block content %}
+  <div class="container">
+    <div class="static-page">
+      <div class="static-page--error">
+        <div class="row">
+          <div class="col-xs-12 col-md-9 static-page--error-center">
+            <div class="col-xs-12 col-md-3">
+              <div class="error-notification-wrap margin-reset-top">
+                <i class="icon-not-available error-notification-icon"></i>
+              </div>
+            </div>
+            <div class="col-xs-12 col-md-9">
+              <div class="error-notification-message">
+                <h1 class="static-page--error-title">Oops!!! Something went wrong.</h1>
+                <p class="static-page--error-description">Sorry the product you were looking is not found.
+                <br>
+                <a href="javascript:;" class="error__btn-cta button--block button-white" title="Continue Shopping">Continue Shopping</a></p>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="container">
+    {% include '_modules/up-selling-products.nunjucks' %}
+  </div>
+{% endblock %}

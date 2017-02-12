@@ -1,0 +1,62 @@
+<div class="delivery-slot margin-reset">
+
+  <div class="delivery-week-cta">
+    <a href="javascript:;" class="button-white js-delivery-next-week">NEXT 7 DAYS</a>
+  </div>
+
+  <div class="delivery-selection-slot--back">
+    <a href="javascript:;" class="js-delivery-selection-cta link-secondary">
+      <i class="icon-rewind"></i>
+      <strong>Delivery Type Selected: </strong>Home Delivery
+    </a>
+  </div>
+
+  <h3 class="delivery-slot--title">Please select delivery time <span>(Only 1 time slot per order)</span></h3>
+
+  <div class="delivery-selection delivery-current-week">
+    <div class="delivery-selection--this-week">
+      <div class="delivery-selection-days">
+        <span>Today<span class="delivery-selection-date"> 18/11/2015</span></span> <span>Tomorrow<span class="delivery-selection-date"> 19/11/2015</span></span> <span>Friday<span class="delivery-selection-date"> 20/11/2015</span></span> <span>Saturday<span class="delivery-selection-date"> 21/11/2015</span></span> <span>Sunday<span class="delivery-selection-date"> 22/11/2015</span></span> <span>Monday<span class="delivery-selection-date"> 23/11/2015</span></span> <span>Tuesday<span class="delivery-selection-date"> 24/11/2015</span></span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span><span>9AM - 11AM</span><span>9AM - 11AM</span><span>9AM - 11AM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>11AM - 1PM</span> <span>11AM - 1PM</span> <span class="delivery-slot--not-selectable">11AM - 1PM</span> <span>11AM - 1PM</span><span>11AM - 1PM</span><span>11AM - 1PM</span><span>11AM - 1PM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>1PM - 3PM</span> <span>1PM - 3PM</span> <span>1PM - 3PM</span> <span>1PM - 3PM</span><span>1PM - 3PM</span><span>1PM - 3PM</span><span>1PM - 3PM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span class="delivery-slot--not-selectable">3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span><span>3PM - 7PM</span><span>3PM - 7PM</span><span>3PM - 7PM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span><span>7PM - 9PM</span><span>7PM - 9PM</span><span>7PM - 9PM</span>
+      </div>
+    </div>
+  </div>
+
+  <div class="delivery-selection delivery-next-week">
+    <div class="delivery-selection--coming-week">
+      <div class="delivery-selection-days">
+        <span>Wednesday<span class="delivery-selection-date"> 25/11/2015</span></span> <span>Thursday<span class="delivery-selection-date"> 26/11/2015</span></span> <span>Friday<span class="delivery-selection-date"> 27/11/2015</span></span> <span>Saturday<span class="delivery-selection-date"> 28/11/2015</span></span> <span>Sunday<span class="delivery-selection-date"> 29/11/2015</span></span> <span>Monday<span class="delivery-selection-date"> 30/11/2015</span></span> <span>Tuesday<span class="delivery-selection-date"> 31/11/2015</span></span>
+      </div>
+
+      <div class="delivery-selection-row">
+        <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span> <span>9AM - 11AM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>11AM - 1PM</span> <span>11AM - 1PM</span> <span>11AM - 1PM</span> <span>11AM - 1PM</span> <span>11AM - 1PM</span> <span>11AM - 1PM</span> <span>11AM - 1PM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>1PM - 3PM</span> <span>1PM - 3PM</span> <span>1PM - 3PM</span> <span class="delivery-slot--not-selectable">1PM - 3PM</span> <span>1PM - 3PM</span> <span>1PM - 3PM</span> <span>1PM - 3PM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span> <span>3PM - 7PM</span>
+      </div>
+      <div class="delivery-selection-row">
+        <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span> <span>7PM - 9PM</span>
+      </div>
+    </div>
+  </div>
+</div>

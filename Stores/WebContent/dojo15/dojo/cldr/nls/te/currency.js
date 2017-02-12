@@ -1,0 +1,1 @@
+({"CNY_displayName":"చైనా దేశ యువాన్ రెన్మిన్బి","EUR_displayName":"యురొ","GBP_displayName":"బ్రిటిష్ పౌండ్ స్టెర్లింగ్","JPY_displayName":"జపాను దేశ యెస్","USD_displayName":"ఐక్య రాష్ట్ర అమెరిక డాలర్","AUD_symbol":"AU$","CAD_symbol":"CA$","CNY_symbol":"CN¥","EUR_symbol":"€","GBP_symbol":"£","HKD_symbol":"HK$","JPY_symbol":"JP¥","USD_symbol":"US$"})

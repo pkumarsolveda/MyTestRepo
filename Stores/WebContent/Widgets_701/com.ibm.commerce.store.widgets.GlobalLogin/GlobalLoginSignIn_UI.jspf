@@ -1,0 +1,556 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+<!-- BEGIN GlobalLoginSignIn_UI.jspf -->
+<script type="text/javascript">
+	dojo.addOnLoad(function(){		
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2000" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2000"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2010" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2010"/>
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2020" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2020"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2030" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2030"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2110" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2110">	
+			<fmt:param value="6"/>
+		</fmt:message>
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2300" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2300"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2400" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2400"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2410" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2410"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2420" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2420"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2430" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2430"/>	
+		<fmt:message key="GLOBALLOGIN_SIGN_IN_ERROR_2570" bundle="${widgetText}" var="GLOBALLOGIN_SIGN_IN_ERROR_2570"/>	
+		
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2000", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2000}'/>");
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2010", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2010}'/>");	
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2020", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2020}'/>");
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2030", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2030}'/>");	
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2110", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2110}'/>");
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2300", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2300}'/>");	
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2400", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2400}'/>");
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2410", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2410}'/>");	
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2420", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2420}'/>");
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2430", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2430}'/>");	
+		MessageHelper.setMessage("GLOBALLOGIN_SIGN_IN_ERROR_2570", "<c:out value='${GLOBALLOGIN_SIGN_IN_ERROR_2570}'/>");
+		
+		
+		// DMart
+		<fmt:message bundle="${storeText}" key="_ERR_EMAIL_ALREADY_REGISTERED" var="_ERR_EMAIL_ALREADY_REGISTERED"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PHONE_ALREADY_REGISTERED" var="_ERR_PHONE_ALREADY_REGISTERED"/>
+		<fmt:message bundle="${storeText}" key="_ERR_EMAIL_INVALID" var="_ERR_EMAIL_INVALID"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PASSWORD_EMPTY" var="_ERR_PASSWORD_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_LAST_NAME_EMPTY" var="_ERR_LAST_NAME_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_FIRST_NAME_EMPTY" var="_ERR_FIRST_NAME_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PHONE_NUMBER_EMPTY" var="_ERR_PHONE_NUMBER_EMPTY"/>
+		<fmt:message bundle="${storeText}" key="_ERR_PHONE_NUMBER_INVALID" var="_ERR_PHONE_NUMBER_INVALID"/>
+		<fmt:message bundle="${storeText}" key="_ERR_NAME_INVALID" var="_ERR_NAME_INVALID"/>
+		
+		MessageHelper.setMessage("_ERR_NAME_INVALID", <wcf:json object="${_ERR_NAME_INVALID}"/>);
+		MessageHelper.setMessage("_ERR_PHONE_NUMBER_INVALID", <wcf:json object="${_ERR_PHONE_NUMBER_INVALID}"/>);
+		MessageHelper.setMessage("_ERR_PHONE_NUMBER_EMPTY", <wcf:json object="${_ERR_PHONE_NUMBER_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_FIRST_NAME_EMPTY", <wcf:json object="${_ERR_FIRST_NAME_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_LAST_NAME_EMPTY", <wcf:json object="${_ERR_LAST_NAME_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_PASSWORD_EMPTY", <wcf:json object="${_ERR_PASSWORD_EMPTY}"/>);
+		MessageHelper.setMessage("_ERR_EMAIL_INVALID", <wcf:json object="${_ERR_EMAIL_INVALID}"/>);
+		MessageHelper.setMessage("_ERR_EMAIL_ALREADY_REGISTERED", <wcf:json object="${_ERR_EMAIL_ALREADY_REGISTERED}"/>);
+		MessageHelper.setMessage("_ERR_PHONE_ALREADY_REGISTERED", <wcf:json object="${_ERR_PHONE_ALREADY_REGISTERED}"/>);
+		MessageHelper.setMessage("_ERR_INVALID_PARAMETER", <wcf:json object="${_ERR_INVALID_PARAMETER}"/>);		
+				
+	});
+</script>
+
+<%--<script type="text/javascript" src="<c:out value="${jsAssetsDir}javascript/UserArea/LogonForm.js"/>"></script>
+<script type="text/javascript" src="<c:out value="${jsAssetsDir}javascript/CheckoutArea/Guest-Checkout.js"/>"></script> --%>
+
+<%--<wcf:url var="TermsAndCondition" value="TermsAndCondition">
+	<wcf:param name="langId" value="${WCParam.langId}" />
+	<wcf:param name="storeId" value="${WCParam.storeId}" />
+	<wcf:param name="catalogId" value="${WCParam.catalogId}" />
+	
+</wcf:url> --%>
+<c:set var="TermsAndCondition" value="${env_TopCategoriesDisplayURLHierarchy}/dmart-terms-conditions"  />
+<c:set var="privacyPolicyUrl" value="${env_TopCategoriesDisplayURL}/dmart-privacy-policy"  />
+
+<div class="header-dropdown header-dropdown--signin">            
+	<div class="form">
+		<h2 class="form__title">Sign In</h2>
+		<%-- Span added for DMart --%>
+		
+		<form class="form__signin" action="javascript:;" method="post" id="formValidation" name="formValidation" novalidate>
+			<div class="alert alert-danger spacing-bottom-tiny padding-reset h5 white-space-reset js-hide-show js-resend-otp-alert">
+      			<fmt:message key="OTP_SUCCESS_TEXT" bundle="${storeText}" />
+    		</div>
+			<div class="alert alert-danger spacing-bottom-tiny padding-reset h5 white-space-reset js-hide-show" id="0_logonErrorMessage_GL">
+			</div>
+			<div class="alert alert-danger spacing-bottom-tiny padding-reset h5 white-space-reset" id="formOtpValidation_error"></div>
+			<input type="hidden" name="storeId" value="<c:out value="${WCParam.storeId}"/>"/>
+			<input type="hidden" name="catalogId" value="<c:out value="${WCParam.catalogId}"/>"/>
+			<input type="hidden" name="reLogonURL" value="<c:out value="${reLogonURL}"/>"/>
+			<c:choose>
+				<c:when test="${(!empty logonId) && (!empty validationCode) && (empty WCParam.errorMessage)}">
+					<input type="hidden" name="myAcctMain" value="<c:out value="1"/>" />
+				</c:when>
+				<c:otherwise>
+					<input type="hidden" name="myAcctMain" value="<c:out value="${myAcctMain}"/>" />
+				</c:otherwise>
+			</c:choose>
+			<input type="hidden" id="isFromSignIn" value="true"/>
+			<input type="hidden" name="fromOrderId" value="*"/>
+			<input type="hidden" name="toOrderId" value="."/>
+			<input type="hidden" name="deleteIfEmpty" value="*"/>
+			<input type="hidden" name="continue" value="1"/>
+			<input type="hidden" name="createIfEmpty" value="1"/>
+			<input type="hidden" name="calculationUsageId" value="-1"/>
+			<input type="hidden" name="updatePrices" value="0"/>
+			<input type="hidden" name="errorViewName" value="AjaxOrderItemDisplayView"/>
+			<input type="hidden" name="previousPage" value=""/>
+			<input type="hidden" name="returnPage" value="<c:out value="${returnPage}"/>"/>
+			<input type="hidden" name="rememberMe" value="true"/>
+
+            <input type="hidden" name="pinCodeNew" value="" id="pinCodeNew"/>
+            <input type="hidden" name="storeIdNew" value="" id="storeIdNew"/>
+			<c:if test="${!empty nextUrl}">
+				<input type="hidden" name="nextUrl" value="<c:out value="${nextUrl}"/>" />
+			</c:if>
+			<c:choose>
+				<c:when test="${returnPage eq 'quickcheckout'}">
+					<input type="hidden" name="URL" id="returnURL"  value="<c:out value='${orderMove}&getCart=N' />"/>
+				</c:when>	
+				<c:otherwise>
+					<c:choose>
+						<c:when test="${!empty WCParam.URL}">
+						    <c:set var="returnUrl" value="${WCParam.URL}"/>
+						    <c:choose>
+								<c:when test="${fn:contains(returnUrl, '?')}">
+								   <c:set var="returnUrl" value="${returnUrl}&getCart=N"/>
+								</c:when>
+								<c:otherwise>
+									<c:set var="returnUrl" value="${returnUrl}?getCart=N"/>
+								</c:otherwise>
+							</c:choose>
+							<input type="hidden" name="URL" id="returnURL"  value="<c:out value='${returnUrl}'/>"/>
+						</c:when>
+						<c:otherwise>
+							<input type="hidden" name="URL" id="returnURL" value=""/>
+						</c:otherwise>
+					</c:choose>
+				</c:otherwise>
+			</c:choose>
+			
+		    <div class="form-control">
+		  		<label for="logonId" class="form__label required-field spacing-bottom-tiny"><fmt:message key="LOGIN_LBL_MOBL_NUM" bundle="${storeText}" /></label>
+		 		<div class="form__input--group">
+		    		<span class="form__input-prefix"><fmt:message key="LOGIN_LBL_MOBL_NUM_PREFIX" bundle="${storeText}" /></span>
+		    		<input type="tel" required maxlength="10" placeholder="<fmt:message key="LOGIN_PHOLDER_MOBL_NUM" bundle="${storeText}" />" id="logonId" name="logonId" class="form__input">
+		  		</div>
+			</div>
+		
+			<div class="js-signin-password">      
+				<div class="form-control">
+		  			<label class="form__label required-field spacing-bottom-tiny" for="logonPassword"><fmt:message key="LOGIN_LBL_PASSWD" bundle="${storeText}" /></label>
+		 			<input class="form__input" type="password" id="logonPassword"  name="logonPassword" placeholder="" maxlength="" required autocomplete="off">
+				</div>
+			</div>
+		
+			<div class="js-signin-otp js-hide-show">
+		      <div class="form-control spacing-bottom-half">
+		        <label for="otpNumber" class="form__label required-field spacing-bottom-tiny"><fmt:message key="LOGIN_LBL_OTP" bundle="${storeText}" /></label>
+		        <div class="otp-group clearfix">
+		          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber1" id="otpNumber1" required>
+		          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber2" id="otpNumber2" required>
+		          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber3" id="otpNumber3" required>
+		          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber4" id="otpNumber4" required>
+		          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber5" id="otpNumber5" required>
+		          <input type="number" rel="otpInput" class="form__input otpInput ignore" name="otpNumber6" id="otpNumber6" required>
+		        </div>
+		      </div>
+    		</div>
+		
+			<div class="signin__alternate form__control--pull-up">
+      		  <input class="form__input js-signin-alternate" type="checkbox" name="otpCheckbox" id="otpCheckbox">
+              <label class="form__label" for="otpCheckbox"><fmt:message key="LOGIN_LBL_GUESTCHKOUT" bundle="${storeText}" /></label>
+              <a class="signin--forgot-password modal-link" data-target="forgotPasswordModal" href="javascript:;" title=""><fmt:message key="LOGIN_LINKTEXT_FRGT_PASSWD" bundle="${storeText}" /></a>
+            </div>
+		
+		    <div class="form__btn js-form-btn-signin">
+		      <button type="button" class="signin__btn-cta button-primary" onclick="javascript:setDeleteCartCookie();CartHelper.deleteCartCookie(); GlobalLoginJS.deleteLoginCookies(); GlobalLoginJS.submitGLSignInForm('formValidation','0');DMAnalytics.events( DMAnalytics.Constants.Category.SignIn, DMAnalytics.Constants.Action.SignIn, document.title, 0, null);return false;"><fmt:message key="LOGIN_LBL_SIGN_IN" bundle="${storeText}" /></button>
+		      <button type="button" class="js-form-submit signin__btn-otp button-primary" style="display: none;" onclick="javascript:guestCheckout.sendOtp(document.formValidation);return false;"><fmt:message key="LOGIN_LBL_SEND_OTP" bundle="${storeText}" /></button>
+		      <button type="button" class="signin__btn-submit button-primary"  onclick="javascript:guestCheckout.validateOtp(document.formValidation);return false;" ><fmt:message key="LOGIN_LBL_SUBMIT" bundle="${storeText}" /></button>
+		   
+		
+		    <div class="js-hide-show js-show-resend-otp">
+		      <p id="otpresend">
+		      <fmt:message key="LOGIN_MESG_WAIT_OTP" bundle="${storeText}" /> <a class="link-alternate js-resend-otp" onclick="javascript:guestCheckout.reSendOtp(document.formValidation);return false;" title="Resend OTP"><strong><fmt:message key="LOGIN_LINKTEXT_RSND_OTP" bundle="${storeText}" /></strong></a>
+		      </p>
+		    </div>
+			 </div>
+			<div class="signin__register-link">
+				<span><fmt:message key="LOGIN_MESG_NEW_CUST" bundle="${storeText}" /></span>
+				<a href='<c:out value="${RegisterURL}"/>' title='Register'><fmt:message key="LOGIN_LINKTEXT_REGISTER" bundle="${storeText}" /></a> 
+			</div>
+		</form>
+	
+		
+					  <%
+						StoreConfigurationRegistry socialConfigVal = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+						String socialEnabled = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Social.Enabled");
+						pageContext.setAttribute("socialEnabled", socialEnabled);
+						String fbAppId = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Social.Facebook.AppID.web.web");
+						pageContext.setAttribute("fbAppId", fbAppId);
+						String fbRedirectURL = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Social.Facebook.RedirectURL.web.web");
+						pageContext.setAttribute("fbRedirectURL", fbRedirectURL);
+						String gpAppId = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Social.Googleplus.AppID.web.web");
+						pageContext.setAttribute("gpAppId", gpAppId);
+						String gpRedirectURL = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.Social.Googleplus.RedirectURL.web.web");
+						pageContext.setAttribute("gpRedirectURL", gpRedirectURL);		
+						
+					  %>
+					  <c:set var="isFromCheckout" value="false"/>
+						<c:if test="${WCParam.isFromCheckout =='true'}">
+							<c:set var="isFromCheckout" value="true"/>
+						</c:if>
+		<c:if test="${!empty socialEnabled && socialEnabled == 'true'}">		
+		<div class="form__divider">
+			<span class="form__divider--text"><fmt:message key="LOGIN_MESG_OR" bundle="${storeText}" /></span>
+		</div>		
+			<div class="signin__btn-social">
+				<a class="signin__btn-social--fb button-primary" onclick="javascript:DMAnalytics.events( DMAnalytics.Constants.Category.SocialSignIn,'Facebook' , document.title, 0,null ); GlobalLoginJS.setSocialLogonCookie('${isFromCheckout}');" href="http://www.facebook.com/dialog/oauth?client_id=${fbAppId}&redirect_uri=${fbRedirectURL}&scope=email&selectedMedia=Facebook"><i class="icon-facebook"></i><fmt:message key="LOGIN_LINKTEXT_FB_SIGNIN" bundle="${storeText}" /></a>
+				<a class="signin__btn-social--google button-primary" onclick="javascript:DMAnalytics.events( DMAnalytics.Constants.Category.SocialSignIn,'Google Plus' , document.title, 0,null ); GlobalLoginJS.setSocialLogonCookie('${isFromCheckout}');" href="https://accounts.google.com/o/oauth2/auth?response_type=code&client_id=${gpAppId}&redirect_uri=${gpRedirectURL}&scope=email%20profile"><i class="icon-google"></i> <fmt:message key="LOGIN_LINKTEXT_GP_SIGNIN" bundle="${storeText}" /></a>
+			</div>
+		</c:if>		
+	</div>
+</div>
+
+<%-- For temporarily storing user details before actual registration --%>
+<c:set var="actionURL" value="CreateDMartUserCmd" scope="request" />
+
+<div class="header-dropdown header-dropdown--register">            
+	<div class="form">
+		<h2 class="form__title"><fmt:message key="REGISTER_TITLE" bundle="${storeText}" /></h2>
+		<span class="error_msg" id="formRegisterValidation_error"></span>
+		<form class="form__registration" action="<c:out value="${actionURL}"/>" method="post" id="formRegisterValidation" name="formRegisterValidation" novalidate>
+		
+			<%-- Check if there is an originating page from error view --%>
+			<c:set var="originatingPage" value="${WCParam.previousPage}"/>
+			<c:if test="${originatingPage eq ''}">
+				<c:set var="originatingPage" value="${header['referer']}"/>	
+			</c:if>
+					
+			<input id="previousPage" type="hidden" value="${originatingPage}" name="previousPage"/>
+		
+		
+			<input type="hidden" name="authToken" value="${authToken}" id="WC_UserRegistrationAddForm_FormInput_authToken_In_Register_1" />
+			<input type="hidden" name="myAcctMain" value="<c:out value="${WCParam.myAcctMain}"/>" /> 
+			<input type="hidden" name="new" value="Y" id="WC_UserRegistrationAddForm_FormInput_new_In_Register_1" /> 
+			<input type="hidden" name="storeId" value="<c:out value="${WCParam.storeId}"  />" id="WC_UserRegistrationAddForm_FormInput_storeId_In_Register_1" />
+			<input type="hidden" name="catalogId" value="<c:out value="${WCParam.catalogId}"  />" id="WC_UserRegistrationAddForm_FormInput_catalogId_In_Register_1" />
+
+			<%-- <wcf:url var="logonURL" value="AjaxLogonForm"></wcf:url>--%>
+			<input type="hidden" name="URL" value="AjaxLogonForm?logonId*=&firstName*=&lastName*=&address1*=&address2*=&city*=&country*=&state*=&zipCode*=&email1*=&phone1*=&register_type=user" id="WC_UserRegistrationAddForm_FormInput_URL_In_Register_1" /> 
+			<input type="hidden" name="URLOrg" value="AjaxLogonForm?usr_logonId*=&usr_firstName*=&usr_lastName*=&usr_address1*=&usr_address2*=&usr_city*=&usr_country*=&usr_state*=&usr_zipCode*=&usr_email1*=&usr_phone1*=&org_orgEntityName*=&org_address1*=&org_address2*=&org_city*=&org_country*=&org_state*=&org_zipCode*=&org_email1*=&org_phone1*=&register_type=organization" id="WC_OrganizationRegistration_FormInput_URL_In_Register_1" />
+			<input type="hidden" id="isFromCheckout" value="${isFromCheckout}"/>
+			<c:if test="${WCParam.isFromCheckout =='true'}">
+				<input type="hidden" id="checkOutOrderId" value="${WCParam.orderId}"/>
+			</c:if>
+			<flow:ifEnabled feature="AccountActivation">
+				<%-- If account activation is enabled, redirect to the next page in the same language --%>
+				<input type="hidden" name="langId" value="<c:out value="${langId}" />" id="WC_UserRegistrationAddForm_FormInput_langId" />
+			</flow:ifEnabled>
+			<c:if test="${!empty WCParam.nextUrl}">
+				<input type="hidden" name="nextUrl" value="<c:out value="${WCParam.nextUrl}"/>" id="WC_UserRegistrationAddForm_FormInput_nextUrl_In_Register_1" />
+			</c:if>
+
+			<input type="hidden" name="receiveSMSNotification" value="false" id="WC_UserRegistrationAddForm_FormInput_receiveSMSNotification_In_Register_1" />
+			<input type="hidden" name="receiveSMS" value="false" id="WC_UserRegistrationAddForm_FormInput_receiveSMS_In_Register_1" />
+			<input name="langId" value="-1" type="hidden" autocomplete="off">
+			<input type="hidden" name="preferredLanguage" value="-1" autocomplete="off">
+			<input type="hidden" name="errorViewName" value="UserRegistrationAddFormView" id="WC_UserRegistrationAddForm_FormInput_errorViewName_In_Register_1" />
+
+			<c:choose>
+				<c:when test="${empty WCParam.page}">
+					<input type="hidden" name="page" value="account" id="WC_UserRegistrationAddForm_FormInput_page_In_Register_1" />
+				</c:when>
+				<c:otherwise>
+					<input type="hidden" name="page" value="<c:out value="${WCParam.page}" />" id="WC_UserRegistrationAddForm_FormInput_page_In_Register_1" />
+				</c:otherwise>
+			</c:choose>
+			<input type="hidden" name="registerType" value="G" id="WC_UserRegistrationAddForm_FormInput_registerType_In_Register_1" />
+			<input type="hidden" name="primary" value="true" id="WC_UserRegistrationAddForm_FormInput_primary_In_Register_1" />
+			<input type="hidden" name="isBuyerUser" value="true" id="WC_UserRegistrationAddForm_FormInput_isBuyerUser_In_Register_1" />
+
+			<%-- The challenge answer and question are necessary for the forget password feature. Therefore, they are set to "-" here. --%>
+			<input type="hidden" name="challengeQuestion" value="-" id="WC_UserRegistrationAddForm_FormInput_challengeQuestion_In_Register_1" />
+			<input type="hidden" name="challengeAnswer" value="-" id="WC_UserRegistrationAddForm_FormInput_challengeAnswer_In_Register_1" />
+			<input type="hidden" name="usr_profileType" value="B" id="WC_OrganizationRegistration_8" />
+			<flow:ifDisabled feature="allowOrgRegistration">
+				<input type="hidden" name="profileType" value="C" id="WC_UserRegistrationAddForm_FormInput_profileType_In_Register_1" />
+			</flow:ifDisabled>
+
+			<flow:ifEnabled feature="allowOrgRegistration">
+						<div class="row">
+							<div class="col6 formField">
+								<div class="registrationType" id="individualSelect">
+									<img id="individual_image_on" tabindex="-1"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_individual_ON.png"
+										alt='<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}"/>' />
+									<a role="button" id="individual_link" class="nodisplay"
+										title="<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}"/>"
+										href="javascript:B2BLogonForm.switchRegistration('individual_link')">
+										<img id="individual_image_off"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_individual_OFF.png"
+										alt='<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}"/>' />
+									</a>
+									<p>
+										<fmt:message key="OR_BUYER_REGISTER" bundle="${widgetText}" />
+									</p>
+								</div>
+							</div>
+							<div class="col6 formField">
+								<div class="registrationType" id="organizationSelect">
+									<a role="button" id="organization_link"
+										title="<fmt:message key="OR_REGISTER" bundle="${widgetText}"/>"
+										href="javascript:B2BLogonForm.switchRegistration('organization_link')">
+										<img id="organization_image_off"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_company_OFF.png"
+										alt='<fmt:message key="OR_REGISTER" bundle="${widgetText}"/>' />
+									</a> <img id="organization_image_on" tabindex="-1"
+										class="nodisplay"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/icon_company_ON.png"
+										alt='<fmt:message key="OR_REGISTER" bundle="${widgetText}"/>' />
+									<p>
+										<fmt:message key="OR_REGISTER" bundle="${widgetText}" />
+									</p>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col12">
+								<div class="description">
+									<img id="registration_arrow"
+										src="${env_imageContextPath}/Widgets_701/images/widget_registration_form/arrow_lg_up_ON.png"
+										alt="" />
+
+									<div id="individualDescription">
+										<fmt:message key="OR_BUYER_TOOLTIP_1" bundle="${widgetText}" />
+										<br /> <br />
+										<fmt:message key="OR_BUYER_TOOLTIP_2" bundle="${widgetText}" />
+										<br /> <br />
+										<div class="bulletPoints">
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_3" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_4" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_5" bundle="${widgetText}" />
+											</div>
+										</div>
+
+										<div class="bulletPoints">
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_6" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_7" bundle="${widgetText}" />
+											</div>
+											<div class="bullet">
+												<span class="marker">&bull;</span>
+												<fmt:message key="OR_BUYER_TOOLTIP_8" bundle="${widgetText}" />
+											</div>
+										</div>
+									</div>
+
+									<div id="organizationDescription" class="nodisplay">
+										<fmt:message key="OR_ORG_TOOLTIP" bundle="${widgetText}" />
+									</div>
+
+									<div class="clearFloat"></div>
+								</div>
+							</div>
+						</div>
+
+					</flow:ifEnabled>
+
+					<c:if test="${!empty errorMessage}">
+						<br />
+						<fmt:message bundle="${widgetText}" var="msgType"
+							key="ERROR_MESSAGE_TYPE" />
+						<c:set var="errorMessage" value="${msgType} ${errorMessage}" />
+						<span id="UserRegistrationErrorMessage" class="error_msg"
+							tabindex="-1"><c:out value="${errorMessage}" /> </span>
+						<script type="text/javascript">
+							dojo
+									.addOnLoad(function() {
+										setTimeout(
+												"dojo.byId('UserRegistrationErrorMessage').focus()",
+												2000);
+									});
+						</script>
+					</c:if>
+
+					<input type="hidden" name="addressType" value="S" id="WC_UserRegistrationAddForm_FormInput_addressType_In_Register_1" />
+					<input type="hidden" name="receiveEmail" value="false" id="WC_UserRegistrationAddForm_FormInput_receiveEmail_In_Register_1" />
+					<input type="hidden" name="rememberMe" value="true" id="WC_UserRegistrationAddForm_FormInput_rememberMe_In_Register_1" />
+					<flow:ifEnabled feature="allowOrgRegistration">
+						<script type="text/javascript">
+							dojo.addOnLoad(function() {
+								B2BOrgTooltip.tooltipInit('buyerOrgToolTip');
+							});
+						</script>
+
+						<input type="hidden" name="parentMember" id="WC_UserRegistrationAddForm_FormInput_parentMember_1" value="${WCParam.parentMember}" />
+
+						<div class="column" id="WC_UserRegistrationAddForm_B2BBuyerOrg_1">
+							<div id="WC_UserRegistrationAddForm_B2BBuyerOrg_2">
+								<label for="WC_UserRegistrationAddForm_B2BBuyerOrg_input_1"
+									class="spanacce"> <fmt:message
+										key="ACCESSIBLE_LABEL_TEXT" bundle="${widgetText}">
+										<fmt:param>
+											<fmt:message key="REG_BUYER" bundle="${widgetText}" />
+										</fmt:param>
+										<fmt:param>
+											<fmt:message key="ACCESSIBLE_LABEL_REQUIRED_INFO"
+												bundle="${widgetText}" />
+										</fmt:param>
+									</fmt:message> </label>
+								<fmt:message key="REG_BUYER" bundle="${widgetText}" />
+								<div class="required-field"
+									id="WC_UserRegistrationAddForm_B2BBuyerOrg_3">*</div>
+							</div>
+
+							<div id="buyer_org">
+								<input class="inputField"
+									onblur="javascript:B2BLogonForm.setParentMemberValue()"
+									type="text" size="35" maxlength="254" name="ancestorOrgs"
+									id="WC_UserRegistrationAddForm_B2BBuyerOrg_input_1"
+									value="<c:out value="${WCParam.ancestorOrgs}"/>" /> <span
+									id="buyerOrgToolTip" tabindex="0"
+									class="more_info_icon verticalAlign_middle"> <img
+									class="info_on"
+									src="${env_imageContextPath}/Widgets_701/images/icon_info_ON.png"
+									alt="" /> <img class="info_off"
+									src="${env_imageContextPath}/Widgets_701/images/icon_info.png"
+									alt="" /> </span>
+							</div>
+
+							<div id="buyerOrgToolTipSection" style="display: none">
+								<span dojoType="wc.widget.Tooltip" connectId="buyerOrgToolTip"
+									style="display: none;">
+									<div class="widget_site_popup">
+										<div class="top">
+											<div class="left_border"></div>
+											<div class="middle"></div>
+											<div class="right_border"></div>
+										</div>
+										<div class="clear_float"></div>
+										<div class="middle">
+											<div class="content_left_border">
+												<div class="content_right_border">
+													<div class="content">
+														<div class="header"
+															id="WC_UserRegistrationAddForm_B2BBuyerOrg_tooltip_div_3">
+															<fmt:message key="WHAT_IS_BO" bundle="${widgetText}" />
+															<div class="clear_float"></div>
+														</div>
+														<div class="body"
+															id="WC_UserRegistrationAddForm_B2BBuyerOrg_tooltip_div_4">
+															<fmt:message key="BUYER_ORG_DEFINITION"
+																bundle="${widgetText}" />
+														</div>
+													</div>
+													<div class="clear_float"></div>
+												</div>
+											</div>
+										</div>
+										<div class="clear_float"></div>
+										<div class="bottom">
+											<div class="left_border"></div>
+											<div class="middle"></div>
+											<div class="right_border"></div>
+										</div>
+										<div class="clear_float"></div>
+									</div> </span>
+							</div>
+						</div>
+					</flow:ifEnabled>
+			<div class="form-control">
+	  			<label class="form__label required-field spacing-bottom-tiny" for="firstName"><fmt:message bundle="${storeText}" key="REGN_FORM_LABEL_FIRSTNAME"/></label>
+	  			<input class="form__input" name="firstName" placeholder="<fmt:message key="REGN_FORM_PHOLDER_FIRSTNAME" bundle="${storeText}" />" id="firstName" maxlength="" required autocomplete="off">
+			</div>
+		
+			<div class="form-control">
+	  			<label class="form__label required-field spacing-bottom-tiny" for="lastName"><fmt:message bundle="${storeText}" key="REGN_FORM_LABEL_LASTNAME"/></label>
+	  			<input class="form__input" name="lastName" placeholder="<fmt:message key="REGN_FORM_PHOLDER_LASTNAME" bundle="${storeText}" />" id="lastName" maxlength="" required autocomplete="off">
+			</div>
+	
+			<div class="form-control">
+	  			<label for="mobileNumber" class="form__label required-field spacing-bottom-tiny"><fmt:message key="REGN_FORM_LABEL_MOBILE" bundle="${storeText}" /></label>
+	  			<div class="form__input--group">
+	    			<span class="form__input-prefix"><fmt:message key="REGN_FORM_LABEL_INDMOBPREFIX" bundle="${storeText}" /></span>
+	    			<input type="tel" required maxlength="10" placeholder="<fmt:message key="REGN_FORM_PHOLDER_MOBILE" bundle="${storeText}" />" id="mobileNumber" name="logonId" class="form__input">
+	    			<input type="hidden" id="phone1" name="phone1" class="form__input" value="">
+	  			</div>
+			</div>
+			
+			<div class="form-control">
+	  			<label class="form__label spacing-bottom-tiny" for="email"><fmt:message
+										key="REGN_FORM_LABEL_EMAILOPT" bundle="${storeText}" /></label>
+	  			<input class="form__input" name="email1" placeholder="<fmt:message key="REGN_FORM_PHOLDER_EMAILOPT" bundle="${storeText}" />" id="email" maxlength="150" autocomplete="off">
+			</div>
+	
+	  		<div class="form-control">
+				<label class="form__label required-field spacing-bottom-tiny" for="password"><fmt:message
+										key="REGN_FORM_LABEL_PASSWORD" bundle="${storeText}" /></label>
+				<div class="password-show-hide-field">
+					<input class="form__input" type="password" name="logonPassword" id="showHidePassword" required>
+					<div class="show-hide-password-block">
+						<input type="checkbox" id="showHide">
+						<label for="showHide" id="showHideLabel"><fmt:message
+												key="REGN_FORM_LABEL_PWORDSHOW" bundle="${storeText}" /></label>
+					</div>
+				</div>
+	  		</div>
+			<input type="hidden" name="logonPasswordVerify" id="WC_UserRegistrationAddForm_FormInput_logonPasswordVerify_In_Register_1" value="" />
+			<div class="note form__control">
+					<label for="tcAgree"><input type="checkbox" required class="form__input" name="tcAgree" id="tcAgree">
+					<fmt:message bundle="${storeText}" key="REGN_TNC_IAGREE"/> <a class="link-alternate show-dropdown" href="<c:out value="${TermsAndCondition}"/>"><fmt:message bundle="${storeText}" key="REGN_TNC_TERMS"/></a>.</label>
+			</div>
+	
+	   		<div class="form__btn">
+	      		<button type="button" class="registration__btn-cta button-primary" onclick="JavaScript:LogonForm.prepareSubmit(document.formRegisterValidation);return false;"><fmt:message key="REGN_FORM_LABEL_REGISTERBUTTON" bundle="${storeText}" /></button>
+	   		</div>
+	
+		</form>
+	</div>
+</div>
+<%--<script src="${jsAssetsDir}javascript/DMart/customerprofile/forgot-password.js"></script> --%>
+<script>
+	dojo.addOnLoad(function() {
+		<fmt:message bundle="${storeText}" key="ERR_OTP_EXPIRED" var="ERR_OTP_EXPIRED"/>
+		MessageHelper.setMessage("ERR_OTP_EXPIRED", <wcf:json object="${ERR_OTP_EXPIRED}"/>);
+		
+		<fmt:message bundle="${storeText}" key="LOGIN_MESG_WAIT_OTP" var="LOGIN_MESG_WAIT_OTP"/>
+		MessageHelper.setMessage("LOGIN_MESG_WAIT_OTP", <wcf:json object="${LOGIN_MESG_WAIT_OTP}"/>);
+		
+		<fmt:message bundle="${storeText}" key="ERR_OTP_EXPIRED_SHORT" var="ERR_OTP_EXPIRED_SHORT"/>
+		MessageHelper.setMessage("ERR_OTP_EXPIRED_SHORT", <wcf:json object="${ERR_OTP_EXPIRED_SHORT}"/>);
+		
+		<fmt:message bundle="${storeText}" key="OTP_RESEND_STATUS_MESSAGE" var="OTP_RESEND_STATUS_MESSAGE"/>
+		MessageHelper.setMessage("OTP_RESEND_STATUS_MESSAGE", <wcf:json object="${OTP_RESEND_STATUS_MESSAGE}"/>);
+		});
+</script>
+<!-- END GlobalLoginSignIn_UI.jspf -->

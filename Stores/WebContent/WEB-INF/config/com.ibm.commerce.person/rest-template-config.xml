@@ -1,0 +1,190 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<!--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+-->
+<_config:rest-action-config xmlns:_config="http://www.ibm.com/xmlns/prod/commerce/foundation/config" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://www.ibm.com/xmlns/prod/commerce/foundation/config ../../xsd/rest-action-config.xsd ">
+	<resource path="{serverHost}/wcs/resources/store/{storeId}/person" name="personHandler">
+	 <serverParam name="serverHost">$WCParam.serverHost</serverParam>
+	 <serverParam name="storeId">$WCParam.storeId</serverParam>
+		<method name="updatePerson" httpMethod="PUT" path="@self?action={action}">
+		<var name="action">updateUserRegistration</var>
+		<template>
+			<![CDATA[{
+    			 "storeId" : "$storeId",
+    			 "catalogId" : "$catalogId",
+    			 "URL" : "$URL",
+    			 "errorViewName" : "$errorViewName",
+    			 "registerType" : "$registerType",
+    			 "editRegistration" : "$editRegistration",
+    			 "receiveEmail" : "$receiveEmail",
+    			 "receiveSMSNotification" : "$receiveSMSNotification",
+    			 "receiveSMS" : "$receiveSMS",
+    			 "logonId" : "$logonId",
+    			 "authToken" : "$authToken",
+    			 "challengeQuestion" : "$challengeQuestion",
+    			 "challengeAnswer" : "$challengeAnswer",
+    			 "logonPassword" : "$logonPassword",
+    			 "logonPasswordVerify" : "$logonPasswordVerify",
+    			 "firstName" : "$firstName",
+    			 "lastName" : "$lastName",
+    			 "address1" : "$address1",
+    			 "address2" : "$address2",
+    			 "city" : "$city",
+    			 "country" : "$country",
+    			 "state" : "$state",
+    			 "zipCode" : "$zipCode",
+    			 "phone1" : "$phone1",
+    			 "email1" : "$email1",
+    			 "preferredLanguage" : "$preferredLanguage",
+    			 "preferredCurrency" : "$preferredCurrency",
+    			 "gender" : "$gender",
+    			 "birthdayEnabled" : "$birthdayEnabled",
+    			 "curr_year" : "$curr_year",
+    			 "curr_month" : "$curr_month",
+    			 "curr_date" : "$curr_date",
+    			 "dateOfBirth" : "$dateOfBirth",
+    			 "birth_year" : "$birth_year",
+    			 "birth_month" : "$birth_month",
+    			 "birth_date" : "$birth_date",
+    			 "mobileDeviceEnabled" : "$mobileDeviceEnabled",
+    			 "mobilePhone1Country" : "$mobilePhone1Country",
+    			 "mobileCountryCode" : "$mobileCountryCode",
+    			 "mobilePhone1" : "$mobilePhone1"
+     			}]]>
+		</template>
+		</method>	
+		
+		<method name="updatePersonContact" httpMethod="PUT" path="@self/contact/{name}">
+		<var name="name">$WCParam.nickName</var>
+		<template>
+			<![CDATA[{
+  				 "firstName" : "$firstName",
+   				 "lastName" : "$lastName",
+ 			     "addressType" : "$addressType",
+   				 "zipCode" : "$zipCode",
+   				 "addressLine": [
+      				"$address1",
+      			 ],
+   				 "city" : "$city",
+   				 "state" : "$state",
+    			 "country" : "$country",
+   				 "zipCode" : "$zipCode",
+   				 "email1" : "$email1",
+   				 "email2" : "$email2",
+  				 "phone1" : "$phone1"
+     			}]]>
+		</template>
+		</method>
+		<method name="updateCheckoutProfile" httpMethod="PUT" path="@self/checkoutProfile">
+		<template>
+			<![CDATA[{
+				"billing_addressLine": [
+      				"$billing_address1",
+      				"$billing_address2"
+      			 ],
+  				 "billing_addressType" : "$billing_addressType",
+   				 "billing_city" : "$billing_city",
+ 			     "billing_country" : "$billing_country",
+ 			     "billing_email1" : "$billing_email1",
+ 			     "billing_firstName" : "$billing_firstName",
+ 			     "billing_lastName" : "$billing_lastName",
+ 			     "billing_nickName" : "$billing_nickName",
+ 			     "billing_phone1" : "$billing_phone1",
+ 			     "billing_state" : "$billing_state",
+ 			     "billing_zipCode" : "$billing_zipCode",
+ 			        
+   				 "shipping_addressLine": [
+      				"$shipping_address1",
+      				"$shipping_address2"
+      			 ],
+      			 "shipping_addressType" : "$shipping_addressType",
+   				 "shipping_city" : "$shipping_city",
+ 			     "shipping_country" : "$shipping_country",
+ 			     "shipping_email1" : "$shipping_email1",
+ 			     "shipping_firstName" : "$shipping_firstName",
+ 			     "shipping_lastName" : "$shipping_lastName",
+ 			     "shipping_nickName" : "$shipping_nickName",
+ 			     "shipping_phone1" : "$shipping_phone1",
+ 			     "shipping_state" : "$shipping_state",
+ 			     "shipping_zipCode" : "$shipping_zipCode",
+ 			     "shipping_modeId" : "$shipModeId",
+ 			     
+ 			     "pay_payMethodId": "$payMethodId",
+ 			     "pay_cc_brand": "$pay_cc_brand",
+ 			     "pay_expire_month": "$pay_expire_month",
+ 			     "pay_expire_year": "$pay_expire_year",
+ 			     "pay_payMethodId": "$pay_payMethodId",
+ 			     "pay_payment_method": "$pay_payment_method",
+ 			     "pay_account": "$pay_account",
+ 			     "account": "$pay_account",
+ 			     "curr_year": "$curr_year",
+ 			     "curr_month": "$curr_month",
+ 			     "curr_date": "$curr_date",
+ 			     "SameShippingAndBillingAddress": "$SameShippingAndBillingAddress",
+ 			     "URL" : "$URL"  
+     			}]]>
+		</template>
+		</method>
+		<method name="updateMemberUser" httpMethod="POST" path="updateMemberUser/{userId}">
+		<var name="userId">$WCParam.userId</var>
+		<template>
+			<![CDATA[{
+  				"addAsExplicitInclusionToMemberGroupId" : "$addAsExplicitInclusionToMemberGroupId",
+ 				"addAsExplicitExclusionToMemberGroupId" : "$addAsExplicitExclusionToMemberGroupId",
+ 				"removeFromMemberGroupId" : "$removeFromMemberGroupId"
+     			}]]>
+		</template>
+		</method>
+		<method name="UserRegistrationAdminAddCmd" httpMethod="POST" path="?mode=admin" >
+		<template>
+				<![CDATA[{
+   				 "challengeQuestion" : "$challengeQuestion",
+ 			     "firstName" : "$firstName",
+ 			     "preferredLanguage" : "$preferredLanguage",
+ 			     "receiveEmail" : "$receiveEmail",
+ 			     "challengeAnswer" : "$challengeAnswer",
+ 			     "receiveSMSNotification" : "$receiveSMSNotification",
+ 			     "state" : "$state",
+ 			     "URL" : "$URL",
+ 			     "zipCode" : "$zipCode",
+ 			     "lastName" : "$lastName",
+ 			     "logonPasswordVerify" : "$logonPasswordVerify",
+ 			     "phone1" : "$phone1",
+ 			     "receiveSMS" : "$receiveSMS",
+ 			     "country" : "$country",
+ 			     "city" : "$city",
+ 			     "logonId" : "$logonId",
+ 			     "address2" : "$address2",
+ 			     "requesttype" : "$requesttype",
+ 			     "address1" : "$address1",
+ 			     "parentMemberId" : "$parentMemberId",
+ 			     "email1" : "$email1",
+ 			     "storeId" : "$storeId",
+ 			     "logonPassword" : "$logonPassword",
+     			}]]>
+		</template>
+		</method>
+		<method name="UserRegistrationAdminUpdateCmd" httpMethod="PUT" path="{userId}">
+			<var name="userId">$WCParam.userId</var>
+		</method>
+		<method name="MemberRoleAssign" httpMethod="POST" path="{memberId}?action={action}">
+			<var name="action">assignRole</var>
+			<var name="memberId">$WCParam.memberId</var>
+		</method>
+		<method name="MemberRoleUnassign" httpMethod="POST" path="{memberId}?action={action}">
+			<var name="action">unassignRole</var>
+			<var name="memberId">$WCParam.memberId</var>
+		</method>		
+	</resource>				
+</_config:rest-action-config>

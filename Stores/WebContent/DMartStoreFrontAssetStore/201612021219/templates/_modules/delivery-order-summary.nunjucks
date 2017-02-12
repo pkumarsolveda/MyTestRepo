@@ -1,0 +1,43 @@
+<div class="cart-details">
+  <div class="cart-details--head">
+    <div class="row">
+      <div class="col-md-1"><h2 class="cart-details--heading">Item</h2></div>
+      <div class="col-md-5"><h2 class="cart-details--heading padding-reset">Description</h2></div>
+      <div class="col-md-3"><h2 class="cart-details--heading padding-reset">Quantity</h2></div>
+      <div class="col-md-3"><h2 class="cart-details--heading padding-reset">Price</h2></div>
+    </div>
+  </div>
+  <div class="cart-details__item">
+    <h3 class="cart-details__item--title">
+    <a href="javascript:;" title="">
+      Apparel <span>(<span class="cart-details__item--count">3</span> items)</span><span class="cart-details__item--title-arrow"><i class="icon-caret-up"></i></span>
+    </a>
+    </h3>
+    <ul class="cart-details__item-list">
+      {% from '_modules/mycart-items.nunjucks' import myCartItems %}
+      {{ myCartItems(type='apparel', id='1', product='Ess Yellow Round Neck T-Shirt', brand='Newport', variant='L', mrp='400', dmartprice='286', save='125', free="false", offer="true", ordersummary="true") }}
+      {{ myCartItems(type='apparel', available="false", id='2', product='Ess Blue Round Neck T-Shirt', brand='Newport', variant='XL', mrp='415', dmartprice='400', save='100', ordersummary="true") }}
+      {{ myCartItems(type='apparel', id='3', product='Ess Red Round Neck T-Shirt', brand='Newport', variant='L', mrp='525', dmartprice='455', save='105', pricechange='true', ordersummary="true") }}
+
+      <li class="cart-no-items">
+        <p class="alert alert-danger text-center">No items in this section</p>
+      </li>
+    </ul>
+    <h3 class="cart-details__item--title">
+    <a href="javascript:;" title="">
+      Grocery <span>(2 items)</span><span class="cart-details__item--title-arrow"><i class="icon-caret-up"></i></span>
+    </a>
+    </h3>
+    <ul class="cart-details__item-list">
+      {% from '_modules/mycart-items.nunjucks' import myCartItems %}
+      {{ myCartItems(type='grocery', id='1', product='India Gate Basmadi Rice', brand='India Gate', variant='1kg', mrp='400', dmartprice='286', save='125', free='true', ordersummary="true") }}
+      {{ myCartItems(available='true', type='grocery', id='2', product='Deep Chana Daal', brand='Deep', variant='500mg', mrp='415', dmartprice='400', save='100', ordersummary="true") }}
+
+      <li class="cart-no-items">
+
+      <!-- For Alert message ex: '.alert .alert-danger'  -->
+        <p class="alert alert-danger text-center">No items in this section</p>
+      </li>
+    </ul>
+  </div>
+</div>

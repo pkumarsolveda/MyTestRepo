@@ -1,0 +1,35 @@
+<script type="text/javascript">
+
+	dojo.addOnLoad(function() {
+	var currCatalogId = '${WCParam.categoryId}';
+	var searchTerm = WCParamJS.searchTerm;
+	var brand = WCParamJS.handledManufacturer;
+	//alert('hei'+currCatalogId.toString());
+		$(document).bind(
+				'dmart.facet.loaded',
+				function(e) {
+					facetNavigationDisplay.init(currCatalogId.toString(),
+							'.filter-module', null,searchTerm,brand);
+							//$(document).unbind('dmart.facet.loaded');
+				});
+	});
+</script>
+
+
+<div class="filter-module" style="display: none;"></div>
+
+<div class="filter-module__applied">
+    <div class="row">
+      <div class="col-xs-12 col-md-1">
+        <h3 class="filter-module__title"><fmt:message bundle="${storeText}" key="FILTERS_SELECTED_TEXT"/></h3>
+      </div>
+
+      <div class="col-xs-12 col-md-11">
+        <div class="filter-module__applied-list">
+          <ul class="filter-applied-list">
+          </ul>
+        </div>
+      </div>
+    </div>
+</div>
+

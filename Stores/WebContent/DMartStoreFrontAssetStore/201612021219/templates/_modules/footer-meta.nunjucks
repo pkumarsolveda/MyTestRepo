@@ -1,0 +1,45 @@
+<!-- build:js /scripts/main.js -->
+<!-- bower:js -->
+<script src="/{{config.baseUrl}}_bower_components/jquery/dist/jquery.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/jquery-selectric/public/jquery.selectric.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/ion.rangeslider/js/ion.rangeSlider.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/flexslider/jquery.flexslider.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/malihu-custom-scrollbar-plugin/jquery.mCustomScrollbar.concat.min.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/raty/lib/jquery.raty.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/jquery-validation/dist/jquery.validate.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/jquery-validation/dist/additional-methods.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/easyzoom/dist/easyzoom.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/clipboard/dist/clipboard.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/twbs-pagination/jquery.twbsPagination.js"></script>
+<script src="/{{config.baseUrl}}_bower_components/gl-datepicker/glDatePicker.js"></script>
+
+<!-- endbower -->
+
+<script src="/{{config.baseUrl}}scripts/config.js"></script>
+<script src="/{{config.baseUrl}}scripts/landing.js"></script>
+<script src="/{{config.baseUrl}}scripts/header-dropdown.js"></script>
+<script src="/{{config.baseUrl}}scripts/vendor/tabs.js"></script>
+<script src="/{{config.baseUrl}}scripts/vendor/password-strength.js"></script>
+<script src="/{{config.baseUrl}}scripts/vendor/jquery.payment.js"></script>
+<script src="/{{config.baseUrl}}scripts/sticky-header.js"></script>
+<script src="/{{config.baseUrl}}scripts/custom-select-dropdown.js"></script>
+<script src="/{{config.baseUrl}}scripts/custom-tabs.js"></script>
+<script src="/{{config.baseUrl}}scripts/rating.js"></script>
+<script src="/{{config.baseUrl}}scripts/tab-carousel.js"></script>
+<script src="/{{config.baseUrl}}scripts/gallery.js"></script>
+<script src="/{{config.baseUrl}}scripts/filter-brands-carousel.js"></script>
+<script src="/{{config.baseUrl}}scripts/custom-scrollbar.js"></script>
+<script src="/{{config.baseUrl}}scripts/validate.js"></script>
+<script src="/{{config.baseUrl}}scripts/carousel-variant.js"></script>
+<script src="/{{config.baseUrl}}scripts/product-listing.js"></script>
+<script src="/{{config.baseUrl}}scripts/product-details.js"></script>
+<script src="/{{config.baseUrl}}scripts/form.js"></script>
+<script src="/{{config.baseUrl}}scripts/autocomplete.js"></script>
+<script src="/{{config.baseUrl}}scripts/modal.js"></script>
+<script src="/{{config.baseUrl}}scripts/zoom.js"></script>
+<script src="/{{config.baseUrl}}scripts/search-dropdown.js"></script>
+<script src="/{{config.baseUrl}}scripts/my-cart.js"></script>
+<script src="/{{config.baseUrl}}scripts/delivery.js"></script>
+<script src="/{{config.baseUrl}}scripts/dashboard.js"></script>
+<script src="/{{config.baseUrl}}scripts/existing-order.js"></script>
+<!-- endbuild -->

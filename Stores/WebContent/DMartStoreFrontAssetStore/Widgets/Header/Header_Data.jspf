@@ -1,0 +1,63 @@
+<%--
+ =================================================================
+  Licensed Materials - Property of IBM
+
+  WebSphere Commerce
+
+  (C) Copyright IBM Corp. 2011, 2014 All Rights Reserved.
+
+  US Government Users Restricted Rights - Use, duplication or
+  disclosure restricted by GSA ADP Schedule Contract with
+  IBM Corp.
+ =================================================================
+--%>
+
+<flow:ifEnabled feature="StoreLocator">
+<wcf:url var="StoreLocatorView" value="AjaxStoreLocatorDisplayView">
+	<wcf:param name="storeId"   value="${storeId}"  />
+	<wcf:param name="catalogId" value="${catalogId}"/>
+	<wcf:param name="langId" value="${langId}" />
+</wcf:url>
+</flow:ifEnabled>
+
+<c:set var="homePageURL" value="${env_TopCategoriesDisplayURL}"/>
+
+<wcf:url var="ContactUsViewURL" patternName="ContactUsURL" value="ContactUsView">
+	<wcf:param name="storeId"   value="${storeId}"  />
+	<wcf:param name="catalogId" value="${catalogId}"/>
+	<wcf:param name="langId" value="${langId}" />
+</wcf:url>
+
+<wcf:url var="contactUsUrl" value="contactUs">
+	<wcf:param name="storeId"   value="${storeId}"  />
+	<wcf:param name="catalogId" value="${catalogId}"/>
+	<wcf:param name="langId" value="${langId}" />
+</wcf:url>
+<c:set var="contactURL" value="${contactUsUrl}" scope="request"/>
+
+<wcf:url var="MyAccountURL" value="AjaxLogonForm">
+  <wcf:param name="langId" value="${langId}" />
+  <wcf:param name="storeId" value="${storeId}" />
+  <wcf:param name="catalogId" value="${catalogId}" />
+  <wcf:param name="myAcctMain" value="1" />
+</wcf:url>
+
+<wcf:url var="MyAccountTrackOrderURL" value="AjaxLogonForm">
+  <wcf:param name="langId" value="${param.langId}" />
+  <wcf:param name="storeId" value="${param.storeId}" />
+  <wcf:param name="catalogId" value="${param.catalogId}" />
+   <wcf:param name="isTrackOrder" value="true" />
+  <wcf:param name="myAcctMain" value="1" />
+</wcf:url>
+
+<wcf:url var="ShoppingListURL" value="myList">
+  <wcf:param name="langId" value="${param.langId}" />
+  <wcf:param name="storeId" value="${param.storeId}" />
+  <wcf:param name="catalogId" value="${param.catalogId}" />
+</wcf:url>
+
+<%-- Build sign-in or sign-out links based on user type --%>
+
+
+
+

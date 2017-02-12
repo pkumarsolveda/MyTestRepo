@@ -1,0 +1,4 @@
+{% from "_modules/product-listing-item-apparel.nunjucks" import plpApperal %}
+{% for productId in data.productIds %}
+      	 {{ plpApperal(data.product[productId],data.config,data) }}
+{% endfor %}

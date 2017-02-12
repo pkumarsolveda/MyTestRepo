@@ -1,0 +1,47 @@
+<div class="js-accordion-tabs product-info-accordion-tabs">
+  <ul class="resp-tabs-list hor_1" id = "PDP-tabs-heading">
+   {%if data.longDescription != "" %} <li>Product Overview</li>{%endif%}
+   {%if data.specification.length > 0 %} <li>Specifications</li>{%endif%}
+   {%if data.cautions.length > 0 %} <li>Cautions</li> {%endif%}
+   {%if data.tnc.length > 0 %} <li>T & C</li>{%endif%}
+   {%if data.nutritionFacts.length > 0  and data.nutritionFacts != '0' %} <li>Nutritional Facts</li>{%endif%}
+   {%if data.serviceCenter.length > 0  %} <li>Warranty</li>{%endif%}
+   
+   
+  </ul>
+  <div class="resp-tabs-container hor_1" id = "PDP-tabs-data" >
+  	{%if data.longDescription != "" %}
+    <div id = "PDP-longDescription">
+      {{ data.longDescription | safe }}
+    </div>
+    {%endif%}
+    {%if data.specification.length > 0 %}
+    <div>
+      {{ data.specification }}
+    </div>
+    {%endif%} 
+    {%if data.cautions.length > 0  %}
+    <div>
+      {{ data.cautions }}
+    </div>
+     {%endif%}
+     {%if data.tnc.length > 0 %} 
+    <div>
+      {{ data.tnc }}
+    </div>
+     {%endif%} 
+     
+    {%if data.nutritionFacts.length > 0 and data.nutritionFacts != '0'%}
+      <div id = "PDP-Nutrition-Data" class="nutritional">
+        
+      </div>
+    {% endif %}	
+       {%if   data.serviceCenter.length > 0  %}
+       <div id = "PDP-ServiceCenter-Data" class="service-center-wrap">
+        
+      </div>
+    {% endif %}	
+   
+     
+  </div>
+</div>

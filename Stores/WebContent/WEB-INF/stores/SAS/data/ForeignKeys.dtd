@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!ENTITY MAR_STORE_DIR_LOWERCASE "dmartstorefrontassetstore">
+<!ENTITY HOS_ORGANIZATION_DN "ou=dmartextb2csellerorganisationdmartjit1,o=dmartextb2csellerorganisation,o=extended sites seller organization,o=root organization">
+<!ENTITY CAT_STOREENT_ID "@catalogStore">
+<!ENTITY MAR_STORE_IDENTIFIER "DMartSAS">
+<!ENTITY CAT_ORGANIZATION_DN "ou=asset store organization,o=dmartextassetorganisation,o=extended sites organization,o=root organization">
+<!ENTITY HOS_MEMBER_ID "@hosting_mbr_id">
+<!ENTITY ja_JP "-10">
+<!ENTITY MAR_STOREENT_ID "@marketingStore">
+<!ENTITY CAT_STORE_IDENTIFIER "DMartExtB2C ExtendedSites CAS">
+<!ENTITY iw_IL "-11">
+<!ENTITY MAR_ORGANIZATION_DN "ou=dmartsas,o=dmartextassetorganisation,o=extended sites organization,o=root organization">
+<!ENTITY ORGANIZATION_DN "ou=aurora,o=seller organization,o=root organization">
+<!ENTITY CAT_MEMBER_ID "@catalog_mbr_id">
+<!ENTITY FFMCENTER_ID "@ffmcenter_id_1">
+<!ENTITY MAR_STORE_IDENTIFIER_LOWERCASE "dmartsas">
+<!ENTITY HOS_STORE_IDENTIFIER "DMartJIT1">
+<!ENTITY zh_CN "-7">
+<!ENTITY HOS_STORE_DIR "DMartJIT1">
+<!ENTITY pl_PL "-22">
+<!ENTITY tr_TR "-13">
+<!ENTITY es_ES "-5">
+<!ENTITY MAR_MEMBER_ID "@marketing_mbr_id">
+<!ENTITY fr_FR "-2">
+<!ENTITY STORE_DIRECTORY_LOWERCASE "dmartstorefrontassetstore">
+<!ENTITY CAT_STORE_IDENTIFIER_LOWERCASE "dmartextb2c extendedsites cas">
+<!ENTITY ko_KR "-9">
+<!ENTITY he_IL "-12">
+<!ENTITY CAT_STORE_DIR "DMartExtB2CCatalogAssetStore">
+<!ENTITY STORE_IDENTIFIER "Aurora">
+<!ENTITY pt_BR "-6">
+<!ENTITY HOS_STORE_IDENTIFIER_LOWERCASE "dmartjit1">
+<!ENTITY HOS_STORE_DIR_LOWERCASE "dmartjit1">
+<!ENTITY MAR_STORE_DIR "DMartStoreFrontAssetStore">
+<!ENTITY STORE_DIR "DMartStoreFrontAssetStore">
+<!ENTITY ar_EG "-23">
+<!ENTITY VENDOR_ID "@vendor_id_1">
+<!ENTITY zh_TW "-8">
+<!ENTITY en_US "-1">
+<!ENTITY CAT_STORE_DIR_LOWERCASE "dmartextb2ccatalogassetstore">
+<!ENTITY STORE_IDENTIFIER_LOWERCASE "aurora">
+<!ENTITY HOS_STOREENT_ID "@hostingStore">
+<!ENTITY ro_RO "-21">
+<!ENTITY ru_RU "-20">
+<!ENTITY it_IT "-4">
+<!ENTITY de_DE "-3">
+

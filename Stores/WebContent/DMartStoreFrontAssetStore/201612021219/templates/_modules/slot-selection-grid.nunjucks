@@ -1,0 +1,22 @@
+<div class="delivery-selection-days">
+{%set i = 0 %}
+{% for dates in data.uniqueDateList %}
+<span>
+ {% if (data.JSONdata[i].todayOrTomorrow =='') %}
+	{{data.JSONdata[i].dayOfTheWeek}}
+ {% else%}
+	{{data.JSONdata[i].todayOrTomorrow}}
+ {% endif %}	
+<span class="delivery-selection-date"> {{dates}}</span></span>
+{%set i = i+1 %}
+{% endfor %}    
+  </div>
+  
+  {% for index in range(0, data.JSONdata[1].startTimeList.length) %}
+  <div class="delivery-selection-row">  
+  {% for idx in range(0, data.uniqueDateList.length) %}
+  <span id="{{data.JSONdata[idx].dateList[index]}}||{{data.JSONdata[idx].startTimeList[index]}}||{{data.JSONdata[idx].endTimeList[index]}}"{% if((data.JSONdata[idx].availabilityList[index] < 1)) %} class="delivery-slot--not-selectable" {% endif %}" 
+  {% if((data.JSONdata[idx].startTimeList[index] == null)) %} class="delivery-slot--not-selectable" {% endif %}" >{{data.JSONdata[idx].startTimeList[index]}} - {{data.JSONdata[idx].endTimeList[index]}}</span> 
+  {% endfor %}    
+  </div>   
+  {% endfor %}  

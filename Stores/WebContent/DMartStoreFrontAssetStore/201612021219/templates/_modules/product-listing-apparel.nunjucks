@@ -1,0 +1,14 @@
+{% set pageTitle = "apparel" %}
+{% set filter = "enabled" %}
+
+{% set parentPage = "Apparel" %}
+
+<!--START: Product Listing Card-->
+	{% from "_modules/product-listing-item-apparel.nunjucks" import plpApperal %}
+    {% include '_modules/modal-size-guide.nunjucks' %}
+    {% for productId in data.productIds %}
+      <div class="col-xs-12 col-md-4 col-lg-3 js-switch-view">
+       	 {{ plpApperal(data.product[productId],data.config) }}
+      </div>
+    {% endfor %}
+<!--END: Product Listing Card-->

@@ -1,0 +1,75 @@
+{% extends '_layouts/base.nunjucks' %}
+{% block title %}Sitemap{% endblock %}
+
+{% set parentPage = 'Sitemap' %}
+
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12 col-sm-6">
+      <h3>Sections/Pages</h3>
+      <ul>
+        <li><a href="/">Home</a></li>
+        <li><a href="/splash/">Splash</a></li>
+        <li><a href="/go/">Sitemap</a></li>
+        <li><a href="/styleguide/">Styleguide</a></li>
+        <li><a href="/checkout/">Checkout</a></li>
+        <li><a href="/registration/">Registration</a></li>
+        <li><a href="/signin/">Sign-in</a></li>
+        <li><a href="/location/">Choose Location</a></li>
+        <li><a href="/account-verification/">Account Verification (OTP)</a></li>
+        <li><a href="/change-password/">Change Password</a></li>
+        <li><a href="/link-mobile/">Link Mobile Number</a></li>
+      </ul>
+      <h3>Product Details</h3>
+      <ul>
+        <li><a href="/product-apparel/">Apparel</a></li>
+        <li><a href="/product-grocery/">Grocery</a></li>
+        <li><a href="/product-household/">Household</a></li>
+      </ul>
+      <h3>Product Listing</h3>
+      <ul>
+        <li><a href="/product-listing-apparel/">Apparel</a></li>
+        <li><a href="/product-listing-grocery/">Grocery</a></li>
+      </ul>
+    </div>
+
+    <div class="col-xs-12 col-sm-6">
+      <h3>Search Results</h3>
+      <ul>
+        <li><a href="/product-search-apparel/">Apparel</a></li>
+        <li><a href="/product-search-grocery/">Grocery</a></li>
+      </ul>
+      <h3>Others</h3>
+      <ul>
+        <li><a href="/my-cart/">View Cart</a></li>
+        <li><a href="/order-confirmation/">Order Confirmation</a></li>
+        <li><a href="/email-verification/">Email Verification</a></li>
+        <li><a href="/my-list/">My List</a></li>
+        <li><a href="/delivery/">Delivery Type</a></li>
+        <li><a href="/order-details/">Order Details</a></li>
+        <li><a href="/shop-previous-order/">Shop from Previous Order</a></li>
+        <li><a href="/pup-list/">PUP List</a></li>
+      </ul>
+      <h3>Static Pages</h3>
+      <ul>
+        <li><a href="/about-us/">About Us</a></li>
+        <li><a href="/contact-us/">Contact Us</a></li>
+        <li><a href="/privacy-policy/">Privacy Policy</a></li>
+        <li><a href="/error/">Error</a></li>
+        <li><a href="/404/">404</a></li>
+        <li><a href="/invoice/">Invoice</a></li>
+        <li><a href="/faq/">FAQs</a></li>
+      </ul>
+      <h3>Dashboard</h3>
+      <ul>
+        <li>
+          <a href="/dashboard/">My Profile - Manage Address - My Orders</a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+{% endblock %}

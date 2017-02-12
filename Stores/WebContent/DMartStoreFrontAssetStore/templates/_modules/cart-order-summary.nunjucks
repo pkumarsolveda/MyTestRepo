@@ -1,0 +1,88 @@
+
+<div class="cart-summary cart-summary-secondary">
+  <h4 class="cart-summary--title cart-summary--title-secondary">Order Summary</h4>
+  <div class="cart-summary__details order-summary__details-container">
+    <div class="cart-summary__details--primary">
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Discount
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>100</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Subtotal
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>92,480</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-8">
+            <a href="javascript:;" class="cart-summary--delivery-details"><span>Delivery Charges</span> <i class="icon icon-info order-summary--delivery-charges"></i></a>
+          </div>
+          <div class="col-xs-4">
+            <div class="cart-summary--price cart-summary--delivery-price">+Extra</div>
+          </div>
+        </div>
+        <div class="delivery-charges__details js-hide-show">
+          <div class="delivery-charges__info">
+            <div class="row">
+              <div class="col-xs-2"><i class="icon icon-home delivery-charges__info-icon"></i></div>
+              <div class="col-xs-10">Home delivery charges <strong><i class="icon icon-rupees"></i>100</strong> or <strong>2%</strong> of the order, which ever is higher</div>
+            </div>
+          </div>
+          <div class="delivery-charges__info">
+            <div class="row">
+              <div class="col-xs-2"><i class="icon icon-package delivery-charges__info-icon"></i></div>
+              <div class="col-xs-10">PUP delivery has no change on order</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details">
+        <div class="row">
+          <div class="col-xs-7">
+            Tax
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><i class="icon icon-rupees"></i>100</div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__price-details last">
+        <div class="row">
+          <div class="col-xs-7">
+            <strong>Total</strong>
+          </div>
+          <div class="col-xs-5">
+            <div class="cart-summary--price"><strong><i class="icon icon-rupees"></i>92,580</strong></div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__total-details">
+        <div class="row">
+          <div class="col-xs-4">
+            <i class="dmart-sprite sprite-piggy-bank"></i>
+          </div>
+          <div class="col-xs-8">
+            <div class="cart-summary--price">
+              <div>Total Savings</div>
+              <div class="cart-summary--total"><i class="icon icon-rupees"></i>8,000</div>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="cart-summary__cta-container">
+        <a href="javascript:;" class="button-primary button--block spacing-bottom-half proceed-cta">PLACE YOUR ORDER</a>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,35 @@
+
+{% set upsell = "enable" %}
+
+<div class="js-accordion-tabs-recommanded">
+  <div class="no-border-tabs recommended-products">
+    <ul class="landing-top-carousel-navigation-quinary">
+      <li class="flex-nav-prev">
+        <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      </li>
+      <li class="flex-nav-next">
+        <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+      </li>
+    </ul>
+    <!-- Maximum tabs should be 5 and each tabs text limitation is 20characters. tab will have ellipsis if more than 20characters -->
+    <ul class="resp-tabs-list clearfix hor_1">
+      <li><span class="list-label">Dry &amp; Fruits</span></li>
+    </ul>
+    <div class="resp-tabs-container hor_1 spacing-bottom-half">
+      <div>
+        {% include '_modules/product-listing-item-grocery.nunjucks' %}
+        {% include '_modules/product-listing-item-grocery-alt.nunjucks' %}
+
+        <div class="js-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 16) %}
+            <li class="js-switch-view slide-margin">
+              {{ plpGrocery() }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

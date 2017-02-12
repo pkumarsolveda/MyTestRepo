@@ -1,0 +1,36 @@
+
+
+
+<div class="landing-non-tabs">
+  <div class="no-border-tabs recommended-products">
+    <ul class="landing-top-carousel-navigation">
+      <li class="flex-nav-prev">
+        <a href="#" class="flex-prev"><i class="icon-caret-left"></i></a>
+      </li>
+      <li class="flex-nav-next">
+        <a href="#" class="flex-next"><i class="icon-caret-right"></i></a>
+      </li>
+    </ul>
+    <!-- Maximum tabs should be 5 and each tabs text limitation is 20characters. tab will have ellipsis if more than 20characters -->
+    <ul class="resp-tabs-list clearfix hor_1">
+      <li><span class="list-label">Chana Dal</span></li>
+      <li class="view-all-rail"><span>View all</span></li>
+    </ul>
+    <div class="resp-tabs-container hor_1">
+      <div class="resp-tab-content">
+         {% include '_modules/product-listing-item-grocery.nunjucks' %}
+
+        <div class="js-landing-carousel">
+          <ul class="slides clearfix">
+         <!-- {% for n in range(0, 7) %} -->
+		  {% for product in subCategory.curatedItems %}
+            <li class="js-switch-view slide-margin">
+             {{ plpGrocery(data.product[product.id],data.config,data) }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,267 @@
+<%
+			StoreConfigurationRegistry scfRegistry1 = (StoreConfigurationRegistry) RegistryManager.singleton().getRegistry("StoreConfigurationRegistry");
+			String useMinifiedFiles = StoreConfigurationRegistry.getSingleton().getValue(0, "DMart.MinifyJSAndCSS");
+			//String useMinifiedFiles = "false";
+			pageContext.setAttribute("useMinifiedFiles", useMinifiedFiles);
+			
+			String jsVersion = StoreConfigurationRegistry.getSingleton().getValue(0, "jsVersioning");
+			//String useMinifiedFiles = "false";
+			pageContext.setAttribute("jsVersion", jsVersion);
+%>
+
+<c:set var="jsVersionFolder"  value="${staticServerHostPath}"/>
+<c:set var="cssVersionFolder" value="${staticServerHostPath}"/>
+<c:if test="${not empty jsVersion}"> 
+
+<c:set var="jsVersionFolder" value="${staticServerHostPath}/"/>
+<c:set var="cssVersionFolder" value="${staticServerHostPath}/"/>
+</c:if>
+
+
+
+<c:choose>
+	<c:when test="${param.useUnMinifiedFiles == 'true' || useMinifiedFiles == 'false'}">
+		<link rel="stylesheet" href="${cssVersionFolder}css/DMart/main.css" media="all">
+	</c:when>
+	<c:otherwise>
+		<link rel="stylesheet" href="${cssVersionFolder}css/min/maincss-min.css" media="all">
+		<%--<link rel="stylesheet" href="${jspStoreImgDir}css/DMart/main.css" media="all">--%>
+	</c:otherwise>
+</c:choose>
+<c:choose>
+	<c:when test="${param.useUnMinifiedFiles == 'true' || useMinifiedFiles == 'false'}">
+		<script type="text/javascript" src="${jsVersionFolder}javascript/MessageHelper.js"></script>
+		<script type="text/javascript" src="${jsVersionFolder}javascript/StoreCommonUtilities.js"></script>
+		<script type="text/javascript" src="${jsVersionFolder}javascript/Responsive.js"></script>
+		<script type="text/javascript" src="${jsVersionFolder}javascript/Widgets/Search.js"></script>
+		<script type="text/javascript" src="${jsVersionFolder}javascript/Common/ShoppingActions.js"></script>
+		<script type="text/javascript" src="${jsVersionFolder}javascript/Common/ShoppingActionsServicesDeclaration.js"></script>
+	</c:when>
+	<c:otherwise>
+		<script src="${jsVersionFolder}javascript/min/oob-min.js"></script>
+	</c:otherwise>
+</c:choose>
+
+<c:choose>
+	<c:when test="${param.useUnMinifiedFiles == 'true' || useMinifiedFiles == 'false'}">
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.min.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.minicolors.min.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.validate.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.selectric.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.selectric.placeholder.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.selectric.addNew.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/ion.rangeSlider.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.flexslider.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/nunjucks.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/perfect-scrollbar.jquery.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.mCustomScrollbar.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/config.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/ajaxq.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/lz-string.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/additional-methods.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/jquery.ba-throttle-debounce.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/easyzoom.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/glDatePicker.min.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/vendor/jquery.autoComplete.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/vendor/jquery.payment.js"></script>
+		<script src="${jsVersionFolder}javascript/DMart/vendor/jquery.lockfixed.js"></script>
+		<%-- <script src="${jsVersionFolder}javascript/DMart/underscore.js"></script> --%>
+		<script src="${jsVersionFolder}javascript/DMart/plugins/owl.carousel.min.js"></script>
+	</c:when>
+	<c:otherwise>
+		<script src="${jsVersionFolder}javascript/min/plugins-min.js"></script>
+	</c:otherwise>
+</c:choose>
+
+
+<c:choose>
+<c:when test="${param.useUnMinifiedFiles == 'true' || useMinifiedFiles == 'false'}">
+	<c:choose>
+		<c:when test="${pageGroup != 'Checkout'}">
+			<script src="${jsVersionFolder}javascript/DMart/Cart/CartHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Cart/CartActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/ListActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Cart/MiniCartDisplayHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/LocalCacheHelper.js"></script>
+			
+			<script src="${jsVersionFolder}javascript/DMart/localCache/Storage.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/DmartAttributeConstants.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/CachedHeader.js"></script>
+			
+			<script src="${jsVersionFolder}javascript/DMart/Utilities/ErrorMessageHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Analytics/DmartAnalytics.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Cart/ShoppingActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/SearchHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/CheckoutArea/Guest-Checkout.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/CapturePinCode/capturePincode.js"></script>
+			
+			<script src="${jsVersionFolder}javascript/UserArea/LogonForm.js"></script>
+			<script src="${staticAssetContextRoot}${env_siteWidgetsDir}com.ibm.commerce.store.widgets.GlobalLogin/javascript/GlobalLoginServicesDeclarations.js"></script>
+			
+			
+			<script src="${jsVersionFolder}javascript/DMart/vendor/password-strength.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/vendor/tabs.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/header-dropdown.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/form.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/sticky-header.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/modal.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/autocomplete.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/validate.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/custom-select-dropdown.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/custom-tabs.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/carousel-variant.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/product-listing.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/custom-scrollbar.js"></script>
+			<%--<script src="${jsVersionFolder}javascript/DMart/gallery.js"></script> --%>
+			<script src="${jsVersionFolder}javascript/DMart/tab-carousel.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/search-dropdown.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/OrderStatus/orderStatus.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/my-cart.js"></script>
+			<script src="${jsVersionFolder}javascript/Widgets/MiniShopCartDisplay/MiniShopCartDisplay.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Utilities/dmartutilities.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/customerprofile/forgot-password.js"></script>
+			
+			<script src="${jsVersionFolder}javascript/Miscellaneous/Static-Content.js"></script>
+			
+		</c:when>
+		<c:otherwise>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/DmartAttributeConstants.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/vendor/tabs.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/custom-tabs.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/validate.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/form.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/autocomplete.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/CapturePinCode/capturePincode.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/modal.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/my-cart.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/delivery.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Checkout/CheckoutHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Cart/CartHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/Storage.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Utilities/ErrorMessageHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Analytics/DmartAnalytics.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/payment/payment.js"></script>
+			<script src="${jsVersionFolder}javascript/Miscellaneous/Static-Content.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Utilities/dmartutilities.js"></script>
+		</c:otherwise>
+	</c:choose>	
+	<c:choose>
+		<c:when test="${pageGroup == 'HomePage'}">
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ESpotProductRecommendationHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/landing.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'Category' || pageGroup == 'Search'}">
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/FacetNavigationDisplayHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/filter-brands-carousel.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ESpotProductRecommendationHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/CategoryLandingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/CategoryLandingProductHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/CLPProductListingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/landing.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'Product'}">
+			<script src="${jsVersionFolder}javascript/DMart/PDP/recommendations.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductRecommendationsHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductDisplayHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/product-details.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'MyAccount'}">
+			<script src="${jsVersionFolder}javascript/DMart/MyAccount/DashBoardHelper.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'MyOrders'}">
+			<script src="${jsVersionFolder}javascript/DMart/MyAccount/DashBoardHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'CartPage'}">
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ESpotProductRecommendationHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/Cart/UserCartDisplayHelper.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'MyList'}">
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActions.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/wishlist/DMartShoppingListActionsServicesDeclaration.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'ErrorPage'}">
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ESpotProductRecommendationHelper.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'LoginPage'}">
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ProductListingHelper.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'OrderDetails'}">
+			<script src="${jsVersionFolder}javascript/DMart/OrderStatus/OrderStatusHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/MyAccount/DashBoardHelper.js"></script>
+			<script src="${jsVersionFolder}javascript/DMart/localCache/ESpotProductRecommendationHelper.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'PasswordReset'}">
+			<script src="${jsVersionFolder}javascript/DMart/customerprofile/update-password.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'PUPList'}">
+			<script src="<c:out value="${jsVersionFolder}javascript/Common/Pup-List.js"/>"></script>
+		</c:when>
+	</c:choose>
+</c:when>
+
+<c:when test="${useMinifiedFiles == 'true'}">
+	<c:choose>
+		<c:when test="${pageGroup == 'HomePage'}">
+			<script src="${jsVersionFolder}javascript/min/home-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'Category' || pageGroup == 'Search'}">		
+			<script src="${jsVersionFolder}javascript/min/category-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'Product'}">
+			<script src="${jsVersionFolder}javascript/min/pdp-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'MyAccount'}">
+			<script src="${jsVersionFolder}javascript/min/myaccount-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'MyOrders'}">
+			<script src="${jsVersionFolder}javascript/min/myorders-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'CartPage'}">
+			<script src="${jsVersionFolder}javascript/min/cart-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'ErrorPage'}">
+			<script src="${jsVersionFolder}javascript/min/error-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'LoginPage'}">
+			<script src="${jsVersionFolder}javascript/min/login-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'MyList'}">
+			<script src="${jsVersionFolder}javascript/min/myList-min.js"></script>
+		</c:when>
+		<c:when test="${pageGroup == 'Checkout'}">
+			<script src="${jsVersionFolder}javascript/min/checkout-min.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'OrderDetails'}">
+			<script src="${jsVersionFolder}javascript/min/orderdetails-min.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'PasswordReset'}">
+			<script src="${jsVersionFolder}javascript/min/passwordreset-min.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'EmailValidation'}">
+			<script src="${jsVersionFolder}javascript/min/validateemail-min.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'PUPList'}">
+			<script src="${jsVersionFolder}javascript/min/puplist-min.js"></script>
+		</c:when>
+		<c:when test = "${pageGroup == 'Common'}">
+			<script src="${jsVersionFolder}javascript/min/common-min.js"></script>
+		</c:when>
+	</c:choose>
+</c:when>
+</c:choose>

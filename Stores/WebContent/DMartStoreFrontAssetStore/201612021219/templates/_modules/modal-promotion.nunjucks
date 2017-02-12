@@ -1,0 +1,88 @@
+{% macro promotionModalPop(modalid, offerTitle, mrp, dmartPrice, img, imgsrc, noAddToCart, productTitle, brandName, varient, type, savings, itemId, maxQty, colour, priceExists, config) %}
+	<div id="{{ modalid }}" class="modal-dialog js-modal-dialog-esc" data-item="{{itemId}}">
+		<div class="modal-dialog__content modal-dialog__content-medium">
+			<a href="javascript:;" title="Close" class="modal-dialog__close">X</a>
+			<div class="modal-dialog__header">
+			<h4 class="modal-dialog__header-title">{{ offerTitle }}</h4>
+			</div>
+			<div class="modal-dialog__body promotion-panel">
+				<div class="row">
+					<div class="col-xs-12 col-sm-4">
+						{% if img == 'true' %}<img class="img-responsive" src="{{ imgsrc }}" alt="{{ productTitle }}" title="{{ productTitle }}" onerror="this.src='{{config.noImagePath}}';"> {% endif %}
+					</div>
+					<div class="col-xs-12 col-sm-8">
+						<h2 class="promotion-panel--title">{{ productTitle }}</h2>
+						<h3 class="promotion-panel--brand-name"><a href="javascript:;" title="">{{ brandName }}</a></h3>
+						<div class="product-listing__save" {% if savings <= 0  %} style='visibility:hidden' {% endif %}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{savings}}</span></div>
+
+            {% if type != 'apparel' %}
+  						<h4 class="promotion-panel__varient--label">
+  						 {{ varient }}
+  						</h4>
+            {% endif %}
+
+            {% if type == 'apparel' %}
+	            <div class="plp-apparel">
+	              <ul class="plp-apparel__color-pallette js-plp-color-pallette">
+	                <li class="selected"><a rel="colorPallete-1" href="javascript:;" style="background-color: #0c4d9f">&nbsp;</a></li>
+	              </ul>
+	            </div>
+	
+	            <h4 class="promotion-panel__varient--label" style="margin-left:30px;">
+	  				{{ varient }}
+	  			</h4>
+            {% endif %}
+            <a class="promotion-panel--change-qty-cta" href="javascript:;" title="Change Quantity">Change Qty</a>
+            <div class="clearfix spacing-bottom-half">&nbsp;</div>
+						<div class="row">
+							<div class="col-sm-12 col-md-6">
+								<h6 class="promotion-panel--original-price" {% if mrp <= 0  %} style='display:none' {% endif %}>
+								{% if mrp == dmartPrice %} 
+						        	MRP <span class="no-strike-diagonal"><i class="icon-rupees"></i>{{ mrp }}</span>
+						        {% else %}
+						        	MRP <span class="strike-diagonal"><i class="icon-rupees"></i>{{ mrp }}</span>
+						        {% endif %}
+					      
+					      		</h6>
+								<h4 class="promotion-panel--discounted-price"  {% if dmartPrice <= 0  %} style='display:none' {% endif %}>
+				  	    DMart <i class="icon-rupees"></i>{{ dmartPrice }}</a>
+				    	  </h4>
+							</div>
+							<div class="col-sm-12 col-md-6">
+								<div class="promotion-panel__btn">
+									<a class="promotion-panel__btn-addtocart button-primary {% if priceExists == false %} button--disabled  {%endif%}" href="javascript:;" data-item="{{itemId}}" title="Add to Cart">
+									<i class="icon-cart"></i>	Add to Cart</a>
+									<div class="promotion-panel__btn-quantity">
+										<span class="promotion-panel__btn-quantity-label">Quantity</span>
+										<div class="md-custom-select">
+										<select class="cart-details-dropdown">
+										 {%for qty in range(0,maxQty)%}
+										 	<option value="{{qty+1}}">{{qty+1}}</option>
+										 {%endfor%}
+							        	</select>
+							      </div>
+									</div>
+                  <a class="promotion-panel__btn-viewcart button-primary" href="javascript:;" title="View Cart">
+                  <i class="icon-cart"></i> View Cart</a>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	
+
+{% endmacro %}
+
+<ul class="promotions-modal">
+	{% for modalTarget in modalTargets %}
+		{% set modalDetails =  modalData[modalTarget] %}
+		{% if modalDetails.type == "apparel" %}
+			{{ promotionModalPop(modalid=modalDetails.target, offerTitle=modalDetails.promotion_Message , mrp=modalDetails.sellingPrice , dmartPrice=modalDetails.offerPrice ,img="true", imgsrc=modalDetails.imageURL, noAddToCart="false", productTitle=modalDetails.name, brandName=modalDetails.brand, varient=modalDetails.attributes.Size, type=modalDetails.type, savings=modalDetails.savings, itemId=modalDetails.itemId, maxQty=modalDetails.maxOrderQty, colour=modalDetails.attributes.Colour, priceExists= modalDetails.priceExists, config=config) }}
+		{% else %}
+		    {{ promotionModalPop(modalid=modalDetails.target, offerTitle=modalDetails.promotion_Message ,  mrp=modalDetails.sellingPrice , dmartPrice=modalDetails.offerPrice ,img="true", imgsrc=modalDetails.imageURL, noAddToCart="false", productTitle=modalDetails.name, brandName=modalDetails.brand, varient=modalDetails.attributes.Size, type=modalDetails.type, savings=modalDetails.savings, itemId=modalDetails.itemId, maxQty=modalDetails.maxOrderQty , priceExists= modalDetails.priceExists, config=config) }}
+		{% endif %}
+	{% endfor %}
+</ul>

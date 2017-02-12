@@ -1,0 +1,14 @@
+<ul class="progress-indicator">
+  <li class="active">1
+    <span>Sign in</span>
+  </li>
+  <li class="{% if pageTitle == 'Order Confirmation' %} active {% else %} active {% endif %}">2
+    <span>Delivery & Slot</span>
+  </li>
+  <li class="{% if pageTitle == 'Order Confirmation' %} active {% endif %} js-payment-highlight">3
+    <span>Payment</span>
+  </li>
+  <li class="{% if pageTitle == 'Order Confirmation' %} active {% endif %}">4
+    <span>Order Confirmation</span>
+  </li>
+</ul>

@@ -1,0 +1,27 @@
+{% macro viewOrderDetails(available, type, id, product, brand, variant, mrp, dmartprice, save, pricechange, free, offer, ordersummary) %}
+
+<li class="cart-details__item-lists {% if available == 'false' %}product-not-available{% endif %}">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-1">
+      <a class="{% if available == 'false' %}product-not-available-img-disabled{% endif %}" href="javascript:;" title="">
+        <img class="img-responsive" src="/{{config.baseUrl}}images/temp/plp/product-{% if type == 'apparel' %}apparel{% else %}grocery{% endif %}-{{ id }}.jpg" alt="List">
+      </a>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-5">
+      <h3 class="h4 product-name"><a href="javascript:;">{{ product }}</a></h3>
+      <h4 class="product-brand"><a href="javascript:;">{{ brand }}</a></h4>
+    </div>
+    <div class="col-xs-4 col-xs-offset-2 col-sm-4 col-md-3 col-md-offset-0">
+
+     {% if variant != '' %} <h4 class="product-variant">{% if type=='apparel' %}Size{% else %}Var{% endif %}: {{ variant }}</h4>{% endif %}
+      <h4 class="order-summary__qty">
+        Qty: 1
+      </h3>
+    </div>
+    <div class="col-xs-8 col-sm-6 col-md-3">
+      <h4 class="cart-details__item--price-dmart">DMart <i class="icon-rupees"></i>{{ dmartprice }}</h4>
+    </div>
+  </div>
+</li>
+
+{% endmacro %}

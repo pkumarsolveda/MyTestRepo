@@ -1,0 +1,11 @@
+<div class="blurb blurb--right-border">
+   <h2 class="blurb__title">Why Location Search</h2>
+   <div class="blurb__img">
+      <img class="img-responsive" src="/{{config.baseUrl}}images/temp/location/location.jpg" alt="">
+  </div>
+
+  <div class="blurb__content">
+    <p>DMart seeks to be a one-stop shopping destination for entire family, meeting all their daily household needs.</p>
+  </div>
+</div>
+

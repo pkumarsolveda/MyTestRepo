@@ -1,0 +1,127 @@
+<div class="dashboard-notification">
+  <ul class="dashboard-notification--list">
+
+    <li>
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <p>30% OFF on Jeans, Shirts, T-Shirts, Caps </p>
+        </div>
+        <div class="col-xs-12 col-md-2">Valid till Dec 2015</div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <a href="javascript:;" class="button-white dashboard-notification-shop">SHOP NOW</a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <span class="dashboard-notification--action">
+            <a class="js-notification-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <p>38% OFF on Jeans, Shirts, T-Shirts, Caps with ICICI Credit Card </p>
+        </div>
+        <div class="col-xs-12 col-md-2">Valid till Dec 2015</div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+          <span class="dashboard-notification--coupon">
+            Coupon Code: <span id="code1" class="js-coupon-code-copy">DKKDKFK</span>
+          </span>
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <a href="javascript:;" class="dashboard-notification--cta button-white" data-clipboard-target="#code1">COPY CODE</a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <span class="dashboard-notification--action">
+            <a class="js-notification-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <p>10% OFF on Jeans, Shirts, T-Shirts, Caps </p>
+        </div>
+        <div class="col-xs-12 col-md-2">Valid till Dec 2015</div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+          <span class="dashboard-notification--coupon">
+            Coupon Code: <span id="code2" class="js-coupon-code-copy">HGDLIMV</span>
+          </span>
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <a href="javascript:;" class="dashboard-notification--cta button-white" data-clipboard-target="#code2">COPY CODE</a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <span class="dashboard-notification--action">
+            <a class="js-notification-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <p>55% OFF on Jeans, Shirts, T-Shirts, Caps </p>
+        </div>
+        <div class="col-xs-12 col-md-2">Valid till Dec 2015</div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <a href="javascript:;" class="button-white dashboard-notification-shop">SHOP NOW</a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <span class="dashboard-notification--action">
+            <a class="js-notification-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <p>20% Cashback on Jeans, Shirts, T-Shirts, Caps </p>
+        </div>
+        <div class="col-xs-12 col-md-2">Valid till Dec 2015</div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <a href="javascript:;" class="button-white dashboard-notification-shop">SHOP NOW</a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <span class="dashboard-notification--action">
+            <a class="js-notification-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+
+    <li>
+      <div class="row">
+        <div class="col-xs-12 col-md-5">
+          <p>50% OFF on Jeans, Shirts, T-Shirts, Caps </p>
+        </div>
+        <div class="col-xs-12 col-md-2">Valid till Dec 2015</div>
+        <div class="col-xs-12 col-md-3 col-lg-2">
+          <span class="dashboard-notification--coupon">
+            Coupon Code: <span id="code3" class="js-coupon-code-copy">LEJLKL</span>
+          </span>
+        </div>
+        <div class="col-xs-6 col-md-2">
+          <a href="javascript:;" class="dashboard-notification--cta button-white" data-clipboard-target="#code3">COPY CODE</a>
+        </div>
+        <div class="col-xs-6 col-md-1">
+          <span class="dashboard-notification--action">
+            <a class="js-notification-delete" href="javascript:;" title="Delete"><i class="icon-delete"></i></a>
+          </span>
+        </div>
+      </div>
+    </li>
+  </ul>
+</div>

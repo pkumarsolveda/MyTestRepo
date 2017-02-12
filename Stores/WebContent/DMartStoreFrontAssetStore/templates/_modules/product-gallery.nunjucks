@@ -1,0 +1,56 @@
+{%set item = data.product.itemDetails[data.product.currentItem]%}
+<section class="product-gallery product-gallery--vertical">
+	<div class="product-gallery__thumbnails">
+		<div class="product-gallery__thumbnails-prev">
+			<a href="javascript:;">
+				<i class="icon-caret-up"></i>
+			</a>
+		</div>
+		<div class="product-gallery__thumbnails-wrapper">
+			<ul class="slides">			
+					{% for thumb in item.imageObjs %}
+					<li><a href="javascript:;" title="" rel="{{ loop.index0 }}" id="js-thumb-{{ loop.index0 }}" ><img class="img-responsive" src="{{thumb}}" alt="{{item.title}}" title ="{{item.title}}" onerror="this.src='{{data.config.noImagePath}}';"></a></li>
+					{% endfor %}				
+			</ul>
+		</div>
+		<div class="product-gallery__thumbnails-next">
+			<a href="javascript:;">
+				<i class="icon-caret-down"></i>
+			</a>
+		</div>
+	</div>
+	
+	<div class="product-gallery__panel">
+		<div class="product-details__bulk">
+			{% if data.product.isBulkyProduct == 'true' %}
+				<span class="product-details__bulk--btn button-tertiary">Bulk</span>
+  			{% endif %}
+  		</div>
+		<div class="product-gallery__viewport">
+			<ul class="slides">
+				{% for thumb in item.imageObjs %}
+					<li id="js-product-img-{{ loop.index0 }}">
+						<div class="easyzoom easyzoom--overlay">
+						     <!-- TODO : Change this to image resolution logic -->
+							<a href="{{thumb.replace('_T.jpg','_Z.jpg')}}" title=""><img class="img-responsive" src="{{thumb.replace('_T.jpg','_M.jpg')}}" alt="{{item.title}}" onerror="this.src='{{data.config.noImagePath.replace('_T.jpg','_M.jpg')}}';"></a>
+						</div>
+					</li>
+				{% endfor %}
+			</ul>
+			<a href="javascript:;" class="product-gallery__panel--zoom">
+				<i class="icon-zoom"></i>
+			</a>
+		</div>
+		<!--<ul class="review-quick clearfix">
+			<li>
+				<div class="user-review__ratings"></div>
+			</li>
+			<li class="review-quick__count">
+				<a href="javascript:;" title="Reviews"><span>3</span> reviews</a>
+			</li>
+			<li class="review-quick__new">
+				<a href="javascript:;" title="Write a Review">Write a Review</a>
+			</li>
+		</ul>-->
+	</div>
+</section>

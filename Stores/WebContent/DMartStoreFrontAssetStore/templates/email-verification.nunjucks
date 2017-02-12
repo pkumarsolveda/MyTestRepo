@@ -1,0 +1,38 @@
+{% extends '_layouts/mycart.nunjucks' %}
+{% block title %} Email Verification {% endblock %}
+{% set pageTitle = "Email Verification" %}
+{% block content %}
+
+<div class="container">
+  <div class="row">
+    <div class="col-xs-12">
+      <div class="alert alert-warning-bg">
+        <strong><i class="icon-notification"></i> Notification:</strong> Congrats! Your friend Lokesh has Shared a Cart with you. <a class="alert-close-cta js-cart-accept" href="javascript:;" title="Accept"><i class="icon-cta-accept icon-checkmark"></i> Accept</a> <a class="alert-close-cta js-cart-reject" href="javascript:;" title="Reject"><i class="icon-cta-close icon-cancel"></i> Reject</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+  <div class="container">
+    <div class="email-verification">
+      <div class="email-verification-panel">
+        <div class="row">
+          <div class="col-xs-12 col-sm-2 col-md-3">
+            <img class="img-responsive email-verification-img" src="/{{config.baseUrl}}images/email-verification.svg">
+          </div>
+          <div class="col-xs-12 col-sm-10 col-md-9">
+            <h2 class="email-verification-title">Email Verification</h2>
+            <h3 class="email-verification-title-secondary"> Your Email is successfully verified </h3>
+            <p> Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknow printer took. </p>
+            <div class="clearfix">
+            <a class="button-white button--block countinue-shopping-button email-verification-button countinue-cta" href="javascript:;">Continue Shopping</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    {% include '_modules/up-selling-products.nunjucks' %}
+
+  </div>
+{% endblock %}

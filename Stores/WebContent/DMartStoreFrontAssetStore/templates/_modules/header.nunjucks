@@ -1,0 +1,78 @@
+<header class="header js-header-container">
+  <div class="top-header">
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-12">
+          <ul class="header-component__secondary link-bordered">
+            <li><i class="icon-phone"></i> <tel>800-123-456-7890</tel></li>
+            <li><i class="icon-track"></i> <a href="javascript:;" title="Track Order">Track Order</a></li>
+            <!-- user not logged in -->
+          {% if logged != 'yes' %}
+            <li><i class="icon-signin"></i> <a class="dropdown-signin" href="javascript:;" title="Sign in">Sign-in</a> <a class="dropdown-register" href="javascript:;" title="Register">Register</a>
+
+              <div class="header-dropdown header-dropdown--signin">
+                {% include '_modules/form-signin.nunjucks' %}
+              </div>
+
+              <div class="header-dropdown header-dropdown--register">
+                {% include '_modules/form-registration.nunjucks' %}
+              </div>
+
+            </li>
+          {% else %}
+          <!-- user logged in -->
+          <li>
+          <span class="avatar-cta-small">
+            <i class="icon-signin"></i>
+            <span class="badge">10</span>
+          </span>
+          <a class="logged-in-user" href="javascript:;" title="Mahadeva">Mahadeva</a> <a href="javascript:;" title="Logout">Logout</a></li>
+          {% endif %}
+          </ul>
+        </div>
+      </div>
+      <section class="header-component__primary">
+        <div class="row">
+          <div class="col-xs-2 col-sm-2 col-md-4 col-lg-3  col-alt-logo">
+            {% include '_modules/logo.nunjucks' %}
+          </div>
+          <div class="col-xs-10 col-sm-10 col-md-8 col-lg-5 js-class-alt-search">
+            {% include '_modules/search-toolbar.nunjucks' %}
+          </div>
+          <div class="col-xs-2 avatar-small-device js-hide-show">
+            {% include '_modules/user-avatar.nunjucks' %}
+          </div>
+          <div class="col-xs-6 col-md-4 col-lg-2 js-class-delivery-downdown">
+            {% include '_modules/delivery-code.nunjucks' %}
+          </div>
+          <div class="col-xs-6 col-md-4 col-lg-2 js-class-cart-downdown">
+            <div class="cart-wrap">
+              {% include '_modules/cart-icon.nunjucks' %}
+              <a class="dropdown-minicart" href="javascript:;" title="Cart">
+                <span class="cart-price-label"><i class="header-icon-rupee icon-rupees"></i>12,453
+                  <i class="header-icon-caret-down icon-caret-down"></i>
+                </span>
+              </a>
+              <div class="header-dropdown header-dropdown--minicart">
+                {% include '_modules/header-minicart.nunjucks' %}
+              </div>
+            </div>
+          </div>
+          <div class="col-xs-1 col-md-2 col-lg-1 avatar-medium-device js-hide-show">
+            {% include '_modules/user-avatar.nunjucks' %}
+          </div>
+        </div>
+      </section>
+    </div>
+  </div>
+  <div class="main-menu">
+    <div class="container">
+      {% include "_modules/main-navigation.nunjucks" %}
+    </div>
+  </div>
+</header>
+
+{% include '_modules/modal-location.nunjucks' %}
+{% include '_modules/modal-delivery-location.nunjucks' %}
+{% include '_modules/modal-address-new.nunjucks' %}
+{% include '_modules/modal-address-edit.nunjucks' %}

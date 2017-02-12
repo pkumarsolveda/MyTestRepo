@@ -1,0 +1,98 @@
+
+{% set upsell = "enable" %}
+
+<div class="js-accordion-tabs-recommanded">
+  <div class="no-border-tabs recommended-products margin-reset">
+    <ul class="resp-tabs-list clearfix hor_1">
+      <li>Dals &amp; Pulses</li>
+      <li>Dry Fruits &amp; Nuts</li>
+      <li>Floors &amp; Sooji</li>
+      <li>Pasta &amp; Noodles</li>
+      <li>Masalas &amp; Spices</li>
+      <li>Dry Fruits</li>
+    </ul>
+    <div class="resp-tabs-container margin-reset-bottom hor_1">
+      <div>
+        {% include '_modules/product-listing-item-grocery.nunjucks' %}
+        {% include '_modules/product-listing-item-grocery-alt.nunjucks' %}
+
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGrocery() }}
+            </li>
+          {% endfor %}
+        </ul>
+      </div>
+      </div>
+      <div>
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGroceryAlt() }}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+
+      <div>
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGrocery() }}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGroceryAlt() }}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGrocery() }}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGroceryAlt() }}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+      <div>
+        <div class="js-md-landing-carousel">
+          <ul class="slides clearfix">
+          {% for n in range(0, 8) %}
+            <li class="js-switch-view slide-margin splash-top-category">
+              {{ plpGrocery() }}
+            </li>
+          {% endfor %}
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,1 @@
+({"CNY_displayName":"የቻይና ዩአን ረንሚንቢ","EUR_displayName":"አውሮ","GBP_displayName":"የእንግሊዝ ፓውንድ ስተርሊንግ","JPY_displayName":"የጃፓን የን","USD_displayName":"የአሜሪካን ዶላር","AUD_symbol":"AU$","CAD_symbol":"CA$","CNY_symbol":"CN¥","EUR_symbol":"€","GBP_symbol":"£","HKD_symbol":"HK$","JPY_symbol":"JP¥","USD_symbol":"US$"})

@@ -1,0 +1,187 @@
+<!-- Duplicated file 'product-listing-item-household-alt' for transition on recommended products tabs -->
+{% macro plpGroceryAlt(product,config,outofstock,data) %}
+{%set item = product.itemDetails[product.currentItem]%}
+{%set prodOutOfStock = true%}
+{%for itemid in product.itemIds %}
+{% if(product.itemDetails[itemid].outofstock == false) %}
+{%set prodOutOfStock = false%}
+{% endif %}
+{%endfor%}
+<!-- Add "product-out-of-stock" class to "product-listing-item" if product is not available-->
+<div data-productid="{{product.productId}}" class="product-listing-item plp-grocery {% if(product.prodOutOfStock == true) %} product-out-of-stock {% endif %}">
+<div class="product-listing-item__primary">
+  <div class="view-list view-list-product-image product-out-of-stock__small-image-wrap">
+    <a href="javascript:;" title=""><img src="{{item.imageObjs[0]}}" class="product-listing--image img-responsive" alt="{{item.title}}" title ="{{item.title}}" onerror="this.src='{{data.noImagePath}}';"></a>
+    <a class="product-out-of-stock__small-image product-out-of-stock-image-disabled" href="javascript:;" title=""><img src="{{item.imageObjs[0]}}" class="product-listing--image-out-of-stock img-responsive" alt="{{item.title}}" title ="{{item.title}}" onerror="this.src='{{data.noImagePath}}';">
+    <span class="product-listing--label-out-of-stock"><span>Out of Stock</span></span></a>
+  </div>
+  <h4 class="product-listing--title"><a title="{{item.title}}" href=
+  {%if product.prodOutOfStock %}
+        "#_"
+    {% else %}
+   "/webapp/wcs/stores/servlet/ProductDisplay?catalogId={{data.catalogId}}&categoryId={{product.categoryId}}&searchTerm={{data.searchTerm}}&manufacturer={{data.manufacturer}}&langId=-1&storeId={{data.storeId}}&productId={{product.productId}}{% endif %}">{{item.title}}</a></h4>
+  <h5 class="product-listing--brand"><a href="/webapp/wcs/stores/servlet/SearchDisplay?catalogId={{data.catalogId}}&langId=-1&storeId={{data.storeId}}&manufacturer={{item.brand}}">{{item.brand}}</a></h5>
+  <a href=
+  {%if product.prodOutOfStock %}
+        "#_"
+    {% else %}
+  "/webapp/wcs/stores/servlet/ProductDisplay?catalogId={{data.catalogId}}&categoryId={{product.categoryId}}&searchTerm={{data.searchTerm}}&manufacturer={{data.manufacturer}}&langId=-1&storeId={{data.storeId}}&productId={{product.productId}}"
+  {% endif %}
+   title=""><img src="{{item.imageObjs[0]}}" class="product-listing--image small view-grid img-responsive" alt="{{item.title}}" title ="{{item.title}}" onerror="this.src='{{data.noImagePath}}';"></a>
+  <a class="product-out-of-stock__big-image product-out-of-stock-image-disabled" href="javascript:;" title=""><img src="{{item.imageObjs[0]}}" class="product-listing--image-out-of-stock img-responsive" alt="{{item.title}}" title ="{{item.title}}" onerror="this.src='{{data.noImagePath}}';">
+  <span class="product-listing--label-out-of-stock"><span>Out of Stock</span></span></a>
+  <p class="product-listing__total-items">Total of {{product.totalQtyInCart}} Packs Added to Cart</p>
+  <div class="product-listing-details">
+    
+    <div class="plp-card--offer-text" {%if item.promotion_Flag == '1' and (item.promotion_Store == data.storeId or item.promotion_Store == data.assetStoreId) %}style='display:block'{%else%}style='display:block'{%endif%}>{{item.promotion_Message}}</div>
+    <div class="product-listing__save" {% if item.price.savings <= 0  %} style='visibility:hidden' {% endif %}>save <span class="product-listing__save--price"><i class="icon-rupees"></i>{{item.price.savings}}</span></div>
+    <p class="product-listing--original-price" {% if item.price.sellingPrice <= 0  %} style='display:none' {% endif %}>MRP <span class="strike-diagonal" ><i class="icon-rupees"></i>{{item.price.sellingPrice}}</span></p>
+    
+    
+    <p class="product-listing--discounted-price" {% if item.price.offerPrice <= 0  %} style='display:none' {% endif %}>DMart <i class="icon-rupees"></i>{{item.price.offerPrice}}</p>
+    <div class="product-listing__quantity-secondary clearfix">
+
+	
+    {% if product.isSingleVariant == true %}
+		<div class="variant-label js-rupee" {% if item.definingAttributes.Size == undefined %}style="background-color:inherit;border:0px;"{%endif%}>
+			{% if item.definingAttributes.Size == undefined %}
+			<span>ADD QUANTITY</span>
+			{% else %}
+			<span>{{item.definingAttributes.Size}} - <i class="icon-rupees"></i> {{item.price.offerPrice}}</span>
+			{%endif%}
+		</div>
+	{% else %}
+		<div class="md-custom-select js-rupee">
+        <select class="product-listing__quantity--select-weight">
+         {%for itemid in product.itemIds %}
+         	{% if product.itemDetails[itemid].price.offerPrice != 0  %}
+           		<option value="{{itemid}}" {% if itemid == product.currentItem and product.itemDetails[itemid].outofstock == false %} selected="" {%endif%}{% if(product.itemDetails[itemid].outofstock == true) %}disabled=""{%endif%}>{{product.itemDetails[itemid].definingAttributes.Size}} - &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+           {% else %}
+           		<option value="{{itemid}}" {% if itemid == product.currentItem and product.itemDetails[itemid].outofstock == false %} selected="" {%endif%}{% if(product.itemDetails[itemid].outofstock == true) %}disabled=""{%endif%}>{{product.itemDetails[itemid].definingAttributes.Size}}</option>
+           {% endif %}
+          {%endfor%}
+        </select>
+      </div>
+	{% endif %}
+	<div class="md-custom-select">
+        <select class="product-listing__quantity--select-quantity">
+      		{%for qty in range(0,item.maxOrderQty)%}
+      			 <option value='{{qty+1}}'>{{qty+1}}</option>
+      		{%endfor%}
+        </select>
+      </div>
+    </div>
+    <div class="product-listing__cta-container clearfix">
+      <a href="javascript:;" class="button-primary product-listing__cta-button  {% if item.priceExists == false %} button--disabled  {%endif%} "><i class="icon-cart"></i> Add to Cart</a>
+      <div class="product-listing__quantity--add">
+        <a href="javascript:;" class="button-icon-white {% if(product.prodOutOfStock == true) %}disabled{% endif %}"><i class="icon-document-add"></i></a>
+      </div>
+    </div>
+    <div class="add-product-other-quantity">
+      <div class="product-added-to-cart__icon-wrap">
+        <a class="product-added-to-cart__icon-cta cart-icon" href="javascript:;">
+          <i class="product-added-to-cart__icon icon-cart"></i>
+          <span class="badge">{{product.totalQtyInCart}}</span>
+        </a>
+      </div>
+      <div class="product-price">
+        <h4 class="product-price__saving" {% if product.totalSavingsInCart <= 0  %} style='display:none' {% endif %}>Total Savings <span><i class="icon-rupees"></i>{{product.totalSavingsInCart}}</span></h4>
+        <h3 class="product-price__total">Total Price <i class="icon-rupees"></i>{{product.totalPriceInCart}}</h3>
+      </div>
+      <div class="md-custom-select js-rupee">
+        <select class="product-listing__quantity-other--select" id="js-more-quantity">
+          <option value="" selected="" disabled>Add More ?</option>
+          {%for itemid in product.itemIds %}
+            <option value="{{itemid}}" >{{product.itemDetails[itemid].definingAttributes.Size}} &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+        </select>
+      </div>
+      <div class="product-listing__quantity--add">
+        <a href="javascript:;" class="button-icon-white{% if(prodOutOfStock == true) %} disabled{% endif %}"><i class="icon-document-add"></i></a>
+      </div>
+    </div>
+  </div>
+  <div class="product-listing-out-of-stock__details">
+    <p class="note">Item Out Of Stock</p>
+    <button class="notify-me-cta button" type="button">ADD TO CART</button>
+    <div class="product-listing__quantity--add">
+      <a href="javascript:;" class="button-icon-white {% if(prodOutOfStock == true) %} disabled{% endif %}"><i class="icon-document-add"></i></a>
+    </div>
+  </div>
+  
+  <div class="food-type">
+    {% if item.vegNonvegFlag == 1 %}
+    <span class="veg-food">
+      <i class="icon-veg icon-circle"></i>
+    </span>
+    {% elif item.vegNonvegFlag == 2%}
+    <span class="non-veg-food">
+      <i class="icon-non-veg icon-circle"></i>
+    </span>
+    {% elif item.vegNonvegFlag == 3 %}
+    <span class="egg-food">
+        <i class="icon-egg icon-circle"></i>
+    </span>
+    {%endif%}
+  </div>
+  
+</div>
+<div class="product-listing-item__secondary js-hide-show">
+  <h4 class="product-listing-item__cart-title">Product Added to Cart</h4>
+  <div class="cart-icon">
+    <i class="product-listing-item__secondary__icon-shopping-cart icon-cart"></i>
+      <span class="badge">{{product.totalQtyInCart}}</span>
+  </div>
+  <div class="added-product-wrap">
+    <ul class="clearfix">
+      {% for eachItem in product.itemIds %}
+      {%set currentCartItem = product.itemDetails[eachItem]%}
+      {% if currentCartItem.qtyInCart > 0 %}
+      <li class="added-product-wrap__list clearfix"  data-itemid="{{eachItem}}">
+        <div class="md-custom-select added-product__quantity custom-dropdown js-rupee">
+          <selectclass="product-listing_update_itemsize--select">
+          {%for itemid in product.itemIds %}
+             <option value="{{itemid}}" {% if (itemid == currentCartItem.uniqueID) %} selected="" {%endif%}{% if(item.outofstock == true) %}disabled{%endif%}>{{product.itemDetails[itemid].definingAttributes.Size}} - &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+          </select>
+        </div>
+        <div class="md-custom-select added-product__quantity-size custom-dropdown">
+          <select class="product-listing_update_quantity--select">
+             {%for qty in range(0,currentCartItem.maxOrderQty)%}
+              <option value='{{qty+1}}' {% if (qty+1 == currentCartItem.qtyInCart) %} selected="" {%endif%} >{{qty+1}}</option>
+              {%endfor%}
+          </select>
+        </div>
+        <div class="added-product__remove">
+          <a href="javascript:;"><i class="added-product__remove-icon icon-cross"></i></a>
+        </div>
+      </li>
+      {% endif %}
+      {% endfor %}  
+    </ul>
+  </div>
+  <div class="product-price">
+    <h4 class="product-price__saving" {% if product.totalSavingsInCart <= 0  %} style='display:none' {% endif %}>Your Savings <span><i class="icon-rupees"></i>{{product.totalSavingsInCart}}</span></h4>
+    <h3 class="product-price__total">Total Price <i class="icon-rupees"></i>{{product.totalPriceInCart}}</h3>
+    <p class="product-listing__total-items--list-view">Total of {{product.totalQtyInCart}} Packs Added to Cart</p>
+  </div>
+  <div class="add-product-other-quantity">
+    <div class="md-custom-select js-rupee custom-dropdown">
+      <select class="product-listing__quantity--select">
+        <option value="" selected="" disabled>Add More ?</option>
+          {%for itemid in product.itemIds %}
+             <option value="{{itemid}}" >{{product.itemDetails[itemid].definingAttributes.Size}} - &#8377; {{product.itemDetails[itemid].price.offerPrice}}</option>
+          {%endfor%}
+       </select>
+    </div>
+    <div class="product-listing__quantity--add">
+      <a href="javascript:;" class="button-icon-white{% if(prodOutOfStock == true) %} disabled{% endif %}"><i class="icon-document-add"></i></a>
+    </div>
+  </div>
+</div>
+
+
+{% include '_modules/add-to-shop-list.nunjucks' %}
+
+</div>
+{% endmacro %}

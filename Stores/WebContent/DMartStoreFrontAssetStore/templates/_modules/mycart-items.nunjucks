@@ -1,0 +1,102 @@
+{% macro myCartItems(product, free, offer,ordersummary,data,delivery) %}
+ {% if product.itemMissing  == false %}
+<li data-itemid='{{product.catentryId}}' data-removeTriggered='false' data-orderitemid='{{product.orderItemId}}' data-productid='{{product.parentCatentryId}}' class="cart-details__item-lists {% if product.outofstock == true  or product.itemExcluded == true  %}product-not-available{% endif %}">
+  <div class="row">
+    <div class="col-xs-2 col-sm-2 col-md-1">
+      <a class="{% if product.outofstock  == true or product.itemExcluded == true %}product-not-available-img-disabled{% endif %}" 
+      href="{% if product.outofstock  == true or product.itemExcluded == true %} javascript:; {% else %} ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{product.parentCatalogGroupID}}&productId={{product.parentCatentryId}}{% endif %}" title="">
+        <img class="img-responsive" src="{{product.imgUrl}}" alt="{{ product.productTitle }}" title="{{ product.productTitle }}" onerror="this.src='{{data.noImagePath}}';">
+        {% if product.outofstock  == true or product.itemExcluded == true %}        
+	         {% if product.outofstock  == true %}
+		         <span class="cart-details__item-lists--no-stock">
+		     		   <span>Out of Stock</span>
+		     	 </span>
+	      	{% else %}
+	      		<span class="cart-details__item-lists--not-available">
+	            	<span>Not Available!</span>
+	          </span>
+	        {% endif %}        
+        {% endif %}
+      </a>
+    </div>
+    <div class="col-xs-10 col-sm-10 col-md-5">
+      <h3 class="h4 product-name">
+      {% if product.outofstock  == true or product.itemExcluded == true %}
+      <a href="#_">
+      {% else %}
+      <a href="ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{product.parentCatalogGroupID}}&productId={{product.parentCatentryId}}">
+      {% endif %}{{ product.productTitle }}
+      </a></h3>
+      <h4 class="product-brand">
+      {%if product.prodOutOfStock %}
+	  <a href="#_">
+	  {%else%}
+	  <a href="SearchDisplay?catalogId={{data.catalogId}}&langId=-1&storeId={{data.storeId}}&manufacturer={{product.brand|urlencode}}">
+	  {%endif%}
+      {{ product.brand }}</a></h4>
+      {% if product.priceChanged == true %}
+      <h4 class="price-change"><span class="title">Price Change:</span> From <span><i class="icon-rupees"></i>{{ product.previousPrice }}</span> to <span><i class="icon-rupees"></i>{{ product.dmartPrice }}</span></h4>
+      {% endif %}
+      <h4 class="product-variant">{% if product.topCategory=='Apparel' %}Size {% else %}Variant {% endif %}: <span>{{ product.variant }}{{product.size}}</span></h4>
+      {% if product.itemExcluded  == true and product.outofstock  == false%}
+	      <h4 class="item-not-available">
+	          Item not available for selected location.
+	      </h4>
+       {% endif %}        
+      <div class="free-item" {% if product.freebieDescription == 'NONE' %}style='display:none;'{% endif %}><span class="label label-secondary label-medium">Free</span> {{product.freebieDescription}}</div>
+      
+      <div class="free-item" {% if product.offerDescription == 'NONE' %}style='display:none;'{% endif %}><span class="label label-tertiary label-medium">offer</span> {{product.offerDescription}}</div>
+      
+      {% if ordersummary == 'false' %}
+      <div class="cart-details__item--remove show-sm-down" {% if product.freeGift=='true' %}style="display: none;"{% endif %}>
+        <a href="javascript:;">
+          <i class="icon-cross"></i>
+        </a>
+      </div>
+      {% endif %}
+    </div>
+    <div class="col-xs-4 col-md-2 col-xs-offset-2 col-md-offset-0">
+      {% if ordersummary == 'true' %}
+      <h4 class="order-summary__qty">
+        <span class="show-sm-down display-inline">Qty: </span>1
+      </h3>
+      {% else %}
+      <div class="md-custom-select">
+        <select class="cart-details-dropdown" {%if product.freeGift=='true' or product.outofstock  == true or product.itemExcluded == true %}disabled{% endif %}>
+           {% if product.freeGift == 'true' %}
+           	    <option  selected value='{{ product.quantity}}'>{{product.quantity}}</option>
+           {% else %}
+	        {%for qty in range(0,product.maxOrderQty)%}
+	      		<option {%if qty+1 == product.quantity %} selected {%endif%} value='{{qty+1}}'>{{qty+1}}</option>
+	      	{%endfor%}
+	       {% endif %}
+        </select>
+      </div>
+      {% endif %}
+      <h5 class="cart-details__item--unit"><i class="icon-rupees"></i>{{product.dmartPrice}} per unit</h5>
+    </div>
+    <div class="col-xs-5 col-sm-6 {% if ordersummary == 'false' %} col-md-3 {% else %} col-md-2 {% endif %}">
+      <h4 class="cart-details__item--price-mrp" {% if product.savings|float < 0%}style="display:none;"{%endif%}>MRP {% if product.savings|float > 0  %}<span class="strike-diagonal" >{% else %}<span class="no-strike-diagonal" >{% endif %}<i class="icon-rupees"></i>{{ product.itemMRPTotal}}</span></h4>
+      <h4 class="cart-details__item--price-dmart">DMart <i class="icon-rupees"></i>{{product.price}}</h4>
+      <h4 class="cart-details__item--price-save" {% if product.savings|float <= 0%}style="display:none;"{%endif%}>You Save <span><i class="icon-rupees"></i>{{ product.savings}}</span></h4>
+    </div>
+
+    <div class="col-xs-12 {% if ordersummary == 'false' %} col-md-1 {% else %} col-md-2 {% endif %}">
+      {% if ordersummary == 'false' %}
+      <div class="cart-details__item--remove show-md-up" {% if product.freeGift=='true' %}style="display: none;"{% endif %}>
+    <a href="javascript:;">
+      <i class="icon-cross"></i>
+    </a>
+      </div>
+      {% endif %}
+      {% if delivery == 'cancel' %}
+      <a href="javascript:;" class="button--block button-white cart-details__item-cancel-cta">Cancelled</a>
+      {% endif %}
+      {% if delivery == 'return' %}
+      <a href="javascript:;" class="button--block button-white cart-details__item-cancel-cta">Returned</a>
+      {% endif %}
+    </div>
+  </div>
+</li>
+ {% endif %}
+{% endmacro %}

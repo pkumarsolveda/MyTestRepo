@@ -1,0 +1,51 @@
+{% macro myCartItems(item,data) %}
+ {% if item.itemMissing  == false %}
+<li  data-orderitemid='{{item.orderItemId}}' data-itemid='{{item.catentryId}}' data-productid='{{item.parentCatentryId}}' class="cart-details__item-lists {% if item.outofstock == true %}product-not-available{% endif %}">
+  <div class="row">
+    <div class="col-md-2">
+      <a class="{% if item.outofstock == true %}product-not-available-img-disabled{% endif %}" 
+      href="{% if item.outofstock == true %}javascript:; {% else %}ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{item.parentCatalogGroupID}}&productId={{item.parentCatentryId}}{% endif %}" title="">
+        <img class="img-responsive" src="{{item.imgUrl}}" alt="{{item.productTitle}}" title ="{{item.productTitle}}" onerror="this.onerror=null;this.src='{{data.noImagePath}}';">
+        {% if item.outofstock == true %}
+        <span class="cart-details__item-lists--no-stock">
+          <span><span>Out of Stock!</span></span>
+        </span>
+        {% endif %}
+      </a>
+    </div>
+    <div class="col-md-10">
+      <h3 class="h4 product-name">
+      {% if item.outofstock == true %}
+       <a href="#_">
+       {% else %}
+      <a href="ProductDisplay?storeId={{data.storeId}}&catalogId={{data.catalogId}}&langId={{data.langId}}&categoryId={{item.parentCatalogGroupID}}&productId={{item.parentCatentryId}}">
+      {% endif %}
+      {{ item.productTitle }}</a></h3>
+      <h4 class="cart-details__item--price-dmart">DMart <i class="icon-rupees"></i>{{item.price}}</h4>
+      <div class="cart-details__qty-wrap">
+        <span class="cart-details__qty--label">Qty</span>
+        <div class="custom-dropdown">
+          <select class="cart-details-dropdown" {% if item.outofstock == true or item.freeGift == 'true' %}disabled{% endif %}>
+          	{%for qty in range(0,item.maxOrderQty)%}
+      			 <option {%if qty+1 == item.quantity %} selected {%endif%} value='{{qty+1}}'>{{qty+1}}</option>
+      		{%endfor%}
+          </select>
+        </div>
+      </div>
+      {% if item.priceChanged == true %}
+      <h4 class="price-change"><span class="title">Price Changed:</span> From <span><i class="icon-rupees"></i>{{item.previousPrice}}</span> to <span><i class="icon-rupees"></i>{{item.dmartPrice}}</span></h4>
+      {% endif %}
+      {% if free == 'true' %}
+      <div class="free-item"><span class="label label-secondary label-medium">Free</span> Baseball Cap</div>
+      {% endif %}
+
+      <div class="cart-details__item--remove" {%if item.freeGift == 'true' %} style='display:none' {%endif%} >
+        <a href="javascript:;">
+          <i class="icon-cross"></i>
+        </a>
+      </div>
+    </div>
+  </div>
+</li>
+{% endif %}
+{% endmacro %}

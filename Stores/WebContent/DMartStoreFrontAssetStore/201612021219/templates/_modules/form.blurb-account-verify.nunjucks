@@ -1,0 +1,16 @@
+<div class="blurb">
+   <h2 class="blurb__title">Benefits of {% if pageTitle == 'register' %}Sign Up {% elif pageTitle == 'signin' %} Sign In {% else %} OTP {% endif %}</h2>
+   <div class="blurb__img">
+      <img class="img-responsive" src="/{{config.baseUrl}}images/temp/location/blurb-otp.jpg" alt="">
+  </div>
+
+  <div class="blurb__content">
+    <p>A One-time password (OTP) is an automatically generated numeric or alphanumeric string of characters that authenticates the user for a single transaction or session.</p>
+
+    <ul>
+      <li class="spacing-bottom">The IVR One Time Password (OTP) is a 6 digit numeric password that will be sent on your mobile number registered with us.</li>
+      <li>In case of any further clarifications, please call our 24-hour Customer Care <a href="tel:1800-1234-5678" class="link-alternate">'1800-1234-5678'</a> or write to us at <a href="mailto:contact@dmartindia.com" class="link-alternate"><u>contact@dmartindia.com</u></a></li>
+    </ul>
+  </div>
+</div>
+

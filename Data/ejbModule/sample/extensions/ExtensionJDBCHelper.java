@@ -16,7 +16,8 @@ package sample.extensions;
  */
 
 /**
- * Remote interface for Enterprise Bean: ExtensionJDBCHelper
+ * Remote interface for<action path="/error" type="com.ibm.commerce.struts.BaseAction">
+		</action> Enterprise Bean: ExtensionJDBCHelper
  */
 public interface ExtensionJDBCHelper extends javax.ejb.EJBObject {
 }

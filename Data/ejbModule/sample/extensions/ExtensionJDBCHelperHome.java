@@ -17,6 +17,12 @@ package sample.extensions;
 
 /**
  * Home interface for Enterprise Bean: ExtensionJDBCHelper
+ * ExtensionJDBCHelper
+ * 
+ * ExtensionJDBCHelper
+ * 
+ * ExtensionJDBCHelper
+ * 
  */
 public interface ExtensionJDBCHelperHome extends javax.ejb.EJBHome {
 	/**

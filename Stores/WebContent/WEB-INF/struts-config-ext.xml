@@ -7,6 +7,9 @@
 	    
 	    <forward className="com.ibm.commerce.struts.ECActionForward"
 			name="DMartLogonView/10101" path="/UserArea/AccountSection/LogonSubsection/DMartLogonForm.jsp" />
+			
+	    <forward className="com.ibm.commerce.struts.ECActionForward"
+			name="DMartLogonView/10101" path="/UserArea/AccountSection/LogonSubsection/DMartLogonForm.jsp" />
 		<forward className="com.ibm.commerce.struts.ECActionForward"
 			name="TermsAndCondition/10101" path="/TermsAndCondition.jsp" />
 		<forward className="com.ibm.commerce.struts.ECActionForward"
@@ -2640,6 +2643,8 @@
 		</action>
 		<action path="/error" type="com.ibm.commerce.struts.BaseAction">
 		</action>
+		<action path="/error" type="com.ibm.commerce.struts.BaseAction">
+		</action>
 		<action path="/invoice" type="com.ibm.commerce.struts.BaseAction">
 		</action>
 		<action path="/faq" type="com.ibm.commerce.struts.BaseAction">
@@ -2691,6 +2696,10 @@
 		<set-property property="credentialsAccepted" value="10101:P"/>
 		</action>
 		
+		<action path="/StoreLocatorView" type="com.ibm.commerce.struts.BaseAction">
+		<set-property property="credentialsAccepted" value="10101:P"/>
+		</action>
+				
 		
 	</action-mappings>
 

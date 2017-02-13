@@ -2644,7 +2644,8 @@
 		</action>
 		<action path="/faq" type="com.ibm.commerce.struts.BaseAction">
 		</action>
-		
+		<action path="/error" type="com.ibm.commerce.struts.BaseAction">
+		</action>
 		<!-- Added for DMART - Share Cart -->
 		<action parameter="in.dmart.commerce.sharecart.cmd.DmartShareCartAddItemCmd" path="/ShareCartAddItem" type="com.ibm.commerce.struts.BaseAction">
 		<set-property property="credentialsAccepted" value="10101:P"/>

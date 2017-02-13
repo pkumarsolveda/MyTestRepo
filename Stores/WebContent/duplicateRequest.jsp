@@ -5,7 +5,8 @@
   WebSphere Commerce
 
   (C) Copyright IBM Corp. 2006, 2009 All Rights Reserved.
-
+<action path="/error" type="com.ibm.commerce.struts.BaseAction">
+		</action>
   US Government Users Restricted Rights - Use, duplication or
   disclosure restricted by GSA ADP Schedule Contract with
   IBM Corp.

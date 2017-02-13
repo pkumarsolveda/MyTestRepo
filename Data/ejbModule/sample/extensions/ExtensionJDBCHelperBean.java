@@ -21,6 +21,7 @@ package sample.extensions;
  * placeholder EJB project.  It is not expected that this bean will
  * be used. 
  */
+
 public class ExtensionJDBCHelperBean implements javax.ejb.SessionBean {
 	private javax.ejb.SessionContext mySessionCtx;
 	/**
@@ -31,6 +32,9 @@ public class ExtensionJDBCHelperBean implements javax.ejb.SessionBean {
 		return mySessionCtx;
 	}
 	/**
+	 * ExtensionJDBCHelper
+ExtensionJDBCHelper
+ExtensionJDBCHelper
 	 * Sets the session context
 	 * @param ctx - the new session context
 	 */
@@ -44,6 +48,9 @@ public class ExtensionJDBCHelperBean implements javax.ejb.SessionBean {
 	public void ejbCreate() throws javax.ejb.CreateException {
 	}
 	/**
+	 * ExtensionJDBCHelper
+ExtensionJDBCHelper
+ExtensionJDBCHelper
 	 * ejbActivate
 	 */
 	public void ejbActivate() {

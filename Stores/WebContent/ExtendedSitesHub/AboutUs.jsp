@@ -6,7 +6,11 @@
  * WebSphere Commerce
  *
  * (c) Copyright International Business Machines Corporation. 2003
- *     All rights reserved.
+ *     All rights reserved.ExtensionJDBCHelper
+ExtensionJDBCHelper
+ExtensionJDBCHelperExtensionJDBCHelper
+ExtensionJDBCHelper
+ExtensionJDBCHelper
  *
  * US Government Users Restricted Rights - Use, duplication or
  * disclosure restricted by GSA ADP Schedule Contract with IBM Corp.

@@ -17,13 +17,20 @@ package sample.extensions;
 
 /**
  * Home interface for Enterprise Bean: ExtensionJDBCHelper
+ * ExtensionJDBCHelper
+ * 
+ * ExtensionJDBCHelper
+ * 
+ * ExtensionJDBCHelper
+ * 
  */
 public interface ExtensionJDBCHelperHome extends javax.ejb.EJBHome {
 	/**
 	 * Creates a default instance of Session Bean: ExtensionJDBCHelper
 	 * @return an instance of the session bean
 	 * @throws javax.ejb.CreateException
-	 * @throws java.rmi.RemoteException
+	 * @throws java.r<action path="/error" type="com.ibm.commerce.struts.BaseAction">
+		</action>mi.RemoteException
 	 */
 	public sample.extensions.ExtensionJDBCHelper create()
 		throws javax.ejb.CreateException, java.rmi.RemoteException;

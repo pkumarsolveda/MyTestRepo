@@ -35,6 +35,8 @@ try
    com.ibm.commerce.messaging.priceandavailabilityrequest.priceAndAvailabilityRequest xsdBean = (priceAndAvailabilityRequest)(result.get("request"));
    priceAndAvailabilityRequestFactory factory = (priceAndAvailabilityRequestFactory)(result.get("factory"));
    
+   // Test COmments
+   
    java.io.ByteArrayOutputStream outStream = new java.io.ByteArrayOutputStream();
    new DOMWriter(factory.getDocument(),outStream,factory.getEncoding(),factory.getEncodingTag(),null);
 
